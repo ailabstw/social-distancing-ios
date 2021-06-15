@@ -188,6 +188,27 @@ class AppCoordinator: UIViewController {
     func openSettingsApp() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
+
+    func showOverlay(for hint: Hint, from sourceRect: CGRect) {
+        overlayWindow?.showHint(hint, from: sourceRect)
+        overlayWindow?.isHidden = false
+    }
+
+    func showOverlay(for hint: Hint, from sourceView: UIView) {
+        showOverlay(for: hint, from: self.view.convert(sourceView.bounds, from: sourceView))
+    }
+
+    func showOverlay(for hint: Hint, from sourceBarItem: UIBarItem) {
+        guard let sourceView = sourceBarItem.value(forKey: "view") as? UIView else {
+            return
+        }
+
+        showOverlay(for: hint, from: sourceView)
+    }
+
+    func hideOverlay() {
+        overlayWindow?.isHidden = true
+    }
 }
 
 extension AppCoordinator {
@@ -267,6 +288,17 @@ extension AppCoordinator {
         }
 
         return true
+    }
+}
+
+extension AppCoordinator: OverlayWindowDelegate {
+    func overlayWindow(_ window: OverlayWindow, didReceiveEvent event: OverlayWindow.Event) {
+        switch event {
+        case .done:
+            if let hint = window.hint {
+                HintManager.shared.didPresentHint(hint)
+            }
+        }
     }
 }
 
