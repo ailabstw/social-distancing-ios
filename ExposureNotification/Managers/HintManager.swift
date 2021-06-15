@@ -12,6 +12,12 @@ import Foundation
 class HintManager {
     static let shared = HintManager()
 
+    var isEnabled: Bool = false {
+        didSet {
+            pendingHints = isEnabled ? hints.filter { presentedHintIDs.contains($0.id) == false } : []
+        }
+    }
+
     @Persisted(userDefaultsKey: "presentedHintIDs", notificationName: HintManager.presentedHintIDsDidChangeNotification, defaultValue: [])
     private var presentedHintIDs: Set<Hint.ID>
 
@@ -20,9 +26,7 @@ class HintManager {
     @Notified(notificationName: HintManager.pendingHintIDsDidChangeNotification)
     private(set) var pendingHints: [Hint] = []
 
-    private init() {
-        pendingHints = hints.filter { presentedHintIDs.contains($0.id) == false }
-    }
+    private init() { }
 
     func didPresentHint(_ hint: Hint) {
         guard hints.map(\.id).contains(hint.id) else {
