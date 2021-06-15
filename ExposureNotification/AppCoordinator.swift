@@ -150,6 +150,7 @@ class AppCoordinator: UIViewController {
         case .ready:
             contentViewController = UINavigationController(rootViewController: RiskStatusViewController(viewModel: RiskStatusViewModel()))
             installShortcutItems()
+            HintManager.shared.isEnabled = true
         }
     }
     
@@ -272,6 +273,8 @@ extension AppCoordinator {
         /** In this sample an alert is being shown to indicate that the action has been triggered,
             but in real code the functionality for the quick action would be triggered.
         */
+        HintManager.shared.isEnabled = false
+
         if let actionTypeValue = ActionType(rawValue: shortcutItem.type) {
             switch actionTypeValue {
             case .qrCodeScanningAction:
