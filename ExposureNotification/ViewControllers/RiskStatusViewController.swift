@@ -511,6 +511,10 @@ class RiskStatusViewController: UIViewController {
                 logger.info("detectExposures: \(success)")
             }
         })
+
+        alert.addAction(UIAlertAction(title: "Clear Hints", style: .default, handler: { _ in
+            HintManager.shared.resetPresentedHints()
+        }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)

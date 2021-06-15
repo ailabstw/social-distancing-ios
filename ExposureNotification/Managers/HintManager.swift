@@ -36,6 +36,7 @@ class HintManager {
     #if DEBUG
     func resetPresentedHints() {
         presentedHintIDs.removeAll()
+        pendingHints = hints
     }
     #endif
 }
