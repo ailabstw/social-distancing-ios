@@ -20,7 +20,12 @@ class OverlayWindow: UIWindow {
 
     private lazy var overlayView: UIView = {
         if #available(iOS 13, *) {
-            return UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
+            let view =  UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
+
+            view.backgroundColor = UIColor(white: 0.0, alpha: 0.7)
+            view.alpha = 0.6
+
+            return view
         } else {
             let view = UIView()
 
