@@ -240,3 +240,9 @@
 
 /* The message on Daily Summary view for contact more than 2 minutes */
 "DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "接觸 %@";
+
+/* Title for hint of adding 1922 SMS contact tracing scanner */
+"Hint.QRCodeScanner.Title" = "新增「1922簡訊實聯制」掃描功能";
+
+/* Title for hint of adding daily summary page */
+"Hint.DailySummary.Title" = "新增「每日接觸狀況」資訊頁面";
