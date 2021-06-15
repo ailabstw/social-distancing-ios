@@ -180,16 +180,11 @@ class RiskStatusViewController: UIViewController {
         configureUI()
         configureViewModel()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        NotificationCenter.default.addObserver(forName: .userRiskStatusDidChange, object: UserManager.shared, queue: nil) { [weak self] (_) in
-//            self?.viewModel.riskStatus = UserManager.shared.riskStatus
-//        }
-        
-        // FIXME: Workaround for status update error after first launch
-//        viewModel.riskStatus = UserManager.shared.riskStatus
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        viewModel.isHintPresentable = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -371,6 +366,14 @@ class RiskStatusViewController: UIViewController {
 
         viewModel.$appUpdatesAvailable { [weak self] (isAvailable) in
             self?.appUpdatesAvailableButton.isHidden = isAvailable == false
+        }
+
+        viewModel.$pendingHints { [weak self] (hints) in
+            if let hint = hints.first {
+                self?.showHint(hint)
+            } else {
+                AppCoordinator.shared.hideOverlay()
+            }
         }
 
         viewModel.engageErrorHandler = { [weak self] (reason) in
@@ -560,6 +563,19 @@ class RiskStatusViewController: UIViewController {
                 }
             }
             scannerViewModel.configure()
+        }
+    }
+    
+    private func showHint(_ hint: Hint) {
+        switch hint {
+        case .dailySummaryHint:
+            AppCoordinator.shared.showOverlay(for: hint, from: bannerBorder)
+
+        case .qrCodeScannerHint:
+            AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.leftBarButtonItem!)
+
+        default:
+            return
         }
     }
 }
