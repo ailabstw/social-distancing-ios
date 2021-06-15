@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
 
         let viewController = AppCoordinator.shared
+        AppCoordinator.shared.overlayWindow = OverlayWindow(windowScene: windowScene)
         window.rootViewController = viewController
         window.makeKeyAndVisible()
 

@@ -64,6 +64,13 @@ class AppCoordinator: UIViewController {
 
     private var observers: [NSObjectProtocol] = []
 
+    var overlayWindow: OverlayWindow? {
+        didSet {
+            oldValue?.delegate = nil
+            overlayWindow?.delegate = self
+        }
+    }
+
     private init() {
         super.init(nibName: nil, bundle: nil)
     }

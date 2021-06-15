@@ -58,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window = window
 
             let viewController = AppCoordinator.shared
+            AppCoordinator.shared.overlayWindow = OverlayWindow(frame: UIScreen.main.bounds)
             window.rootViewController = viewController
         }
 
