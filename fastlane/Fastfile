@@ -1,0 +1,176 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  def get_system_info
+    {
+      :os => `system_profiler SPSoftwareDataType`.split("\n").filter { |value| value != "" }.find { |value| value.split(":")[0].strip == "System Version" }.split(":")[1].strip,
+      :ide => `xcodebuild -version`.split("\n").map { |v| v.sub(/Build version /, '') }.join(" (").concat(")"),
+      :swift => `swiftc --version`.split("\n")[0]
+    }
+  end
+
+  desc "Bump version and commit build information"
+  lane :bump_version do |options|
+    ensure_git_status_clean
+    increment_build_number(build_number: number_of_commits)
+
+    next unless options[:commit]
+
+    system_info = get_system_info()
+    version_number = get_version_number()
+    build_number = get_build_number()
+
+    commit_version_bump(
+      message: "Bump Version to v#{version_number} build #{build_number}\n\n" +
+               "* Build system:\n" +
+               "\t- OS: #{system_info[:os]}\n" +
+               "\t- IDE: #{system_info[:ide]}\n" +
+               "\t- Swift: #{system_info[:swift]}"
+    )
+  end
+
+  desc "Sync certificates/provision profiles"
+  lane :match_signings do
+
+    match_configs = [
+      {
+        :type => :development,
+        :app_identifier => [ENV['APP_IDENTIFIER']]
+      },
+      {
+        :type => :appstore,
+        :app_identifier => [ENV['APP_IDENTIFIER']]
+      },
+    ]
+
+    match_configs.each do |config|
+      match(type: "#{config[:type]}",
+        app_identifier: config[:app_identifier],
+        readonly: true,
+        shallow_clone: true)
+      end
+  end
+
+  desc "Test project"
+  lane :tests do
+    run_tests(
+      scheme: "ExposureNotification",
+      devices: ['iPhone 12 Pro']
+      )
+  end
+
+  desc "Prepare building project"
+  lane :prepare_to_build do
+    match_signings
+    # install_pods() # Since whole Pods dictionary stored in repo, there is no need to install pods.
+  end
+
+  desc "Build project and package signed ipa"
+  lane :build_project do |options|
+    build_configs = {
+      "debug" => {
+        :export_method => "development",
+        :configuration => "Debug",
+        :provisioning_profile => {
+          ENV['APP_IDENTIFIER'] => "match Development #{ENV['APP_IDENTIFIER']}",
+        }
+      },
+      "release" => {
+        :export_method => "app-store",
+        :configuration => "Release",
+        :provisioning_profile => {
+          ENV['APP_IDENTIFIER'] => "match AppStore #{ENV['APP_IDENTIFIER']}",
+        }
+      }
+    }
+
+    config = build_configs[ENV['CI_ENVIRONMENT_NAME']] || build_configs["#{options[:config]}"] || build_configs["#{:debug}"]
+    prepare_to_build
+    gym(
+      scheme: "ExposureNotification",
+      output_directory: "build",
+      export_method: config[:export_method],
+      configuration: config[:configuration]
+    )
+
+  end
+
+  desc "Build a debug build"
+  lane :build_debug do
+    bump_version
+
+    build_project(config: :debug)
+  end
+
+  desc "Build a release build"
+  lane :build_release do |options|
+    bump_version
+
+    build_project(config: :release)
+  end
+
+  desc "Deploy to TestFlight"
+  lane :deploy_to_testflight do
+    upload_to_testflight(
+      app_identifier: ENV['APP_IDENTIFIER'],
+      ipa: "build/ExposureNotification.ipa",
+      team_id: ENV['ITC_TEAM_ID']
+    )
+
+    version_number = get_version_number()
+    build_number = get_build_number()
+    tag = "TestFlight/v#{version_number}/v#{version_number}_#{build_number}"
+
+    if git_tag_exists(tag: tag)
+      return
+    end
+
+    add_git_tag(
+      tag: tag,
+      message: "TestFlight Build\n\nVersion: #{version_number}\nBuild: #{build_number}"
+    )
+
+    push_to_git_remote(local_branch: "HEAD", remote_branch: ENV['CI_COMMIT_BRANCH'], push_options: ["ci.skip"])
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    bump_version(commit: true)
+
+    build_project(config: :release)
+
+    deploy_to_testflight
+  end
+
+  desc "Register new device"
+  lane :register_new_device do |options|
+      device_name = UI.input "Enter the device name: "
+      device_udid = UI.input "Enter the device UDID: "
+      device_hash = {}
+      device_hash[device_name] = device_udid
+      register_devices(devices: device_hash)
+      refresh_profiles
+  end
+
+  desc "A helper lane for refreshing provisioning profiles."
+  lane :refresh_profiles do
+    match(
+      force_for_new_devices: true
+   )
+  end
+end

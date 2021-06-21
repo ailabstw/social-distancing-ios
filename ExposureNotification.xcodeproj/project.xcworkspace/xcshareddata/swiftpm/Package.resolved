@@ -1,0 +1,97 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "747c8db8d57b68d5e35275f10c92d55f982adbd4",
+          "version": "4.9.1"
+        }
+      },
+      {
+        "package": "CoreKit",
+        "repositoryURL": "https://gitlab.corp.ailabs.tw/yating/client/CoreKit.git",
+        "state": {
+          "branch": null,
+          "revision": "b9db15da3532f8143592acf969d1ac15d8f7b4b4",
+          "version": "0.2.0"
+        }
+      },
+      {
+        "package": "PMKAlamofire",
+        "repositoryURL": "https://github.com/PromiseKit/PMKAlamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "15a5ab2c243b73d875040897c56fa4f3f339808f",
+          "version": "3.2.4"
+        }
+      },
+      {
+        "package": "PromiseKit",
+        "repositoryURL": "https://github.com/mxcl/PromiseKit.git",
+        "state": {
+          "branch": null,
+          "revision": "d2f7ba14bcdc45e18f4f60ad9df883fb9055f081",
+          "version": "6.15.3"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "state": {
+          "branch": null,
+          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+          "version": "1.4.2"
+        }
+      },
+      {
+        "package": "swift-log-SwiftyBeaver",
+        "repositoryURL": "https://gitlab.corp.ailabs.tw/yating/client/swift-log-SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "974be6ca2fb79d9bf1e0ecb233d1a897a78b9714",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "SwiftyBeaver",
+        "repositoryURL": "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "2c039501d6eeb4d4cd4aec4a8d884ad28862e044",
+          "version": "1.9.5"
+        }
+      },
+      {
+        "package": "Updates",
+        "repositoryURL": "https://github.com/rwbutler/Updates",
+        "state": {
+          "branch": null,
+          "revision": "d1ba67bce52e7af8287b678add968a79ed626f46",
+          "version": "1.3.0"
+        }
+      },
+      {
+        "package": "Zip",
+        "repositoryURL": "https://github.com/marmelroy/Zip",
+        "state": {
+          "branch": null,
+          "revision": "bd19d974e8a38cc8d3a88c90c8a107386c3b8ccf",
+          "version": "2.1.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

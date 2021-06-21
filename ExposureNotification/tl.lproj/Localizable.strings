@@ -1,0 +1,242 @@
+/* The label text on alert cancellation view to inform user inputs their testing date */
+"AlertCancellationView.TestingDateTitleLabel" = "Mangyaring i-type ang date ng pagimbestiga sa pandemya";
+
+/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
+"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "I-type ang date";
+
+/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
+"AlertCancellationView.PasscodeTitleLabel" = "Mangyaring i-type ang verification code";
+
+/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
+"AlertCancellationView.PasscodeFieldPlaceholder" = "Mangyaring i-type ang verification code";
+
+/* The introduction text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.Introduction" = "Mangyaring i-type ang verification code na ibinigay ng health bureau. Matapos ipadala ito, isasarado na ang warning notification mo.";
+
+/* The button title on alert to submit data */
+"Alert.Button.Submit" = "Ipadala";
+
+/* The message on alert to indicate the upload is succeed */
+"Alert.Message.UploadSucceed" = "Matagumpay na pag-upload";
+
+/* The message on alert to indicate the upload is failed */
+"Alert.Message.UploadFailed" = "Nabigo ang pag-upload";
+
+/* The button title on alert for OK */
+"Alert.Button.OK" = "OK";
+
+/* The title on enabling bluetooth alert */
+"EnableBluetoothAlert.Title" = "Buksan ang Bluetooth";
+
+/* The message body on enabling bluetooth alert */
+"EnableBluetoothAlert.Message" = "Matapos buksan ang Bluetooth, maaari itong awtomatikong mag-scan sa paligid upang kumpirmahin ang iyong katayuan.";
+
+/* The button title on alert to cancel action */
+"Alert.Button.Cancel" = "Ikansela";
+
+/* The button title on enabling bluetooth alert to enable bluetooth */
+"EnableBluetoothAlert.Button.Enable" = "OK";
+
+/* The button title on risk status view to enable exposure notification */
+"RiskStatusView.EngageButton.Enable" = "Buksan ang Exposure Notification";
+
+/* The button title on risk status view to indicate exposure notification has been enabled */
+"RiskStatusView.EngageButton.Enabled" = "Bukas na ang Exposure Notification";
+
+/* The label text on risk status view to indicate the engaged date and uptime ratio */
+"RiskStatusView.EngageDateAndUptimeRatioLabel" = "Oras mula ng nabuksan ang Exposure Notification %2$@\nAng ratio ng operating time ay %1$.01f%%";
+
+/* The label text on risk status view to indicate the last time checking exposures */
+"RiskStatusView.LastCheckTimeLabel" = "Last checked at %@";
+
+/* The title of action sheet on risk status view for more features */
+"RiskStatusView.MoreActionSheet.Title" = "Iba pang mga functions";
+
+/* The title of action sheet on risk status view for upload anonymous IDs */
+"RiskStatusView.MoreActionSheet.Item.UploadIDs.Title" = "Confirmed patients upload Anonymous ID";
+
+/* The title of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Title" = "Kumpirmado ka bang isang pasyente ng COVID-19?";
+
+/* The message body of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Message" = "Ang function na ito ay para sa pag-upload ng mga pasyente ng random ID upang mabawasan ang posibilidad ng pagkalat ng COVID-19.";
+
+/* The title of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Title" = "Siguradong isasara ba ang warning notification?";
+
+/* The message body of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Message" = "Ang function na ito ay para sa pagsara ng warning notification pagkatapos ng pagsisiyasat sa mga pasyente.";
+
+/* The button title on alert for Yes */
+"Alert.Button.Yes" = "Oo";
+
+/* The button title on alert for No */
+"Alert.Button.No" = "Hindi";
+
+/* The title of personal data protection note view */
+"PersonalDataProtectionNote.Title" = "Privacy Policy and Terms of Use";
+
+/* The label text on upload keys view to inform user inputs the date span to upload */
+"UploadKeysView.DateSpanTitleLabel" = "Mangyaring i-type ang date ng pagsisimula at pagtatapos";
+
+/* The label text on upload keys view to inform user inputs the start date to upload */
+"UploadKeysView.BeginDateTitleLabel" = "Ang date ng pagsisimula";
+
+/* The label text on upload keys view to inform user inputs the end date to upload */
+"UploadKeysView.EndDateTitleLabel" = "Ang date ng pagkatapos";
+
+/* The label text on upload keys view to inform user inputs their verification code to upload keys */
+"UploadKeysView.PasscodeTitleLabel" = "Mangyaring i-type ang verification code";
+
+/* The text field placeholder text on upload keys view to inform user to input their verification code to upload keys here */
+"UploadKeysView.PasscodeFieldPlaceholder" = "Mangyaring i-type ang verification code";
+
+/* The message body on upload keys view for introduction */
+"UploadKeysView.IntroductionMessage" = "Mangyaring i-type ang verification code na ibinigay ng health bureau. Matapos ipadala ito, maa-upload ang iyong random ID sa database ng Taiwan Centers for Disease Control, at awtomatikong buburahin pagkalipas ng 10 araw.";
+
+/* The title of alert cancellation view */
+"AlertCancellationView.Title" = "Isara ang warning notification";
+
+/* The title of settings view */
+"DataControlView.Title" = "Pagkontrol sa awtoridad ng data";
+
+/* The title of item on data control view to enable/disable exposure notification */
+"DataControlView.Item.ExposureNotification" = "Exposure Notification Services";
+
+/* The title of introduction view for app introduction */
+"IntroductionView.Title" = "Introduction ng App";
+
+/* The title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Title" = "Mangyaring i-update ang iyong operating system";
+
+/* The content message of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Message" = "Hindi sinusuportahan ng Taiwan Social Distance App ang iyong bersyon ng iOS. Mangyaring i-update ang bersyon ng iOS sa 13.7 o sa mas bagong bersyon.";
+
+/* The button title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Button" = "I-update ang iyong Operating System";
+
+/* The title of introduction about protecting family */
+"Introduction.ProtectingFamily.Title" = "Upang maprotektahan ka at ang iyong pamilya";
+
+/* The content message of introduction about protecting family */
+"Introduction.ProtectingFamily.Message" = "Ang Taiwan Social Distance App ay dinisenyo ng Taiwan AI Labs at Taiwan Centers for Disease Control upang makaiwas sa pag-expose sa COVID-19, at maprotektahan ang iyong pamilya.";
+
+/* The title of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Title" = "Proteksyon sa privacy at data";
+
+/* The content message of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Message" = "Ang mga gumagamit ng Taiwan Social Distance App ay hindi kailangang magparehistro at mag-upload ng anumang data. Ginagamit lamang nila ang lakas ng signal ng Bluetooth sa pagitan ng mga handheld devices upang makalkula ang distansya ng bawat gumagamit.\n\nAng decentralized service na ito ay nag-iimbak ng impormasyon ng random ID ng iyong handheld devices, at gumagamit ng mahigpit na teknolohiya para makilala ang data upang maprotektahan ang privacy ng gumagamit.";
+
+/* The title of introduction about stop spreading */
+"Introduction.StopSpreading.Title" = "Upang mabawasan ang pagkalat ng pandemya";
+
+/* The content message of introduction about stop spreading */
+"Introduction.StopSpreading.Message" = "Kung ang user ng App ay may nakakahawang sakit, puwede niyang ipadala ang random ID sa kanyang handheld device (ginagamit ang isang advanced na teknolohiya upang hindi makilala ang taong gumagamit nito), makakareceive ka ng notification kung malapit ang handheld device mo sa taong may sakit, at hindi mo rin malalaman kung sino siya upang maprotektahan ang privacy, at maprotektahan din ang kalusugan ng iba tao.";
+
+/* The button title of introduction about start using */
+"Introduction.Button.StartUsing" = "Simulan na ang paggamit!";
+
+/* The title of risk status view */
+"RiskStatusView.Title" = "Taiwan Social Distance";
+
+/* The content title on risk status view when scanning */
+"RiskStatusView.Content.Scanning.Title" = "Scanning";
+
+/* The content title on risk status view when risky */
+"RiskStatusView.Content.Risky.Title" = "Na-expose ka sa mga positibong pasyente sa aming database";
+
+/* The content message on risk status view when risky */
+"RiskStatusView.Content.Risky.Message" = "Mangyaring i-report ito sa lokal na health bureau o tawagan ang 1922 hotline. Paki obserbahan ang iyong personal na kondisyon sa kalusugan, at puntahan na ang pinaka malapit na ospital kung masama ang pakiramdam.";
+
+/* The content title on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Title" = "Hindi pa nabubuksan ang Exposure Notification";
+
+/* The content message on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Message" = "Mangyaring buksan ang Exposure Notification upang makumpirma ang iyong katayuan ngayon.";
+
+/* The content title on risk status view when clear */
+"RiskStatusView.Content.Clear.Title" = "Hindi ka na-expose sa pasyente ng COVID-19 sa aming database";
+
+/* The content message on risk status view when clear */
+"RiskStatusView.Content.Clear.Message" = "Mangyaring ipagtuloy ang social distancing.";
+
+/* The title of upload keys view */
+"UploadKeysView.Title" = "Mag-upload ng anonymous ID";
+
+/* The title on notification not enabled alert */
+"NotificationNotEnabledAlert.Title" = "Hindi pa bukas ang Exposure Notification";
+
+/* The body message on notification not enabled alert */
+"NotificationNotEnabledAlert.Message" = "Buksan ang Exposure Notification upang malaman ang resulta ng detection.";
+
+/* The button title on alert to allow app to grant permission */
+"Alert.Button.Allow" = "Allow";
+
+/* The title on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Title" = "Sarado na ang Exposure Notification";
+
+/* The body message on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Message" = "Sarado na ngayon ang Exposure Notification dahil sarado ang Bluetooth";
+
+/* The title on detection result notification */
+"DetectionResultNotification.Title" = "Resulta ng pag-expose sa mga pasyente ng COVID-19";
+
+/* The body message on detection result notification for not risky */
+"DetectionResultNotification.Message.Clear" = "Walang peligro sa pag-expose sa mga pasyente ng COVID-19";
+
+/* The body message on detection result notification for risky */
+"DetectionResultNotification.Message.Risky" = "Maaring na-expose sa mga pasyente ng COVID-19, mangyaring buksan ang App upang makakuha ng karagdagang impormasyon";
+
+/* The title of new version available alert */
+"NewVersionAvailableAlert.Title" = "Available na ang bagong bersyon";
+
+/* The message body of new version available alert */
+"NewVersionAvailableAlert.Message" = "Mangyaring i-update sa App Store.";
+
+/* The button title on alert for doing something later */
+"Alert.Button.Later" = "Mamaya nalang";
+
+/* The updates now button title of new version available alert */
+"NewVersionAvailableAlert.Button.UpdateNow" = "I-update ngayon";
+
+/* The title of 1922 SMS Contact Tracing Scanner */
+"QRCodeScannerViewModel.Title" = "1922 SMS Contact Tracing";
+
+/* The toast message for QR code is not a 1922 SMS contact tracing QR code */
+"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "Not valid 1922 SMS contact tracing QR code";
+
+/* The title of alert for asking to go to Messages app to send SMS */
+"QRCodeScannerViewController.SendSMSAlert.Title" = "Open Messages to send SMS?";
+
+/* The button title on alert to not allow app to grant permission */
+"Alert.Button.NotAllow" = "Don't Allow";
+
+/* The title of alert for requesting to access user's camera */
+"AccessCameraAlert.Title" = "Taiwan Social Distancing Would Like to Access the Camera";
+
+/* The body message of alert for requesting to access user's camera */
+"AccessCameraAlert.Message" = "Taiwan Social Distancing uses the camera to scan QR code for 1922 SMS contact tracing registration.";
+
+/* The title of FAQ view */
+"FAQ.Title" = "FAQ";
+
+/* The punctuation at the beginning of each paragraph to indicate header */
+"RiskStatusView.DetailTextParagraphHeaderSeparator" = ":";
+
+/* The title on home screen shortcut for scanning 1922 SMS QR code */
+"ShortcutItem.QRCodeScanningAction.Title" = "Scan 1922 QR Code";
+
+/* The title of daily summary view */
+"DailySummaryViewModel.Title" = "Daily Summary";
+
+/* The label text on daily summary view to indicate the last time checking exposures */
+"DailySummaryViewModel.LastCheckTimeLabel" = "Last checked at %@";
+
+/* The message on Daily Summary view for no contact */
+"DaySummaryCellViewModel.ExposureDuration.NoContact" = "No contact";
+
+/* The message on Daily Summary view for contact less than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "Less than 2 mins";
+
+/* The message on Daily Summary view for contact more than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "%@";

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11o-zw-aU5">
+                                <rect key="frame" x="0.0" y="389" width="414" height="128.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="臺灣社交距離" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1b-Rq-YoN">
+                                        <rect key="frame" x="122" y="115" width="170.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconSplash" translatesAutoresizingMaskIntoConstraints="NO" id="ea1-ji-Lv4">
+                                        <rect key="frame" x="152" y="-20" width="110" height="112"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="V1b-Rq-YoN" firstAttribute="centerX" secondItem="11o-zw-aU5" secondAttribute="centerX" id="H7f-m8-Pms"/>
+                                    <constraint firstAttribute="top" secondItem="ea1-ji-Lv4" secondAttribute="top" constant="20" symbolic="YES" id="JkZ-uY-xZl"/>
+                                    <constraint firstItem="ea1-ji-Lv4" firstAttribute="centerX" secondItem="V1b-Rq-YoN" secondAttribute="centerX" id="a37-Ik-0ej"/>
+                                    <constraint firstItem="V1b-Rq-YoN" firstAttribute="bottom" secondItem="11o-zw-aU5" secondAttribute="bottom" constant="20" symbolic="YES" id="ijk-FA-MT3"/>
+                                    <constraint firstItem="ea1-ji-Lv4" firstAttribute="bottom" secondItem="V1b-Rq-YoN" secondAttribute="top" constant="-23" id="xgh-XB-7V6"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="衛生福利部疾病管制署" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ona-YU-WZq">
+                                <rect key="frame" x="125" y="771" width="164" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taiwan Centers for Disease Control" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4f-WP-kHC">
+                                <rect key="frame" x="118.5" y="799" width="177" height="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10.5"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V1.2.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EI1-mP-AZr">
+                                <rect key="frame" x="190.5" y="835" width="33" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.1803921568627451" green="0.71372549019607845" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="11o-zw-aU5" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="15a-A2-hEo"/>
+                            <constraint firstItem="11o-zw-aU5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="1A0-s5-qWn"/>
+                            <constraint firstItem="T4f-WP-kHC" firstAttribute="centerX" secondItem="Ona-YU-WZq" secondAttribute="centerX" id="USt-FE-Oiu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EI1-mP-AZr" secondAttribute="bottom" constant="12" id="Wp4-wT-SCX"/>
+                            <constraint firstItem="EI1-mP-AZr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ejC-78-sCA"/>
+                            <constraint firstItem="T4f-WP-kHC" firstAttribute="top" secondItem="Ona-YU-WZq" secondAttribute="bottom" constant="8" symbolic="YES" id="hwF-va-575"/>
+                            <constraint firstItem="T4f-WP-kHC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="o69-2d-5MY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T4f-WP-kHC" secondAttribute="bottom" constant="50" id="t8e-tk-NUC"/>
+                            <constraint firstItem="11o-zw-aU5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xSn-n5-GRK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iconSplash" width="110" height="112"/>
+    </resources>
+</document>

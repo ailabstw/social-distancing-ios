@@ -1,0 +1,242 @@
+/* The label text on alert cancellation view to inform user inputs their testing date */
+"AlertCancellationView.TestingDateTitleLabel" = "กรุณาเลือกวันตรวจสอบความเสี่ยงโควิด";
+
+/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
+"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "กรุณาเลือกวัน";
+
+/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
+"AlertCancellationView.PasscodeTitleLabel" = "กรุณากรอกรหัสยืนยัน";
+
+/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
+"AlertCancellationView.PasscodeFieldPlaceholder" = "กรุณากรอกรหัสยืนยัน";
+
+/* The introduction text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.Introduction" = "กรุณากรอกรหัสยืนยันที่ได้รับจากหน่วยงานสาธารณสุข หลังจากส่งออก จะทำการยกเลิกสถานะการเตือนภัยเสร็จสิ้น";
+
+/* The button title on alert to submit data */
+"Alert.Button.Submit" = "ส่งออก";
+
+/* The message on alert to indicate the upload is succeed */
+"Alert.Message.UploadSucceed" = "อัพโหลดสำเร็จ";
+
+/* The message on alert to indicate the upload is failed */
+"Alert.Message.UploadFailed" = "อัพโหลดล้มเหลว";
+
+/* The button title on alert for OK */
+"Alert.Button.OK" = "OK";
+
+/* The title on enabling bluetooth alert */
+"EnableBluetoothAlert.Title" = "เปิดบลูทูธ";
+
+/* The message body on enabling bluetooth alert */
+"EnableBluetoothAlert.Message" = "เมื่อเปิดบลูทูธแล้ว ระบบจะสแกนรอบตัวคุณอัตโนมัติ เพื่อตรวจสอบสถานะความเสี่ยงของคุณ";
+
+/* The button title on alert to cancel action */
+"Alert.Button.Cancel" = "ยกเลิก";
+
+/* The button title on enabling bluetooth alert to enable bluetooth */
+"EnableBluetoothAlert.Button.Enable" = "OK";
+
+/* The button title on risk status view to enable exposure notification */
+"RiskStatusView.EngageButton.Enable" = "เปิดการแจ้งเตือน";
+
+/* The button title on risk status view to indicate exposure notification has been enabled */
+"RiskStatusView.EngageButton.Enabled" = "เปิดแจ้งเตือนความเสี่ยงสัมผัสเรียบร้อย";
+
+/* The label text on risk status view to indicate the engaged date and uptime ratio */
+"RiskStatusView.EngageDateAndUptimeRatioLabel" = "ระยะเวลาการเปิดการแจ้งเตือน %2$@\n อัตราการใช้งาน %1$.01f%%";
+
+/* The label text on risk status view to indicate the last time checking exposures */
+"RiskStatusView.LastCheckTimeLabel" = "การตรวจสอบครั้งล่าสุดเมื่อ %@";
+
+/* The title of action sheet on risk status view for more features */
+"RiskStatusView.MoreActionSheet.Title" = "ฟังก์ชันเพิ่มเติม";
+
+/* The title of action sheet on risk status view for upload anonymous IDs */
+"RiskStatusView.MoreActionSheet.Item.UploadIDs.Title" = "อัพโหลดIDสุ่มผู้ป่วยยืนยัน";
+
+/* The title of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Title" = "คุณเป็นผู้ป่วยยืนยัน หรือไม่";
+
+/* The message body of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Message" = "ฟังก์ชันนี้เป็นการอัพโหลดรหัสIDแบบสุ่มของผู้ป่วยยืนยันโดยไม่ระบุตัวตน เพื่อลดการแพร่ระบาดของโรค";
+
+/* The title of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Title" = "คุณต้องการยกเลิกสถานะการเตือนภัยหรือไม่";
+
+/* The message body of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Message" = "ฟังก์ชันนี้สำหรับการยกเลิกระบบเตือนภัยหลังได้รับการตรวจสอบเชื้อโควิด";
+
+/* The button title on alert for Yes */
+"Alert.Button.Yes" = "ใช่";
+
+/* The button title on alert for No */
+"Alert.Button.No" = "ไม่ใช่";
+
+/* The title of personal data protection note view */
+"PersonalDataProtectionNote.Title" = "เงื่อนไขและนโยบายความเป็นส่วนตัว";
+
+/* The label text on upload keys view to inform user inputs the date span to upload */
+"UploadKeysView.DateSpanTitleLabel" = "กรุณาเลือกวันที่เริ่มต้น";
+
+/* The label text on upload keys view to inform user inputs the start date to upload */
+"UploadKeysView.BeginDateTitleLabel" = "วันที่เริ่มต้น";
+
+/* The label text on upload keys view to inform user inputs the end date to upload */
+"UploadKeysView.EndDateTitleLabel" = "วันที่สิ้นสุด";
+
+/* The label text on upload keys view to inform user inputs their verification code to upload keys */
+"UploadKeysView.PasscodeTitleLabel" = "กรุณากรอกรหัสยืนยัน";
+
+/* The text field placeholder text on upload keys view to inform user to input their verification code to upload keys here */
+"UploadKeysView.PasscodeFieldPlaceholder" = "กรุณากรอกรหัสยืนยัน";
+
+/* The message body on upload keys view for introduction */
+"UploadKeysView.IntroductionMessage" = "กรุณากรอกรหัสยืนยันที่ได้รับจากหน่วยงานสาธารณสุข จากนั้นจะแสดงรหัสIDแบบสุ่มของคุณ ข้อมูลของคุณจะถูกจัดเก็บไว้ในกระทรวงสาธารณสุข และจะทำการถูกลบออกโดยอัตโนมัติหลัง10วัน";
+
+/* The title of alert cancellation view */
+"AlertCancellationView.Title" = "ยกเลิกสถานะการเตือนภัย";
+
+/* The title of settings view */
+"DataControlView.Title" = "จัดการสิทธิ์เข้าถึงข้อมูล";
+
+/* The title of item on data control view to enable/disable exposure notification */
+"DataControlView.Item.ExposureNotification" = "การแจ้งเตือนความเสี่ยงสัมผัส";
+
+/* The title of introduction view for app introduction */
+"IntroductionView.Title" = "เกี่ยวกับแอป";
+
+/* The title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Title" = "กรุณาอัพเดทระบบปฏิบัติการ";
+
+/* The content message of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Message" = "แอปพลิเคชันระยะห่างทางสังคมไต้หวันไม่รองรับการใช้งานระบบ iOSของคุณ กรุณาติดตั้งเวอร์ชั่น iOS 13.7 หรือมากกว่านี้";
+
+/* The button title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Button" = "อัพเดทตอนนี้";
+
+/* The title of introduction about protecting family */
+"Introduction.ProtectingFamily.Title" = "ปกป้องคุณและครอบครัวของคุณ";
+
+/* The content message of introduction about protecting family */
+"Introduction.ProtectingFamily.Message" = "แอปพลิเคชัน \"ระยะห่างทางสังคมไต้หวัน\" ที่ร่วมวิจัยและพัฒนาขึ้นมาโดยศูนย์ควบคุมและป้องกันโรคไต้หวัน (Taiwan CDC) และสถาบันวิจัย Taiwan AI Labs เพื่อลดทอนความเสี่ยงในการแพร่ระบาดของโรค และปกป้องครอบครัวของทุกคน";
+
+/* The title of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Title" = "นโยบายความเป็นส่วนตัวของข้อมูลส่วนบุคคล";
+
+/* The content message of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Message" = "แอปพลิเคชัน \"ระยะห่างทางสังคมไต้หวัน\" ใช้งานได้โดยไม่ต้องลงทะเบียน ไม่มีการอัพโหลดข้อมูลส่วนตัว ระบบจะคำนวณระยะห่างทางสังคมจากความแรงของสัญญาณบลูทูธ\n\nระบบไร้ตัวกลางจะทำการจัดเก็บข้อมูลรหัสIDแบบสุ่มของอุปกรณ์มือถือไว้ในอูปกรณ์มือถือของผู้ใช้งานที่เคยมีการสัมผัสกัน และมีกระบวนการจัดการข้อมูลอย่างปลอดภัยโดยไม่ระบุตัวตน เพื่อรักษาความเป็นส่วนตัวของผู้ใช้งาน";
+
+/* The title of introduction about stop spreading */
+"Introduction.StopSpreading.Title" = "ลดโอกาสการแพร่ระบาดของโรค";
+
+/* The content message of introduction about stop spreading */
+"Introduction.StopSpreading.Message" = "หากผู้ใช้งานแอปเป็นผู้ป่วยยืนยันติดเชื้อโควิด สามารถเลือกที่จะเปิดเผยข้อมูลรหัสIDแบบสุ่มของอุปกรณ์มือถือตนเอง (มีกระบวนการจัดการข้อมูลอย่างปลอดภัยโดยไม่ระบุตัวตน) บุคคลที่เคยอยู่ใกล้ชิดและมีการสัมผัสกันในช่วงระยะเวลาหนึ่งกับอุปกรณ์มือถือผู้ป่วยยืนยัน จะได้รับการแจ้งเตือน โดยไม่ทราบข้อมูลส่วนตัวของผู้ป่วยยืนยัน เพื่อรักษาความเป็นส่วนตัวของบุคคลและความปลอดภัยจากการเสี่ยงเป็นโรคของประชาชน";
+
+/* The button title of introduction about start using */
+"Introduction.Button.StartUsing" = "เริ่มใช้งาน";
+
+/* The title of risk status view */
+"RiskStatusView.Title" = "ระยะห่างทางสังคมไต้หวัน";
+
+/* The content title on risk status view when scanning */
+"RiskStatusView.Content.Scanning.Title" = "กำลังสแกน";
+
+/* The content title on risk status view when risky */
+"RiskStatusView.Content.Risky.Title" = "จากข้อมูลพบว่า คุณได้สัมผัสกับผู้ป่วยยืนยัน";
+
+/* The content message on risk status view when risky */
+"RiskStatusView.Content.Risky.Message" = "โปรดติดต่อหน่วยงานสาธารณสุขใกล้บ้านหรือติดต่อศูนย์ข้อมูลโควิด 1922 โปรดสังเกตอาการตนเอง หากมีอาการผิดปกติ ควรรีบพบแพทย์ทันที";
+
+/* The content title on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Title" = "มิได้เปิดรับการแจ้งเตือนความเสี่ยงสัมผัส";
+
+/* The content message on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Message" = "กรุณากดปุ่ม \"เปิดรับการแจ้งเตือนความเสี่ยงสัมผัส\" เพื่อตรวจเช็คสถานะความเสี่ยงของคุณ";
+
+/* The content title on risk status view when clear */
+"RiskStatusView.Content.Clear.Title" = "จากข้อมูลพบว่า คุณไม่ได้สัมผัสกับผู้ป่วยยืนยัน";
+
+/* The content message on risk status view when clear */
+"RiskStatusView.Content.Clear.Message" = "โปรดเว้นระยะห่างทางสังคมเสมอ";
+
+/* The title of upload keys view */
+"UploadKeysView.Title" = "อัพโหลดIDสุ่ม";
+
+/* The title on notification not enabled alert */
+"NotificationNotEnabledAlert.Title" = "ยังไม่ได้เปิดรับการแจ้งเตือน";
+
+/* The body message on notification not enabled alert */
+"NotificationNotEnabledAlert.Message" = "โปรดอนุมัติการแจ้งเตือนของแอป เพื่อการติดตามแบบเรียลไทม์";
+
+/* The button title on alert to allow app to grant permission */
+"Alert.Button.Allow" = "อนุมัติ";
+
+/* The title on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Title" = "ปิดการแจ้งเตือนความเสี่ยงสัมผัส";
+
+/* The body message on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Message" = "ขณะนี้ปิดการแจ้งเตือนความเสี่ยงสัมผัส เนื่องจากคุณปิดบลูทูธ";
+
+/* The title on detection result notification */
+"DetectionResultNotification.Title" = "ผลตรวจความเสี่ยงสัมผัส";
+
+/* The body message on detection result notification for not risky */
+"DetectionResultNotification.Message.Clear" = "ยังไม่มีความเสี่ยงสัมผัส";
+
+/* The body message on detection result notification for risky */
+"DetectionResultNotification.Message.Risky" = "พบความเสี่ยงสัมผัส โปรดตรวจสอบรายละเอียดบนแอปพลิเคชัน";
+
+/* The title of new version available alert */
+"NewVersionAvailableAlert.Title" = "การแจ้งเตือนอัพเดทApp";
+
+/* The message body of new version available alert */
+"NewVersionAvailableAlert.Message" = "กรุณาทำการอัพเดทในApp store";
+
+/* The button title on alert for doing something later */
+"Alert.Button.Later" = "ไว้ภายหลัง";
+
+/* The updates now button title of new version available alert */
+"NewVersionAvailableAlert.Button.UpdateNow" = "อัพเดทตอนนี้";
+
+/* The title of 1922 SMS Contact Tracing Scanner */
+"QRCodeScannerViewModel.Title" = "1922 SMS Contact Tracing";
+
+/* The toast message for QR code is not a 1922 SMS contact tracing QR code */
+"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "Not valid 1922 SMS contact tracing QR code";
+
+/* The title of alert for asking to go to Messages app to send SMS */
+"QRCodeScannerViewController.SendSMSAlert.Title" = "Open Messages to send SMS?";
+
+/* The button title on alert to not allow app to grant permission */
+"Alert.Button.NotAllow" = "Don't Allow";
+
+/* The title of alert for requesting to access user's camera */
+"AccessCameraAlert.Title" = "Taiwan Social Distancing Would Like to Access the Camera";
+
+/* The body message of alert for requesting to access user's camera */
+"AccessCameraAlert.Message" = "Taiwan Social Distancing uses the camera to scan QR code for 1922 SMS contact tracing registration.";
+
+/* The title of FAQ view */
+"FAQ.Title" = "FAQ";
+
+/* The punctuation at the beginning of each paragraph to indicate header */
+"RiskStatusView.DetailTextParagraphHeaderSeparator" = ":";
+
+/* The title on home screen shortcut for scanning 1922 SMS QR code */
+"ShortcutItem.QRCodeScanningAction.Title" = "Scan 1922 QR Code";
+
+/* The title of daily summary view */
+"DailySummaryViewModel.Title" = "Daily Summary";
+
+/* The label text on daily summary view to indicate the last time checking exposures */
+"DailySummaryViewModel.LastCheckTimeLabel" = "Last checked at %@";
+
+/* The message on Daily Summary view for no contact */
+"DaySummaryCellViewModel.ExposureDuration.NoContact" = "No contact";
+
+/* The message on Daily Summary view for contact less than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "Less than 2 mins";
+
+/* The message on Daily Summary view for contact more than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "%@";

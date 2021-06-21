@@ -1,0 +1,242 @@
+/* The label text on alert cancellation view to inform user inputs their testing date */
+"AlertCancellationView.TestingDateTitleLabel" = "請輸入疫調日期";
+
+/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
+"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "請輸入日期";
+
+/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
+"AlertCancellationView.PasscodeTitleLabel" = "請輸入驗證碼";
+
+/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
+"AlertCancellationView.PasscodeFieldPlaceholder" = "請輸入驗證碼";
+
+/* The introduction text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.Introduction" = "請輸入由衛生局提供的驗證碼，送出後，即取消您的示警狀態。";
+
+/* The button title on alert to submit data */
+"Alert.Button.Submit" = "送出";
+
+/* The message on alert to indicate the upload is succeed */
+"Alert.Message.UploadSucceed" = "上傳成功";
+
+/* The message on alert to indicate the upload is failed */
+"Alert.Message.UploadFailed" = "上傳失敗";
+
+/* The button title on alert for OK */
+"Alert.Button.OK" = "確認";
+
+/* The title on enabling bluetooth alert */
+"EnableBluetoothAlert.Title" = "開啟藍牙";
+
+/* The message body on enabling bluetooth alert */
+"EnableBluetoothAlert.Message" = "開啟藍牙後可以自動為您掃描四周，確認您的風險狀態";
+
+/* The button title on alert to cancel action */
+"Alert.Button.Cancel" = "取消";
+
+/* The button title on enabling bluetooth alert to enable bluetooth */
+"EnableBluetoothAlert.Button.Enable" = "開啟藍牙";
+
+/* The button title on risk status view to enable exposure notification */
+"RiskStatusView.EngageButton.Enable" = "開啟接觸通知功能";
+
+/* The button title on risk status view to indicate exposure notification has been enabled */
+"RiskStatusView.EngageButton.Enabled" = "接觸通知功能已開啟";
+
+/* The label text on risk status view to indicate the engaged date and uptime ratio */
+"RiskStatusView.EngageDateAndUptimeRatioLabel" = "接觸通知功能啟用時間 %2$@\n運作時間比例為 %1$.01f%%";
+
+/* The label text on risk status view to indicate the last time checking exposures */
+"RiskStatusView.LastCheckTimeLabel" = "上次檢查時間為 %@";
+
+/* The title of action sheet on risk status view for more features */
+"RiskStatusView.MoreActionSheet.Title" = "更多功能";
+
+/* The title of action sheet on risk status view for upload anonymous IDs */
+"RiskStatusView.MoreActionSheet.Item.UploadIDs.Title" = "確診者上傳隨機 ID";
+
+/* The title of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Title" = "您是確診者嗎？";
+
+/* The message body of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Message" = "此功能為提供確診者上傳隨機 ID 以減少疫情擴散";
+
+/* The title of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Title" = "確定要解除示警狀態嗎？";
+
+/* The message body of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Message" = "此功能為提供疫調後之示警狀態解除";
+
+/* The button title on alert for Yes */
+"Alert.Button.Yes" = "是";
+
+/* The button title on alert for No */
+"Alert.Button.No" = "否";
+
+/* The title of personal data protection note view */
+"PersonalDataProtectionNote.Title" = "注意事項及個資保護說明";
+
+/* The label text on upload keys view to inform user inputs the date span to upload */
+"UploadKeysView.DateSpanTitleLabel" = "請輸入起訖日期";
+
+/* The label text on upload keys view to inform user inputs the start date to upload */
+"UploadKeysView.BeginDateTitleLabel" = "起始日期";
+
+/* The label text on upload keys view to inform user inputs the end date to upload */
+"UploadKeysView.EndDateTitleLabel" = "結束日期";
+
+/* The label text on upload keys view to inform user inputs their verification code to upload keys */
+"UploadKeysView.PasscodeTitleLabel" = "請輸入驗證碼";
+
+/* The text field placeholder text on upload keys view to inform user to input their verification code to upload keys here */
+"UploadKeysView.PasscodeFieldPlaceholder" = "請輸入驗證碼";
+
+/* The message body on upload keys view for introduction */
+"UploadKeysView.IntroductionMessage" = "請輸入由衛生局提供的驗證碼，送出後，會上傳您的隨機 ID，這些資料會保存在衛生福利部疾病管制署，並於 10 天後自動刪除。";
+
+/* The title of alert cancellation view */
+"AlertCancellationView.Title" = "解除示警狀態";
+
+/* The title of settings view */
+"DataControlView.Title" = "資料權限控管";
+
+/* The title of item on data control view to enable/disable exposure notification */
+"DataControlView.Item.ExposureNotification" = "接觸通知服務";
+
+/* The title of introduction view for app introduction */
+"IntroductionView.Title" = "App 介紹";
+
+/* The title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Title" = "請升級您的作業系統";
+
+/* The content message of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Message" = "臺灣社交距離不支援您的 iOS 版本，請升級至 iOS 13.7 或以上的版本。";
+
+/* The button title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Button" = "前去升級";
+
+/* The title of introduction about protecting family */
+"Introduction.ProtectingFamily.Title" = "保護您與您的家人";
+
+/* The content message of introduction about protecting family */
+"Introduction.ProtectingFamily.Message" = "臺灣社交距離 App 是由台灣人工智慧實驗室開發並與行政院及衛生福利部疾病管制署合作，目的在減少疾病傳播的機會，進而保護您的家人。";
+
+/* The title of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Title" = "隱私與資料保護";
+
+/* The content message of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Message" = "臺灣社交距離 App 使用者無需註冊且不會有任何資料上傳，僅使用手持裝置間彼此藍牙訊號的強弱去計算每個使用者之間的距離。\n\n此去中心化服務會將自己接觸過的手持裝置隨機 ID 資訊儲存在各自的手持裝置中，並且以嚴密的技術將資料去識別化，以保護使用者隱私。";
+
+/* The title of introduction about stop spreading */
+"Introduction.StopSpreading.Title" = "減少疫情擴散機會";
+
+/* The content message of introduction about stop spreading */
+"Introduction.StopSpreading.Message" = "如果 App 的使用者被確診具傳染性的疾病，他可以選擇發布他的手持裝置隨機 ID (以嚴密的技術去識別化)，曾跟他的手持裝置有過近距離且維持一定時間接觸的人便會收到通知。且無法知道是誰，在兼顧個人隱私的情況下也保護公眾的健康。";
+
+/* The button title of introduction about start using */
+"Introduction.Button.StartUsing" = "開始使用";
+
+/* The title of risk status view */
+"RiskStatusView.Title" = "臺灣社交距離";
+
+/* The content title on risk status view when scanning */
+"RiskStatusView.Content.Scanning.Title" = "掃描中";
+
+/* The content title on risk status view when risky */
+"RiskStatusView.Content.Risky.Title" = "與確診者資料比對有接觸";
+
+/* The content message on risk status view when risky */
+"RiskStatusView.Content.Risky.Message" =  "冷靜面對：您曾經和確診者在近距離範圍內，但並非代表您確診。\n自主健康管理：建議您做自主健康管理，並注意自身健康狀況。\n發生健康狀況：若有發燒、呼吸道相關等疑似症狀，再聯絡您現居地方衛生機關或「1922」防疫專線安排後續採檢。";
+
+/* The content title on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Title" = "尚未開啟接觸通知功能";
+
+/* The content message on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Message" = "請點選開啟接觸通知功能按鈕確認您的風險狀態";
+
+/* The content title on risk status view when clear */
+"RiskStatusView.Content.Clear.Title" = "與確診者資料比對無接觸";
+
+/* The content message on risk status view when clear */
+"RiskStatusView.Content.Clear.Message" = "請繼續保持社交距離";
+
+/* The title of upload keys view */
+"UploadKeysView.Title" = "上傳隨機 ID";
+
+/* The title on notification not enabled alert */
+"NotificationNotEnabledAlert.Title" = "未開啟通知";
+
+/* The body message on notification not enabled alert */
+"NotificationNotEnabledAlert.Message" = "請開啟通知權限，以獲知即時偵測結果。";
+
+/* The button title on alert to allow app to grant permission */
+"Alert.Button.Allow" = "開啟";
+
+/* The title on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Title" = "已停用接觸通知";
+
+/* The body message on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Message" = "目前已關閉接觸通知，因為已關閉藍牙。";
+
+/* The title on detection result notification */
+"DetectionResultNotification.Title" = "接觸比對結果";
+
+/* The body message on detection result notification for not risky */
+"DetectionResultNotification.Message.Clear" = "尚無接觸風險。";
+
+/* The body message on detection result notification for risky */
+"DetectionResultNotification.Message.Risky" = "有接觸風險，請開啟 App 查看進一步資訊。";
+
+/* The title of new version available alert */
+"NewVersionAvailableAlert.Title" = "App 更新通知";
+
+/* The message body of new version available alert */
+"NewVersionAvailableAlert.Message" = "請至 App Store 更新。";
+
+/* The button title on alert for doing something later */
+"Alert.Button.Later" = "稍後再說";
+
+/* The updates now button title of new version available alert */
+"NewVersionAvailableAlert.Button.UpdateNow" = "立即更新";
+
+/* The title of 1922 SMS Contact Tracing Scanner */
+"QRCodeScannerViewModel.Title" = "1922 簡訊實聯制";
+
+/* The toast message for QR code is not a 1922 SMS contact tracing QR code */
+"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "非 1922 簡訊實聯制 QR code";
+
+/* The title of alert for asking to go to Messages app to send SMS */
+"QRCodeScannerViewController.SendSMSAlert.Title" = "開啟訊息以傳送簡訊？";
+
+/* The button title on alert to not allow app to grant permission */
+"Alert.Button.NotAllow" = "不允許";
+
+/* The title of alert for requesting to access user's camera */
+"AccessCameraAlert.Title" = "臺灣社交距離想取用您的相機";
+
+/* The body message of alert for requesting to access user's camera */
+"AccessCameraAlert.Message" = "臺灣社交距離要使用相機來掃描 1922 簡訊實聯制 QR code。";
+
+/* The title of FAQ view */
+"FAQ.Title" = "常見問題";
+
+/* The punctuation at the beginning of each paragraph to indicate header */
+"RiskStatusView.DetailTextParagraphHeaderSeparator" = "：";
+
+/* The title on home screen shortcut for scanning 1922 SMS QR code */
+"ShortcutItem.QRCodeScanningAction.Title" = "掃描 1922 簡訊實聯制";
+
+/* The title of daily summary view */
+"DailySummaryViewModel.Title" = "每日接觸狀況";
+
+/* The label text on daily summary view to indicate the last time checking exposures */
+"DailySummaryViewModel.LastCheckTimeLabel" = "上次檢查時間為 %@";
+
+/* The message on Daily Summary view for no contact */
+"DaySummaryCellViewModel.ExposureDuration.NoContact" = "無";
+
+/* The message on Daily Summary view for contact less than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "接觸小於 2分鐘";
+
+/* The message on Daily Summary view for contact more than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "接觸 %@";

@@ -1,0 +1,132 @@
+stages:
+#  - test
+  - build
+  - deploy
+#  - post_deploy
+
+variables:
+  LC_ALL: "en_US.UTF-8"
+  LANG: "en_US.UTF-8"
+
+before_script:
+  - gem install bundler
+  - bundle install
+  - cp $DOT_ENV .env
+  - git config --replace-all user.name "$GIT_USER_NAME"
+  - git config --replace-all user.email $GIT_USER_EMAIL
+  - git remote set-url origin git@$CI_SERVER_HOST:$CI_PROJECT_PATH.git
+  - git update-index --skip-worktree ExposureNotification/Configurations.swift
+
+## Stage: test
+
+#test_project:
+#  stage: test
+#  script:
+#    - bundle exec fastlane tests
+#  artifacts:
+#    name: "$CI_PROJECT_TITLE-Test-Report-$CI_COMMIT_SHORT_SHA"
+#    paths:
+#      - fastlane/test_output/report.*
+#    reports:
+#      junit: fastlane/test_output/report.junit
+#  tags:
+#    - mac
+
+## Stage: build
+
+build_debug:
+  stage: build
+  script:
+    - cp $CONFIG_DEBUG ExposureNotification/Configurations.swift
+    - bundle exec fastlane build_debug
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+    - if: '$CI_COMMIT_BRANCH =~ /^feature\//'
+      when: manual
+      allow_failure: true
+  artifacts:
+    name: "$CI_PROJECT_TITLE-Debug-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - "build/ExposureNotification.app.dSYM.zip"
+      - "build/ExposureNotification.ipa"
+  tags:
+    - mac
+
+bump_version:
+  stage: build
+  script:
+    - bundle exec fastlane bump_version commit:"true"
+    - git push origin HEAD:$CI_COMMIT_BRANCH
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: '$CI_COMMIT_TITLE =~ /^^Bump Version to v(\d+\.){2}\d+ build \d+/'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+      when: manual
+      allow_failure: true
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+    - if: '$CI_COMMIT_BRANCH =~ /^hotfix\//'
+  tags:
+    - mac
+    - deploy
+
+build_release:
+  stage: build
+  script:
+    - cp $CONFIG_RELEASE ExposureNotification/Configurations.swift
+    - bundle exec fastlane build_project config:"release"
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "develop" && $CI_COMMIT_TITLE =~ /^^Bump Version to v(\d+\.){2}\d+ build \d+/'
+    - if: '$CI_COMMIT_BRANCH =~ /^release\// && $CI_COMMIT_TITLE =~ /^^Bump Version to v(\d+\.){2}\d+ build \d+/'
+    - if: '$CI_COMMIT_BRANCH =~ /^hotfix\// && $CI_COMMIT_TITLE =~ /^^Bump Version to v(\d+\.){2}\d+ build \d+/'
+  artifacts:
+    name: "$CI_PROJECT_TITLE-Release-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - "build/ExposureNotification.app.dSYM.zip"
+      - "build/ExposureNotification.ipa"
+  tags:
+    - mac
+    - deploy
+
+## Stage: deploy
+
+deploy_release:
+  stage: deploy
+  script:
+    - bundle exec fastlane deploy_to_testflight
+  dependencies:
+    - build_release
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "develop" && $CI_COMMIT_TITLE =~ /^^Bump Version to v(\d+\.){2}\d+ build \d+/'
+    - if: '$CI_COMMIT_BRANCH =~ /^release\// && $CI_COMMIT_TITLE =~ /^^Bump Version to v(\d+\.){2}\d+ build \d+/'
+    - if: '$CI_COMMIT_BRANCH =~ /^hotfix\// && $CI_COMMIT_TITLE =~ /^^Bump Version to v(\d+\.){2}\d+ build \d+/'
+  tags:
+    - mac
+    - deploy
+
+## Stage: post_deploy
+
+#upload_dsyms:
+#  stage: post_deploy
+#  script:
+#    - bundle exec fastlane refresh_dsyms
+#  dependencies:
+#    - deploy_release
+#  rules:
+#    - if: $CI_COMMIT_TAG
+#      when: never
+#    - if: '$CI_COMMIT_BRANCH == "develop" && $CI_COMMIT_TITLE =~ /^Bump Version to v(\d+\.){2}\d+ build \d+/'
+#      allow_failure: true
+#    - if: '$CI_COMMIT_BRANCH =~ /^release\// && $CI_COMMIT_TITLE =~ /^Bump Version to v(\d+\.){2}\d+ build \d+/'
+#      allow_failure: true
+#    - if: '$CI_COMMIT_BRANCH =~ /^hotfix\// && $CI_COMMIT_TITLE =~ /^Bump Version to v(\d+\.){2}\d+ build \d+/'
+#      allow_failure: true
+#  tags:
+#    - mac

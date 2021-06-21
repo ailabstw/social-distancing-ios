@@ -1,0 +1,29 @@
+git_url(ENV['MATCH_GIT_URL'])
+git_branch(ENV['MATCH_GIT_BRANCH'])
+storage_mode("git")
+
+# For all available options run `fastlane match --help`
+# Remove the # in the beginning of the line to enable the other options
+
+# The docs are available on https://docs.fastlane.tools/actions/match
+
+MatchConfigs = {
+  :development => {
+    :app_identifier => [ENV['APP_IDENTIFIER']]
+  },
+  :appstore => {
+    :app_identifier => [ENV['APP_IDENTIFIER']]
+  }
+}
+
+type = nil
+
+ARGV.each do |current|
+  next unless ["appstore"].include? current
+  type = current.to_sym
+end
+type ||= "development".to_sym
+
+username(ENV['APPLE_DEVELOPER_PORTAL_ID']) if ENV['APPLE_DEVELOPER_PORTAL_ID'] # Your Apple Developer Portal username
+type "#{type}"
+app_identifier MatchConfigs[type][:app_identifier]

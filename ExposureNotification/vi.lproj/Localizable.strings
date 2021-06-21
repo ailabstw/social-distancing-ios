@@ -1,0 +1,242 @@
+/* The label text on alert cancellation view to inform user inputs their testing date */
+"AlertCancellationView.TestingDateTitleLabel" = "Nhập ngày tháng điều tra dịch tễ";
+
+/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
+"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "Nhập ngày tháng";
+
+/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
+"AlertCancellationView.PasscodeTitleLabel" = "Vui lòng nhập mã xác nhận";
+
+/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
+"AlertCancellationView.PasscodeFieldPlaceholder" = "Vui lòng nhập mã xác nhận";
+
+/* The introduction text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.Introduction" = "Vui lòng nhập mã xác minh do Cục Y tế cung cấp và trạng thái cảnh báo lây nhiễm của bạn sẽ bị hủy sau khi gửi.";
+
+/* The button title on alert to submit data */
+"Alert.Button.Submit" = "Gửi";
+
+/* The message on alert to indicate the upload is succeed */
+"Alert.Message.UploadSucceed" = "Đăng tải thành công";
+
+/* The message on alert to indicate the upload is failed */
+"Alert.Message.UploadFailed" = "Đăng tải không thành công";
+
+/* The button title on alert for OK */
+"Alert.Button.OK" = "OK";
+
+/* The title on enabling bluetooth alert */
+"EnableBluetoothAlert.Title" = "Bật Bluetooh";
+
+/* The message body on enabling bluetooth alert */
+"EnableBluetoothAlert.Message" = "Tự động bật Bluetooh và dò quét xung quanh, xác nhận nguy cơ lây nhiễm tiềm ẩn.";
+
+/* The button title on alert to cancel action */
+"Alert.Button.Cancel" = "Huỷ";
+
+/* The button title on enabling bluetooth alert to enable bluetooth */
+"EnableBluetoothAlert.Button.Enable" = "OK";
+
+/* The button title on risk status view to enable exposure notification */
+"RiskStatusView.EngageButton.Enable" = "Bật thông báo tiếp xúc";
+
+/* The button title on risk status view to indicate exposure notification has been enabled */
+"RiskStatusView.EngageButton.Enabled" = "Đã bật thông báo tiếp xúc";
+
+/* The label text on risk status view to indicate the engaged date and uptime ratio */
+"RiskStatusView.EngageDateAndUptimeRatioLabel" = "Thông báo đã được bật %2$@\n Mức thời gian hoạt động %1$.01f%%";
+
+/* The label text on risk status view to indicate the last time checking exposures */
+"RiskStatusView.LastCheckTimeLabel" = "Thời gian kiểm tra lần trước là %@";
+
+/* The title of action sheet on risk status view for more features */
+"RiskStatusView.MoreActionSheet.Title" = "Chức năng khác";
+
+/* The title of action sheet on risk status view for upload anonymous IDs */
+"RiskStatusView.MoreActionSheet.Item.UploadIDs.Title" = "Người nhiễm bệnh tải lên ID ẩn danh";
+
+/* The title of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Title" = "Bạn có phải là một trường hợp được xác nhận nhiễm COVID-19?";
+
+/* The message body of alert on risk status view for upload anonymous IDs */
+"RiskStatusView.UploadIDsAlert.Message" = "Tính năng này cho phép các trường hợp dương tính công khai ID thiết bị nhằm phục vụ công tác truy vết nguồn lây COVID-19.";
+
+/* The title of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Title" = "Bạn có chắc chắn muốn xóa trạng thái cảnh báo lây nhiễm không?";
+
+/* The message body of alert on risk status view for alert cancellation */
+"RiskStatusView.AlertCancellationAlert.Message" = "Tính năng này cung cấp chức năng xóa bỏ trạng thái cảnh báo lây nhiễm sau khi đã hoàn tất điều tra dịch bệnh.";
+
+/* The button title on alert for Yes */
+"Alert.Button.Yes" = "Có";
+
+/* The button title on alert for No */
+"Alert.Button.No" = "Không";
+
+/* The title of personal data protection note view */
+"PersonalDataProtectionNote.Title" = "Điều khoản và Bảo mật";
+
+/* The label text on upload keys view to inform user inputs the date span to upload */
+"UploadKeysView.DateSpanTitleLabel" = "Vui lòng nhập thời gian bắt đầu";
+
+/* The label text on upload keys view to inform user inputs the start date to upload */
+"UploadKeysView.BeginDateTitleLabel" = "Thời gian bắt đầu";
+
+/* The label text on upload keys view to inform user inputs the end date to upload */
+"UploadKeysView.EndDateTitleLabel" = "Thời gian kết thúc";
+
+/* The label text on upload keys view to inform user inputs their verification code to upload keys */
+"UploadKeysView.PasscodeTitleLabel" = "Vui lòng nhập mã xác nhận";
+
+/* The text field placeholder text on upload keys view to inform user to input their verification code to upload keys here */
+"UploadKeysView.PasscodeFieldPlaceholder" = "Vui lòng nhập mã xác nhận";
+
+/* The message body on upload keys view for introduction */
+"UploadKeysView.IntroductionMessage" = "Vui lòng nhập mã xác nhận được cung cấp bởi Bộ Y tế và Phúc lợi. Sau khi nhập xong ID ẩn danh của bạn sẽ được tải lên cơ sở dữ liệu của Trung tâm Kiểm soát Dịch bệnh Đài Loan (CDC) và tự động xoá sau 10 ngày.";
+
+/* The title of alert cancellation view */
+"AlertCancellationView.Title" = "Huỷ cảnh báo";
+
+/* The title of settings view */
+"DataControlView.Title" = "Quản lý bảo mật thông tin";
+
+/* The title of item on data control view to enable/disable exposure notification */
+"DataControlView.Item.ExposureNotification" = "Quyền bặt/ tắt thông báo tiếp xúc gần";
+
+/* The title of introduction view for app introduction */
+"IntroductionView.Title" = "Giới thiệu ứng dụng";
+
+/* The title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Title" = "Vui lòng cập nhật hệ thống";
+
+/* The content message of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Message" = "Ứng dụng hiện không hỗ trợ phiên bản iOS này. Vui lòng nâng cấp từ phiên bản iOS 13.7 trở lên.";
+
+/* The button title of introduction about unsupported iOS version */
+"Introduction.UnsupportedOSVersion.Button" = "Nâng cấp ngay";
+
+/* The title of introduction about protecting family */
+"Introduction.ProtectingFamily.Title" = "Bảo vệ bạn và gia đình";
+
+/* The content message of introduction about protecting family */
+"Introduction.ProtectingFamily.Message" = "\"Ứng Dụng Giãn Cách Xã Hội Đài Loan\" được phát triển bởi Phòng thí nghiệm Trí tuệ Nhân tạo Đài Loan và hợp tác với Viện Hành Pháp cùng Trung Tâm Kiểm Soát Dịch Bệnh của Bộ Y tế và Phúc lợi, nhằm mục đích giảm khả năng lây truyền bệnh, từ đó bảo vệ gia đình bạn.";
+
+/* The title of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Title" = "Bảo mật thông tin cá nhân";
+
+/* The content message of introduction about privacy and personal data protection */
+"Introduction.PrivacyProtection.Message" = "\"Ứng Dụng Giãn Cách Xã Hội Đài Loan\" là ứng dụng ẩn danh, người sử dụng không cần đăng ký bất kỳ thông tin cá nhân nào, chỉ sử dụng độ mạnh yếu của tín hiệu Bluetooth để tính khoảng cách giữa các thiết bị.\n\nDịch vụ phân tán này sẽ lưu trữ thông tin của thiết bị mà người dùng tiếp xúc ở trong điện thoại bằng cách dùng kỹ thuật số mã hoá ẩn danh, bảo vệ thông tin cá nhân người sử dụng.";
+
+/* The title of introduction about stop spreading */
+"Introduction.StopSpreading.Title" = "Giảm thiểu lây lan dịch bệnh";
+
+/* The content message of introduction about stop spreading */
+"Introduction.StopSpreading.Message" = "Người dùng với kết quả xét nghiệm dương tính có thể chọn công khai kết quả và thiết bị của mình mà không để lộ bất kì thông tin cá nhân nào. Mục đích nhằm cảnh báo những thiết bị xung quanh khi có tiếp xúc gần. Quy trình này đảm bảo tuyệt đối tính bảo mật và ẩn danh của tất cả người dùng, đồng thời góp phần ứng phó với dịch bệnh hiệu quả trên nền tảng thông tin kịp thời và chính xác.";
+
+/* The button title of introduction about start using */
+"Introduction.Button.StartUsing" = "Bắt đầu";
+
+/* The title of risk status view */
+"RiskStatusView.Title" = "Giãn Cách Xã Hội";
+
+/* The content title on risk status view when scanning */
+"RiskStatusView.Content.Scanning.Title" = "Đang dò quét";
+
+/* The content title on risk status view when risky */
+"RiskStatusView.Content.Risky.Title" = "Bạn đã tiếp xúc gần với trường hợp dương tính COVID-19";
+
+/* The content message on risk status view when risky */
+"RiskStatusView.Content.Risky.Message" = "Hãy gọi ngay đường dây nóng 1922 hoặc Sở Y tế địa phương để báo cáo tình trạng đồng thời chú ý quan sát mọi biểu hiện của mình. Hãy tìm đến sự hỗ trợ y tế khi có bất kì triệu chứng nào.";
+
+/* The content title on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Title" = "Bạn đang tắt thông báo tiếp xúc gần";
+
+/* The content message on risk status view when not tracing */
+"RiskStatusView.Content.NotTracing.Message" = "Hãy bật thông báo tiếp xúc gần để theo dõi nguy cơ lây bệnh của mình.";
+
+/* The content title on risk status view when clear */
+"RiskStatusView.Content.Clear.Title" = "Bạn chưa tiếp xúc gần với trường hợp dương tính COVID-19";
+
+/* The content message on risk status view when clear */
+"RiskStatusView.Content.Clear.Message" = "Xin hãy tiếp tục thực hiện giãn cách an toàn.";
+
+/* The title of upload keys view */
+"UploadKeysView.Title" = "Tải lên ID ẩn danh";
+
+/* The title on notification not enabled alert */
+"NotificationNotEnabledAlert.Title" = "Thông báo tiếp xúc gần chưa được bật";
+
+/* The body message on notification not enabled alert */
+"NotificationNotEnabledAlert.Message" = "Vui lòng trao quyền thông báo tiếp xúc gần để nhận kết quả trong thời gian thực.";
+
+/* The button title on alert to allow app to grant permission */
+"Alert.Button.Allow" = "Cho phép";
+
+/* The title on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Title" = "Đã tắt thông báo tiếp xúc gần";
+
+/* The body message on bluetooth not enabled notification */
+"BluetoothNotEnabledNotification.Message" = "Thông báo tiếp xúc gần hiện đã đóng vì Bluetooth đã tắt";
+
+/* The title on detection result notification */
+"DetectionResultNotification.Title" = "Kết quả kiểm tra lây nhiễm";
+
+/* The body message on detection result notification for not risky */
+"DetectionResultNotification.Message.Clear" = "Không có nguy cơ lây nhiễm";
+
+/* The body message on detection result notification for risky */
+"DetectionResultNotification.Message.Risky" = "Có nguy cơ lây nhiễm: Vui lòng mở ứng dụng để xem thêm thông tin";
+
+/* The title of new version available alert */
+"NewVersionAvailableAlert.Title" = "Thông báo cập nhật ứng dụng";
+
+/* The message body of new version available alert */
+"NewVersionAvailableAlert.Message" = "Vui lòng cập nhật trên App Store.";
+
+/* The button title on alert for doing something later */
+"Alert.Button.Later" = "Xin chờ";
+
+/* The updates now button title of new version available alert */
+"NewVersionAvailableAlert.Button.UpdateNow" = "Cập nhật ngay";
+
+/* The title of 1922 SMS Contact Tracing Scanner */
+"QRCodeScannerViewModel.Title" = "1922 SMS Contact Tracing";
+
+/* The toast message for QR code is not a 1922 SMS contact tracing QR code */
+"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "Not valid 1922 SMS contact tracing QR code";
+
+/* The title of alert for asking to go to Messages app to send SMS */
+"QRCodeScannerViewController.SendSMSAlert.Title" = "Open Messages to send SMS?";
+
+/* The button title on alert to not allow app to grant permission */
+"Alert.Button.NotAllow" = "Don't Allow";
+
+/* The title of alert for requesting to access user's camera */
+"AccessCameraAlert.Title" = "Taiwan Social Distancing Would Like to Access the Camera";
+
+/* The body message of alert for requesting to access user's camera */
+"AccessCameraAlert.Message" = "Taiwan Social Distancing uses the camera to scan QR code for 1922 SMS contact tracing registration.";
+
+/* The title of FAQ view */
+"FAQ.Title" = "FAQ";
+
+/* The punctuation at the beginning of each paragraph to indicate header */
+"RiskStatusView.DetailTextParagraphHeaderSeparator" = ":";
+
+/* The title on home screen shortcut for scanning 1922 SMS QR code */
+"ShortcutItem.QRCodeScanningAction.Title" = "Scan 1922 QR Code";
+
+/* The title of daily summary view */
+"DailySummaryViewModel.Title" = "Daily Summary";
+
+/* The label text on daily summary view to indicate the last time checking exposures */
+"DailySummaryViewModel.LastCheckTimeLabel" = "Last checked at %@";
+
+/* The message on Daily Summary view for no contact */
+"DaySummaryCellViewModel.ExposureDuration.NoContact" = "No contact";
+
+/* The message on Daily Summary view for contact less than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "Less than 2 mins";
+
+/* The message on Daily Summary view for contact more than 2 minutes */
+"DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "%@";
