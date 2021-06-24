@@ -12,7 +12,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private var savedShortCutItem: UIApplicationShortcutItem?
+    private var savedShortcutItem: UIApplicationShortcutItem?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         */
         if let shortcutItem = connectionOptions.shortcutItem {
             // Save it off for later when we become active.
-            savedShortCutItem = shortcutItem
+            savedShortcutItem = shortcutItem
         }
     }
 
@@ -48,9 +48,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Not called under iOS 12 - See AppDelegate applicationDidBecomeActive
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        if let shortcutItem = savedShortCutItem {
-            _ = AppCoordinator.shared.handleShortCutItem(shortcutItem: shortcutItem)
-            savedShortCutItem = nil
+        if let shortcutItem = savedShortcutItem {
+            _ = AppCoordinator.shared.handleShortcutItem(shortcutItem: shortcutItem)
+            savedShortcutItem = nil
         }
     }
 
@@ -80,7 +80,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func windowScene(_ windowScene: UIWindowScene,
                      performActionFor shortcutItem: UIApplicationShortcutItem,
                      completionHandler: @escaping (Bool) -> Void) {
-        let handled = AppCoordinator.shared.handleShortCutItem(shortcutItem: shortcutItem)
+        let handled = AppCoordinator.shared.handleShortcutItem(shortcutItem: shortcutItem)
         completionHandler(handled)
     }
 }

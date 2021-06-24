@@ -269,7 +269,7 @@ extension AppCoordinator {
         }
     }
 
-    func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    func handleShortcutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
         /** In this sample an alert is being shown to indicate that the action has been triggered,
             but in real code the functionality for the quick action would be triggered.
         */
