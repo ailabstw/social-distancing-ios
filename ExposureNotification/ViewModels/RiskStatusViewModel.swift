@@ -36,6 +36,11 @@ class RiskStatusViewModel {
             case .unknown:
                 diagnosis = ("", "")
             }
+
+            // Delay 0.1 to wait banner resized.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.loadHints()
+            }
         }
     }
     
@@ -76,7 +81,7 @@ class RiskStatusViewModel {
 
     var isHintPresentable: Bool = false {
         didSet {
-            pendingHints = isHintPresentable ? HintManager.shared.pendingHints.filter { supportedHints.contains($0) } : []
+            loadHints()
         }
     }
 
@@ -107,7 +112,7 @@ class RiskStatusViewModel {
                 self.lastCheckedDateTime = ExposureManager.shared.dateLastPerformedExposureDetection
             },
             HintManager.shared.$pendingHints { [unowned self] in
-                self.pendingHints = HintManager.shared.pendingHints.filter { self.supportedHints.contains($0) }
+                self.loadHints()
             }
         ]
 
@@ -158,6 +163,27 @@ class RiskStatusViewModel {
         case (.unknown, _):
             status = .unknown
         }
+    }
+
+    private func loadHints() {
+        guard isHintPresentable else {
+            pendingHints = []
+            return
+        }
+
+        pendingHints = HintManager.shared.pendingHints
+            .filter {
+                switch $0 {
+                case .dailySummaryHint:
+                    return [.risky, .clear].contains(self.status)
+
+                case .qrCodeScannerHint:
+                    return true
+
+                default:
+                    return false
+                }
+            }
     }
 }
 
