@@ -349,7 +349,6 @@ class RiskStatusViewController: UIViewController {
             self?.uptimeLabel.text = Localizations.RiskStatusView.engageDateAndUptimeRatioLabel(uptimeRatio: statistic.uptimeRatio, engageDate: statistic.engageDate)
         }
 
-
         viewModel.$lastCheckedDateTime { [weak self] (lastCheckedDateTime) in
             guard lastCheckedDateTime != .distantPast else {
                 self?.lastCheckedDateTimeLabel.text = ""
