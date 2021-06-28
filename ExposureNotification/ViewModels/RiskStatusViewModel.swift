@@ -126,7 +126,7 @@ class RiskStatusViewModel {
             // Nothing to do.
             break
 
-        case .inactive(.disabled), .unknown:
+        case .inactive(.disabled), .inactive(.unauthorized), .unknown:
             ExposureManager.shared.setExposureNotificationEnabled(true) { (error) in
                 if let error = error {
                     logger.error("\(error)")

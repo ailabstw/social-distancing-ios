@@ -378,7 +378,7 @@ class RiskStatusViewController: UIViewController {
 
         viewModel.engageErrorHandler = { [weak self] (reason) in
             switch reason {
-            case .disabled:
+            case .disabled, .unauthorized:
                 #if DEBUG
                 fatalError("Engage error .disabled should be handled in RiskStatusViewModel.")
                 #endif
@@ -391,7 +391,7 @@ class RiskStatusViewController: UIViewController {
                 })
                 self?.present(confirm, animated: true, completion: nil)
 
-            case .notAuthorized:
+            case .denied:
                 AppCoordinator.shared.openSettingsApp()
 
             case .restricted:

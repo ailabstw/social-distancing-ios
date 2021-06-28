@@ -58,7 +58,7 @@ class DataControlViewController: UIViewController {
 
         viewModel.exposureNotificationEngageHandler = { [weak self] (reason, completion) in
             switch reason {
-            case .disabled:
+            case .disabled, .unauthorized:
                 completion()
 
             case .bluetoothOff:
@@ -72,7 +72,7 @@ class DataControlViewController: UIViewController {
                 })
                 self?.present(confirm, animated: true, completion: nil)
 
-            case .notAuthorized:
+            case .denied:
                 AppCoordinator.shared.openSettingsApp()
                 completion()
 
