@@ -116,10 +116,10 @@ class ExposureManager {
         case (_, _) where Self.supportedExposureNotificationsVersion != .version2:
             exposureNotificationStatus = .inactive(.unsupported)
 
-        case (.unknown, _):
+        case (_, .unknown):
             exposureNotificationStatus = .unknown
 
-        case (.notAuthorized, _), (_, .unauthorized):
+        case (.notAuthorized, _), (_, .unauthorized), (.unknown, _):
             exposureNotificationStatus = .inactive(.notAuthorized)
 
         case (.restricted, _), (_, .restricted):

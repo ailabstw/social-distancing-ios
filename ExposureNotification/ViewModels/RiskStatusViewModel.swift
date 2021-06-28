@@ -110,6 +110,8 @@ class RiskStatusViewModel {
                 self.pendingHints = HintManager.shared.pendingHints.filter { self.supportedHints.contains($0) }
             }
         ]
+
+        updateStatus()
     }
     
     deinit {
