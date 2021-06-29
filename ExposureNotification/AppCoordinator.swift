@@ -64,6 +64,13 @@ class AppCoordinator: UIViewController {
 
     private var observers: [NSObjectProtocol] = []
 
+    var overlayWindow: OverlayWindow? {
+        didSet {
+            oldValue?.delegate = nil
+            overlayWindow?.delegate = self
+        }
+    }
+
     private init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -143,6 +150,7 @@ class AppCoordinator: UIViewController {
         case .ready:
             contentViewController = UINavigationController(rootViewController: RiskStatusViewController(viewModel: RiskStatusViewModel()))
             installShortcutItems()
+            HintManager.shared.isEnabled = true
         }
     }
     
@@ -180,6 +188,27 @@ class AppCoordinator: UIViewController {
 
     func openSettingsApp() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
+
+    func showOverlay(for hint: Hint, from sourceRect: CGRect) {
+        overlayWindow?.showHint(hint, from: sourceRect)
+        overlayWindow?.isHidden = false
+    }
+
+    func showOverlay(for hint: Hint, from sourceView: UIView) {
+        showOverlay(for: hint, from: self.view.convert(sourceView.bounds, from: sourceView))
+    }
+
+    func showOverlay(for hint: Hint, from sourceBarItem: UIBarItem) {
+        guard let sourceView = sourceBarItem.value(forKey: "view") as? UIView else {
+            return
+        }
+
+        showOverlay(for: hint, from: sourceView)
+    }
+
+    func hideOverlay() {
+        overlayWindow?.isHidden = true
     }
 }
 
@@ -244,6 +273,8 @@ extension AppCoordinator {
         /** In this sample an alert is being shown to indicate that the action has been triggered,
             but in real code the functionality for the quick action would be triggered.
         */
+        HintManager.shared.isEnabled = false
+
         if let actionTypeValue = ActionType(rawValue: shortcutItem.type) {
             switch actionTypeValue {
             case .qrCodeScanningAction:
@@ -260,6 +291,17 @@ extension AppCoordinator {
         }
 
         return true
+    }
+}
+
+extension AppCoordinator: OverlayWindowDelegate {
+    func overlayWindow(_ window: OverlayWindow, didReceiveEvent event: OverlayWindow.Event) {
+        switch event {
+        case .done:
+            if let hint = window.hint {
+                HintManager.shared.didPresentHint(hint)
+            }
+        }
     }
 }
 

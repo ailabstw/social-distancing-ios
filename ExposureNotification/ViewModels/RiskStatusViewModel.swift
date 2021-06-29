@@ -72,6 +72,17 @@ class RiskStatusViewModel {
         }
     }
 
+    let supportedHints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint]
+
+    var isHintPresentable: Bool = false {
+        didSet {
+            pendingHints = isHintPresentable ? HintManager.shared.pendingHints.filter { supportedHints.contains($0) } : []
+        }
+    }
+
+    @Observed(queue: .main)
+    private(set) var pendingHints: [Hint] = []
+
     var engageErrorHandler: ((ExposureManager.InactiveReason) -> Void)?
 
     var appUpdatesHandler: (() -> Void)?
@@ -94,6 +105,9 @@ class RiskStatusViewModel {
             },
             ExposureManager.shared.$dateLastPerformedExposureDetection { [unowned self] in
                 self.lastCheckedDateTime = ExposureManager.shared.dateLastPerformedExposureDetection
+            },
+            HintManager.shared.$pendingHints { [unowned self] in
+                self.pendingHints = HintManager.shared.pendingHints.filter { self.supportedHints.contains($0) }
             }
         ]
     }
