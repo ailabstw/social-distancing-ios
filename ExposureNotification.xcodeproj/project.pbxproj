@@ -33,6 +33,7 @@
 		9E2474AA264BBB2A00FB732F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E2474AC264BBB2A00FB732F /* Localizable.strings */; };
 		9E24753E2651790400FB732F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E2475402651790400FB732F /* InfoPlist.strings */; };
 		9E5084A6268AC110007C626B /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A5268AC110007C626B /* Hint.swift */; };
+		9E5084A8268AC33B007C626B /* HintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A7268AC33B007C626B /* HintManager.swift */; };
 		9E64FBE32601D6CA00C84695 /* Notified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64FBE22601D6CA00C84695 /* Notified.swift */; };
 		9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */; };
 		9E6C22DC26673E770029EFC2 /* DailySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */; };
@@ -101,6 +102,7 @@
 		9E24753F2651790400FB732F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E2475412651790800FB732F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		9E5084A5268AC110007C626B /* Hint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
+		9E5084A7268AC33B007C626B /* HintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintManager.swift; sourceTree = "<group>"; };
 		9E64FBE22601D6CA00C84695 /* Notified.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notified.swift; sourceTree = "<group>"; };
 		9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewModel.swift; sourceTree = "<group>"; };
 		9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			children = (
 				9E6E8E25260C780800628164 /* APIManager.swift */,
 				9E08159525F5D6E1008B7424 /* ExposureManager.swift */,
+				9E5084A7268AC33B007C626B /* HintManager.swift */,
 				9E08156925E8D703008B7424 /* PreferenceManager.swift */,
 				9E08157025EE21E2008B7424 /* UserManager.swift */,
 			);
@@ -385,6 +388,7 @@
 				9E89CBF5261EAE4200161384 /* DataControlViewModel.swift in Sources */,
 				9E0814D825E78935008B7424 /* IntroductionPageViewController.swift in Sources */,
 				9E0814DB25E78947008B7424 /* WebViewController.swift in Sources */,
+				9E5084A8268AC33B007C626B /* HintManager.swift in Sources */,
 				9E08158025EF6C49008B7424 /* RiskStatusViewController.swift in Sources */,
 				9E0814D025E783C3008B7424 /* StyledButton.swift in Sources */,
 				9E64FBE32601D6CA00C84695 /* Notified.swift in Sources */,
