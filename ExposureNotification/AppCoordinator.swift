@@ -269,7 +269,7 @@ extension AppCoordinator {
         }
     }
 
-    func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    func handleShortcutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
         /** In this sample an alert is being shown to indicate that the action has been triggered,
             but in real code the functionality for the quick action would be triggered.
         */
@@ -285,7 +285,14 @@ extension AppCoordinator {
                 if let contentViewController = contentViewController as? UINavigationController,
                    let riskViewController = contentViewController.viewControllers.first as? RiskStatusViewController {
                     contentViewController.popToRootViewController(animated: false)
-                    riskViewController.presentQRCodeScanner()
+
+                    if let presentedViewController = riskViewController.presentedViewController as? UINavigationController,
+                       let qrCodeScannerViewController = presentedViewController.viewControllers.first as? QRCodeScannerViewController {
+                        qrCodeScannerViewController.resumeScan()
+                    } else {
+                        presentedViewController?.dismiss(animated: false, completion: nil)
+                        riskViewController.presentQRCodeScanner()
+                    }
                 }
             }
         }

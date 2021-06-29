@@ -152,6 +152,23 @@ class QRCodeScannerViewController: UIViewController {
     @objc private func close(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+
+    func resumeScan() {
+        guard viewModel.sessionConfigurationResult == .success else {
+            return
+        }
+
+        if let composer = presentedViewController {
+            UIView.animate(withDuration: 0.1) { [ weak self] in
+                self?.previewView.alpha = 1.0
+                composer.view.alpha = 0.0
+            } completion: { [weak self] _ in
+                self?.presentedViewController?.dismiss(animated: false, completion: nil)
+            }
+        }
+
+        viewModel.start()
+    }
 }
 
 extension QRCodeScannerViewController: MFMessageComposeViewControllerDelegate {
