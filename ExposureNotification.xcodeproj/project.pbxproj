@@ -35,6 +35,7 @@
 		9E5084A6268AC110007C626B /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A5268AC110007C626B /* Hint.swift */; };
 		9E5084A8268AC33B007C626B /* HintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A7268AC33B007C626B /* HintManager.swift */; };
 		9E5084AA268AC481007C626B /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A9268AC481007C626B /* HintView.swift */; };
+		9E5084AC268AC79F007C626B /* OverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084AB268AC79F007C626B /* OverlayWindow.swift */; };
 		9E64FBE32601D6CA00C84695 /* Notified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64FBE22601D6CA00C84695 /* Notified.swift */; };
 		9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */; };
 		9E6C22DC26673E770029EFC2 /* DailySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */; };
@@ -105,6 +106,7 @@
 		9E5084A5268AC110007C626B /* Hint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
 		9E5084A7268AC33B007C626B /* HintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintManager.swift; sourceTree = "<group>"; };
 		9E5084A9268AC481007C626B /* HintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		9E5084AB268AC79F007C626B /* OverlayWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayWindow.swift; sourceTree = "<group>"; };
 		9E64FBE22601D6CA00C84695 /* Notified.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notified.swift; sourceTree = "<group>"; };
 		9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewModel.swift; sourceTree = "<group>"; };
 		9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				9E5084A9268AC481007C626B /* HintView.swift */,
+				9E5084AB268AC79F007C626B /* OverlayWindow.swift */,
 				9E0814CF25E783C3008B7424 /* StyledButton.swift */,
 				9E89CC01261ECCF300161384 /* TogglableTableViewCell.swift */,
 			);
@@ -400,6 +403,7 @@
 				9E7065942611A7F30057A832 /* ENTemporaryExposureKeyExtensions.swift in Sources */,
 				9E08156A25E8D703008B7424 /* PreferenceManager.swift in Sources */,
 				9E08157125EE21E2008B7424 /* UserManager.swift in Sources */,
+				9E5084AC268AC79F007C626B /* OverlayWindow.swift in Sources */,
 				9E89CBF8261EAEE400161384 /* TableViewCellViewModel.swift in Sources */,
 				9E89CC02261ECCF300161384 /* TogglableTableViewCell.swift in Sources */,
 				9E0BA2C62680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift in Sources */,
