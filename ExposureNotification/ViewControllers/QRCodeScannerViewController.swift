@@ -70,6 +70,11 @@ class QRCodeScannerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        // Enable HintManager, HintManager may be disable because open scanner from shortcut.
+        HintManager.shared.isEnabled = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
