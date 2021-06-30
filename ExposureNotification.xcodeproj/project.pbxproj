@@ -32,6 +32,10 @@
 		9E0BA2C62680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA2C52680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift */; };
 		9E2474AA264BBB2A00FB732F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E2474AC264BBB2A00FB732F /* Localizable.strings */; };
 		9E24753E2651790400FB732F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E2475402651790400FB732F /* InfoPlist.strings */; };
+		9E5084A6268AC110007C626B /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A5268AC110007C626B /* Hint.swift */; };
+		9E5084A8268AC33B007C626B /* HintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A7268AC33B007C626B /* HintManager.swift */; };
+		9E5084AA268AC481007C626B /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A9268AC481007C626B /* HintView.swift */; };
+		9E5084AC268AC79F007C626B /* OverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084AB268AC79F007C626B /* OverlayWindow.swift */; };
 		9E64FBE32601D6CA00C84695 /* Notified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64FBE22601D6CA00C84695 /* Notified.swift */; };
 		9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */; };
 		9E6C22DC26673E770029EFC2 /* DailySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */; };
@@ -99,6 +103,10 @@
 		9E2474AD264BBB3000FB732F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9E24753F2651790400FB732F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E2475412651790800FB732F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9E5084A5268AC110007C626B /* Hint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
+		9E5084A7268AC33B007C626B /* HintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintManager.swift; sourceTree = "<group>"; };
+		9E5084A9268AC481007C626B /* HintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		9E5084AB268AC79F007C626B /* OverlayWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayWindow.swift; sourceTree = "<group>"; };
 		9E64FBE22601D6CA00C84695 /* Notified.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notified.swift; sourceTree = "<group>"; };
 		9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewModel.swift; sourceTree = "<group>"; };
 		9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +200,7 @@
 				9E89CC252629708900161384 /* EngagementStatistic.swift */,
 				9E70659E26130BA30057A832 /* ExportEndpoints.swift */,
 				9E7065A226156BE50057A832 /* ExposureConfiguration.swift */,
+				9E5084A5268AC110007C626B /* Hint.swift */,
 				9E0814C325E75DA2008B7424 /* Introduction.swift */,
 				9E89CC0E26252F4D00161384 /* RiskSummary.swift */,
 				9EAD4B282664BB6D00AC811C /* SMS.swift */,
@@ -221,6 +230,8 @@
 		9E0814CE25E783A2008B7424 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E5084A9268AC481007C626B /* HintView.swift */,
+				9E5084AB268AC79F007C626B /* OverlayWindow.swift */,
 				9E0814CF25E783C3008B7424 /* StyledButton.swift */,
 				9E89CC01261ECCF300161384 /* TogglableTableViewCell.swift */,
 			);
@@ -248,6 +259,7 @@
 			children = (
 				9E6E8E25260C780800628164 /* APIManager.swift */,
 				9E08159525F5D6E1008B7424 /* ExposureManager.swift */,
+				9E5084A7268AC33B007C626B /* HintManager.swift */,
 				9E08156925E8D703008B7424 /* PreferenceManager.swift */,
 				9E08157025EE21E2008B7424 /* UserManager.swift */,
 			);
@@ -382,6 +394,8 @@
 				9E89CBF5261EAE4200161384 /* DataControlViewModel.swift in Sources */,
 				9E0814D825E78935008B7424 /* IntroductionPageViewController.swift in Sources */,
 				9E0814DB25E78947008B7424 /* WebViewController.swift in Sources */,
+				9E5084AA268AC481007C626B /* HintView.swift in Sources */,
+				9E5084A8268AC33B007C626B /* HintManager.swift in Sources */,
 				9E08158025EF6C49008B7424 /* RiskStatusViewController.swift in Sources */,
 				9E0814D025E783C3008B7424 /* StyledButton.swift in Sources */,
 				9E64FBE32601D6CA00C84695 /* Notified.swift in Sources */,
@@ -389,10 +403,12 @@
 				9E7065942611A7F30057A832 /* ENTemporaryExposureKeyExtensions.swift in Sources */,
 				9E08156A25E8D703008B7424 /* PreferenceManager.swift in Sources */,
 				9E08157125EE21E2008B7424 /* UserManager.swift in Sources */,
+				9E5084AC268AC79F007C626B /* OverlayWindow.swift in Sources */,
 				9E89CBF8261EAEE400161384 /* TableViewCellViewModel.swift in Sources */,
 				9E89CC02261ECCF300161384 /* TogglableTableViewCell.swift in Sources */,
 				9E0BA2C62680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift in Sources */,
 				9EAD4B292664BB6D00AC811C /* SMS.swift in Sources */,
+				9E5084A6268AC110007C626B /* Hint.swift in Sources */,
 				9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */,
 				9E70659F26130BA30057A832 /* ExportEndpoints.swift in Sources */,
 				9E0814CB25E77901008B7424 /* WebViewModel.swift in Sources */,
@@ -580,13 +596,13 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-debug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 415;
+				CURRENT_PROJECT_VERSION = 458;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -603,13 +619,13 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-release.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 415;
+				CURRENT_PROJECT_VERSION = 458;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";

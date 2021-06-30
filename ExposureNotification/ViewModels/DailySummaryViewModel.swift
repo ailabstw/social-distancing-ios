@@ -139,7 +139,11 @@ extension Localizations {
         static let title = NSLocalizedString("DailySummaryViewModel.Title",
                                              comment: "The title of daily summary view")
         static func updateTime(date: Date) -> String {
-            String(format: NSLocalizedString("DailySummaryViewModel.LastCheckTimeLabel",
+            guard date != .distantPast else {
+                return ""
+            }
+
+            return String(format: NSLocalizedString("DailySummaryViewModel.LastCheckTimeLabel",
                                              comment: "The label text on daily summary view to indicate the last time checking exposures"),
                    DailySummaryViewModel.dateFormatter.string(from: date))
         }

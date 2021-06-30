@@ -70,6 +70,11 @@ class QRCodeScannerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        // Enable HintManager, HintManager may be disable because open scanner from shortcut.
+        HintManager.shared.isEnabled = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -151,6 +156,23 @@ class QRCodeScannerViewController: UIViewController {
 
     @objc private func close(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    func resumeScan() {
+        guard viewModel.sessionConfigurationResult == .success else {
+            return
+        }
+
+        if let composer = presentedViewController {
+            UIView.animate(withDuration: 0.1) { [ weak self] in
+                self?.previewView.alpha = 1.0
+                composer.view.alpha = 0.0
+            } completion: { [weak self] _ in
+                self?.presentedViewController?.dismiss(animated: false, completion: nil)
+            }
+        }
+
+        viewModel.start()
     }
 }
 
