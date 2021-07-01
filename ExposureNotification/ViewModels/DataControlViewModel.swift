@@ -103,10 +103,12 @@ private extension TracingCellViewModel.State {
 extension Localizations {
     enum DataControlViewModel {
         static let title = NSLocalizedString("DataControlView.Title",
+                                             value: "Exposure Notification Settings",
                                              comment: "The title of settings view")
 
         enum Item {
             static let exposureNotification = NSLocalizedString("DataControlView.Item.ExposureNotification",
+                                                                value: "Notification Service",
                                                                 comment: "The title of item on data control view to enable/disable exposure notification")
         }
     }
