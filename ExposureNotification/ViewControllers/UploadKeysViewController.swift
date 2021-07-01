@@ -440,16 +440,22 @@ extension UploadKeysViewController {
 extension Localizations {
     enum UploadKeysView {
         static let dateSpanTitleLabel = NSLocalizedString("UploadKeysView.DateSpanTitleLabel",
+                                                          value: "Please Enter Start and End Dates",
                                                           comment: "The label text on upload keys view to inform user inputs the date span to upload")
         static let beginDateTitleLabel = NSLocalizedString("UploadKeysView.BeginDateTitleLabel",
+                                                           value: "Start Date",
                                                            comment: "The label text on upload keys view to inform user inputs the start date to upload")
         static let endDateTitleLabel = NSLocalizedString("UploadKeysView.EndDateTitleLabel",
+                                                         value: "End Date",
                                                          comment: "The label text on upload keys view to inform user inputs the end date to upload")
         static let passcodeTitleLabel = NSLocalizedString("UploadKeysView.PasscodeTitleLabel",
+                                                          value: "Please Enter Verification Code",
                                                           comment: "The label text on upload keys view to inform user inputs their verification code to upload keys")
         static let passcodeFieldPlaceholder = NSLocalizedString("UploadKeysView.PasscodeFieldPlaceholder",
+                                                                value: "Verification Code",
                                                                 comment: "The text field placeholder text on upload keys view to inform user to input their verification code to upload keys here")
         static let introductionMessage = NSLocalizedString("UploadKeysView.IntroductionMessage",
+                                                           value: "Please enter the verification code provided by the local Department of Health. After submitting, your anonymous IDs will be uploaded. These data will be stored by the Taiwan Centers for Disease Control and will be automatically deleted after 10 days.",
                                                            comment: "The message body on upload keys view for introduction")
     }
 }
