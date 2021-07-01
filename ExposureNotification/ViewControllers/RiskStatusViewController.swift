@@ -610,6 +610,7 @@ extension Localizations {
     enum RiskStatusView {
         static func engageDateAndUptimeRatioLabel(uptimeRatio: Double, engageDate: Date) -> String {
             String(format: NSLocalizedString("RiskStatusView.EngageDateAndUptimeRatioLabel",
+                                             value: "Exposure Notification operating ratio %.01f%%\n Since enabled at %@",
                                              comment: "The label text on risk status view to indicate the engaged date and uptime ratio"),
                    uptimeRatio * 100,
                    engageDate.displayDateTimeDescription)
@@ -617,6 +618,7 @@ extension Localizations {
 
         static func lastCheckTimeLabel(checkDate: Date) -> String {
             String(format: NSLocalizedString("RiskStatusView.LastCheckTimeLabel",
+                                             value: "Last checked at %@",
                                              comment: "The label text on risk status view to indicate the last time checking exposures"),
                    checkDate.displayDateTimeDescription)
         }
@@ -627,50 +629,63 @@ extension Localizations {
 
         enum EngageButton {
             static let enable = NSLocalizedString("RiskStatusView.EngageButton.Enable",
+                                                  value: "Enable Exposure Notification",
                                                   comment: "The button title on risk status view to enable exposure notification")
             static let enabled = NSLocalizedString("RiskStatusView.EngageButton.Enabled",
+                                                   value: "Notification is Enabled",
                                                    comment: "The button title on risk status view to indicate exposure notification has been enabled")
         }
 
         enum MoreActionSheet {
             static let title = NSLocalizedString("RiskStatusView.MoreActionSheet.Title",
+                                                 value: "More",
                                                  comment: "The title of action sheet on risk status view for more features")
             enum Item {
                 static let uploadIDs = NSLocalizedString("RiskStatusView.MoreActionSheet.Item.UploadIDs.Title",
+                                                         value: "Upload Anonymous IDs",
                                                          comment: "The title of action sheet on risk status view for upload anonymous IDs")
             }
         }
 
         enum AlertCancellationAlert {
             static let title = NSLocalizedString("RiskStatusView.AlertCancellationAlert.Title",
+                                                 value: "Are you sure you want to reset your status?",
                                                  comment: "The title of alert on risk status view for alert cancellation")
             static let message = NSLocalizedString("RiskStatusView.AlertCancellationAlert.Message",
+                                                   value: "Reset status upon completion of contact tracing assessment.",
                                                    comment: "The message body of alert on risk status view for alert cancellation")
         }
 
         enum UploadIDsAlert {
             static let title = NSLocalizedString("RiskStatusView.UploadIDsAlert.Title",
+                                                 value: "Have You Had a Positive Test?",
                                                  comment: "The title of alert on risk status view for upload anonymous IDs")
             static let message = NSLocalizedString("RiskStatusView.UploadIDsAlert.Message",
+                                                   value: "Upload your anonymous IDs to reduce transmission.",
                                                    comment: "The message body of alert on risk status view for upload anonymous IDs")
         }
     }
     
     enum NewVersionAvailableAlert {
         static let title = NSLocalizedString("NewVersionAvailableAlert.Title",
+                                             value: "New Version Available",
                                              comment: "The title of new version available alert")
         static let message = NSLocalizedString("NewVersionAvailableAlert.Message",
+                                               value: "Please update in App Store.",
                                                comment: "The message body of new version available alert")
         enum Button {
             static let updateNow = NSLocalizedString("NewVersionAvailableAlert.Button.UpdateNow",
+                                                     value: "Update Now",
                                                      comment: "The updates now button title of new version available alert")
         }
     }
 
     enum AccessCameraAlert {
         static let title = NSLocalizedString("AccessCameraAlert.Title",
+                                             value: "Taiwan Social Distancing Would Like to Access the Camera",
                                              comment: "The title of alert for requesting to access user's camera")
         static let message = NSLocalizedString("AccessCameraAlert.Message",
+                                               value: "Taiwan Social Distancing uses the camera to scan QR code for 1922 SMS contact tracing registration.",
                                                comment: "The body message of alert for requesting to access user's camera")
     }
 }
