@@ -95,6 +95,7 @@ class UploadKeysViewModel {
 extension Localizations {
     enum UploadKeysViewModel {
         static let title = NSLocalizedString("UploadKeysView.Title",
+                                             value: "Upload Anonymous IDs",
                                              comment: "The title of upload keys view")
     }
 }
