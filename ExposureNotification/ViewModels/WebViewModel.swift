@@ -51,6 +51,7 @@ extension Notification.Name {
 extension Localizations {
     enum PersonalDataProtectionNote {
         static let title = NSLocalizedString("PersonalDataProtectionNote.Title",
+                                             value: "Privacy Policy and Terms of Use",
                                              comment: "The title of personal data protection note view")
     }
     
