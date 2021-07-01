@@ -190,32 +190,40 @@ class RiskStatusViewModel {
 extension Localizations {
     enum RiskStatusViewModel {
         static let title = NSLocalizedString("RiskStatusView.Title",
+                                             value: "Taiwan Social Distancing",
                                              comment: "The title of risk status view")
 
         enum Content {
             enum Scanning {
                 static let title = NSLocalizedString("RiskStatusView.Content.Scanning.Title",
+                                                     value: "Contact Tracing Evaluation",
                                                      comment: "The content title on risk status view when scanning")
             }
 
             enum Risky {
                 static let title = NSLocalizedString("RiskStatusView.Content.Risky.Title",
+                                                     value: "You have been in proximity with registered positive tests",
                                                      comment: "The content title on risk status view when risky")
                 static let message = NSLocalizedString("RiskStatusView.Content.Risky.Message",
+                                                       value: "Stay Calm: You have been identified as a close contact of a confirmed COVID-19 case, but that does NOT mean you are a confirmed case.\nSelf-Health Management: We advise you to conduct self-health management and be aware of your health conditions.\nHealth Conditions: If you have fever or respiratory symptoms, please contact your local health agency, or dial the toll-free hotline \"1922\" for testing arrangement.",
                                                        comment: "The content message on risk status view when risky")
             }
 
             enum NotTracing {
                 static let title = NSLocalizedString("RiskStatusView.Content.NotTracing.Title",
+                                                     value: "Exposure Notification is not enabled",
                                                      comment: "The content title on risk status view when not tracing")
                 static let message = NSLocalizedString("RiskStatusView.Content.NotTracing.Message",
+                                                       value: "Click the button below to enable exposure notification for possible contact with COVID-positive persons.",
                                                        comment: "The content message on risk status view when not tracing")
             }
 
             enum Clear {
                 static let title = NSLocalizedString("RiskStatusView.Content.Clear.Title",
+                                                     value: "No contact with registered positive tests",
                                                      comment: "The content title on risk status view when clear")
                 static let message = NSLocalizedString("RiskStatusView.Content.Clear.Message",
+                                                       value: "Please continue to maintain social distancing.",
                                                        comment: "The content message on risk status view when clear")
             }
         }
