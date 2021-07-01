@@ -104,10 +104,12 @@ class IntroductionViewModel {
 extension Localizations {
     enum IntroductionView {
         static let title = NSLocalizedString("IntroductionView.Title",
+                                             value: "App Introduction",
                                              comment: "The title of introduction view for app introduction")
 
         enum Button {
             static let startUsing = NSLocalizedString("Introduction.Button.StartUsing",
+                                                      value: "Get Started",
                                                       comment: "The button title of introduction about start using")
         }
     }
@@ -115,31 +117,40 @@ extension Localizations {
     enum Introduction {
         enum UnsupportedOSVersion {
             static let title = NSLocalizedString("Introduction.UnsupportedOSVersion.Title",
+                                                 value: "Please Upgrade Your Operating System",
                                                  comment: "The title of introduction about unsupported iOS version")
             static let message = NSLocalizedString("Introduction.UnsupportedOSVersion.Message",
+                                                   value: "Taiwan Social Distancing App supports iOS 13.7 or later.",
                                                    comment: "The content message of introduction about unsupported iOS version")
             static let button = NSLocalizedString("Introduction.UnsupportedOSVersion.Button",
+                                                  value: "Upgrade Your Operating System",
                                                   comment: "The button title of introduction about unsupported iOS version")
         }
 
         enum ProtectingFamily {
             static let title = NSLocalizedString("Introduction.ProtectingFamily.Title",
+                                                 value: "Stay Safe, Keep Your Family Safe",
                                                  comment: "The title of introduction about protecting family")
             static let message = NSLocalizedString("Introduction.ProtectingFamily.Message",
+                                                   value: "The Taiwan Social Distancing App was developed by the Taiwan AI Labs in cooperation with the Executive Yuan and the Taiwan Centers for Disease Control in order to reduce the likelihood of disease transmission and keep people safe.",
                                                    comment: "The content message of introduction about protecting family")
         }
 
         enum PrivacyProtection {
             static let title = NSLocalizedString("Introduction.PrivacyProtection.Title",
+                                                 value: "Privacy and Data Protection",
                                                  comment: "The title of introduction about privacy and personal data protection")
             static let message = NSLocalizedString("Introduction.PrivacyProtection.Message",
+                                                   value: "Taiwan Social Distancing App use is anonymous - users do not need to register and no user data will be collected. The only form of data transmission involved is the observation of Bluetooth signals between handheld devices to calculate the distance between each user. \n\nUser privacy will be ensured via decentralized storage of anonymous IDs for individual devices; contact data will be compiled by each respective device.",
                                                    comment: "The content message of introduction about privacy and personal data protection")
         }
 
         enum StopSpreading {
             static let title = NSLocalizedString("Introduction.StopSpreading.Title",
+                                                 value: "Reduce the Spread of Pandemic",
                                                  comment: "The title of introduction about stop spreading")
             static let message = NSLocalizedString("Introduction.StopSpreading.Message",
+                                                   value: "Users who have tested positive can choose to anonymously publish their device's anonymous IDs. When users with a positive test publish their results, people who have been in proximity to this device and maintained contact for a certain period of time will receive a notification. This process guarantees the anonymity and personal privacy of those who share their positive test results while contributing to keeping our communities informed and diligent in taking preventative and cautionary measures.",
                                                    comment: "The content message of introduction about stop spreading")
         }
     }
