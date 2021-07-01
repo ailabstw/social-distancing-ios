@@ -94,6 +94,7 @@ class AlertCancellationViewModel {
 extension Localizations {
     enum AlertCancellationViewModel {
         static let title = NSLocalizedString("AlertCancellationView.Title",
+                                             value: "Reset Your Status",
                                              comment: "The title of alert cancellation view")
     }
 }

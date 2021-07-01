@@ -371,14 +371,19 @@ extension AlertCancellationViewController {
 extension Localizations {
     enum AlertCancellationView {
         static let testingDateTitleLabel = NSLocalizedString("AlertCancellationView.TestingDateTitleLabel",
+                                                             value: "Please Enter Date of Contact Tracing Assessment",
                                                              comment: "The label text on alert cancellation view to inform user inputs their testing date")
         static let testingDatePickerButtonPlaceholder = NSLocalizedString("AlertCancellationView.TestingDatePickerButtonPlaceholder",
+                                                                          value: "Assessment Date",
                                                                           comment: "The button title placeholder on alert cancellation view to open a date picker to select the date of testing")
         static let passcodeTitleLabel = NSLocalizedString("AlertCancellationView.PasscodeTitleLabel",
+                                                          value: "Please Enter Verification Code",
                                                           comment: "The label text on alert cancellation view to inform user inputs their verification code to cancel alert")
         static let passcodeFieldPlaceholder = NSLocalizedString("AlertCancellationView.PasscodeFieldPlaceholder",
+                                                                value: "Verification Code",
                                                                 comment: "The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here")
         static let introduction = NSLocalizedString("AlertCancellationView.Introduction",
+                                                    value: "Please enter the verification code provided by the local Department of Health. After submitting, the warning will be disabled.",
                                                     comment: "The introduction text on alert cancellation view to inform user what this view is for")
     }
 }
