@@ -8,7 +8,6 @@
 
 import CoreKit
 import Foundation
-import SafariServices
 
 extension WebViewModel {
     static let personalDataProtectionNote = WebViewModel(title: Localizations.PersonalDataProtectionNote.title, urlString: "https://ailabs.tw/taiwan-social-distancing-apppersonal-data-protection-note/")
@@ -29,18 +28,6 @@ class PrivacyWebViewModel: WebViewModel {
     
     func acceptPrivacy() {
         NotificationCenter.default.post(name: .acceptedPrivacy, object: self)
-    }
-}
-
-class SafariViewModel: WebViewModel {
-    let configuration: SFSafariViewController.Configuration
-    let dismissButtonStyle: SFSafariViewController.DismissButtonStyle
-
-    init(title: String, urlString: String, configuration: SFSafariViewController.Configuration = SFSafariViewController.Configuration(), dismissButtonStyle: SFSafariViewController.DismissButtonStyle = .close) {
-        self.configuration = configuration
-        self.dismissButtonStyle = dismissButtonStyle
-
-        super.init(title: title, urlString: urlString)
     }
 }
 

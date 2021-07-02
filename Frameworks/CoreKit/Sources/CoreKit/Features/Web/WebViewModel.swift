@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SafariServices
 
 open class WebViewModel {
     public let title: String?
@@ -47,5 +48,17 @@ open class AgreementWebViewModel: WebViewModel {
     
     open func acceptAgreement() {
         agreementDidAccept?()
+    }
+}
+
+open class SafariViewModel: WebViewModel {
+    public let configuration: SFSafariViewController.Configuration
+    public let dismissButtonStyle: SFSafariViewController.DismissButtonStyle
+
+    public required init(title: String, urlString: String, configuration: SFSafariViewController.Configuration = SFSafariViewController.Configuration(), dismissButtonStyle: SFSafariViewController.DismissButtonStyle = .close) {
+        self.configuration = configuration
+        self.dismissButtonStyle = dismissButtonStyle
+
+        super.init(title: title, urlString: urlString)
     }
 }
