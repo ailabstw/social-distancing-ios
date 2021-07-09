@@ -143,6 +143,10 @@ class RiskStatusViewModel {
         }
     }
 
+    func replayHints() {
+        HintManager.shared.replayHints()
+    }
+
     #if DEBUG
     func debugSetRiskStatus(_ status: UserManager.RiskStatus) {
         riskStatus = status
