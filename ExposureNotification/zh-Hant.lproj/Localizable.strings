@@ -246,3 +246,9 @@
 
 /* Title for hint of adding daily summary page */
 "Hint.DailySummary.Title" = "新增「每日接觸狀況」資訊頁面";
+
+/* The title of action sheet on risk status view for replaying hints */
+"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "功能提示";
+
+/* Title for hint of replaying hints */
+"Hint.ReplayHints.Title" = "若要再次查看提示，可以點選右上方選單裡的「功能提示」選項喔～";

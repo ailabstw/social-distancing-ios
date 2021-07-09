@@ -487,6 +487,10 @@ class RiskStatusViewController: UIViewController {
         alert.addAction(UIAlertAction(title: Localizations.FAQ.title, style: .default) { [weak self] action in
             self?.present(SFSafariViewController(viewModel: .faq), animated: true, completion: nil)
         })
+
+        alert.addAction(UIAlertAction(title: Localizations.RiskStatusView.MoreActionSheet.Item.replayHints, style: .default, handler: { [weak self] _ in
+            self?.viewModel.replayHints()
+        }))
         
         alert.addAction(UIAlertAction(title: Localizations.Alert.Button.cancel, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -573,6 +577,9 @@ class RiskStatusViewController: UIViewController {
         case .qrCodeScannerHint:
             AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.leftBarButtonItem!)
 
+        case .replayHints:
+            AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.rightBarButtonItem!)
+
         default:
             return
         }
@@ -644,6 +651,9 @@ extension Localizations {
                 static let uploadIDs = NSLocalizedString("RiskStatusView.MoreActionSheet.Item.UploadIDs.Title",
                                                          value: "Upload Anonymous IDs",
                                                          comment: "The title of action sheet on risk status view for upload anonymous IDs")
+                static let replayHints = NSLocalizedString("RiskStatusView.MoreActionSheet.Item.ReplayHints.Title",
+                                                           value: "Hints",
+                                                           comment: "The title of action sheet on risk status view for replaying hints")
             }
         }
 

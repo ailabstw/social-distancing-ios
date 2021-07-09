@@ -33,6 +33,8 @@ extension Hint {
                                         title: Localizations.Hint.QRCodeScanner.title)
     static let dailySummaryHint = Hint(id: "Hint.DailySummary",
                                        title: Localizations.Hint.DailySummary.title)
+    static let replayHints = Hint(id: "Hint.ReplayHints",
+                                  title: Localizations.Hint.ReplayHints.title)
 }
 
 extension Localizations {
@@ -47,6 +49,12 @@ extension Localizations {
             static let title = NSLocalizedString("Hint.DailySummary.Title",
                                                  value: "Add \"Daily Summary\" Page",
                                                  comment: "Title for hint of adding daily summary page")
+        }
+
+        enum ReplayHints {
+            static let title = NSLocalizedString("Hint.ReplayHints.Title",
+                                                 value: "You can check the hints again from the menu.",
+                                                 comment: "Title for hint of replaying hints")
         }
     }
 }

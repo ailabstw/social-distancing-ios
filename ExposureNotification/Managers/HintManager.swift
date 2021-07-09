@@ -21,7 +21,7 @@ class HintManager {
     @Persisted(userDefaultsKey: "presentedHintIDs", notificationName: HintManager.presentedHintIDsDidChangeNotification, defaultValue: [])
     private var presentedHintIDs: Set<Hint.ID>
 
-    private let hints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint]
+    private let hints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint, .replayHints]
 
     @Notified(notificationName: HintManager.pendingHintIDsDidChangeNotification)
     private(set) var pendingHints: [Hint] = []
@@ -35,6 +35,10 @@ class HintManager {
 
         presentedHintIDs.insert(hint.id)
         pendingHints.removeAll { $0 == hint }
+    }
+
+    func replayHints() {
+        pendingHints = hints
     }
 
     #if DEBUG
