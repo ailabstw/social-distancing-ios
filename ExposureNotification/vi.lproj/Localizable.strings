@@ -98,10 +98,10 @@
 "AlertCancellationView.Title" = "Huỷ cảnh báo";
 
 /* The title of settings view */
-"DataControlView.Title" = "Quản lý bảo mật thông tin";
+"SettingsView.Title" = "Quản lý bảo mật thông tin";
 
 /* The title of item on data control view to enable/disable exposure notification */
-"DataControlView.Item.ExposureNotification" = "Quyền bặt/ tắt thông báo tiếp xúc gần";
+"SettingsView.Item.ExposureNotification" = "Quyền bặt/ tắt thông báo tiếp xúc gần";
 
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "Giới thiệu ứng dụng";
