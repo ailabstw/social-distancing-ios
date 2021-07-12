@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = UIColor.clear
         view.tableFooterView = UIView()
         view.alwaysBounceVertical = false
-        view.register(TogglableTableViewCell.self, forCellReuseIdentifier: "TogglableTableViewCell")
+        view.register(cellWithClass: TogglableTableViewCell.self)
         
         return view
     }()
@@ -112,7 +112,7 @@ extension DataControlViewController: UITableViewDataSource {
         
         switch itemViewModel {
         case is TracingCellViewModel:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TogglableTableViewCell", for: indexPath) as! TogglableTableViewCell
+            let cell = tableView.dequeueReusableCell(withClass: TogglableTableViewCell.self, for: indexPath)
             
             cell.viewModel = itemViewModel as! TracingCellViewModel
             
