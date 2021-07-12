@@ -12,7 +12,7 @@
 
 ● 在自願的基礎上使用
 
-可以依個人意願安裝或移除app。
+可以依個人意願安裝或移除 App。
 
 ● 減少經濟衝擊
 
@@ -25,3 +25,16 @@
 ● 拯救生命
 
 確診患者可以在匿名的情況下，與有接觸他的人分享接觸資訊。在兼顧隱私保護的情形下，拯救其他生命。
+
+● Stay Safe, Keep Your Family Safe
+
+The Taiwan Social Distancing App was developed by the Taiwan AI Labs in cooperation with the Executive Yuan and the Taiwan Centers for Disease Control in order to reduce the likelihood of disease transmission and keep people safe.
+
+● Privacy and Data Protection
+
+Taiwan Social Distancing App use is anonymous - users do not need to register and no user data will be collected. The only form of data transmission involved is the observation of Bluetooth signals between handheld devices to calculate the distance between each user. \n\nUser privacy will be ensured via decentralized storage of anonymous IDs for individual devices; contact data will be compiled by each respective device.
+
+● Reduce the Spread of Pandemic
+
+Users who have tested positive can choose to anonymously publish their device's  anonymous IDs. When users with a positive test publish their results, people who have been in proximity to this device and maintained contact for a certain period of time will receive a notification. This process guarantees the anonymity and personal privacy of those who share their positive test results while contributing to keeping our communities informed and diligent in taking preventative and cautionary measures.
+
