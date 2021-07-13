@@ -97,16 +97,11 @@ class UploadKeysViewController: UIViewController {
         let picker = UIDatePicker()
 
         picker.datePickerMode = .date
-        //FIXME: .inline will conflict with tap gesture.
-//        if #available(iOS 14, *) {
-//            picker.preferredDatePickerStyle = .inline
-//        } else if #available(iOS 13.4, *) {
-//            picker.preferredDatePickerStyle = .wheels
-//        }
-        if #available(iOS 13.4, *) {
+        if #available(iOS 14, *) {
+            picker.preferredDatePickerStyle = .inline
+        } else if #available(iOS 13.4, *) {
             picker.preferredDatePickerStyle = .wheels
         }
-
         picker.date = viewModel.minimumStartDate
         picker.minimumDate = viewModel.minimumStartDate
         picker.maximumDate = viewModel.maximumEndDate - 1
@@ -139,16 +134,11 @@ class UploadKeysViewController: UIViewController {
         let picker = UIDatePicker()
 
         picker.datePickerMode = .date
-        //FIXME: .inline will conflict with tap gesture.
-//        if #available(iOS 14, *) {
-//            picker.preferredDatePickerStyle = .inline
-//        } else if #available(iOS 13.4, *) {
-//            picker.preferredDatePickerStyle = .wheels
-//        }
-        if #available(iOS 13.4, *) {
+        if #available(iOS 14, *) {
+            picker.preferredDatePickerStyle = .inline
+        } else if #available(iOS 13.4, *) {
             picker.preferredDatePickerStyle = .wheels
         }
-        
         picker.date = viewModel.maximumEndDate - 1
         picker.minimumDate = viewModel.minimumStartDate
         picker.maximumDate = viewModel.maximumEndDate  - 1
@@ -321,7 +311,9 @@ class UploadKeysViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGestureRecognizer.delegate = self
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func configureViewModel() {
@@ -412,6 +404,25 @@ extension UploadKeysViewController: UITextFieldDelegate {
     
     @objc private func passcodeFieldDidChange(_ sender: UITextField) {
         viewModel.passcode = sender.text ?? ""
+    }
+}
+
+extension UploadKeysViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        // The views that should not be responsed to the tap gesture.
+        let whiteListViews = [startDatePicker, endDatePicker]
+        
+        let location = gestureRecognizer.location(in: gestureRecognizer.view)
+        
+        for view in whiteListViews {
+            let point = view.convert(location, from: gestureRecognizer.view)
+            if view.point(inside: point, with: nil) {
+                return false
+            }
+        }
+        
+        return true
     }
 }
 
