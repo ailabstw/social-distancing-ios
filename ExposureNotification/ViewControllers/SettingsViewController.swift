@@ -1,5 +1,5 @@
 //
-//  DataControlViewController.swift
+//  SettingsViewController.swift
 //  ExposureNotification
 //
 //  Created by Shiva Huang on 2021/4/8.
@@ -9,8 +9,8 @@
 import SnapKit
 import UIKit
 
-class DataControlViewController: UIViewController {
-    private let viewModel: DataControlViewModel
+class SettingsViewController: UIViewController {
+    private let viewModel: SettingsViewModel
     
     private lazy var tableView: UITableView = {
         let view = UITableView()
@@ -25,7 +25,7 @@ class DataControlViewController: UIViewController {
         return view
     }()
     
-    init(viewModel: DataControlViewModel) {
+    init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -99,7 +99,7 @@ extension DataControlViewController: UITableViewDataSource {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    fSettingsViewController: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.items.count
     }
     
@@ -129,7 +129,7 @@ extension DataControlViewController: UITableViewDelegate {
         return nil
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    fSettingsViewController: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
@@ -143,3 +143,4 @@ extension DataControlViewController {
         static let background = UIColor.init(red: (235/255.0), green: (235/255.0), blue: (235/255.0), alpha: 1)
     }
 }
+SettingsViewController
