@@ -480,8 +480,8 @@ class RiskStatusViewController: UIViewController {
             self?.navigationController?.pushViewController(WebViewController(viewModel: .personalDataProtectionNote), animated: true)
         })
 
-        alert.addAction(UIAlertAction(title: Localizations.DataControlViewModel.title, style: .default) { [weak self] action in
-            self?.navigationController?.pushViewController(DataControlViewController(viewModel: DataControlViewModel()), animated: true)
+        alert.addAction(UIAlertAction(title: Localizations.SettingsViewModel.title, style: .default) { [weak self] action in
+            self?.navigationController?.pushViewController(SettingsViewController(viewModel: SettingsViewModel()), animated: true)
         })
         
         alert.addAction(UIAlertAction(title: Localizations.FAQ.title, style: .default) { [weak self] action in

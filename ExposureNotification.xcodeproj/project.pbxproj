@@ -47,9 +47,9 @@
 		9E89CBDB261BFAA500161384 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 9E89CBDA261BFAA500161384 /* Zip */; };
 		9E89CBE2261CC8EE00161384 /* UploadKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBE1261CC8EE00161384 /* UploadKeysViewModel.swift */; };
 		9E89CBE6261CCEDD00161384 /* UploadKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBDE261CC8CB00161384 /* UploadKeysViewController.swift */; };
-		9E89CBF5261EAE4200161384 /* DataControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBF4261EAE4200161384 /* DataControlViewModel.swift */; };
+		9E89CBF5261EAE4200161384 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBF4261EAE4200161384 /* SettingsViewModel.swift */; };
 		9E89CBF8261EAEE400161384 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBF7261EAEE400161384 /* TableViewCellViewModel.swift */; };
-		9E89CBFF261ECCBA00161384 /* DataControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBFE261ECCBA00161384 /* DataControlViewController.swift */; };
+		9E89CBFF261ECCBA00161384 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBFE261ECCBA00161384 /* SettingsViewController.swift */; };
 		9E89CC02261ECCF300161384 /* TogglableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CC01261ECCF300161384 /* TogglableTableViewCell.swift */; };
 		9E89CC0F26252F4D00161384 /* RiskSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CC0E26252F4D00161384 /* RiskSummary.swift */; };
 		9E89CC1B2625705E00161384 /* AlertCancellationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CC1A2625705D00161384 /* AlertCancellationViewModel.swift */; };
@@ -114,9 +114,9 @@
 		9E7065A226156BE50057A832 /* ExposureConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureConfiguration.swift; sourceTree = "<group>"; };
 		9E89CBDE261CC8CB00161384 /* UploadKeysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadKeysViewController.swift; sourceTree = "<group>"; };
 		9E89CBE1261CC8EE00161384 /* UploadKeysViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadKeysViewModel.swift; sourceTree = "<group>"; };
-		9E89CBF4261EAE4200161384 /* DataControlViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControlViewModel.swift; sourceTree = "<group>"; };
+		9E89CBF4261EAE4200161384 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9E89CBF7261EAEE400161384 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
-		9E89CBFE261ECCBA00161384 /* DataControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControlViewController.swift; sourceTree = "<group>"; };
+		9E89CBFE261ECCBA00161384 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9E89CC01261ECCF300161384 /* TogglableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TogglableTableViewCell.swift; sourceTree = "<group>"; };
 		9E89CC0E26252F4D00161384 /* RiskSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskSummary.swift; sourceTree = "<group>"; };
 		9E89CC1A2625705D00161384 /* AlertCancellationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCancellationViewModel.swift; sourceTree = "<group>"; };
@@ -211,10 +211,10 @@
 			children = (
 				9E89CC1A2625705D00161384 /* AlertCancellationViewModel.swift */,
 				9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */,
-				9E89CBF4261EAE4200161384 /* DataControlViewModel.swift */,
 				9E0814C725E7784F008B7424 /* IntroductionViewModel.swift */,
 				9E99630A265DDC0600A35CE6 /* QRCodeScannerViewModel.swift */,
 				9E08157C25EF2B13008B7424 /* RiskStatusViewModel.swift */,
+				9E89CBF4261EAE4200161384 /* SettingsViewModel.swift */,
 				9E89CBF7261EAEE400161384 /* TableViewCellViewModel.swift */,
 				9E89CBE1261CC8EE00161384 /* UploadKeysViewModel.swift */,
 				9E0814CA25E77901008B7424 /* WebViewModel.swift */,
@@ -238,11 +238,11 @@
 			children = (
 				9E89CC1E2625792500161384 /* AlertCancellationViewController.swift */,
 				9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */,
-				9E89CBFE261ECCBA00161384 /* DataControlViewController.swift */,
 				9E0814D725E78935008B7424 /* IntroductionPageViewController.swift */,
 				9E0814D425E78928008B7424 /* IntroductionViewController.swift */,
 				9E996308265DD85E00A35CE6 /* QRCodeScannerViewController.swift */,
 				9E08157F25EF6C49008B7424 /* RiskStatusViewController.swift */,
+				9E89CBFE261ECCBA00161384 /* SettingsViewController.swift */,
 				9E89CBDE261CC8CB00161384 /* UploadKeysViewController.swift */,
 				9E0814DA25E78947008B7424 /* WebViewController.swift */,
 			);
@@ -377,7 +377,7 @@
 				9E89CC1B2625705E00161384 /* AlertCancellationViewModel.swift in Sources */,
 				9E6E8E26260C780800628164 /* APIManager.swift in Sources */,
 				9E0814D525E78928008B7424 /* IntroductionViewController.swift in Sources */,
-				9E89CBF5261EAE4200161384 /* DataControlViewModel.swift in Sources */,
+				9E89CBF5261EAE4200161384 /* SettingsViewModel.swift in Sources */,
 				9E0814D825E78935008B7424 /* IntroductionPageViewController.swift in Sources */,
 				9E0814DB25E78947008B7424 /* WebViewController.swift in Sources */,
 				9E5084AA268AC481007C626B /* HintView.swift in Sources */,
@@ -406,7 +406,7 @@
 				9E08149925E39D56008B7424 /* AppDelegate.swift in Sources */,
 				9E99630B265DDC0600A35CE6 /* QRCodeScannerViewModel.swift in Sources */,
 				9EB0D9A7265B4803006364CA /* Localizations.swift in Sources */,
-				9E89CBFF261ECCBA00161384 /* DataControlViewController.swift in Sources */,
+				9E89CBFF261ECCBA00161384 /* SettingsViewController.swift in Sources */,
 				9E0BA289268068070088D8A4 /* Configurations.swift in Sources */,
 				9E89CC1F2625792500161384 /* AlertCancellationViewController.swift in Sources */,
 				9E08149B25E39D56008B7424 /* SceneDelegate.swift in Sources */,
