@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "CoreKit",
-        "repositoryURL": "https://gitlab.corp.ailabs.tw/yating/client/CoreKit.git",
-        "state": {
-          "branch": null,
-          "revision": "b9db15da3532f8143592acf969d1ac15d8f7b4b4",
-          "version": "0.2.0"
-        }
-      },
-      {
         "package": "PMKAlamofire",
         "repositoryURL": "https://github.com/PromiseKit/PMKAlamofire.git",
         "state": {
@@ -53,15 +44,6 @@
           "branch": null,
           "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
           "version": "1.4.2"
-        }
-      },
-      {
-        "package": "swift-log-SwiftyBeaver",
-        "repositoryURL": "https://gitlab.corp.ailabs.tw/yating/client/swift-log-SwiftyBeaver.git",
-        "state": {
-          "branch": null,
-          "revision": "974be6ca2fb79d9bf1e0ecb233d1a897a78b9714",
-          "version": "0.1.0"
         }
       },
       {
