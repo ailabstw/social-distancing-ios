@@ -296,11 +296,18 @@ class UploadKeysViewController: UIViewController {
             return _view
         }()
         
+        let tapGestureRecognizer: UITapGestureRecognizer = {
+            let _tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            _tapGestureRecognizer.delegate = self
+            return _tapGestureRecognizer
+        }()
+        
+        view.addGestureRecognizer(tapGestureRecognizer)
         view.backgroundColor = Color.background
         
         view.addSubview(stackView)
         view.addSubview(spinner)
-        
+
         stackView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(60)
             $0.left.right.equalTo(view.safeAreaLayoutGuide)
@@ -310,10 +317,6 @@ class UploadKeysViewController: UIViewController {
         spinner.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tapGestureRecognizer.delegate = self
-        view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     private func configureViewModel() {
@@ -410,19 +413,14 @@ extension UploadKeysViewController: UITextFieldDelegate {
 extension UploadKeysViewController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         
-        // The views that should not be responsed to the tap gesture.
+        // The views that should not response to the tap gesture.
         let whiteListViews = [startDatePicker, endDatePicker]
         
-        let location = gestureRecognizer.location(in: gestureRecognizer.view)
-        
-        for view in whiteListViews {
-            let point = view.convert(location, from: gestureRecognizer.view)
-            if view.point(inside: point, with: nil) {
-                return false
-            }
-        }
-        
-        return true
+        return whiteListViews.map {
+            let location = gestureRecognizer.location(in: $0)
+            // Break the chain if touching inside views of white list.
+            return $0.point(inside: location, with: nil) == false
+        }.allSatisfy { $0 }
     }
 }
 
