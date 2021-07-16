@@ -94,12 +94,12 @@ class SettingsViewController: UIViewController {
     }
 }
 
-extension DataControlViewController: UITableViewDataSource {
+extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    fSettingsViewController: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.items.count
     }
     
@@ -124,12 +124,12 @@ extension DataControlViewController: UITableViewDataSource {
     }
 }
 
-extension DataControlViewController: UITableViewDelegate {
+extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
     
-    fSettingsViewController: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
@@ -138,9 +138,8 @@ extension DataControlViewController: UITableViewDelegate {
     }
 }
 
-extension DataControlViewController {
+extension SettingsViewController {
     enum Color {
         static let background = UIColor.init(red: (235/255.0), green: (235/255.0), blue: (235/255.0), alpha: 1)
     }
 }
-SettingsViewController
