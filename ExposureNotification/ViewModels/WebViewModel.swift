@@ -8,7 +8,6 @@
 
 import CoreKit
 import Foundation
-import SafariServices
 
 extension WebViewModel {
     static let personalDataProtectionNote = WebViewModel(title: Localizations.PersonalDataProtectionNote.title, urlString: "https://ailabs.tw/taiwan-social-distancing-apppersonal-data-protection-note/")
@@ -32,18 +31,6 @@ class PrivacyWebViewModel: WebViewModel {
     }
 }
 
-class SafariViewModel: WebViewModel {
-    let configuration: SFSafariViewController.Configuration
-    let dismissButtonStyle: SFSafariViewController.DismissButtonStyle
-
-    init(title: String, urlString: String, configuration: SFSafariViewController.Configuration = SFSafariViewController.Configuration(), dismissButtonStyle: SFSafariViewController.DismissButtonStyle = .close) {
-        self.configuration = configuration
-        self.dismissButtonStyle = dismissButtonStyle
-
-        super.init(title: title, urlString: urlString)
-    }
-}
-
 extension Notification.Name {
     static let acceptedPrivacy = Notification.Name("acceptedPrivacy")
 }
@@ -51,6 +38,7 @@ extension Notification.Name {
 extension Localizations {
     enum PersonalDataProtectionNote {
         static let title = NSLocalizedString("PersonalDataProtectionNote.Title",
+                                             value: "Privacy Policy and Terms of Use",
                                              comment: "The title of personal data protection note view")
     }
     

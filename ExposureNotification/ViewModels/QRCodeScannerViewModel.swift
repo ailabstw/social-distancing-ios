@@ -280,6 +280,7 @@ extension QRCodeScannerViewModel: AVCaptureMetadataOutputObjectsDelegate {
 extension Localizations {
     enum QRCodeScannerViewModel {
         static let title = NSLocalizedString("QRCodeScannerViewModel.Title",
+                                             value: "1922 SMS Contact Tracing",
                                              comment: "The title of 1922 SMS Contact Tracing Scanner")
     }
 }

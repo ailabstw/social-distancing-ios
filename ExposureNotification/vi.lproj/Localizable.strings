@@ -98,10 +98,10 @@
 "AlertCancellationView.Title" = "Huỷ cảnh báo";
 
 /* The title of settings view */
-"DataControlView.Title" = "Quản lý bảo mật thông tin";
+"SettingsView.Title" = "Quản lý bảo mật thông tin";
 
 /* The title of item on data control view to enable/disable exposure notification */
-"DataControlView.Item.ExposureNotification" = "Quyền bặt/ tắt thông báo tiếp xúc gần";
+"SettingsView.Item.ExposureNotification" = "Quyền bặt/ tắt thông báo tiếp xúc gần";
 
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "Giới thiệu ứng dụng";
@@ -246,3 +246,9 @@
 
 /* Title for hint of adding daily summary page */
 "Hint.DailySummary.Title" = "Add \"Daily Summary\" Page";
+
+/* The title of action sheet on risk status view for replaying hints */
+"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "Hints";
+
+/* Title for hint of replaying hints */
+"Hint.ReplayHints.Title" = "You can check the hints again from the menu.";

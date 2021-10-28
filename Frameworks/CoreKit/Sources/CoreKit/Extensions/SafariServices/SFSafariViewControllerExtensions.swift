@@ -6,10 +6,9 @@
 //  Copyright © 2021 AI Labs. All rights reserved.
 //
 
-import CoreKit
 import SafariServices
 
-extension SFSafariViewController {
+public extension SFSafariViewController {
     convenience init(viewModel: WebViewModel) {
         let (configuration, dismissButtonStyle): (Configuration, DismissButtonStyle) = {
             if let safariViewModel = viewModel as? SafariViewModel {

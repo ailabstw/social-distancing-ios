@@ -1,5 +1,5 @@
 //
-//  DataControlViewModel.swift
+//  SettingsViewModel.swift
 //  COVID19
 //
 //  Created by Shiva Huang on 2020/5/26.
@@ -9,9 +9,9 @@
 import CoreKit
 import Foundation
 
-class DataControlViewModel {
+class SettingsViewModel {
     @Observed(queue: .main)
-    private(set) var title: String = Localizations.DataControlViewModel.title
+    private(set) var title: String = Localizations.SettingsViewModel.title
     
     @Observed(queue: .main)
     private(set) var items: [TableViewCellViewModel] = []
@@ -26,7 +26,7 @@ class DataControlViewModel {
     }
 
     private let tracingViewModel = {
-        TracingCellViewModel(title: Localizations.DataControlViewModel.Item.exposureNotification)
+        TracingCellViewModel(title: Localizations.SettingsViewModel.Item.exposureNotification)
     }()
     
     init() {
@@ -101,12 +101,14 @@ private extension TracingCellViewModel.State {
 }
 
 extension Localizations {
-    enum DataControlViewModel {
-        static let title = NSLocalizedString("DataControlView.Title",
+    enum SettingsViewModel {
+        static let title = NSLocalizedString("SettingsView.Title",
+                                             value: "Exposure Notification Settings",
                                              comment: "The title of settings view")
 
         enum Item {
-            static let exposureNotification = NSLocalizedString("DataControlView.Item.ExposureNotification",
+            static let exposureNotification = NSLocalizedString("SettingsView.Item.ExposureNotification",
+                                                                value: "Notification Service",
                                                                 comment: "The title of item on data control view to enable/disable exposure notification")
         }
     }

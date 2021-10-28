@@ -137,6 +137,7 @@ extension Localizations {
         }()
 
         static let title = NSLocalizedString("DailySummaryViewModel.Title",
+                                             value: "Daily Summary",
                                              comment: "The title of daily summary view")
         static func updateTime(date: Date) -> String {
             guard date != .distantPast else {
@@ -144,8 +145,9 @@ extension Localizations {
             }
 
             return String(format: NSLocalizedString("DailySummaryViewModel.LastCheckTimeLabel",
-                                             comment: "The label text on daily summary view to indicate the last time checking exposures"),
-                   DailySummaryViewModel.dateFormatter.string(from: date))
+                                                    value: "Last checked at %@",
+                                                    comment: "The label text on daily summary view to indicate the last time checking exposures"),
+                          DailySummaryViewModel.dateFormatter.string(from: date))
         }
     }
 
@@ -161,11 +163,14 @@ extension Localizations {
             }()
 
             static let noContact = NSLocalizedString("DaySummaryCellViewModel.ExposureDuration.NoContact",
+                                                     value: "No contact",
                                                      comment: "The message on Daily Summary view for no contact")
             static let lessThan2Mins = NSLocalizedString("DaySummaryCellViewModel.ExposureDuration.lessThan2Mins",
+                                                         value: "Less than 2 mins",
                                                          comment: "The message on Daily Summary view for contact less than 2 minutes")
             static func moreThan2Mins(duration: TimeInterval) -> String {
                 String(format: NSLocalizedString("DaySummaryCellViewModel.ExposureDuration.moreThan2Mins",
+                                                 value: "%@",
                                                  comment: "The message on Daily Summary view for contact more than 2 minutes"),
                        Self.dateComponentsFormatter.string(from: duration)!)
             }

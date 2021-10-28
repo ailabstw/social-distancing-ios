@@ -1,5 +1,5 @@
 //
-//  DataControlViewController.swift
+//  SettingsViewController.swift
 //  ExposureNotification
 //
 //  Created by Shiva Huang on 2021/4/8.
@@ -9,8 +9,8 @@
 import SnapKit
 import UIKit
 
-class DataControlViewController: UIViewController {
-    private let viewModel: DataControlViewModel
+class SettingsViewController: UIViewController {
+    private let viewModel: SettingsViewModel
     
     private lazy var tableView: UITableView = {
         let view = UITableView()
@@ -20,12 +20,12 @@ class DataControlViewController: UIViewController {
         view.backgroundColor = UIColor.clear
         view.tableFooterView = UIView()
         view.alwaysBounceVertical = false
-        view.register(TogglableTableViewCell.self, forCellReuseIdentifier: "TogglableTableViewCell")
+        view.register(cellWithClass: TogglableTableViewCell.self)
         
         return view
     }()
     
-    init(viewModel: DataControlViewModel) {
+    init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -94,7 +94,7 @@ class DataControlViewController: UIViewController {
     }
 }
 
-extension DataControlViewController: UITableViewDataSource {
+extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -112,7 +112,7 @@ extension DataControlViewController: UITableViewDataSource {
         
         switch itemViewModel {
         case is TracingCellViewModel:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TogglableTableViewCell", for: indexPath) as! TogglableTableViewCell
+            let cell = tableView.dequeueReusableCell(withClass: TogglableTableViewCell.self, for: indexPath)
             
             cell.viewModel = itemViewModel as! TracingCellViewModel
             
@@ -124,7 +124,7 @@ extension DataControlViewController: UITableViewDataSource {
     }
 }
 
-extension DataControlViewController: UITableViewDelegate {
+extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
@@ -138,7 +138,7 @@ extension DataControlViewController: UITableViewDelegate {
     }
 }
 
-extension DataControlViewController {
+extension SettingsViewController {
     enum Color {
         static let background = UIColor.init(red: (235/255.0), green: (235/255.0), blue: (235/255.0), alpha: 1)
     }

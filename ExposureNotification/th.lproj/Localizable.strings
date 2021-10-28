@@ -98,10 +98,10 @@
 "AlertCancellationView.Title" = "ยกเลิกสถานะการเตือนภัย";
 
 /* The title of settings view */
-"DataControlView.Title" = "จัดการสิทธิ์เข้าถึงข้อมูล";
+"SettingsView.Title" = "จัดการสิทธิ์เข้าถึงข้อมูล";
 
 /* The title of item on data control view to enable/disable exposure notification */
-"DataControlView.Item.ExposureNotification" = "การแจ้งเตือนความเสี่ยงสัมผัส";
+"SettingsView.Item.ExposureNotification" = "การแจ้งเตือนความเสี่ยงสัมผัส";
 
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "เกี่ยวกับแอป";
@@ -246,3 +246,9 @@
 
 /* Title for hint of adding daily summary page */
 "Hint.DailySummary.Title" = "Add \"Daily Summary\" Page";
+
+/* The title of action sheet on risk status view for replaying hints */
+"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "Hints";
+
+/* Title for hint of replaying hints */
+"Hint.ReplayHints.Title" = "You can check the hints again from the menu.";

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		9E08149925E39D56008B7424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08149825E39D56008B7424 /* AppDelegate.swift */; };
 		9E08149B25E39D56008B7424 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08149A25E39D56008B7424 /* SceneDelegate.swift */; };
 		9E08149F25E39D58008B7424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E08149E25E39D58008B7424 /* Assets.xcassets */; };
@@ -29,14 +30,12 @@
 		9E08159625F5D6E1008B7424 /* ExposureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08159525F5D6E1008B7424 /* ExposureManager.swift */; };
 		9E0BA289268068070088D8A4 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA288268068070088D8A4 /* Configurations.swift */; };
 		9E0BA2C32680968E0088D8A4 /* LoggingSwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0BA2C22680968E0088D8A4 /* LoggingSwiftyBeaver */; };
-		9E0BA2C62680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA2C52680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift */; };
 		9E2474AA264BBB2A00FB732F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E2474AC264BBB2A00FB732F /* Localizable.strings */; };
 		9E24753E2651790400FB732F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E2475402651790400FB732F /* InfoPlist.strings */; };
 		9E5084A6268AC110007C626B /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A5268AC110007C626B /* Hint.swift */; };
 		9E5084A8268AC33B007C626B /* HintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A7268AC33B007C626B /* HintManager.swift */; };
 		9E5084AA268AC481007C626B /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084A9268AC481007C626B /* HintView.swift */; };
 		9E5084AC268AC79F007C626B /* OverlayWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5084AB268AC79F007C626B /* OverlayWindow.swift */; };
-		9E64FBE32601D6CA00C84695 /* Notified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E64FBE22601D6CA00C84695 /* Notified.swift */; };
 		9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */; };
 		9E6C22DC26673E770029EFC2 /* DailySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */; };
 		9E6E8E23260C779500628164 /* PMKAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6E8E22260C779500628164 /* PMKAlamofire */; };
@@ -49,9 +48,9 @@
 		9E89CBDB261BFAA500161384 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 9E89CBDA261BFAA500161384 /* Zip */; };
 		9E89CBE2261CC8EE00161384 /* UploadKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBE1261CC8EE00161384 /* UploadKeysViewModel.swift */; };
 		9E89CBE6261CCEDD00161384 /* UploadKeysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBDE261CC8CB00161384 /* UploadKeysViewController.swift */; };
-		9E89CBF5261EAE4200161384 /* DataControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBF4261EAE4200161384 /* DataControlViewModel.swift */; };
+		9E89CBF5261EAE4200161384 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBF4261EAE4200161384 /* SettingsViewModel.swift */; };
 		9E89CBF8261EAEE400161384 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBF7261EAEE400161384 /* TableViewCellViewModel.swift */; };
-		9E89CBFF261ECCBA00161384 /* DataControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBFE261ECCBA00161384 /* DataControlViewController.swift */; };
+		9E89CBFF261ECCBA00161384 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CBFE261ECCBA00161384 /* SettingsViewController.swift */; };
 		9E89CC02261ECCF300161384 /* TogglableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CC01261ECCF300161384 /* TogglableTableViewCell.swift */; };
 		9E89CC0F26252F4D00161384 /* RiskSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CC0E26252F4D00161384 /* RiskSummary.swift */; };
 		9E89CC1B2625705E00161384 /* AlertCancellationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E89CC1A2625705D00161384 /* AlertCancellationViewModel.swift */; };
@@ -66,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13E153FC2656473D002CB898 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -98,7 +98,6 @@
 		9E0BA288268068070088D8A4 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		9E0BA2C1268096560088D8A4 /* swift-log-SwiftyBeaver */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "swift-log-SwiftyBeaver"; path = "Frameworks/swift-log-SwiftyBeaver"; sourceTree = "<group>"; };
 		9E0BA2C4268097070088D8A4 /* CoreKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CoreKit; path = Frameworks/CoreKit; sourceTree = "<group>"; };
-		9E0BA2C52680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariViewControllerExtensions.swift; sourceTree = "<group>"; };
 		9E2474AB264BBB2A00FB732F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E2474AD264BBB3000FB732F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9E24753F2651790400FB732F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -107,7 +106,6 @@
 		9E5084A7268AC33B007C626B /* HintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintManager.swift; sourceTree = "<group>"; };
 		9E5084A9268AC481007C626B /* HintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		9E5084AB268AC79F007C626B /* OverlayWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayWindow.swift; sourceTree = "<group>"; };
-		9E64FBE22601D6CA00C84695 /* Notified.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notified.swift; sourceTree = "<group>"; };
 		9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewModel.swift; sourceTree = "<group>"; };
 		9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewController.swift; sourceTree = "<group>"; };
 		9E6E8E25260C780800628164 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -118,9 +116,9 @@
 		9E7065A226156BE50057A832 /* ExposureConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureConfiguration.swift; sourceTree = "<group>"; };
 		9E89CBDE261CC8CB00161384 /* UploadKeysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadKeysViewController.swift; sourceTree = "<group>"; };
 		9E89CBE1261CC8EE00161384 /* UploadKeysViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadKeysViewModel.swift; sourceTree = "<group>"; };
-		9E89CBF4261EAE4200161384 /* DataControlViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControlViewModel.swift; sourceTree = "<group>"; };
+		9E89CBF4261EAE4200161384 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9E89CBF7261EAEE400161384 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
-		9E89CBFE261ECCBA00161384 /* DataControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControlViewController.swift; sourceTree = "<group>"; };
+		9E89CBFE261ECCBA00161384 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9E89CC01261ECCF300161384 /* TogglableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TogglableTableViewCell.swift; sourceTree = "<group>"; };
 		9E89CC0E26252F4D00161384 /* RiskSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskSummary.swift; sourceTree = "<group>"; };
 		9E89CC1A2625705D00161384 /* AlertCancellationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCancellationViewModel.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				9E08158225EF6E85008B7424 /* Extensions */,
 				9E08156825E8D6C8008B7424 /* Managers */,
 				9E0814C225E75D74008B7424 /* Models */,
-				9E08157425EE27A0008B7424 /* Utilities */,
 				9E0814CE25E783A2008B7424 /* Views */,
 				9E0814D325E788DA008B7424 /* ViewControllers */,
 				9E0814C625E77823008B7424 /* ViewModels */,
@@ -184,6 +181,7 @@
 				9E08149A25E39D56008B7424 /* SceneDelegate.swift */,
 				9E08149E25E39D58008B7424 /* Assets.xcassets */,
 				9EAD4B342665CDA900AC811C /* LaunchScreen.storyboard */,
+				134831CC26AEA99D00B130EC /* Settings.bundle */,
 				9EAD4B2C2664E91600AC811C /* Info.plist */,
 				9E2475402651790400FB732F /* InfoPlist.strings */,
 				9E2474AC264BBB2A00FB732F /* Localizable.strings */,
@@ -216,10 +214,10 @@
 			children = (
 				9E89CC1A2625705D00161384 /* AlertCancellationViewModel.swift */,
 				9E6C22D926660F2D0029EFC2 /* DailySummaryViewModel.swift */,
-				9E89CBF4261EAE4200161384 /* DataControlViewModel.swift */,
 				9E0814C725E7784F008B7424 /* IntroductionViewModel.swift */,
 				9E99630A265DDC0600A35CE6 /* QRCodeScannerViewModel.swift */,
 				9E08157C25EF2B13008B7424 /* RiskStatusViewModel.swift */,
+				9E89CBF4261EAE4200161384 /* SettingsViewModel.swift */,
 				9E89CBF7261EAEE400161384 /* TableViewCellViewModel.swift */,
 				9E89CBE1261CC8EE00161384 /* UploadKeysViewModel.swift */,
 				9E0814CA25E77901008B7424 /* WebViewModel.swift */,
@@ -243,11 +241,11 @@
 			children = (
 				9E89CC1E2625792500161384 /* AlertCancellationViewController.swift */,
 				9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */,
-				9E89CBFE261ECCBA00161384 /* DataControlViewController.swift */,
 				9E0814D725E78935008B7424 /* IntroductionPageViewController.swift */,
 				9E0814D425E78928008B7424 /* IntroductionViewController.swift */,
 				9E996308265DD85E00A35CE6 /* QRCodeScannerViewController.swift */,
 				9E08157F25EF6C49008B7424 /* RiskStatusViewController.swift */,
+				9E89CBFE261ECCBA00161384 /* SettingsViewController.swift */,
 				9E89CBDE261CC8CB00161384 /* UploadKeysViewController.swift */,
 				9E0814DA25E78947008B7424 /* WebViewController.swift */,
 			);
@@ -266,20 +264,11 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		9E08157425EE27A0008B7424 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				9E64FBE22601D6CA00C84695 /* Notified.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		9E08158225EF6E85008B7424 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				9E08158325EF6E9D008B7424 /* DateExtensions.swift */,
 				9E7065932611A7F30057A832 /* ENTemporaryExposureKeyExtensions.swift */,
-				9E0BA2C52680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -375,6 +364,7 @@
 			files = (
 				9E08149F25E39D58008B7424 /* Assets.xcassets in Resources */,
 				9EAD4B352665CDA900AC811C /* LaunchScreen.storyboard in Resources */,
+				134831CD26AEA99D00B130EC /* Settings.bundle in Resources */,
 				9E24753E2651790400FB732F /* InfoPlist.strings in Resources */,
 				9E2474AA264BBB2A00FB732F /* Localizable.strings in Resources */,
 			);
@@ -391,14 +381,13 @@
 				9E89CC1B2625705E00161384 /* AlertCancellationViewModel.swift in Sources */,
 				9E6E8E26260C780800628164 /* APIManager.swift in Sources */,
 				9E0814D525E78928008B7424 /* IntroductionViewController.swift in Sources */,
-				9E89CBF5261EAE4200161384 /* DataControlViewModel.swift in Sources */,
+				9E89CBF5261EAE4200161384 /* SettingsViewModel.swift in Sources */,
 				9E0814D825E78935008B7424 /* IntroductionPageViewController.swift in Sources */,
 				9E0814DB25E78947008B7424 /* WebViewController.swift in Sources */,
 				9E5084AA268AC481007C626B /* HintView.swift in Sources */,
 				9E5084A8268AC33B007C626B /* HintManager.swift in Sources */,
 				9E08158025EF6C49008B7424 /* RiskStatusViewController.swift in Sources */,
 				9E0814D025E783C3008B7424 /* StyledButton.swift in Sources */,
-				9E64FBE32601D6CA00C84695 /* Notified.swift in Sources */,
 				9E7065A326156BE50057A832 /* ExposureConfiguration.swift in Sources */,
 				9E7065942611A7F30057A832 /* ENTemporaryExposureKeyExtensions.swift in Sources */,
 				9E08156A25E8D703008B7424 /* PreferenceManager.swift in Sources */,
@@ -406,7 +395,6 @@
 				9E5084AC268AC79F007C626B /* OverlayWindow.swift in Sources */,
 				9E89CBF8261EAEE400161384 /* TableViewCellViewModel.swift in Sources */,
 				9E89CC02261ECCF300161384 /* TogglableTableViewCell.swift in Sources */,
-				9E0BA2C62680E4F30088D8A4 /* SFSafariViewControllerExtensions.swift in Sources */,
 				9EAD4B292664BB6D00AC811C /* SMS.swift in Sources */,
 				9E5084A6268AC110007C626B /* Hint.swift in Sources */,
 				9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */,
@@ -422,7 +410,7 @@
 				9E08149925E39D56008B7424 /* AppDelegate.swift in Sources */,
 				9E99630B265DDC0600A35CE6 /* QRCodeScannerViewModel.swift in Sources */,
 				9EB0D9A7265B4803006364CA /* Localizations.swift in Sources */,
-				9E89CBFF261ECCBA00161384 /* DataControlViewController.swift in Sources */,
+				9E89CBFF261ECCBA00161384 /* SettingsViewController.swift in Sources */,
 				9E0BA289268068070088D8A4 /* Configurations.swift in Sources */,
 				9E89CC1F2625792500161384 /* AlertCancellationViewController.swift in Sources */,
 				9E08149B25E39D56008B7424 /* SceneDelegate.swift in Sources */,
@@ -596,13 +584,13 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-debug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 458;
+				CURRENT_PROJECT_VERSION = 494;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -619,13 +607,13 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-release.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 458;
+				CURRENT_PROJECT_VERSION = 494;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";

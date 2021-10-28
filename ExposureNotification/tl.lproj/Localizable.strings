@@ -98,10 +98,10 @@
 "AlertCancellationView.Title" = "Isara ang warning notification";
 
 /* The title of settings view */
-"DataControlView.Title" = "Pagkontrol sa awtoridad ng data";
+"SettingsView.Title" = "Pagkontrol sa awtoridad ng data";
 
 /* The title of item on data control view to enable/disable exposure notification */
-"DataControlView.Item.ExposureNotification" = "Exposure Notification Services";
+"SettingsView.Item.ExposureNotification" = "Exposure Notification Services";
 
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "Introduction ng App";
@@ -246,3 +246,9 @@
 
 /* Title for hint of adding daily summary page */
 "Hint.DailySummary.Title" = "Add \"Daily Summary\" Page";
+
+/* The title of action sheet on risk status view for replaying hints */
+"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "Hints";
+
+/* Title for hint of replaying hints */
+"Hint.ReplayHints.Title" = "You can check the hints again from the menu.";

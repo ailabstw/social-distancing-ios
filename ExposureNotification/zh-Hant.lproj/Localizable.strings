@@ -98,10 +98,10 @@
 "AlertCancellationView.Title" = "解除示警狀態";
 
 /* The title of settings view */
-"DataControlView.Title" = "資料權限控管";
+"SettingsView.Title" = "資料權限控管";
 
 /* The title of item on data control view to enable/disable exposure notification */
-"DataControlView.Item.ExposureNotification" = "接觸通知服務";
+"SettingsView.Item.ExposureNotification" = "接觸通知服務";
 
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "App 介紹";
@@ -246,3 +246,9 @@
 
 /* Title for hint of adding daily summary page */
 "Hint.DailySummary.Title" = "新增「每日接觸狀況」資訊頁面";
+
+/* The title of action sheet on risk status view for replaying hints */
+"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "功能提示";
+
+/* Title for hint of replaying hints */
+"Hint.ReplayHints.Title" = "若要再次查看提示，可以點選右上方選單裡的「功能提示」選項喔～";
