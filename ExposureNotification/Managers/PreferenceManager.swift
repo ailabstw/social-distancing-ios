@@ -30,6 +30,9 @@ class UserPreferenceManager {
 
     @Persisted(userDefaultsKey: "isNewVersionAvailable", notificationName: UserPreferenceManager.isNewVersionAvailableDidChangeNotification, defaultValue: false)
     private(set) var isNewVersionAvailable: Bool
+    
+    @Persisted(userDefaultsKey: "shouldNotifyEvenNoRisk", notificationName: UserPreferenceManager.shouldNotifyEvenNoRiskNotification, defaultValue: true)
+    var shouldNotifyEvenNoRisk: Bool
 
     func checkAppUpdates() {
         Updates.comparingVersions = .patch
@@ -53,4 +56,5 @@ extension UserPreferenceManager {
     static let isIntroductionWatchedDidChangeNotification = Notification.Name("UserPreferenceManager.isIntroductionWatchedDidChangeNotification")
     static let exposureNotificationEngageDateDidChangeNotification = Notification.Name("UserPreferenceManager.exposureNotificationEngageDateDidChangeNotification")
     static let isNewVersionAvailableDidChangeNotification = Notification.Name("UserPreferenceManager.isNewVersionAvailableDidChangeNotification")
+    static let shouldNotifyEvenNoRiskNotification = Notification.Name("UserPreferenceManager.shouldNotifyEvenNoRiskNotification")
 }
