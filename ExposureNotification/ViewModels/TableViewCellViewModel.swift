@@ -25,6 +25,9 @@ class TogglableCellViewModel: TableViewCellViewModel {
     @Observed(queue: .main)
     var state: State = .off
     
+    @Observed(queue: .main)
+    var isEnabled: Bool = true
+    
     init(title: String, state: State) {
         self.title = title
         self.state = state
