@@ -576,6 +576,9 @@ class RiskStatusViewController: UIViewController {
 
         case .qrCodeScannerHint:
             AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.leftBarButtonItem!)
+            
+        case .disableNoRiskNotificationHint:
+            AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.rightBarButtonItem!)
 
         case .replayHints:
             AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.rightBarButtonItem!)

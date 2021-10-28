@@ -103,6 +103,9 @@
 /* The title of item on data control view to enable/disable exposure notification */
 "SettingsView.Item.ExposureNotification" = "接觸通知服務";
 
+/* The title of item on data control view to enable/disable no exposure detected notification */
+"SettingsView.Item.NoExposureDetectedNotification" = "無風險時通知";
+
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "App 介紹";
 
@@ -252,3 +255,6 @@
 
 /* Title for hint of replaying hints */
 "Hint.ReplayHints.Title" = "若要再次查看提示，可以點選右上方選單裡的「功能提示」選項喔～";
+
+/* Title for hint of turning off No Detected Notification */
+"Hint.DisableNoRiskNotification.Title" = "若要關閉無風險通知功能，可以到右上方選單裡的「資料權限控管」進行設定喔~";

@@ -105,7 +105,7 @@ class UserManager {
     func showExposureNotificationIfNeeded(_ oldValue: RiskStatus = .clear) {
         guard (riskStatus == .risky && shouldNotifyRisky) ||
                 oldValue != riskStatus ||
-                (riskStatus == .clear && Date().isBetween(18, 22)) else {
+                (riskStatus == .clear && Date().isBetween(18, 22) && UserPreferenceManager.shared.shouldNotifyEvenNoRisk) else {
             return
         }
 
