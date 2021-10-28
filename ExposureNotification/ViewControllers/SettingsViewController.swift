@@ -118,6 +118,11 @@ extension SettingsViewController: UITableViewDataSource {
             
             return cell
             
+        case is NoRiskCellViewModel:
+            let cell = tableView.dequeueReusableCell(withClass: TogglableTableViewCell.self, for: indexPath)
+            cell.viewModel = itemViewModel as! NoRiskCellViewModel
+            return cell
+            
         default:
             fatalError("Unknown cell view model: \(itemViewModel)")
         }
