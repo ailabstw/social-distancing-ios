@@ -12,6 +12,7 @@ class TogglableTableViewCell: UITableViewCell {
     var viewModel: TogglableCellViewModel? {
         didSet {
             oldValue?.$state.cancel()
+            oldValue?.$isEnabled.cancel()
 
             textLabel?.text = viewModel?.title
             textLabel?.adjustsFontSizeToFitWidth = true
@@ -36,6 +37,10 @@ class TogglableTableViewCell: UITableViewCell {
                 case .processing:
                     self.accessoryView = self.spinner
                 }
+            }
+            
+            viewModel?.$isEnabled { [weak self] (isEnabled) in
+                self?.switcher.isEnabled = isEnabled
             }
         }
     }
