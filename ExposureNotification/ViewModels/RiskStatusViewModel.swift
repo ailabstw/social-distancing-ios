@@ -77,7 +77,7 @@ class RiskStatusViewModel {
         }
     }
 
-    let supportedHints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint, .replayHints]
+    let supportedHints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint, .disableNoRiskNotificationHint, .replayHints]
 
     var isHintPresentable: Bool = false {
         didSet {
@@ -181,7 +181,7 @@ class RiskStatusViewModel {
                 case .dailySummaryHint:
                     return [.risky, .clear].contains(self.status)
 
-                case .qrCodeScannerHint, .replayHints:
+                case .qrCodeScannerHint, .replayHints, .disableNoRiskNotificationHint:
                     return true
 
                 default:

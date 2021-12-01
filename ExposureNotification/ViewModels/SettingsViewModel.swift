@@ -29,8 +29,50 @@ class SettingsViewModel {
         TracingCellViewModel(title: Localizations.SettingsViewModel.Item.exposureNotification)
     }()
     
+    private let noRiskNotificationViewModel = {
+        NoRiskCellViewModel(title: Localizations.SettingsViewModel.Item.noExposureDetectedNotification) // TODO
+    }()
+    
     init() {
         items.append(tracingViewModel)
+        items.append(noRiskNotificationViewModel)
+    }
+}
+
+class NoRiskCellViewModel: TogglableCellViewModel {
+    
+    private var observers: [NSObjectProtocol] = []
+    
+    init(title: String) {
+        super.init(title: title, state: State(UserPreferenceManager.shared.shouldNotifyEvenNoRisk))
+        self.isEnabled = ExposureManager.shared.exposureNotificationStatus == .active
+        
+        observers = [
+            ExposureManager.shared.$exposureNotificationStatus { [unowned self] in
+                self.isEnabled = ExposureManager.shared.exposureNotificationStatus == .active
+            }
+        ]
+    }
+    
+    deinit {
+        observers.forEach {
+            NotificationCenter.default.removeObserver($0)
+        }
+    }
+    
+    override func toggle() {
+        super.toggle()
+        UserPreferenceManager.shared.shouldNotifyEvenNoRisk = state == .on
+    }
+}
+
+private extension TracingCellViewModel.State {
+    init(_ isOn: Bool) {
+        if isOn {
+            self = .on
+        } else {
+            self = .off
+        }
     }
 }
 
@@ -110,6 +152,9 @@ extension Localizations {
             static let exposureNotification = NSLocalizedString("SettingsView.Item.ExposureNotification",
                                                                 value: "Notification Service",
                                                                 comment: "The title of item on data control view to enable/disable exposure notification")
+            static let noExposureDetectedNotification = NSLocalizedString("SettingsView.Item.NoExposureDetectedNotification",
+                                                                          value: "No Exposure Detected Notification",
+                                                                          comment: "The title of item on data control view to enable/disable no exposure detected notification")
         }
     }
 }

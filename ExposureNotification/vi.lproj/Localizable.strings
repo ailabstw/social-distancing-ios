@@ -103,6 +103,9 @@
 /* The title of item on data control view to enable/disable exposure notification */
 "SettingsView.Item.ExposureNotification" = "Quyền bặt/ tắt thông báo tiếp xúc gần";
 
+/* The title of item on data control view to enable/disable no exposure detected notification */
+"SettingsView.Item.NoExposureDetectedNotification" = "No Exposure Detected Notification";
+
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "Giới thiệu ứng dụng";
 
@@ -252,3 +255,6 @@
 
 /* Title for hint of replaying hints */
 "Hint.ReplayHints.Title" = "You can check the hints again from the menu.";
+
+/* Title for hint of turning off No Detected Notification */
+"Hint.DisableNoRiskNotification.Title" = "You can turn off No Detected Notification from the Exposure Notification Settings.";
