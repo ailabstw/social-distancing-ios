@@ -144,10 +144,19 @@ extension UserManager {
     }
     
     private func cancelNotification() {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [dailyCheckIdentifier])
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (list) in
+            if !list.filter({ $0.identifier == self.dailyCheckIdentifier }).isEmpty {
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [self.dailyCheckIdentifier])
+            }
+        }
     }
     
     private func scheduleNotificationIfNeeded() {
+        guard UserPreferenceManager.shared.shouldNotifyEvenNoRisk else {
+            cancelNotification()
+            return
+        }
+        
         UNUserNotificationCenter.current().getPendingNotificationRequests { (list) in
             guard list.filter({ $0.identifier == self.dailyCheckIdentifier }).isEmpty else { return }
             
