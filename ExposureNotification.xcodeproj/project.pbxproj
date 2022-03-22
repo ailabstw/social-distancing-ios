@@ -10,6 +10,7 @@
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		13BC1BDB27E9BD9A00FEA2E9 /* VerificationCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDA27E9BD9A00FEA2E9 /* VerificationCodeManager.swift */; };
 		13BC1BDD27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDC27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift */; };
+		13BC1BDF27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDE27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift */; };
 		9E08149925E39D56008B7424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08149825E39D56008B7424 /* AppDelegate.swift */; };
 		9E08149B25E39D56008B7424 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08149A25E39D56008B7424 /* SceneDelegate.swift */; };
 		9E08149F25E39D58008B7424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E08149E25E39D58008B7424 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13BC1BDA27E9BD9A00FEA2E9 /* VerificationCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeManager.swift; sourceTree = "<group>"; };
 		13BC1BDC27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVerificationCodeViewModel.swift; sourceTree = "<group>"; };
+		13BC1BDE27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVerificationCodeViewController.swift; sourceTree = "<group>"; };
 		13E153FC2656473D002CB898 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13E153FD2656473D002CB898 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		13E153FF26565F07002CB898 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		9E0814D325E788DA008B7424 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				13BC1BDE27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift */,
 				9E89CC1E2625792500161384 /* AlertCancellationViewController.swift */,
 				9E6C22DB26673E770029EFC2 /* DailySummaryViewController.swift */,
 				9E0814D725E78935008B7424 /* IntroductionPageViewController.swift */,
@@ -393,6 +396,7 @@
 				9E5084AA268AC481007C626B /* HintView.swift in Sources */,
 				9E5084A8268AC33B007C626B /* HintManager.swift in Sources */,
 				9E08158025EF6C49008B7424 /* RiskStatusViewController.swift in Sources */,
+				13BC1BDF27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift in Sources */,
 				13BC1BDD27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift in Sources */,
 				9E0814D025E783C3008B7424 /* StyledButton.swift in Sources */,
 				9E7065A326156BE50057A832 /* ExposureConfiguration.swift in Sources */,
