@@ -194,6 +194,20 @@ class UploadKeysViewController: UIViewController {
         return field
     }()
     
+    private lazy var requestVerificationCodeButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle(Localizations.UploadKeysView.requestVerificationButton, for: .normal)
+        button.setTitleColor(Color.requestVerificationButtonTitle, for: .normal)
+        button.titleLabel?.font = Font.requestVerificationButton
+        button.layer.borderColor = Color.requestVerificationButtonBorder.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(didTapRequestCodeButton(_:)), for: .touchUpInside)
+                         
+        return button
+    }()
+    
     private lazy var introductionTextView: UITextView = {
         let view = UITextView()
 
@@ -266,12 +280,14 @@ class UploadKeysViewController: UIViewController {
             _view.addArrangedSubview(endDatePicker)
             _view.addArrangedSubview(passcodeTitleLabel)
             _view.addArrangedSubview(passcodeField)
+            _view.addArrangedSubview(requestVerificationCodeButton)
             _view.addArrangedSubview(introductionTextView)
             _view.addArrangedSubview(submitButton)
             _view.setCustomSpacing(4, after: dateSpanTitleLabel)
             _view.setCustomSpacing(19, after: endDateButton)
             _view.setCustomSpacing(4, after: passcodeTitleLabel)
-            _view.setCustomSpacing(35, after: passcodeField)
+            _view.setCustomSpacing(12, after: passcodeField)
+            _view.setCustomSpacing(35, after: requestVerificationCodeButton)
 
             dateSpanTitleLabel.snp.makeConstraints {
                 $0.leading.equalTo(introductionTextView)
@@ -292,6 +308,11 @@ class UploadKeysViewController: UIViewController {
             passcodeField.snp.makeConstraints {
                 $0.width.equalTo(240)
                 $0.height.equalTo(34)
+            }
+            
+            requestVerificationCodeButton.snp.makeConstraints {
+                $0.width.equalTo(240)
+                $0.height.equalTo(48)
             }
             
             introductionTextView.snp.makeConstraints {
@@ -399,6 +420,11 @@ class UploadKeysViewController: UIViewController {
     @objc private func dismissKeyboard() {
         editingField = .none
     }
+    
+    @objc private func didTapRequestCodeButton(_ sender: UIButton) {
+        guard let navigation = navigationController else { return }
+        RequestVerificationCodeRouter.push(navigation)
+    }
 }
 
 extension UploadKeysViewController: UITextFieldDelegate {
@@ -422,6 +448,7 @@ extension UploadKeysViewController {
         static let inputText = UIFont(name: "PingFangTC-Regular", size: 17.0)!
         static let introductionText = UIFont(name: "PingFangTC-Regular", size: 17.0)!
         static let privacyText = UIFont(name: "PingFangTC-Regular", size: 13.0)!
+        static let requestVerificationButton = UIFont(name: "PingFangTC-Regular", size: 17.0)!
     }
     
     enum Color {
@@ -434,6 +461,8 @@ extension UploadKeysViewController {
         static let introductionText = UIColor(red: 73.0/255.0, green: 97.0/255.0, blue: 94.0/255.0, alpha: 1.0)
         static let text = UIColor(red: 73.0/255.0, green: 97.0/255.0, blue: 94.0/255.0, alpha: 1.0)
         static let link = UIColor(red: 46.0/255.0, green: 182.0/255.0, blue: 169.0/255.0, alpha: 1.0)
+        static let requestVerificationButtonTitle = UIColor(red: 73.0/255.0, green: 97.0/255.0, blue: 94.0/255.0, alpha: 1.0)
+        static let requestVerificationButtonBorder = UIColor(red: 73.0/255.0, green: 97.0/255.0, blue: 94.0/255.0, alpha: 1.0)
     }
 }
 
@@ -457,5 +486,9 @@ extension Localizations {
         static let introductionMessage = NSLocalizedString("UploadKeysView.IntroductionMessage",
                                                            value: "Please enter the verification code provided by the local Department of Health. After submitting, your anonymous IDs will be uploaded. These data will be stored by the Taiwan Centers for Disease Control and will be automatically deleted after 10 days.",
                                                            comment: "The message body on upload keys view for introduction")
+        
+        static let requestVerificationButton = NSLocalizedString("UploadKeysView.requestVerificationButton",
+                                                                 value: "Get Verification Code",
+                                                                 comment: "The button to request verification code")
     }
 }
