@@ -11,6 +11,7 @@
 		13BC1BDB27E9BD9A00FEA2E9 /* VerificationCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDA27E9BD9A00FEA2E9 /* VerificationCodeManager.swift */; };
 		13BC1BDD27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDC27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift */; };
 		13BC1BDF27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDE27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift */; };
+		13BC1BE427E9C0B000FEA2E9 /* SpinnerShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BE327E9C0B000FEA2E9 /* SpinnerShowable.swift */; };
 		9E08149925E39D56008B7424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08149825E39D56008B7424 /* AppDelegate.swift */; };
 		9E08149B25E39D56008B7424 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E08149A25E39D56008B7424 /* SceneDelegate.swift */; };
 		9E08149F25E39D58008B7424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E08149E25E39D58008B7424 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		13BC1BDA27E9BD9A00FEA2E9 /* VerificationCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeManager.swift; sourceTree = "<group>"; };
 		13BC1BDC27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		13BC1BDE27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		13BC1BE327E9C0B000FEA2E9 /* SpinnerShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerShowable.swift; sourceTree = "<group>"; };
 		13E153FC2656473D002CB898 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13E153FD2656473D002CB898 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		13E153FF26565F07002CB898 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		9E0814CE25E783A2008B7424 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				13BC1BE327E9C0B000FEA2E9 /* SpinnerShowable.swift */,
 				9E5084A9268AC481007C626B /* HintView.swift */,
 				9E5084AB268AC79F007C626B /* OverlayWindow.swift */,
 				9E0814CF25E783C3008B7424 /* StyledButton.swift */,
@@ -415,6 +418,7 @@
 				9E89CC262629708900161384 /* EngagementStatistic.swift in Sources */,
 				9E08157D25EF2B13008B7424 /* RiskStatusViewModel.swift in Sources */,
 				9E89CBE2261CC8EE00161384 /* UploadKeysViewModel.swift in Sources */,
+				13BC1BE427E9C0B000FEA2E9 /* SpinnerShowable.swift in Sources */,
 				9E7065912611A6260057A832 /* UploadEndpoints.swift in Sources */,
 				9E89CC0F26252F4D00161384 /* RiskSummary.swift in Sources */,
 				13BC1BDB27E9BD9A00FEA2E9 /* VerificationCodeManager.swift in Sources */,
