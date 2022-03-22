@@ -19,13 +19,12 @@ class RequestVerificationCodeRouter {
     }
 }
 
-class RequestVerificationCodeViewController: UIViewController {
+class RequestVerificationCodeViewController: UIViewController, SpinnerShowable {
     private lazy var phoneNumberTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = Color.title
         label.font = Font.title
         label.text = Localizations.RequestVerificationCode.phoneNumberTitleLabel
-        label.textAlignment = .center
         return label
     }()
     
@@ -47,6 +46,7 @@ class RequestVerificationCodeViewController: UIViewController {
         label.textColor = Color.description
         label.font = Font.description
         label.numberOfLines = 0
+        label.textAlignment = .justified
         return label
     }()
     
@@ -86,13 +86,16 @@ class RequestVerificationCodeViewController: UIViewController {
     }
     
     private func setupViews() {
+        title = Localizations.RequestVerificationCode.navigationTitle
         view.backgroundColor = Color.background
         
         view.addSubview(phoneNumberTitleLabel)
         view.addSubview(phoneTextField)
         view.addSubview(descriptionLabel)
         view.addSubview(submitButton)
+        #if DEBUG
         view.addSubview(clearCountButton)
+        #endif
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapView)))
     }
@@ -100,18 +103,17 @@ class RequestVerificationCodeViewController: UIViewController {
     private func setupConstraints() {
         phoneNumberTitleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(50)
-            make.bottom.equalTo(phoneTextField.snp.top).offset(-2)
+            make.bottom.equalTo(phoneTextField.snp.top).offset(-4)
         }
         
         phoneTextField.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().multipliedBy(0.8)
             make.height.equalTo(34)
-            make.width.equalTo(240)
+            make.leading.trailing.equalToSuperview().inset(50)
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(68)
+            make.leading.trailing.equalToSuperview().inset(50)
             make.top.equalTo(phoneTextField.snp.bottom).offset(20)
         }
         
@@ -138,11 +140,14 @@ class RequestVerificationCodeViewController: UIViewController {
     
     @objc func didTapSubmitButton(_ sender: StyledButton) {
         guard let phone = phoneTextField.text else { return }
+        startSpinner()
         viewModel.didTapSubmitButton(phone)
             .done { [weak self] result in
                 guard let self = self else { return }
                 let alert = self.buildAlertController(result)
                 self.present(alert, animated: true, completion: nil)
+            }.ensure { [weak self] in
+                self?.stopSpinner()
             }.catch { error in
                 logger.error("Submit Failed, error: \(error)")
                 let alert = self.buildAlertController(.failed)
@@ -204,44 +209,47 @@ extension RequestVerificationCodeViewController {
 
 extension Localizations {
     enum RequestVerificationCode {
+        static let navigationTitle = NSLocalizedString("UploadKeysView.requestVerificationButton",
+                                                       value: "Get Verification Code",
+                                                       comment: "Title for request verification code page")
         static let phoneNumberTitleLabel = NSLocalizedString("RequestVerificationCode.phoneNumberTitleLabel",
                                                              value: "Please enter your mobile number",
-                                                             comment: "")
+                                                             comment: "Title for entering mobile number of request verification code page")
         
         static let phoneTextFieldPlaceholder = NSLocalizedString("RequestVerificationCode.phoneTextFieldPlaceholder",
-                                                                 value: "Please Enter Mobile Number",
-                                                                 comment: "")
+                                                                 value: "Mobile Number",
+                                                                 comment: "Placeholder for entering mobile number of request verification code page")
         
         static let descriptionLabel = NSLocalizedString("RequestVerificationCode.descriptionLabel",
-                                                        value: "此功能僅提供確診者送出電話號碼來索取驗證碼，非確診者將不會收到通知",
-                                                        comment: "")
+                                                        value: "This allows user who is the COVID-19 confirmed case to receive verification code.",
+                                                        comment: "Description for usage of entering mobile number")
         
         static let submitButtonTitle = NSLocalizedString("RequestVerificationCode.submitButtonTitle",
-                                                         value: "送出",
-                                                         comment: "")
+                                                         value: "Submit",
+                                                         comment: "Title for submit button")
         
         static let submitSucceedTitle = NSLocalizedString("RequestVerificationCode.submitSucceedTitle",
-                                                     value: "送出成功",
-                                                     comment: "")
+                                                     value: "Entered mobile number successfully",
+                                                     comment: "Title of alert for submission successful")
         
         static let submitFailedTitle = NSLocalizedString("RequestVerificationCode.submitFailedTitle",
-                                                         value: "送出失敗",
-                                                         comment: "")
+                                                         value: "Enter mobile number failed",
+                                                         comment: "Title of alert for submission failed")
         
         static let submitSucceedMessage = NSLocalizedString("RequestVerificationCode.submitSucceedMessage",
-                                                            value: "稍後驗證碼會以簡訊送至手機，若 5 分鐘內沒收到請再次嘗試",
-                                                            comment: "")
+                                                            value: "Verification code will be sent to you via SMS in 5 minutes, please try again if you do not receive it.",
+                                                            comment: "The message of alert for submission successful")
         
         static let submitFailedMessage = NSLocalizedString("RequestVerificationCode.submitFailedMessage",
-                                                           value: "連線異常請稍候再試",
-                                                           comment: "")
+                                                           value: "Connect error occurred, please try again later.",
+                                                           comment: "The message of alert for submission failed when network issue occurred")
         
         static let requestLimitExceededMessage = NSLocalizedString("RequestVerificationCode.requestLimitExceededMessage",
-                                                                   value: "超過當日索取次數請隔日再試",
-                                                                   comment: "")
+                                                                   value: "Number of request exceeded limit, please try again tomorrow.",
+                                                                   comment: "The message of alert for submission failed when request limit exceeded")
         
         static let invalidPhoneFormatMessage = NSLocalizedString("RequestVerificationCode.invalidPhoneFormatMessage",
-                                                                 value: "電話格式錯誤",
-                                                                 comment: "")
+                                                                 value: "Invalid mobile number, please re-enter.",
+                                                                 comment: "The message of alert for submission failed when invalid phone format")
     }
 }
