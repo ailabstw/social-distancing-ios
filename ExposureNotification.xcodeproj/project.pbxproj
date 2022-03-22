@@ -600,7 +600,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-debug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 515;
+				CURRENT_PROJECT_VERSION = 554;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -623,7 +623,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-release.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 515;
+				CURRENT_PROJECT_VERSION = 554;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
