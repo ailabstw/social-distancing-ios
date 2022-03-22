@@ -14,8 +14,7 @@ class VerificationCodeManager {
     static let verificationRequestedInfoKey = "verificationRequestedInfo"
     
     struct VerificationRequestedInfo: Codable {
-        let count: Int
-        let lastRequestTime: Date
+        let requestHistory: [Date]
     }
     
     enum RequestResult {
@@ -31,7 +30,7 @@ class VerificationCodeManager {
     private var requestInfo: VerificationRequestedInfo?
     
     func requestCode(by phone: String) -> Promise<RequestResult> {
-        if let info = requestInfo, info.count > requestLimit, info.lastRequestTime.isSameDay(to: Date()) {
+        if let info = requestInfo, info.requestHistory.count > requestLimit, info.requestHistory[info.requestHistory.count - 2].isSameDay(to: Date()) {
             return .value(.requestLimitExceeded)
         }
         
@@ -43,8 +42,9 @@ class VerificationCodeManager {
                 }
                 if let checkResult = response.checkResult {
                     logger.info("Request Code Succeed, result: \(checkResult)")
-                    let currentCount = self?.requestInfo?.count ?? 0
-                    self?.requestInfo = VerificationRequestedInfo(count: currentCount + 1, lastRequestTime: Date())
+                    var currentHistory = self?.requestInfo?.requestHistory ?? []
+                    currentHistory.append(Date())
+                    self?.requestInfo = VerificationRequestedInfo(requestHistory: currentHistory)
                     return .succeed
                 } else {
                     return .failed
