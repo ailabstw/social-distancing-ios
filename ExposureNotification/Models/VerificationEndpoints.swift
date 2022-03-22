@@ -11,10 +11,11 @@ import CoreKit
 import ExposureNotification
 import Foundation
 
-enum VerificationEndpoint {    
+enum VerificationEndpoint {
     case verify(code: String)
     case certificate(token: String, symmetricKey: SymmetricKey, exposureKeys: [ENTemporaryExposureKey])
     case verifyAcc(code: String)
+    case getCode(phone: String)
 }
 
 extension VerificationEndpoint: URLRequestConvertible {
@@ -46,6 +47,9 @@ extension VerificationEndpoint: URLRequestConvertible {
 
         case .verifyAcc:
             return .post
+            
+        case .getCode:
+            return .post
         }
     }
 
@@ -59,6 +63,9 @@ extension VerificationEndpoint: URLRequestConvertible {
 
         case .verifyAcc:
             return "/api/verify-acc"
+        
+        case .getCode:
+            return "/api/phone-check"
         }
     }
 
@@ -71,6 +78,9 @@ extension VerificationEndpoint: URLRequestConvertible {
             return baseHeaders
 
         case .verifyAcc:
+            return baseHeaders
+            
+        case .getCode:
             return baseHeaders
         }
     }
@@ -98,6 +108,9 @@ extension VerificationEndpoint: URLRequestConvertible {
 
         case .verifyAcc(let code):
             return try? Self.encoder.encode(AlertCancellationBody(code: code))
+            
+        case .getCode(let phone):
+            return try? Self.encoder.encode(RequestCodeBody(phone: phone))
         }
     }
 
@@ -183,5 +196,15 @@ extension VerificationEndpoint {
 
     struct AlertCancellationResponse: Decodable {
         let padding: String
+    }
+    
+    struct RequestCodeBody: Encodable {
+        let phone: String
+    }
+    
+    struct RequestCodeResponse: Decodable {
+        let checkResult: String?
+        let errorCode: String?
+        let error: String?
     }
 }
