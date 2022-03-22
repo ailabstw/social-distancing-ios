@@ -258,3 +258,39 @@
 
 /* Title for hint of turning off No Detected Notification */
 "Hint.DisableNoRiskNotification.Title" = "You can turn off No Detected Notification from the Exposure Notification Settings.";
+
+/* Title for entering mobile number of request verification code page */
+"RequestVerificationCode.phoneNumberTitleLabel" = "Please enter your mobile number";
+
+/* Placeholder for entering mobile number of request verification code page */
+"RequestVerificationCode.phoneTextFieldPlaceholder" = "Mobile Number";
+
+/* Description for usage of entering mobile number */
+"RequestVerificationCode.descriptionLabel" = "This allows user who is the COVID-19 confirmed case to receive verification code. ";
+
+/* Title for submit button */
+"RequestVerificationCode.submitButtonTitle" = "Submit";
+
+/* Title of alert for submission successful */
+"RequestVerificationCode.submitSucceedTitle" = "Entered mobile number successfully";
+
+/* Title of alert for submission failed */
+"RequestVerificationCode.submitFailedTitle" = "Enter mobile number failed";
+
+/* The message of alert for submission successful */
+"RequestVerificationCode.submitSucceedMessage" = "Verification code will be sent to you via SMS in 5 minutes, please try again if you do not receive it.";
+
+/* The message of alert for submission failed when network issue occurred */
+"RequestVerificationCode.submitFailedMessage" = "Connect error occurred, please try again later.";
+
+/* The message of alert for submission failed when request limit exceeded */
+"RequestVerificationCode.requestLimitExceededMessage" = "Number of request exceeded limit, please try again tomorrow";
+
+/* The message of alert for submission failed when invalid phone format */
+"RequestVerificationCode.invalidPhoneFormatMessage" = "Invalid mobile number, please re-enter";
+
+/* The button to request verification code */
+"UploadKeysView.requestVerificationButton" = "Get Verification Code";
+
+/* The Exposure Notification is not enabled */
+"UploadKeysView.exposureNotificationNotEnabled" = "Exposure Notification is not enabled";

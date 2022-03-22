@@ -23,6 +23,10 @@ class UploadKeysViewModel {
     
     @Observed(queue: .main)
     private(set) var status: Status = .notReady
+    
+    var exposureNotificationEnabled: Bool {
+        return ExposureManager.shared.exposureNotificationStatus == .active
+    }
 
     var minimumStartDate: Date {
         Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -14, to: Date())!)
@@ -55,6 +59,7 @@ class UploadKeysViewModel {
     @Observed(queue: .main)
     var passcode: String = "" {
         didSet {
+            guard exposureNotificationEnabled else { return }
             transitStatus(to: passcode.count == 8 ? .ready: .notReady)
         }
     }

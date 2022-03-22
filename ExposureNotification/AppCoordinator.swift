@@ -96,6 +96,13 @@ class AppCoordinator: UIViewController {
         UINavigationBar.appearance().tintColor = Color.barTint
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Color.barTitle,
                                                             .font: Font.barTitle]
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = .white
+            appearance.titleTextAttributes = UINavigationBar.appearance().titleTextAttributes ?? [:]
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().standardAppearance = appearance
+        }
 
         if ExposureManager.supportedExposureNotificationsVersion != .version2 {
             transitStatus(to: .unsupported)

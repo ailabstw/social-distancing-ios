@@ -258,3 +258,39 @@
 
 /* Title for hint of turning off No Detected Notification */
 "Hint.DisableNoRiskNotification.Title" = "若要關閉無風險通知功能，可以到右上方選單裡的「資料權限控管」進行設定喔~";
+
+/* Title for entering mobile number of request verification code page */
+"RequestVerificationCode.phoneNumberTitleLabel" = "請輸入手機號碼";
+
+/* Placeholder for entering mobile number of request verification code page */
+"RequestVerificationCode.phoneTextFieldPlaceholder" = "請輸入手機號碼";
+
+/* Description for usage of entering mobile number */
+"RequestVerificationCode.descriptionLabel" = "此功能為提供確診者索取驗證碼，非確診者無法取得驗證碼。";
+
+/* Title for submit button */
+"RequestVerificationCode.submitButtonTitle" = "送出";
+
+/* Title of alert for submission successful */
+"RequestVerificationCode.submitSucceedTitle" = "手機號碼輸入成功";
+
+/* Title of alert for submission failed */
+"RequestVerificationCode.submitFailedTitle" = "手機號碼輸入失敗";
+
+/* The message of alert for submission successful */
+"RequestVerificationCode.submitSucceedMessage" = "驗證碼將以簡訊送至您的手機，若 5 分鐘內未收到請您再次嘗試。";
+
+/* The message of alert for submission failed when network issue occurred */
+"RequestVerificationCode.submitFailedMessage" = "連線異常請稍候再試";
+
+/* The message of alert for submission failed when request limit exceeded */
+"RequestVerificationCode.requestLimitExceededMessage" = "超過當日索取次數請隔日再試";
+
+/* The message of alert for submission failed when invalid phone format */
+"RequestVerificationCode.invalidPhoneFormatMessage" = "手機號碼格式錯誤";
+
+/* The button to request verification code */
+"UploadKeysView.requestVerificationButton" = "索取驗證碼";
+
+/* The Exposure Notification is not enabled */
+"UploadKeysView.exposureNotificationNotEnabled" = "尚未開啟接觸通知功能";
