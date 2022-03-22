@@ -9,7 +9,7 @@
 import SnapKit
 import UIKit
 
-class UploadKeysViewController: UIViewController {
+class UploadKeysViewController: UIViewController, SpinnerShowable {
     private enum EditingField {
         case `none`
         case startDate
@@ -226,24 +226,17 @@ class UploadKeysViewController: UIViewController {
     private lazy var submitButton: StyledButton = {
         let button = StyledButton(style: .major)
 
-        button.setTitle(Localizations.Alert.Button.submit, for: .normal)
-        button.addTarget(self, action: #selector(didTapSubmitButton(_:)), for: .touchUpInside)
+        if viewModel.exposureNotificationEnabled {
+            button.setTitle(Localizations.Alert.Button.submit, for: .normal)
+            button.addTarget(self, action: #selector(didTapSubmitButton(_:)), for: .touchUpInside)
+        } else {
+            button.setTitle(Localizations.UploadKeysView.exposureNotificationNotEnabled, for: .normal)
+        }
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
+        
         
         return button
-    }()
-    
-    private lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView()
-
-        spinner.style = {
-            if #available(iOS 13.0, *) {
-                return .large
-            } else {
-                return .whiteLarge
-            }
-        }()
-        
-        return spinner
     }()
     
     init(viewModel: UploadKeysViewModel) {
@@ -280,7 +273,9 @@ class UploadKeysViewController: UIViewController {
             _view.addArrangedSubview(endDatePicker)
             _view.addArrangedSubview(passcodeTitleLabel)
             _view.addArrangedSubview(passcodeField)
-            _view.addArrangedSubview(requestVerificationCodeButton)
+            if viewModel.exposureNotificationEnabled {
+                _view.addArrangedSubview(requestVerificationCodeButton)
+            }
             _view.addArrangedSubview(introductionTextView)
             _view.addArrangedSubview(submitButton)
             _view.setCustomSpacing(4, after: dateSpanTitleLabel)
@@ -290,7 +285,7 @@ class UploadKeysViewController: UIViewController {
             _view.setCustomSpacing(35, after: requestVerificationCodeButton)
 
             dateSpanTitleLabel.snp.makeConstraints {
-                $0.leading.equalTo(introductionTextView)
+                $0.leading.trailing.equalTo(passcodeField)
             }
 
             startDateButton.snp.makeConstraints {
@@ -302,11 +297,11 @@ class UploadKeysViewController: UIViewController {
             }
 
             passcodeTitleLabel.snp.makeConstraints {
-                $0.leading.equalTo(introductionTextView)
+                $0.leading.trailing.equalTo(passcodeField)
             }
             
             passcodeField.snp.makeConstraints {
-                $0.width.equalTo(240)
+                $0.leading.trailing.equalToSuperview().inset(50)
                 $0.height.equalTo(34)
             }
             
@@ -330,16 +325,11 @@ class UploadKeysViewController: UIViewController {
         view.backgroundColor = Color.background
         
         view.addSubview(stackView)
-        view.addSubview(spinner)
         
         stackView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(60)
             $0.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-79)
-        }
-        
-        spinner.snp.makeConstraints {
-            $0.edges.equalToSuperview()
         }
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
@@ -359,22 +349,22 @@ class UploadKeysViewController: UIViewController {
             case .notReady:
                 self.passcodeField.isEnabled = true
                 self.submitButton.isEnabled = false
-                self.spinner.stopAnimating()
+                self.stopSpinner()
                 
             case .ready:
                 self.passcodeField.isEnabled = true
                 self.submitButton.isEnabled = true
-                self.spinner.stopAnimating()
+                self.stopSpinner()
                 
             case .uploading:
                 self.passcodeField.isEnabled = false
                 self.submitButton.isEnabled = false
-                self.spinner.startAnimating()
+                self.startSpinner()
                 
             case .uploaded(let success):
                 self.passcodeField.isEnabled = false
                 self.submitButton.isEnabled = false
-                self.spinner.stopAnimating()
+                self.stopSpinner()
 
                 let alert = UIAlertController(title: nil, message: "\(success ? Localizations.Alert.Message.uploadSucceed : Localizations.Alert.Message.uploadFailed)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: Localizations.Alert.Button.ok, style: .default) { [weak self] _ in
@@ -393,6 +383,7 @@ class UploadKeysViewController: UIViewController {
             self?.endDateButton.setTitle("\((date - 1).displayDateDescription)", for: .normal)
             self?.endDatePicker.date = date - 1
         }
+        
     }
 
     @objc private func toggleStartDatePicker(_ sender: UIButton) {
@@ -490,5 +481,9 @@ extension Localizations {
         static let requestVerificationButton = NSLocalizedString("UploadKeysView.requestVerificationButton",
                                                                  value: "Get Verification Code",
                                                                  comment: "The button to request verification code")
+        
+        static let exposureNotificationNotEnabled = NSLocalizedString("UploadKeysView.exposureNotificationNotEnabled",
+                                                                      value: "Exposure Notification Disabled",
+                                                                      comment: "The Exposure Notification is not enabled")
     }
 }
