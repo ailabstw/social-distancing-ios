@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
+		1393234027FD44A6004BE4D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1393233F27FD44A6004BE4D1 /* Lottie */; };
+		1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1393234127FD458A004BE4D1 /* clock_background_animation.json */; };
 		13BC1BDB27E9BD9A00FEA2E9 /* VerificationCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDA27E9BD9A00FEA2E9 /* VerificationCodeManager.swift */; };
 		13BC1BDD27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDC27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift */; };
 		13BC1BDF27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC1BDE27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift */; };
@@ -72,6 +74,7 @@
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1393234127FD458A004BE4D1 /* clock_background_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clock_background_animation.json; sourceTree = "<group>"; };
 		13BC1BDA27E9BD9A00FEA2E9 /* VerificationCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCodeManager.swift; sourceTree = "<group>"; };
 		13BC1BDC27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		13BC1BDE27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVerificationCodeViewController.swift; sourceTree = "<group>"; };
@@ -152,12 +155,22 @@
 				9E0BA2C32680968E0088D8A4 /* LoggingSwiftyBeaver in Frameworks */,
 				9E6E8E23260C779500628164 /* PMKAlamofire in Frameworks */,
 				9E0814B125E73DB1008B7424 /* SnapKit in Frameworks */,
+				1393234027FD44A6004BE4D1 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13096B7327F156C20008997B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1393234127FD458A004BE4D1 /* clock_background_animation.json */,
+				9E08149E25E39D58008B7424 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9E08148C25E39D56008B7424 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +191,7 @@
 		9E08149725E39D56008B7424 /* ExposureNotification */ = {
 			isa = PBXGroup;
 			children = (
+				13096B7327F156C20008997B /* Resources */,
 				9E08158225EF6E85008B7424 /* Extensions */,
 				9E08156825E8D6C8008B7424 /* Managers */,
 				9E0814C225E75D74008B7424 /* Models */,
@@ -187,7 +201,6 @@
 				9E0814E025E892ED008B7424 /* AppCoordinator.swift */,
 				9E08149825E39D56008B7424 /* AppDelegate.swift */,
 				9E08149A25E39D56008B7424 /* SceneDelegate.swift */,
-				9E08149E25E39D58008B7424 /* Assets.xcassets */,
 				9EAD4B342665CDA900AC811C /* LaunchScreen.storyboard */,
 				134831CC26AEA99D00B130EC /* Settings.bundle */,
 				9EAD4B2C2664E91600AC811C /* Info.plist */,
@@ -318,6 +331,7 @@
 				9E89CBDA261BFAA500161384 /* Zip */,
 				9EFD875326521B6900771E51 /* Updates */,
 				9E0BA2C22680968E0088D8A4 /* LoggingSwiftyBeaver */,
+				1393233F27FD44A6004BE4D1 /* Lottie */,
 			);
 			productName = ExposureNotification;
 			productReference = 9E08149525E39D56008B7424 /* ExposureNotification.app */;
@@ -359,6 +373,7 @@
 				9E6E8E21260C779500628164 /* XCRemoteSwiftPackageReference "PMKAlamofire" */,
 				9E89CBD9261BFAA500161384 /* XCRemoteSwiftPackageReference "Zip" */,
 				9EFD875226521B6900771E51 /* XCRemoteSwiftPackageReference "Updates" */,
+				13096B7627F15AFB0008997B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 9E08149625E39D56008B7424 /* Products */;
 			projectDirPath = "";
@@ -379,6 +394,7 @@
 				134831CD26AEA99D00B130EC /* Settings.bundle in Resources */,
 				9E24753E2651790400FB732F /* InfoPlist.strings in Resources */,
 				9E2474AA264BBB2A00FB732F /* Localizable.strings in Resources */,
+				1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +679,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		13096B7627F15AFB0008997B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		9E0814AF25E73DB1008B7424 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -706,6 +730,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1393233F27FD44A6004BE4D1 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13096B7627F15AFB0008997B /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		9E0814B025E73DB1008B7424 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9E0814AF25E73DB1008B7424 /* XCRemoteSwiftPackageReference "SnapKit" */;

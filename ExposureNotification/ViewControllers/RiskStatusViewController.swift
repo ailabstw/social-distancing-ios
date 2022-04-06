@@ -6,6 +6,7 @@
 //  Copyright © 2020 AI Labs. All rights reserved.
 //
 
+import Lottie
 import SafariServices
 import SnapKit
 import UIKit
@@ -13,6 +14,23 @@ import Updates
 
 class RiskStatusViewController: UIViewController {
     private let viewModel: RiskStatusViewModel
+    
+    private let clockDateFormat: String = "HH : mm : ss"
+    private lazy var clockLabel: UILabel = {
+        let label = UILabel()
+        label.font = Font.clock
+        label.textColor = Color.clock
+        return label
+    }()
+    
+    private lazy var clockAnimationView: AnimationView = {
+        let view = AnimationView(name: "clock_background_animation")
+        view.loopMode = .loop
+        view.animationSpeed = 1.5
+        view.layer.cornerRadius = 28
+        view.backgroundBehavior = .pauseAndRestore
+        return view
+    }()
     
     private lazy var banner: UIButton = {
         let button = UIButton()
@@ -160,6 +178,12 @@ class RiskStatusViewController: UIViewController {
 
         return label
     }()
+    
+    private lazy var displayLink: CADisplayLink = {
+        let link = CADisplayLink(target: self, selector: #selector(shouldRefreshDisplay(_:)))
+        link.preferredFramesPerSecond = 5
+        return link
+    }()
 
     init(viewModel: RiskStatusViewModel) {
         self.viewModel = viewModel
@@ -179,12 +203,18 @@ class RiskStatusViewController: UIViewController {
         configureNavigationItems()
         configureUI()
         configureViewModel()
+        
+        displayLink.add(to: RunLoop.current, forMode: .default)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         viewModel.isHintPresentable = true
+        
+        if !clockAnimationView.isAnimationPlaying {
+            clockAnimationView.play()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -248,13 +278,28 @@ class RiskStatusViewController: UIViewController {
         view.backgroundColor = Color.background
 
         view.addLayoutGuide(layoutGuide)
+        view.addSubview(clockAnimationView)
+        clockAnimationView.addSubview(clockLabel)
         view.addSubview(stack)
         view.addSubview(appUpdatesAvailableButton)
         view.addSubview(console)
 
         layoutGuide.snp.makeConstraints {
-            $0.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            $0.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(console.snp.top)
+            $0.top.equalTo(clockLabel.snp.bottom)
+        }
+        
+        clockLabel.snp.makeConstraints {
+            $0.height.equalTo(40)
+            $0.center.equalToSuperview()
+        }
+        
+        clockAnimationView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(240)
+            $0.height.equalTo(56)
         }
 
         stack.snp.makeConstraints {
@@ -285,16 +330,19 @@ class RiskStatusViewController: UIViewController {
                 self?.bannerBorder.isHidden = false
                 self?.bannerBadge.isHidden = false
                 self?.banner.isEnabled = true
+                self?.clockAnimationView.isHidden = false
 
             case .notTracing:
                 self?.bannerBorder.isHidden = false
                 self?.bannerBadge.isHidden = true
                 self?.banner.isEnabled = false
+                self?.clockAnimationView.isHidden = true
 
             case .unknown:
                 self?.bannerBorder.isHidden = true
                 self?.bannerBadge.isHidden = true
                 self?.banner.isEnabled = false
+                self?.clockAnimationView.isHidden = true
             }
         }
 
@@ -499,6 +547,10 @@ class RiskStatusViewController: UIViewController {
     @objc private func didTapQRCodeScanner(_ sender: UIBarButtonItem) {
         presentQRCodeScanner()
     }
+    
+    @objc private func shouldRefreshDisplay(_ sender: AnyObject) {
+        clockLabel.text = Date().toDateTimeString(dateFormat: clockDateFormat)
+    }
 
     #if DEBUG
     @objc private func didTapEngineerBarButton(_ sender: UIBarButtonItem) {
@@ -599,6 +651,7 @@ extension RiskStatusViewController {
         static let footerText = UIColor(red: (73/255.0), green: (97/255.0), blue: (94/255.0), alpha: 1)
         static let consoleBackground = UIColor.white
         static let riskyDetailGrey = UIColor(red: (73/255.0), green: (97/255.0), blue: (94/255.0), alpha: 1)
+        static let clock = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     }
     
     enum Font {
@@ -608,6 +661,7 @@ extension RiskStatusViewController {
         static let riskyDetailBold = UIFont(name: "PingFangTC-Semibold", size: 14.0)!
         static let upTime = UIFont(name: "PingFangTC-Regular", size: 13.0)!
         static let version = UIFont(name: "PingFangTC-Regular", size: 12.0)!
+        static let clock = UIFont.monospacedDigitSystemFont(ofSize: 30, weight: .semibold)
     }
 
     enum Image {
