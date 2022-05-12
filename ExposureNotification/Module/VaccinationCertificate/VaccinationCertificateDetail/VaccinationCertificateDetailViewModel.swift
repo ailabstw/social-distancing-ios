@@ -15,11 +15,20 @@ class VaccinationCertificateDetailViewModel {
         let value: String
     }
     
+    enum DisplayMode {
+        case none
+        case single
+        case normal
+    }
+    
     @Observed(queue: .main)
     private(set) var code: String = ""
     
     @Observed(queue: .main)
     private(set) var model: VaccinationCertificateDetailModel? = nil
+    
+    @Observed(queue: .main)
+    private(set) var mode: DisplayMode = .normal
     
     @Observed(queue: .main)
     private(set) var vaccinationProperties: [Property] = []
@@ -49,6 +58,8 @@ class VaccinationCertificateDetailViewModel {
         } else {
             assertionFailure("WHY????")
         }
+        
+        mode = dataStore.qrCodes.count > 1 ? .normal : .single
     }
     
     func goNextCode() {
@@ -69,6 +80,15 @@ class VaccinationCertificateDetailViewModel {
     
     func deleteCurrentCode() {
         dataStore.delete(code: code)
+        if dataStore.qrCodes.count == 0 {
+            mode = .none
+        } else {
+            currentCodeIndex = max(min(dataStore.qrCodes.count - 1, currentCodeIndex), 0)
+            currentIndexDidUpdate()
+            code = dataStore.qrCodes[currentCodeIndex]
+            currentCodeDidUpdate()
+            mode = dataStore.qrCodes.count > 1 ? .normal : .single
+        }
     }
     
     private func currentCodeDidUpdate() {
@@ -81,6 +101,7 @@ class VaccinationCertificateDetailViewModel {
     private func currentIndexDidUpdate() {
         hasPrevCode = currentCodeIndex != 0
         hasNextCode = currentCodeIndex < dataStore.qrCodes.count - 1
+        dataStore.updateCurrentIndex(currentCodeIndex)
     }
     
     func buildVaccinationProperties(by model: VaccinationCertificateDetailModel) -> [VaccinationCertificateDetailViewModel.Property] {
@@ -116,7 +137,7 @@ extension Localizations {
         static let medicinalProduct = NSLocalizedString("VaccinationCertificateDetail.medicinalProduct", value: "Product: ", comment: "")
         static let manufacturer = NSLocalizedString("VaccinationCertificateDetail.manufacturer", value: "Manufacturer: ", comment: "")
         static let doses = NSLocalizedString("VaccinationCertificateDetail.doses", value: "Dose", comment: "")
-        static let doseDate = NSLocalizedString("VaccinationCertificateDetail.doseDate", value: "Date of vacination: ", comment: "")
+        static let doseDate = NSLocalizedString("VaccinationCertificateDetail.doseDate", value: "Date of vaccination: ", comment: "")
         static let country = NSLocalizedString("VaccinationCertificateDetail.country", value: "Country of vaccination: ", comment: "")
         static let issuer = NSLocalizedString("VaccinationCertificateDetail.issuer", value: "Issuer: ", comment: "")
         static let uniqueIdentifier = NSLocalizedString("VaccinationCertificateDetail.uniqueIdentifier", value: "UVCI", comment: "")

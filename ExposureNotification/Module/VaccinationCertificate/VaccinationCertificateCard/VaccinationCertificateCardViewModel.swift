@@ -19,7 +19,6 @@ class VaccinationCertificateCardViewModel: NSObject, VaccinationCodeDataStoreObs
         case none
         case scrollToIndex(Int)
         case refreshCards
-        case cardsLimitExceeded
     }
     
     @Observed(queue: .main)
@@ -36,6 +35,10 @@ class VaccinationCertificateCardViewModel: NSObject, VaccinationCodeDataStoreObs
     
     private let codeDataStore: VaccinationCodeDataStore
     private let qrCodeMapper: VaccinationCertificateModelMapper
+    
+    var isCardLimitAvailable: Bool {
+        codeDataStore.isCardLimitAvailable
+    }
     
     init(codeDataStore: VaccinationCodeDataStore, qrCodeMapper: VaccinationCertificateModelMapper) {
         self.codeDataStore = codeDataStore
@@ -54,8 +57,8 @@ class VaccinationCertificateCardViewModel: NSObject, VaccinationCodeDataStoreObs
                 self?.refreshCards()
             case .update:
                 self?.refreshCards()
-            case .limitExceeded:
-                self?.event = .cardsLimitExceeded
+            case .currentIndexUpdated(let index):
+                self?.event = .scrollToIndex(index)
             }
         }
     }

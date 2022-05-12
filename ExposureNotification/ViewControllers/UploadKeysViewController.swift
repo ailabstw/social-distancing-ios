@@ -361,12 +361,25 @@ class UploadKeysViewController: UIViewController, SpinnerShowable {
                 self.submitButton.isEnabled = false
                 self.startSpinner()
                 
-            case .uploaded(let success):
+            case .uploaded(let result):
                 self.passcodeField.isEnabled = false
                 self.submitButton.isEnabled = false
                 self.stopSpinner()
-
-                let alert = UIAlertController(title: nil, message: "\(success ? Localizations.Alert.Message.uploadSucceed : Localizations.Alert.Message.uploadFailed)", preferredStyle: .alert)
+                
+                let message: String = {
+                    switch result {
+                    case .success:
+                        return Localizations.Alert.Message.uploadSucceed
+                    case .otherAPIFailed:
+                        return Localizations.Alert.Message.uploadFailed
+                    case .couldNotGetKeys:
+                        return Localizations.Alert.Message.missingKeyData
+                    case .verifyAPIFailed:
+                        return Localizations.Alert.Message.verifyAPIFailed
+                    }
+                }()
+                
+                let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: Localizations.Alert.Button.ok, style: .default) { [weak self] _ in
                     self?.navigationController?.popViewController(animated: true)
                 })

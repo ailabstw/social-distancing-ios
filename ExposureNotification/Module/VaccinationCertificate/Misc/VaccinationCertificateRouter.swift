@@ -14,8 +14,8 @@ class VaccinationCertificateRouter {
         presentPage(from, target: VaccinationCertificateBuilder().getCardViewController())
     }
     
-    static func presentDetailPage(_ from: UIViewController, code: String, delegate: VaccinationCertificateDetailDelegate? = nil) {
-        let viewController = VaccinationCertificateBuilder().getDetailViewController(code: code, delegate: delegate)
+    static func presentDetailPage(_ from: UIViewController, code: String) {
+        let viewController = VaccinationCertificateBuilder().getDetailViewController(code: code)
         presentPage(from, target: viewController)
     }
     
@@ -43,8 +43,8 @@ class VaccinationCertificateBuilder {
         return VaccinationCertificateListViewController(viewModel: getListViewModel())
     }
     
-    func getDetailViewController(code: String, delegate: VaccinationCertificateDetailDelegate? = nil) -> VaccinationCertificateDetailViewController {
-        return VaccinationCertificateDetailViewController(viewModel: getDetailViewModel(code: code), delegate: delegate)
+    func getDetailViewController(code: String) -> VaccinationCertificateDetailViewController {
+        return VaccinationCertificateDetailViewController(viewModel: getDetailViewModel(code: code))
     }
     
     func getScannerViewController() -> VaccinationCertificateScannerViewController {

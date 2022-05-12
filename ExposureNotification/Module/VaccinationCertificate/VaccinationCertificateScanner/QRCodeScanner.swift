@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import CoreKit
 import Foundation
 
 class QRCodeScanner: NSObject {
@@ -16,13 +17,14 @@ class QRCodeScanner: NSObject {
         case configurationFailed
     }
     
+    @Observed(queue: .main)
     private(set) var sessionConfigurationResult: SessionConfigurationResult = .notConfigured
     private let sessionQueue = DispatchQueue(label: "vaccination_certificate_session_queue")
     
     let session = AVCaptureSession()
     var videoDeviceInput: AVCaptureDeviceInput?
     var metadataOutput: AVCaptureMetadataOutput?
-    var delegate: QRCodeScannerDelegate?
+    weak var delegate: QRCodeScannerDelegate?
     
     override init() {
         super.init()
@@ -141,7 +143,7 @@ class QRCodeScanner: NSObject {
     }
 }
 
-protocol QRCodeScannerDelegate {
+protocol QRCodeScannerDelegate: NSObject {
     func didCaptureQRCode(_ code: String)
     func didCaptureOthers()
 }

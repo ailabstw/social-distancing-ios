@@ -11,7 +11,32 @@ import Foundation
 import SafariServices
 import UIKit
 
-class VaccinationCertificateCardViewController: UIViewController {
+protocol VaccinationCertifcateMenuShowable where Self: UIViewController {
+    func showMenu()
+}
+
+extension VaccinationCertifcateMenuShowable {
+    func showMenu() {
+        let alert = UIAlertController(title: Localizations.VaccinationCertificateCard.menu, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: Localizations.VaccinationCertificateCard.apply, style: .default) { [weak self] action in
+            self?.present(SFSafariViewController(viewModel: .applyVaccinationCertificate), animated: true, completion: nil)
+        })
+        
+        alert.addAction(UIAlertAction(title: Localizations.VaccinationCertificateCard.appointment, style: .default) { [weak self] action in
+            self?.present(SFSafariViewController(viewModel: .bookingVaccination), animated: true, completion: nil)
+        })
+        
+        alert.addAction(UIAlertAction(title: Localizations.VaccinationCertificateCard.faq, style: .default) { [weak self] action in
+            self?.present(SFSafariViewController(viewModel: .vaccinationCertificateFAQ), animated: true, completion: nil)
+        })
+        
+        alert.addAction(UIAlertAction(title: Localizations.Alert.Button.cancel, style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+class VaccinationCertificateCardViewController: UIViewController, VaccinationCertifcateMenuShowable {
     private let viewModel: VaccinationCertificateCardViewModel
     private lazy var emptyView = VaccinationCertificateEmptyView()
     
@@ -24,6 +49,7 @@ class VaccinationCertificateCardViewController: UIViewController {
         return layout
     }()
     
+    private let cardContentInset: CGFloat = 30
     private lazy var cardCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
@@ -33,7 +59,8 @@ class VaccinationCertificateCardViewController: UIViewController {
         collectionView.register(cellWithClass: VaccinationCertificateCardCell.self)
         collectionView.backgroundColor = .clear
         collectionView.decelerationRate = .fast
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: cardContentInset, bottom: 0, right: cardContentInset)
+        collectionView.decelerationRate = .fast
         return collectionView
     }()
     
@@ -50,7 +77,8 @@ class VaccinationCertificateCardViewController: UIViewController {
         let pageControl = UIPageControl()
         pageControl.hidesForSinglePage = true
         pageControl.currentPageIndicatorTintColor = Color.pageControlIndicator
-        pageControl.isUserInteractionEnabled = false
+        pageControl.addTarget(self, action: #selector(pageControlIndexDidChange(_:)), for: .valueChanged)
+        pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         return pageControl
     }()
     
@@ -98,6 +126,7 @@ class VaccinationCertificateCardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewWillAppear()
+        pageControl.layoutSubviews()
     }
     
     override func viewDidLayoutSubviews() {
@@ -127,9 +156,6 @@ class VaccinationCertificateCardViewController: UIViewController {
         view.addSubview(openListButton)
         view.addSubview(openScannerButton)
         
-        pageControl.subviews.forEach {
-            $0.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        }
     }
     
     private func setupConstraints() {
@@ -191,12 +217,9 @@ class VaccinationCertificateCardViewController: UIViewController {
                 break
             case .scrollToIndex(let index):
                 self?.cardCollectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
+                self?.pageControl.currentPage = index
             case .refreshCards:
                 self?.cardCollectionView.reloadData()
-            case .cardsLimitExceeded:
-                let alert = UIAlertController(title: Localizations.VaccinationCertificateCard.cardsLimitExceeded, message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: Localizations.Alert.Button.ok, style: .default, handler: nil))
-                self?.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -210,25 +233,6 @@ class VaccinationCertificateCardViewController: UIViewController {
         showMenu()
     }
     
-    private func showMenu() {
-        let alert = UIAlertController(title: Localizations.VaccinationCertificateCard.menu, message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: Localizations.VaccinationCertificateCard.apply, style: .default) { [weak self] action in
-            self?.present(SFSafariViewController(viewModel: .applyVaccinationCertificate), animated: true, completion: nil)
-        })
-        
-        alert.addAction(UIAlertAction(title: Localizations.VaccinationCertificateCard.appointment, style: .default) { [weak self] action in
-            self?.present(SFSafariViewController(viewModel: .bookingVaccination), animated: true, completion: nil)
-        })
-        
-        alert.addAction(UIAlertAction(title: Localizations.VaccinationCertificateCard.faq, style: .default) { [weak self] action in
-            self?.present(SFSafariViewController(viewModel: .vaccinationCertificateFAQ), animated: true, completion: nil)
-        })
-        
-        alert.addAction(UIAlertAction(title: Localizations.Alert.Button.cancel, style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
     @objc private func didTapListButton(_ sender: UIButton) {
         VaccinationCertificateRouter.presentListPage(self)
     }
@@ -237,7 +241,18 @@ class VaccinationCertificateCardViewController: UIViewController {
         presentQRCodeScanner()
     }
     
+    @objc private func pageControlIndexDidChange(_ sender: UIPageControl) {
+        cardCollectionView.scrollToItem(at: IndexPath(row: pageControl.currentPage, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
     private func presentQRCodeScanner() {
+        guard viewModel.isCardLimitAvailable else {
+            let alert = UIAlertController(title: Localizations.VaccinationCertificateCard.cardsLimitExceeded, message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: Localizations.Alert.Button.ok, style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         CameraService.shared.requestAuthorizationIfNeeded(completion: { [weak self] status in
             guard let self = self else { return }
             switch status {
@@ -284,32 +299,20 @@ extension VaccinationCertificateCardViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if cardSize != .zero {
-            let index = Int(ceil(cardCollectionView.contentOffset.x / cardSize.width - 0.5))
-            pageControl.currentPage = index
-        }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let nearestIndex = Int(CGFloat(targetContentOffset.pointee.x) / cardSize.width + 0.5)
+        let clampedIndex = max(min(nearestIndex, viewModel.cardModels.count - 1), 0)
+        pageControl.currentPage = clampedIndex
+        let xOffset = CGFloat(clampedIndex) * cardSize.width
+        targetContentOffset.pointee.x = xOffset - cardContentInset
     }
     
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        scrollView.setContentOffset(scrollView.contentOffset, animated: true)
-        autoScrollToCardAtCentered()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        autoScrollToCardAtCentered()
-    }
-    
-    private func autoScrollToCardAtCentered() {
-        let index = Int(ceil(cardCollectionView.contentOffset.x / cardSize.width - 0.5))
-        cardCollectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
-    }
 }
 
 extension VaccinationCertificateCardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = viewModel.cardModels[indexPath.row]
-        VaccinationCertificateRouter.presentDetailPage(self, code: model.qrCode, delegate: self)
+        VaccinationCertificateRouter.presentDetailPage(self, code: model.qrCode)
     }
 }
 
@@ -317,21 +320,6 @@ extension VaccinationCertificateCardViewController: UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return cardSize
     }
-}
-
-extension VaccinationCertificateCardViewController: VaccinationCertificateDetailDelegate {
-    func didSwitchToPrevCertificate(qrCode: String) {
-        guard let matchIndex = viewModel.cardModels.firstIndex(where: { $0.qrCode == qrCode }) else { return }
-        cardCollectionView.scrollToItem(at: IndexPath(row: matchIndex, section: 0), at: .centeredHorizontally, animated: false)
-        pageControl.currentPage = matchIndex
-    }
-    
-    func didSwitchToNextCertificate(qrCode: String) {
-        guard let matchIndex = viewModel.cardModels.firstIndex(where: { $0.qrCode == qrCode }) else { return }
-        cardCollectionView.scrollToItem(at: IndexPath(row: matchIndex, section: 0), at: .centeredHorizontally, animated: false)
-        pageControl.currentPage = matchIndex
-    }
-    
 }
 
 extension VaccinationCertificateCardViewController {
@@ -361,7 +349,7 @@ extension Localizations {
         static let hint = NSLocalizedString("VaccinationCertificate.hint", value: "Valid in combination with a government issued ID", comment: "")
         static let menu = NSLocalizedString("RiskStatusView.MoreActionSheet.Title", value: "More", comment: "")
         static let faq = NSLocalizedString("VaccinationCertificateCard.faq", value: "FAQ", comment: "")
-        static let appointment = NSLocalizedString("VaccinationCertificateCard.appointment", value: "Vaccination Reservation", comment: "")
+        static let appointment = NSLocalizedString("VaccinationCertificateCard.appointment", value: "Vaccination Appointment", comment: "")
         static let apply = NSLocalizedString("VaccinationCertificateCard.apply", value: "Apply for vaccination certificate", comment: "")
         static let cardsLimitExceeded = NSLocalizedString("VaccinationCertificateCard.cardsLimitExceeded", value: "Exceeded vaccination certificates limits.", comment: "")
     }

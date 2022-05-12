@@ -15,7 +15,14 @@ class UploadKeysViewModel {
         case notReady
         case ready
         case uploading
-        case uploaded(Bool)
+        case uploaded(UploadResult)
+    }
+    
+    enum UploadResult {
+        case success
+        case verifyAPIFailed
+        case couldNotGetKeys
+        case otherAPIFailed
     }
 
     @Observed(queue: .main)
@@ -87,13 +94,26 @@ class UploadKeysViewModel {
 
         ExposureManager.shared.postDiagnosisKeys(using: passcode, from: startDate, to: endDate)
             .done { (result) in
-                self.transitStatus(to: .uploaded(result))
+                if result {
+                    self.transitStatus(to: .uploaded(.success))
+                } else {
+                    self.transitStatus(to: .uploaded(.otherAPIFailed))
+                }
+                
             }
             .catch { (error) in
                 logger.error("\(error)")
-                self.transitStatus(to: .uploaded(false))
+                if let uploadError = error as? ExposureManager.UploadError {
+                    switch uploadError {
+                    case .keysNotFound:
+                        self.transitStatus(to: .uploaded(.couldNotGetKeys))
+                    case .verifyFailed:
+                        self.transitStatus(to: .uploaded(.verifyAPIFailed))
+                    }
+                } else {
+                    self.transitStatus(to: .uploaded(.otherAPIFailed))
+                }
             }
-
     }
 }
 

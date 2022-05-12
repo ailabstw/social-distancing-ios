@@ -10,12 +10,7 @@ import Foundation
 import UIKit
 import CoreKit
 
-protocol VaccinationCertificateDetailDelegate: AnyObject {
-    func didSwitchToPrevCertificate(qrCode: String)
-    func didSwitchToNextCertificate(qrCode: String)
-}
-
-class VaccinationCertificateDetailViewController: UIViewController {
+class VaccinationCertificateDetailViewController: UIViewController, VaccinationCertifcateMenuShowable {
     private let viewModel: VaccinationCertificateDetailViewModel
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -71,12 +66,18 @@ class VaccinationCertificateDetailViewController: UIViewController {
         return button
     }()
     
-    weak var delegate: VaccinationCertificateDetailDelegate?
+    private var observers: [NSObjectProtocol] = []
+    private var brightness: CGFloat = 0.5
     
-    init(viewModel: VaccinationCertificateDetailViewModel, delegate: VaccinationCertificateDetailDelegate? = nil) {
+    init(viewModel: VaccinationCertificateDetailViewModel) {
         self.viewModel = viewModel
-        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    deinit {
+        observers.forEach {
+            NotificationCenter.default.removeObserver($0)
+        }
     }
     
     @available(*, unavailable)
@@ -89,14 +90,38 @@ class VaccinationCertificateDetailViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupBinding()
+        
+        observers.append(NotificationCenter.default.addObserver(forName: .didBecomeActiveNotification, object: nil, queue: nil) { [unowned self] (_) in
+            self.brightness = UIScreen.main.brightness
+            UIScreen.main.brightness = 0.9
+        })
+        
+        observers.append(NotificationCenter.default.addObserver(forName: .willResignActiveNotification, object: nil, queue: nil) { [unowned self] (_) in
+            UIScreen.main.brightness = self.brightness
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        brightness = UIScreen.main.brightness
+        UIScreen.main.brightness = 0.9
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIScreen.main.brightness = brightness
     }
     
     private func setupViews() {
         title = Localizations.VaccinationCertificateDetail.title
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "iconClose")!.withRenderingMode(.alwaysOriginal),
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.iconClose?.withRenderingMode(.alwaysOriginal),
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(didTapClose(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Image.iconMenu?.withRenderingMode(.alwaysOriginal),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(didTapMenu(_:)))
         
         view.backgroundColor = .white
         
@@ -170,12 +195,23 @@ class VaccinationCertificateDetailViewController: UIViewController {
         
         viewModel.$hasNextCode { [weak self] hasNext in
             self?.goNextButton.isEnabled = hasNext
-            self?.checkPrevAndNextButtonShouldShow()
         }
         
         viewModel.$hasPrevCode { [weak self] hasPrev in
             self?.goPrevButton.isEnabled = hasPrev
-            self?.checkPrevAndNextButtonShouldShow()
+        }
+        
+        viewModel.$mode { [weak self] mode in
+            switch mode {
+            case .none:
+                self?.dismiss(animated: true, completion: nil)
+            case .normal:
+                self?.goPrevButton.isHidden = false
+                self?.goNextButton.isHidden = false
+            case .single:
+                self?.goPrevButton.isHidden = true
+                self?.goNextButton.isHidden = true
+            }
         }
     }
     
@@ -185,33 +221,39 @@ class VaccinationCertificateDetailViewController: UIViewController {
     
     @objc private func didTapPrev(_ sender: UIButton) {
         viewModel.goPrevCode()
-        delegate?.didSwitchToPrevCertificate(qrCode: viewModel.code)
     }
     
     @objc private func didTapNext(_ sender: UIButton) {
         viewModel.goNextCode()
-        delegate?.didSwitchToNextCertificate(qrCode: viewModel.code)
     }
     
     @objc private func didTapDelete(_ sender: UIButton) {
         let alert = UIAlertController(title: Localizations.VaccinationCertificateDetail.deleteAlertTitle,
                                       message: Localizations.VaccinationCertificateDetail.deleteAlertMessage(name: viewModel.model!.name),
                                       preferredStyle: .alert)
-        
+        alert.addAction(UIAlertAction(title: Localizations.Alert.Button.no, style: .default, handler: { _ in }))
         alert.addAction(UIAlertAction(title: Localizations.Alert.Button.yes, style: .destructive, handler: { [weak self] _ in
             guard let self = self else { return }
             self.viewModel.deleteCurrentCode()
-            self.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: Localizations.Alert.Button.no, style: .default, handler: { _ in }))
         
         present(alert, animated: true, completion: nil)
     }
     
-    private func checkPrevAndNextButtonShouldShow() {
-        let isOnlyOneQRCode = !viewModel.hasPrevCode && !viewModel.hasNextCode
-        goPrevButton.isHidden = isOnlyOneQRCode
-        goNextButton.isHidden = isOnlyOneQRCode
+    @objc private func didTapMenu(_ sender: AnyObject) {
+        showMenu()
+    }
+    
+}
+
+extension VaccinationCertificateDetailViewController {
+    enum Color {
+        static let tintColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+    }
+    
+    enum Image {
+        static let iconClose = UIImage(named: "iconClose")
+        static let iconMenu = UIImage(named: "iconMenu")
     }
 }
 

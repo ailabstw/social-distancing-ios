@@ -145,6 +145,6 @@ extension VaccinationCertificateCardCell {
 
 extension Localizations {
     enum VaccinationCertificateCardCell {
-        static let doseDate = NSLocalizedString("VaccinationCertificateCardCell.doseDate", value: "Date of vacination", comment: "")
+        static let doseDate = NSLocalizedString("VaccinationCertificateCardCell.doseDate", value: "Date of vaccination", comment: "")
     }
 }

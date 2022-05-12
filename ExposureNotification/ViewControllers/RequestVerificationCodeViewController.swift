@@ -241,11 +241,11 @@ extension Localizations {
                                                             comment: "The message of alert for submission successful")
         
         static let submitFailedMessage = NSLocalizedString("RequestVerificationCode.submitFailedMessage",
-                                                           value: "Connect error occurred, please try again later.",
+                                                           value: "Connection error occurred, please try again later.",
                                                            comment: "The message of alert for submission failed when network issue occurred")
         
         static let requestLimitExceededMessage = NSLocalizedString("RequestVerificationCode.requestLimitExceededMessage",
-                                                                   value: "Number of request exceeded limit, please try again tomorrow.",
+                                                                   value: "Number of requests exceeded limit, please try again tomorrow.",
                                                                    comment: "The message of alert for submission failed when request limit exceeded")
         
         static let invalidPhoneFormatMessage = NSLocalizedString("RequestVerificationCode.invalidPhoneFormatMessage",

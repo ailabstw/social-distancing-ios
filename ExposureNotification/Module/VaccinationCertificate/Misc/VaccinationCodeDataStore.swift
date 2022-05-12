@@ -15,12 +15,12 @@ class VaccinationCodeDataStoreProvider {
 }
 
 class VaccinationCodeDataStore {
-    private let cardLimit = 20
+    private let cardLimit = 16
     enum Event {
         case insert(String)
         case delete(String)
         case update
-        case limitExceeded
+        case currentIndexUpdated(Int)
     }
     
     private let userDefaultKey = "VaccinationCodeDataStore.qrCodes"
@@ -28,6 +28,10 @@ class VaccinationCodeDataStore {
         didSet {
             UserDefaults.standard.set(qrCodes, forKey: userDefaultKey)
         }
+    }
+    
+    var isCardLimitAvailable: Bool {
+        return qrCodes.count < cardLimit
     }
     
     private var observers: [AnyHashable: (Event) -> Void] = [:]
@@ -38,7 +42,6 @@ class VaccinationCodeDataStore {
     
     func insert(_ code: String) -> Bool {
         if qrCodes.count >= cardLimit {
-            send(.limitExceeded)
             return false
         }
         
@@ -74,6 +77,11 @@ class VaccinationCodeDataStore {
     // Override the qrCodes directly
     func update(qrCodes newList: [String]) {
         qrCodes = newList
+    }
+    
+    func updateCurrentIndex(_ index: Int) {
+        let clampedIndex = max(min(qrCodes.count - 1, index), 0)
+        send(.currentIndexUpdated(clampedIndex))
     }
     
     func addObserver<T: VaccinationCodeDataStoreObserver>(_ observer: T, handler: @escaping (Event) -> Void) {

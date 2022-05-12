@@ -196,7 +196,15 @@ class ExposureManager {
         let timeSpan = (start.enIntervalNumber..<end.enIntervalNumber)
 
         return firstly {
-            APIManager.shared.request(VerificationEndpoint.verify(code: verificationCode))
+            Promise { (seal) in
+                APIManager.shared.request(VerificationEndpoint.verify(code: verificationCode))
+                    .done { (response: VerificationEndpoint.VerifyResponse) in
+                        seal.fulfill(response)
+                    }
+                    .catch { error in
+                        seal.reject(UploadError.verifyFailed)
+                    }
+            }
         }
         .then { (response: VerificationEndpoint.VerifyResponse) -> Promise<(VerificationEndpoint.VerifyResponse, [ENTemporaryExposureKey])> in
             Promise { (seal) in
@@ -207,8 +215,8 @@ class ExposureManager {
                     .done { (keys) in
                         seal.fulfill((response, keys))
                     }
-                    .catch { (error) in
-                        seal.reject(error)
+                    .catch { _ in
+                        seal.reject(UploadError.keysNotFound)
                     }
             }
         }
@@ -571,5 +579,12 @@ extension ExposureManager {
         } catch {
             logger.error("Unable to schedule background task: \(error)")
         }
+    }
+}
+
+extension ExposureManager {
+    enum UploadError: Error {
+        case verifyFailed
+        case keysNotFound
     }
 }

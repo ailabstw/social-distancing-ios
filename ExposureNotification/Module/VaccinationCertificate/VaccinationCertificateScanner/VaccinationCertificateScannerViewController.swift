@@ -93,6 +93,16 @@ class VaccinationCertificateScannerViewController: UIViewController {
         setupBindings()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.start()
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel.stop()
+        super.viewDidDisappear(animated)
+    }
+    
     private func setupViews() {
         title = Localizations.VaccinationCertificateScanner.title
         navigationController?.navigationBar.isTranslucent = false
@@ -202,12 +212,13 @@ extension VaccinationCertificateScannerViewController {
         static let background = UIColor(red: (235/255.0), green: (235/255.0), blue: (235/255.0), alpha: 1)
         static let toastBackground = UIColor(red: (235/255.0), green: (235/255.0), blue: (235/255.0), alpha: 1)
         static let hintLabelText = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        static let tintColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
     }
     
     enum Image {
         static let iconClose: UIImage = {
             if #available(iOS 13.0, *) {
-                return UIImage(systemName: "xmark")!.withRenderingMode(.alwaysOriginal)
+                return UIImage(systemName: "xmark")!.withTintColor(Color.tintColor).withRenderingMode(.alwaysOriginal)
             } else {
                 return UIImage(named: "iconClose")!.withRenderingMode(.alwaysOriginal)
             }

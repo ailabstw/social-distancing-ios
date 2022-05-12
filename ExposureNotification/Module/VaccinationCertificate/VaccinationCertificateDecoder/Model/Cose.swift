@@ -33,7 +33,6 @@ struct Cose {
         }
         
         let cose = try? CBORDecoder(input: data.bytes).decodeItem()?.asCose()
-        print("cose: \(String(describing: cose))")
         
         if let cose = try? CBORDecoder(input: data.bytes).decodeItem()?.asCose(),
            let type = CoseType.from(data: data),

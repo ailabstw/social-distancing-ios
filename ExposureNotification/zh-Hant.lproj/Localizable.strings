@@ -14,6 +14,12 @@
 /* The message on alert to indicate the upload is failed */
 "Alert.Message.UploadFailed" = "上傳失敗";
 
+/* The message on alert to indicate the verification code is invalid */
+"Alert.Message.verifyFailed" = "無效的驗證碼";
+
+/* The message on alert to indicate there is no data between start and end dates */
+"Alert.Message.missingKeyData" = "所選區間無資料可供上傳";
+
 /* The button title on alert for OK */
 "Alert.Button.OK" = "確認";
 

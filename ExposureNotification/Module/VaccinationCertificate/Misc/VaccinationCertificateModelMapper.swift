@@ -29,8 +29,8 @@ struct VaccinationCertificateModelMapper {
             return VaccinationCertificateCardModel(qrCode: qrCode,
                                                    displayname: formatName(person),
                                                    standardizedName: formatStandardizedName(person),
-                                                   birthDate: holder.certificate.dateOfBirth,
-                                                   doseDate: vaccination.vaccinationDate)
+                                                   birthDate: transformDateFormat(holder.certificate.dateOfBirth),
+                                                   doseDate: transformDateFormat(vaccination.vaccinationDate))
             
         case .failure(let error):
             print("decode failed, error: \(error)")
@@ -48,7 +48,7 @@ struct VaccinationCertificateModelMapper {
             let person = holder.certificate.person
             return VaccinationCertificateListModel(qrCode: qrCode,
                                                    displayname: formatName(person),
-                                                   doseDate: vaccination.vaccinationDate)
+                                                   doseDate: transformDateFormat(vaccination.vaccinationDate))
             
         case .failure(let error):
             print("decode failed, error: \(error)")
@@ -75,8 +75,8 @@ struct VaccinationCertificateModelMapper {
                                                      issuer: vaccination.certificateIssuer,
                                                      vaccineType: metadataMapper.prophylaxis(key: vaccination.vaccine) ?? "",
                                                      targetedDisease: metadataMapper.targetedDisease(key: vaccination.disease) ?? "",
-                                                     doseDate: vaccination.vaccinationDate,
-                                                     birthDate: holder.certificate.dateOfBirth)
+                                                     doseDate: transformDateFormat(vaccination.vaccinationDate),
+                                                     birthDate: transformDateFormat(holder.certificate.dateOfBirth))
         case .failure(let error):
             print("decode failed, error: \(error)")
             return nil
@@ -95,17 +95,27 @@ struct VaccinationCertificateModelMapper {
     private func formatStandardizedName(_ person: Person) -> String {
         guard let firstUnicodeScalar = person.familyName?.first?.unicodeScalars.first else { return "\(person.standardizedFamilyName ?? "")\(person.standardizedGivenName ?? "")" }
         let replacedGivenName = person.standardizedGivenName?.replacingOccurrences(of: "<", with: "-") ?? ""
-        let replacedFamilyName = person.standardizedFamilyName?.replacingOccurrences(of: "<", with: "") ?? ""
+        let replacedFamilyName = person.standardizedFamilyName?.replacingOccurrences(of: "<", with: "-") ?? ""
         
         if !CharacterSet.englishAlphanumeric.contains(firstUnicodeScalar) {
-            if replacedFamilyName.isEmpty {
-                return "\(replacedGivenName)"
+            if replacedGivenName.isEmpty {
+                return "\(replacedFamilyName)"
             } else {
                 return "\(replacedFamilyName), \(replacedGivenName)"
             }
         } else {
             return "\(replacedGivenName) \(replacedFamilyName)"
         }
+    }
+    
+    private func transformDateFormat(_ dateString: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let date = formatter.date(from: dateString) else {
+            return ""
+        }
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: date)
     }
 }
 

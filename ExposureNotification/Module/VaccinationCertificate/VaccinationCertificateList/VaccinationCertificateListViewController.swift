@@ -10,7 +10,7 @@ import CoreKit
 import Foundation
 import UIKit
 
-class VaccinationCertificateListViewController: UIViewController {
+class VaccinationCertificateListViewController: UIViewController, VaccinationCertifcateMenuShowable {
     private let viewModel: VaccinationCertificateListViewModel
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -44,10 +44,14 @@ class VaccinationCertificateListViewController: UIViewController {
     private func setupViews() {
         title = Localizations.VaccinationCertificateList.title
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "iconClose")!.withRenderingMode(.alwaysOriginal),
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.iconClose?.withRenderingMode(.alwaysOriginal),
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(didTapClose(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: Image.iconMenu?.withRenderingMode(.alwaysOriginal),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(didTapMenu(_:)))
         view.addSubview(tableView)
     }
     
@@ -71,6 +75,10 @@ class VaccinationCertificateListViewController: UIViewController {
     @objc private func didTapClose(_ sender: AnyObject) {
         viewModel.didTapClose()
         dismiss(animated: true)
+    }
+    
+    @objc private func didTapMenu(_ sender: AnyObject) {
+        showMenu()
     }
 }
 
@@ -108,6 +116,17 @@ extension VaccinationCertificateListViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension VaccinationCertificateListViewController {
+    enum Color {
+        static let tintColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+    }
+    
+    enum Image {
+        static let iconClose = UIImage(named: "iconClose")
+        static let iconMenu = UIImage(named: "iconMenu")
+    }
 }
 
 extension Localizations {

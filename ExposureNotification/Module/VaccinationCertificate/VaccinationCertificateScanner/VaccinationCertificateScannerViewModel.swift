@@ -10,7 +10,7 @@ import AVFoundation
 import CoreKit
 import Foundation
 
-class VaccinationCertificateScannerViewModel {
+class VaccinationCertificateScannerViewModel: NSObject {
     enum ScanResult {
         case none
         case notFound
@@ -40,7 +40,16 @@ class VaccinationCertificateScannerViewModel {
     init(dataStore: VaccinationCodeDataStore, decoder: VaccinationCertificateDecoder) {
         self.dataStore = dataStore
         self.decoder = decoder
-        start()
+        super.init()
+        
+        scanner.$sessionConfigurationResult { [weak self] config in
+            switch config {
+            case .success:
+                self?.scanner.start()
+            case .notConfigured, .configurationFailed:
+                break
+            }
+        }
     }
     
     func start() {
@@ -75,6 +84,7 @@ class VaccinationCertificateScannerViewModel {
             if let expireDate = holder.expiresAt, Date() > expireDate {
                 scanResult = .expired
             } else {
+                scanner.stop()
                 if dataStore.insert(code) {
                     scanResult = .valid(code)
                 } else {

@@ -126,14 +126,14 @@ class RiskStatusViewController: UIViewController {
 
         engageButton.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.top.equalTo(content).offset(39)
+            $0.top.equalTo(content).offset(16)
             $0.height.equalTo(48)
             $0.width.equalTo(240)
         }
 
         uptimeLabel.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.top.equalTo(engageButton.snp.bottom).offset(20)
+            $0.top.equalTo(engageButton.snp.bottom).offset(16)
             $0.width.equalToSuperview().inset(4)
         }
 
@@ -144,7 +144,7 @@ class RiskStatusViewController: UIViewController {
 
         versionLabel.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.bottom.equalTo(content).offset(-12)
+            $0.bottom.equalTo(content).offset(-6)
         }
         
         return view
@@ -258,6 +258,8 @@ class RiskStatusViewController: UIViewController {
 
             _stack.addArrangedSubview(banner)
             _stack.addArrangedSubview(detailTextView)
+            _stack.addArrangedSubview(vaccinationCertificateButton)
+            _stack.addArrangedSubview(appUpdatesAvailableButton)
             _stack.insertSubview(bannerBorder, at: 0)
             _stack.insertSubview(bannerBadge, at: 0)
             
@@ -284,6 +286,11 @@ class RiskStatusViewController: UIViewController {
                 $0.height.greaterThanOrEqualTo(160)
             }
             
+            vaccinationCertificateButton.snp.makeConstraints {
+                $0.width.equalTo((vaccinationCertificateButton.titleLabel?.intrinsicContentSize.width ?? 0) + 30)
+                $0.height.equalTo(35)
+            }
+            
             return _stack
         }()
 
@@ -295,14 +302,12 @@ class RiskStatusViewController: UIViewController {
         view.addSubview(clockAnimationView)
         clockAnimationView.addSubview(clockLabel)
         view.addSubview(stack)
-        view.addSubview(vaccinationCertificateButton)
-        view.addSubview(appUpdatesAvailableButton)
         view.addSubview(console)
 
         layoutGuide.snp.makeConstraints {
             $0.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(console.snp.top)
-            $0.top.equalTo(clockLabel.snp.bottom)
+            $0.top.equalTo(clockAnimationView.snp.bottom)
         }
         
         clockLabel.snp.makeConstraints {
@@ -321,23 +326,9 @@ class RiskStatusViewController: UIViewController {
             $0.centerY.left.right.equalTo(layoutGuide)
         }
         
-        vaccinationCertificateButton.snp.makeConstraints {
-            $0.width.equalTo((vaccinationCertificateButton.titleLabel?.intrinsicContentSize.width ?? 0) + 30)
-            $0.height.equalTo(35)
-            $0.centerX.equalTo(layoutGuide)
-            $0.top.equalTo(stack.snp.bottom).offset(36)
-        }
-
-        appUpdatesAvailableButton.snp.makeConstraints {
-            $0.leading.greaterThanOrEqualTo(layoutGuide).offset(32)
-            $0.trailing.lessThanOrEqualTo(layoutGuide).offset(-32)
-            $0.centerX.equalTo(layoutGuide)
-            $0.top.equalTo(vaccinationCertificateButton.snp.bottom).offset(12)
-        }
-        
         console.snp.makeConstraints {
             $0.left.right.bottom.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-200)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-180)
         }
     }
 

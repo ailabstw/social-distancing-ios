@@ -45,7 +45,6 @@
 		1304C46C282D0243002315FC /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C467282D0243002315FC /* UICollectionViewExtensions.swift */; };
 		1304C46D282D0243002315FC /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C468282D0243002315FC /* DataExtensions.swift */; };
 		1304C46E282D0243002315FC /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C469282D0243002315FC /* StringExtensions.swift */; };
-		1304C46F282D0243002315FC /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C46A282D0243002315FC /* DateFormatterExtensions.swift */; };
 		1304C472282D02CB002315FC /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C471282D02CB002315FC /* CameraService.swift */; };
 		1304C477282D03AF002315FC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C476282D03AF002315FC /* Style.swift */; };
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
@@ -148,7 +147,6 @@
 		1304C467282D0243002315FC /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		1304C468282D0243002315FC /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		1304C469282D0243002315FC /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		1304C46A282D0243002315FC /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		1304C471282D02CB002315FC /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		1304C476282D03AF002315FC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -513,7 +511,6 @@
 			isa = PBXGroup;
 			children = (
 				1304C468282D0243002315FC /* DataExtensions.swift */,
-				1304C46A282D0243002315FC /* DateFormatterExtensions.swift */,
 				1304C469282D0243002315FC /* StringExtensions.swift */,
 				1304C467282D0243002315FC /* UICollectionViewExtensions.swift */,
 				1304C466282D0243002315FC /* UIImageExtensions.swift */,
@@ -670,7 +667,6 @@
 				1304C42C282D0131002315FC /* VaccinationCertificateCardViewController.swift in Sources */,
 				1304C45F282D0197002315FC /* VaccinationCodeDataStore.swift in Sources */,
 				9E5084A6268AC110007C626B /* Hint.swift in Sources */,
-				1304C46F282D0243002315FC /* DateFormatterExtensions.swift in Sources */,
 				1304C449282D0152002315FC /* Person.swift in Sources */,
 				1304C451282D016E002315FC /* CBORExtensions.swift in Sources */,
 				9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */,
@@ -884,13 +880,13 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-debug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 574;
+				CURRENT_PROJECT_VERSION = 581;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -907,13 +903,13 @@
 				CODE_SIGN_ENTITLEMENTS = "ExposureNotification/ExposureNotification-release.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 574;
+				CURRENT_PROJECT_VERSION = 581;
 				DEVELOPMENT_TEAM = UYUNZ5V2DH;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";

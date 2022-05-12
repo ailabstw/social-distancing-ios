@@ -34,7 +34,7 @@ class VaccinationCertificateListViewModel: NSObject, VaccinationCodeDataStoreObs
             case .delete(let code):
                 self?.refreshModels()
                 self?.event = .removeItem(code: code)
-            case .update, .insert, .limitExceeded:
+            case .update, .insert, .currentIndexUpdated:
                 // ignore
                 break
             }
