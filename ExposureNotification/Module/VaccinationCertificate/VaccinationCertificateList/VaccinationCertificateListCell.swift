@@ -12,16 +12,16 @@ import UIKit
 class VaccinationCertificateListCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont(size: 17, weight: .regular)
+        label.textColor = Color.name
+        label.font = Font.name
         label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return label
     }()
     
     private lazy var doseDateLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular)
+        label.textColor = Color.doseDate
+        label.font = Font.doseDate
         return label
     }()
     
@@ -50,6 +50,18 @@ class VaccinationCertificateListCell: UITableViewCell {
     func configure(by model: VaccinationCertificateListModel) {
         nameLabel.text = model.displayname
         doseDateLabel.text = "\(Localizations.VaccinationCertificateListCell.doseDate)\(model.doseDate)"
+    }
+}
+
+extension VaccinationCertificateListCell {
+    enum Color {
+        static let doseDate = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        static let name = UIColor(red: 0/255, green: 0/255, blue: 94/255, alpha: 1)
+    }
+    
+    enum Font {
+        static let doseDate = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .regular)
+        static let name = UIFont(size: 17, weight: .regular)
     }
 }
 

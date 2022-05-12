@@ -12,40 +12,40 @@ import UIKit
 class VaccinationCertificateUserInfoView: UIView {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(size: 24, weight: .medium)
-        label.textColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        label.font = Font.nameLabel
+        label.textColor = Color.nameLabel
         return label
     }()
     
     private lazy var standardizedNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(size: 14, weight: .semibold)
-        label.textColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        label.font = Font.standardizedNameLabel
+        label.textColor = Color.standardizedNameLabel
         return label
     }()
     
     private lazy var birthDateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(size: 14, weight: .thin)
-        label.textColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        label.font = Font.birthDateLabel
+        label.textColor = Color.birthDateLabel
         return label
     }()
     
     private lazy var hintLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(size: 13, weight: .regular)
-        label.textColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        label.font = Font.hintLabel
+        label.textColor = Color.hintLabel
         label.text = Localizations.VaccinationCertificateUserInfoView.hint
         return label
     }()
     
     private lazy var doseDateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(size: 14, weight: .regular)
-        label.textColor = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
+        label.font = Font.doseDateLabel
+        label.textColor = Color.doseDateLabel
         label.textAlignment = .center
         label.layer.cornerRadius = 6
-        label.layer.borderColor = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1).cgColor
+        label.layer.borderColor = Color.doseDateBorder
         label.layer.borderWidth = 1
         return label
     }()
@@ -102,6 +102,25 @@ class VaccinationCertificateUserInfoView: UIView {
         standardizedNameLabel.text = model.standardizedName
         birthDateLabel.text = model.birthDate
         doseDateLabel.text = "\(Localizations.VaccinationCertificateUserInfoView.doseDate) \(model.doseDate)"
+    }
+}
+
+extension VaccinationCertificateUserInfoView {
+    enum Color {
+        static let nameLabel = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        static let standardizedNameLabel = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        static let birthDateLabel = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        static let hintLabel = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        static let doseDateLabel = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
+        static let doseDateBorder = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1).cgColor
+    }
+    
+    enum Font {
+        static let nameLabel = UIFont(size: 24, weight: .medium)
+        static let standardizedNameLabel = UIFont(size: 14, weight: .semibold)
+        static let birthDateLabel = UIFont(size: 14, weight: .thin)
+        static let hintLabel = UIFont(size: 13, weight: .regular)
+        static let doseDateLabel = UIFont(size: 14, weight: .regular)
     }
 }
 

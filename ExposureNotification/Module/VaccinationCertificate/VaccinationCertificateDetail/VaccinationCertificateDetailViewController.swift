@@ -34,7 +34,7 @@ class VaccinationCertificateDetailViewController: UIViewController, VaccinationC
     
     private lazy var goPrevButton: UIButton = {
         let button = StyledButton(style: .major)
-        button.setImage(UIImage(named: "iconArrowLeft"), for: .normal)
+        button.setImage(Image.prevArrow, for: .normal)
         button.layer.cornerRadius = 18
         button.addTarget(self, action: #selector(didTapPrev(_:)), for: .touchUpInside)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
@@ -43,7 +43,7 @@ class VaccinationCertificateDetailViewController: UIViewController, VaccinationC
     
     private lazy var goNextButton: UIButton = {
         let button = StyledButton(style: .major)
-        button.setImage(UIImage(named: "iconArrowRight"), for: .normal)
+        button.setImage(Image.nextArrow, for: .normal)
         button.layer.cornerRadius = 18
         button.addTarget(self, action: #selector(didTapNext(_:)), for: .touchUpInside)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
@@ -216,6 +216,8 @@ extension VaccinationCertificateDetailViewController {
     enum Image {
         static let iconClose = UIImage(named: "iconClose")
         static let iconMenu = UIImage(named: "iconMenu")
+        static let prevArrow = UIImage(named: "iconArrowLeft")
+        static let nextArrow = UIImage(named: "iconArrowRight")
     }
 }
 

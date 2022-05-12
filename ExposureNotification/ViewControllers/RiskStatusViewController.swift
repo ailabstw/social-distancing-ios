@@ -126,14 +126,14 @@ class RiskStatusViewController: UIViewController {
 
         engageButton.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.top.equalTo(content).offset(16)
+            $0.top.equalTo(content).offset(Layout.calculate(16))
             $0.height.equalTo(48)
             $0.width.equalTo(240)
         }
 
         uptimeLabel.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.top.equalTo(engageButton.snp.bottom).offset(16)
+            $0.top.equalTo(engageButton.snp.bottom).offset(Layout.calculate(16))
             $0.width.equalToSuperview().inset(4)
         }
 
@@ -145,6 +145,7 @@ class RiskStatusViewController: UIViewController {
         versionLabel.snp.makeConstraints {
             $0.centerX.equalTo(content)
             $0.bottom.equalTo(content).offset(-6)
+            $0.top.equalTo(lastCheckedDateTimeLabel.snp.bottom).offset(Layout.calculate(16))
         }
         
         return view
@@ -281,7 +282,7 @@ class RiskStatusViewController: UIViewController {
             
             detailTextView.snp.makeConstraints {
                 $0.width.equalToSuperview().offset(-70)
-                $0.height.greaterThanOrEqualTo(160)
+                $0.height.greaterThanOrEqualTo(Layout.calculate(180))
             }
             
             vaccinationCertificateButton.snp.makeConstraints {
@@ -305,7 +306,7 @@ class RiskStatusViewController: UIViewController {
         layoutGuide.snp.makeConstraints {
             $0.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(console.snp.top)
-            $0.top.equalTo(clockAnimationView.snp.bottom)
+            $0.top.equalTo(clockAnimationView.snp.bottom).offset(Layout.calculate(12))
         }
         
         clockLabel.snp.makeConstraints {
@@ -314,7 +315,7 @@ class RiskStatusViewController: UIViewController {
         }
         
         clockAnimationView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(Layout.calculate(16))
             $0.centerX.equalToSuperview()
             $0.width.equalTo(240)
             $0.height.equalTo(56)
@@ -326,7 +327,6 @@ class RiskStatusViewController: UIViewController {
         
         console.snp.makeConstraints {
             $0.left.right.bottom.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-180)
         }
     }
 

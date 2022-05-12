@@ -20,8 +20,8 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
     private lazy var expiredLabel: UILabel = {
         let label = UILabel()
         label.text = Localizations.VaccinationCertificateDetailCell.expiredlabel
-        label.textColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
-        label.font = UIFont(size: 16, weight: .regular)
+        label.textColor = Color.expiredLabel
+        label.font = Font.expiredLabel
         label.isHidden = true
         return label
     }()
@@ -29,7 +29,7 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
     private lazy var expiredBorder: UIView = {
         let view = UIView()
         view.layer.borderWidth = 2
-        view.layer.borderColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1).cgColor
+        view.layer.borderColor = Color.expiredBorder.cgColor
         view.layer.cornerRadius = 6
         if #available(iOS 13.0, *) {
             view.layer.cornerCurve = .continuous
@@ -46,8 +46,8 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
     private lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle(Localizations.VaccinationCertificateDetail.deleteButton, for: .normal)
-        button.titleLabel?.font = UIFont(size: 16, weight: .regular)
-        button.backgroundColor = UIColor(red: 175/255, green: 72/255, blue: 72/255, alpha: 1)
+        button.titleLabel?.font = Font.deleteButtonTitle
+        button.backgroundColor = Color.deleteButtonBackground
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(didTapDelete(_:)), for: .touchUpInside)
         return button
@@ -147,6 +147,20 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
         deletionHandler?()
     }
 }
+
+extension VaccinationCertificateDetailCell {
+    enum Color {
+        static let expiredLabel = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
+        static let expiredBorder = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
+        static let deleteButtonBackground = UIColor(red: 175/255, green: 72/255, blue: 72/255, alpha: 1)
+    }
+    
+    enum Font {
+        static let expiredLabel = UIFont(size: 16, weight: .regular)
+        static let deleteButtonTitle = UIFont(size: 16, weight: .regular)
+    }
+}
+
 
 extension Localizations {
     enum VaccinationCertificateDetailCell {

@@ -30,8 +30,8 @@ class VaccinationCertificateCardCell: UICollectionViewCell {
     private lazy var expiredLabel: UILabel = {
         let label = UILabel()
         label.text = Localizations.VaccinationCertificateCardCell.expiredLabel
-        label.textColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
-        label.font = UIFont(size: 16, weight: .semibold)
+        label.textColor = Color.expiredLabel
+        label.font = Font.expiredLabel
         label.isHidden = true
         return label
     }()
@@ -89,7 +89,7 @@ class VaccinationCertificateCardCell: UICollectionViewCell {
                 whiteContainer.layer.borderColor = UIColor.clear.cgColor
                 expiredLabel.isHidden = true
             case .expired:
-                whiteContainer.layer.borderColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1).cgColor
+                whiteContainer.layer.borderColor = Color.expiredBorder.cgColor
                 expiredLabel.isHidden = false
             }
         }
@@ -168,6 +168,8 @@ extension VaccinationCertificateCardCell {
         static let birthDateLabel = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
         static let doseDateLabel = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
         static let doseDateBorder = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
+        static let expiredLabel = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
+        static let expiredBorder = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
     }
     
     enum Font {
@@ -175,12 +177,13 @@ extension VaccinationCertificateCardCell {
         static let standardizedName = UIFont(size: 14, weight: .semibold)
         static let birthDate = UIFont(size: 14, weight: .thin)
         static let doseDate = UIFont(size: 14, weight: .regular)
+        static let expiredLabel = UIFont(size: 16, weight: .semibold)
     }
 }
 
 extension Localizations {
     enum VaccinationCertificateCardCell {
-        static let expiredLabel = NSLocalizedString("VaccinationCertificate.expiredLabel", value: "此證明已過期", comment: "")
+        static let expiredLabel = NSLocalizedString("VaccinationCertificate.expiredLabel", value: "Expired", comment: "")
         static let doseDate = NSLocalizedString("VaccinationCertificateCardCell.doseDate", value: "Date of vaccination", comment: "")
     }
 }
