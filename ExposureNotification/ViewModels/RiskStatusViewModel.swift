@@ -182,7 +182,7 @@ class RiskStatusViewModel {
                 case .dailySummaryHint:
                     return [.risky, .clear].contains(self.status)
 
-                case .qrCodeScannerHint, .replayHints, .disableNoRiskNotificationHint:
+                case .qrCodeScannerHint, .replayHints, .disableNoRiskNotificationHint, .vaccinationCertificate:
                     return true
 
                 default:

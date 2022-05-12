@@ -21,7 +21,7 @@ class HintManager {
     @Persisted(userDefaultsKey: "presentedHintIDs", notificationName: HintManager.presentedHintIDsDidChangeNotification, defaultValue: [])
     private var presentedHintIDs: Set<Hint.ID>
 
-    private let hints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint, .disableNoRiskNotificationHint, .replayHints]
+    private let hints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint, .vaccinationCertificate, .disableNoRiskNotificationHint, .replayHints]
 
     @Notified(notificationName: HintManager.pendingHintIDsDidChangeNotification)
     private(set) var pendingHints: [Hint] = []

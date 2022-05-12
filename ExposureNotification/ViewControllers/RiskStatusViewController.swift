@@ -87,9 +87,23 @@ class RiskStatusViewController: UIViewController {
 
         button.setTitle(Localizations.NewVersionAvailableAlert.message, for: .normal)
         button.setTitleColor(Color.warning, for: .normal)
-        button.isHidden = true
+        button.isHidden = false
         button.addTarget(self, action: #selector(didTapAppUpdatesAvailableButton(_:)), for: .touchUpInside)
 
+        return button
+    }()
+    
+    private lazy var vaccinationCertificateButton: UIButton = {
+        let button = UIButton()
+        
+        button.backgroundColor = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
+        button.setTitle(Localizations.RiskStatusView.vaccinationCertificate, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 17)
+        button.layer.cornerRadius = 18
+        button.addTarget(self, action: #selector(didTapVaccinationCertificateButton(_:)), for: .touchDown)
+        button.clipsToBounds = true
+        
         return button
     }()
     
@@ -281,6 +295,7 @@ class RiskStatusViewController: UIViewController {
         view.addSubview(clockAnimationView)
         clockAnimationView.addSubview(clockLabel)
         view.addSubview(stack)
+        view.addSubview(vaccinationCertificateButton)
         view.addSubview(appUpdatesAvailableButton)
         view.addSubview(console)
 
@@ -305,12 +320,19 @@ class RiskStatusViewController: UIViewController {
         stack.snp.makeConstraints {
             $0.centerY.left.right.equalTo(layoutGuide)
         }
+        
+        vaccinationCertificateButton.snp.makeConstraints {
+            $0.width.equalTo((vaccinationCertificateButton.titleLabel?.intrinsicContentSize.width ?? 0) + 30)
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(layoutGuide)
+            $0.top.equalTo(stack.snp.bottom).offset(36)
+        }
 
         appUpdatesAvailableButton.snp.makeConstraints {
             $0.leading.greaterThanOrEqualTo(layoutGuide).offset(32)
             $0.trailing.lessThanOrEqualTo(layoutGuide).offset(-32)
             $0.centerX.equalTo(layoutGuide)
-            $0.bottom.equalTo(layoutGuide).offset(-40)
+            $0.top.equalTo(vaccinationCertificateButton.snp.bottom).offset(12)
         }
         
         console.snp.makeConstraints {
@@ -571,6 +593,10 @@ class RiskStatusViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     #endif
+    
+    @objc private func didTapVaccinationCertificateButton(_ sender: UIButton) {
+        VaccinationCertificateRouter.presentMainPage(self)
+    }
 
     func presentQRCodeScanner() {
         let scannerViewModel = QRCodeScannerViewModel()
@@ -627,6 +653,9 @@ class RiskStatusViewController: UIViewController {
 
         case .replayHints:
             AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.rightBarButtonItem!)
+        
+        case .vaccinationCertificate:
+            AppCoordinator.shared.showOverlay(for: hint, from: vaccinationCertificateButton)
 
         default:
             return
@@ -683,7 +712,10 @@ extension Localizations {
         static let detailTextParagraphHeaderSeparator = NSLocalizedString("RiskStatusView.DetailTextParagraphHeaderSeparator",
                                                            value: ":",
                                                            comment: "The punctuation at the beginning of each paragraph to indicate header").first!
-
+        
+        static let vaccinationCertificate = NSLocalizedString("VaccinationCertificate.title",
+                                                              value: "Vaccination Certificate",
+                                                              comment: "The title of button on risk status view for enter vaccination certificate")
         enum EngageButton {
             static let enable = NSLocalizedString("RiskStatusView.EngageButton.Enable",
                                                   value: "Enable Exposure Notification",
