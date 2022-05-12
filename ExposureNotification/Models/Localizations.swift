@@ -52,6 +52,9 @@ extension Localizations {
             static let missingKeyData = NSLocalizedString("Alert.Message.missingKeyData",
                                                           value: "No data between start and end dates",
                                                           comment: "The message on alert to indicate the no data between start and end date")
+            static let userDenied = NSLocalizedString("Alert.Message.userDenied",
+                                                      value: "Click the submit button to upload your anonymous IDs.",
+                                                      comment: "The message on alert to notify user the data should be allowed to upload")
         }
     }
 }

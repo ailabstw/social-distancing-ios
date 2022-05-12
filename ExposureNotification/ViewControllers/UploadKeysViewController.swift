@@ -372,8 +372,6 @@ class UploadKeysViewController: UIViewController, SpinnerShowable {
                         return Localizations.Alert.Message.uploadSucceed
                     case .otherAPIFailed:
                         return Localizations.Alert.Message.uploadFailed
-                    case .couldNotGetKeys:
-                        return Localizations.Alert.Message.missingKeyData
                     case .verifyAPIFailed:
                         return Localizations.Alert.Message.verifyAPIFailed
                     }
@@ -383,6 +381,24 @@ class UploadKeysViewController: UIViewController, SpinnerShowable {
                 alert.addAction(UIAlertAction(title: Localizations.Alert.Button.ok, style: .default) { [weak self] _ in
                     self?.navigationController?.popViewController(animated: true)
                 })
+                self.present(alert, animated: true, completion: nil)
+                
+            case .waitForRetry(let reason):
+                self.passcodeField.isEnabled = false
+                self.submitButton.isEnabled = true
+                self.stopSpinner()
+                
+                let message: String = {
+                    switch reason {
+                    case .userDenied:
+                        return Localizations.Alert.Message.userDenied
+                    case .couldNotGetKeys:
+                        return Localizations.Alert.Message.missingKeyData
+                    }
+                }()
+                
+                let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: Localizations.Alert.Button.ok, style: .default))
                 self.present(alert, animated: true, completion: nil)
             }
         }

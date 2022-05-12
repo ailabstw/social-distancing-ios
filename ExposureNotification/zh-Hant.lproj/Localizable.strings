@@ -20,6 +20,9 @@
 /* The message on alert to indicate there is no data between start and end dates */
 "Alert.Message.missingKeyData" = "所選區間無資料可供上傳";
 
+/* The message on alert to notify user the data should be allowed to upload */
+"Alert.Message.userDenied" = "若要上傳請再次點擊送出並分享";
+
 /* The button title on alert for OK */
 "Alert.Button.OK" = "確認";
 
