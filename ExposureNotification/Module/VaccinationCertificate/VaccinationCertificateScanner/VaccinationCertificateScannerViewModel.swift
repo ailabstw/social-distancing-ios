@@ -32,6 +32,7 @@ class VaccinationCertificateScannerViewModel: NSObject {
     
     private let dataStore: VaccinationCodeDataStore
     private let decoder: VaccinationCertificateDecoder
+    var shouldCaptureNext: Bool = true
     
     var session: AVCaptureSession {
         scanner.session
@@ -69,6 +70,7 @@ class VaccinationCertificateScannerViewModel: NSObject {
     }
     
     private func identifyQRCode(_ code: String) {
+        guard shouldCaptureNext else { return }
         if dataStore.find(by: code) != nil {
             scanResult = .duplicated
             return

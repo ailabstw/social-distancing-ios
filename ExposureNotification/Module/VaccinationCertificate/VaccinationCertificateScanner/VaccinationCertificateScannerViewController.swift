@@ -144,30 +144,32 @@ class VaccinationCertificateScannerViewController: UIViewController {
     
     private func setupBindings() {
         viewModel.$scanResult { [weak self] scanResult in
-            self?.hintToastTimer?.invalidate()
+            guard let self = self else { return }
+            self.hintToastTimer?.invalidate()
             
             switch scanResult {
             case .none:
-                self?.hintToast.isHidden = true
+                self.hintToast.isHidden = true
             case .valid:
-                self?.dismiss(animated: true, completion: nil)
+                self.viewModel.shouldCaptureNext = false
+                self.dismiss(animated: true, completion: nil)
             case .expired:
-                self?.hintToast.isHidden = false
-                self?.hintLabel.text = Localizations.VaccinationCertificateScanner.expired
+                self.hintToast.isHidden = false
+                self.hintLabel.text = Localizations.VaccinationCertificateScanner.expired
             case .invalidFormat:
-                self?.hintToast.isHidden = false
-                self?.hintLabel.text = Localizations.VaccinationCertificateScanner.invalidFormat
+                self.hintToast.isHidden = false
+                self.hintLabel.text = Localizations.VaccinationCertificateScanner.invalidFormat
             case .duplicated:
-                self?.hintToast.isHidden = false
-                self?.hintLabel.text = Localizations.VaccinationCertificateScanner.duplicated
+                self.hintToast.isHidden = false
+                self.hintLabel.text = Localizations.VaccinationCertificateScanner.duplicated
             case .countLimitExceeded:
-                self?.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             case .notFound:
-                self?.hintToast.isHidden = false
-                self?.hintLabel.text = Localizations.VaccinationCertificateScanner.notFound
+                self.hintToast.isHidden = false
+                self.hintLabel.text = Localizations.VaccinationCertificateScanner.notFound
             }
             
-            self?.hintToastTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { [weak self] _ in
+            self.hintToastTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { [weak self] _ in
                 self?.hintToast.isHidden = true
             })
         }
