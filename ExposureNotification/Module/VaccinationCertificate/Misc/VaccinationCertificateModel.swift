@@ -30,6 +30,11 @@ struct VaccinationCertificateCardModel {
     let standardizedName: String
     let birthDate: String
     let doseDate: String
+    let expiredDate: Date?
+    
+    var isExpired: Bool {
+        Date() > expiredDate ?? .distantFuture
+    }
 }
 
 struct VaccinationCertificateListModel {
@@ -52,4 +57,9 @@ struct VaccinationCertificateDetailModel {
     let targetedDisease: String
     let doseDate: String
     let birthDate: String
+    let expiredDate: Date?
+    
+    var isExpired: Bool {
+        Date() > expiredDate ?? .distantFuture
+    }
 }

@@ -303,6 +303,8 @@
 
 "VaccinationCertificate.title" = "疫苗接種數位證明";
 
+"VaccinationCertificate.expiredLabel" = "此證明已過期";
+
 "VaccinationCertificateCard.cardsLimitExceeded" = "數量已達上限";
 
 "VaccinationCertificateCard.apply" = "申請疫苗接種數位證明";

@@ -30,7 +30,8 @@ struct VaccinationCertificateModelMapper {
                                                    displayname: formatName(person),
                                                    standardizedName: formatStandardizedName(person),
                                                    birthDate: transformDateFormat(holder.certificate.dateOfBirth),
-                                                   doseDate: transformDateFormat(vaccination.vaccinationDate))
+                                                   doseDate: transformDateFormat(vaccination.vaccinationDate),
+                                                   expiredDate: holder.expiresAt)
             
         case .failure(let error):
             print("decode failed, error: \(error)")
@@ -77,7 +78,8 @@ struct VaccinationCertificateModelMapper {
                                                      vaccineType: metadataMapper.prophylaxis(key: vaccination.vaccine) ?? "",
                                                      targetedDisease: metadataMapper.targetedDisease(key: vaccination.disease) ?? "",
                                                      doseDate: transformDateFormat(vaccination.vaccinationDate),
-                                                     birthDate: transformDateFormat(holder.certificate.dateOfBirth))
+                                                     birthDate: transformDateFormat(holder.certificate.dateOfBirth),
+                                                     expiredDate: holder.expiresAt)
         case .failure(let error):
             print("decode failed, error: \(error)")
             return nil

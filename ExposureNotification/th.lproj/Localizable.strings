@@ -303,6 +303,8 @@
 
 "VaccinationCertificate.title" = "Vaccination Certificate";
 
+"VaccinationCertificate.expiredLabel" = "Expired";
+
 "VaccinationCertificateCard.cardsLimitExceeded" = "Exceeded vaccination certificates limits.";
 
 "VaccinationCertificateCard.apply" = "Apply for vaccination certificate";

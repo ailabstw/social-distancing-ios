@@ -10,6 +10,11 @@ import UIKit
 import Foundation
 
 class VaccinationCertificateCardCell: UICollectionViewCell {
+    enum Style {
+        case normal
+        case expired
+    }
+    
     private lazy var whiteContainer: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
@@ -17,8 +22,18 @@ class VaccinationCertificateCardCell: UICollectionViewCell {
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.shadowColor = Color.whiteContainerShadow.cgColor
         view.layer.shadowOpacity = 0.3
+        view.layer.borderWidth = 2
         view.backgroundColor = Color.whiteContainerBackground
         return view
+    }()
+    
+    private lazy var expiredLabel: UILabel = {
+        let label = UILabel()
+        label.text = Localizations.VaccinationCertificateCardCell.expiredLabel
+        label.textColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
+        label.font = UIFont(size: 16, weight: .semibold)
+        label.isHidden = true
+        return label
     }()
     
     private lazy var qrCodeImageView: UIImageView = {
@@ -67,6 +82,18 @@ class VaccinationCertificateCardCell: UICollectionViewCell {
     }()
     
     private var cardModel: VaccinationCertificateCardModel?
+    private var style: Style = .normal {
+        didSet {
+            switch style {
+            case .normal:
+                whiteContainer.layer.borderColor = UIColor.clear.cgColor
+                expiredLabel.isHidden = true
+            case .expired:
+                whiteContainer.layer.borderColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1).cgColor
+                expiredLabel.isHidden = false
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,6 +114,7 @@ class VaccinationCertificateCardCell: UICollectionViewCell {
     
     private func setupViews() {
         addSubview(whiteContainer)
+        whiteContainer.addSubview(expiredLabel)
         whiteContainer.addSubview(qrCodeImageView)
         whiteContainer.addSubview(stackView)
     }
@@ -94,6 +122,11 @@ class VaccinationCertificateCardCell: UICollectionViewCell {
     private func setupConstraints() {
         whiteContainer.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
+        }
+        
+        expiredLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(10)
+            make.centerX.equalToSuperview()
         }
         
         qrCodeImageView.snp.makeConstraints { make in
@@ -121,6 +154,8 @@ class VaccinationCertificateCardCell: UICollectionViewCell {
         standardizedNameLabel.text = model.standardizedName
         birthDateLabel.text = model.birthDate
         doseDateLabel.text = "\(Localizations.VaccinationCertificateCardCell.doseDate) \(model.doseDate)"
+        
+        style = model.isExpired ? .expired : .normal
     }
 }
 
@@ -145,6 +180,7 @@ extension VaccinationCertificateCardCell {
 
 extension Localizations {
     enum VaccinationCertificateCardCell {
+        static let expiredLabel = NSLocalizedString("VaccinationCertificate.expiredLabel", value: "此證明已過期", comment: "")
         static let doseDate = NSLocalizedString("VaccinationCertificateCardCell.doseDate", value: "Date of vaccination", comment: "")
     }
 }

@@ -10,7 +10,33 @@ import Foundation
 import UIKit
 
 class VaccinationCertificateDetailCell: UICollectionViewCell {
+    enum Style {
+        case normal
+        case expired
+    }
+    
     private let qrCodeSize: CGSize = CGSize(width: 188, height: 188)
+    
+    private lazy var expiredLabel: UILabel = {
+        let label = UILabel()
+        label.text = Localizations.VaccinationCertificateDetailCell.expiredlabel
+        label.textColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1)
+        label.font = UIFont(size: 16, weight: .regular)
+        label.isHidden = true
+        return label
+    }()
+    
+    private lazy var expiredBorder: UIView = {
+        let view = UIView()
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor(red: 217/255, green: 115/255, blue: 115/255, alpha: 1).cgColor
+        view.layer.cornerRadius = 6
+        if #available(iOS 13.0, *) {
+            view.layer.cornerCurve = .continuous
+        }
+        view.isHidden = true
+        return view
+    }()
     
     private lazy var scrollView = UIScrollView()
     private lazy var qrCodeImageView = UIImageView()    
@@ -28,6 +54,18 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
     }()
     
     private var model: VaccinationCertificateDetailModel?
+    private var style: Style = .normal {
+        didSet {
+            switch style {
+            case .normal:
+                expiredLabel.isHidden = true
+                expiredBorder.isHidden = true
+            case .expired:
+                expiredLabel.isHidden = false
+                expiredBorder.isHidden = false
+            }
+        }
+    }
     
     var deletionHandler: (() -> Void)?
     
@@ -47,6 +85,8 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
         scrollView.showsVerticalScrollIndicator = false
         
         contentView.addSubview(scrollView)
+        scrollView.addSubview(expiredLabel)
+        scrollView.addSubview(expiredBorder)
         scrollView.addSubview(qrCodeImageView)
         scrollView.addSubview(userInfoView)
         scrollView.addSubview(certificateDetailView)
@@ -56,6 +96,16 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        expiredLabel.snp.makeConstraints { make in
+            make.top.centerX.equalToSuperview()
+        }
+        
+        expiredBorder.snp.makeConstraints { make in
+            make.center.equalTo(qrCodeImageView)
+            make.width.equalTo(qrCodeImageView).offset(16)
+            make.height.equalTo(qrCodeImageView).offset(16)
         }
         
         qrCodeImageView.snp.makeConstraints { make in
@@ -90,9 +140,16 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
         qrCodeImageView.image = UIImage.init(qrCode: model.qrCode, of: qrCodeSize)
         userInfoView.configure(by: model)
         certificateDetailView.configure(by: properties)
+        style = model.isExpired ? .expired : .normal
     }
     
     @objc private func didTapDelete(_ sender: UIButton) {
         deletionHandler?()
+    }
+}
+
+extension Localizations {
+    enum VaccinationCertificateDetailCell {
+        static let expiredlabel = NSLocalizedString("VaccinationCertificate.expiredLabel", value: "Expired", comment: "")
     }
 }

@@ -47,6 +47,7 @@
 		1304C46E282D0243002315FC /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C469282D0243002315FC /* StringExtensions.swift */; };
 		1304C472282D02CB002315FC /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C471282D02CB002315FC /* CameraService.swift */; };
 		1304C477282D03AF002315FC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C476282D03AF002315FC /* Style.swift */; };
+		1304C479282D2FD2002315FC /* VaccinationCertificateDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C478282D2FD2002315FC /* VaccinationCertificateDetailCell.swift */; };
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		1393234027FD44A6004BE4D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1393233F27FD44A6004BE4D1 /* Lottie */; };
 		1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1393234127FD458A004BE4D1 /* clock_background_animation.json */; };
@@ -149,6 +150,7 @@
 		1304C469282D0243002315FC /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		1304C471282D02CB002315FC /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		1304C476282D03AF002315FC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		1304C478282D2FD2002315FC /* VaccinationCertificateDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateDetailCell.swift; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		13096B5727EC69230008997B /* VaccinationCertificateDetail */ = {
 			isa = PBXGroup;
 			children = (
+				1304C478282D2FD2002315FC /* VaccinationCertificateDetailCell.swift */,
 				1304C437282D0145002315FC /* VaccinationCertificateDetailView.swift */,
 				1304C436282D0145002315FC /* VaccinationCertificateDetailViewController.swift */,
 				1304C438282D0145002315FC /* VaccinationCertificateDetailViewModel.swift */,
@@ -659,6 +662,7 @@
 				1304C458282D018C002315FC /* VaccinationCertificateScannerViewModel.swift in Sources */,
 				9E7065942611A7F30057A832 /* ENTemporaryExposureKeyExtensions.swift in Sources */,
 				9E08156A25E8D703008B7424 /* PreferenceManager.swift in Sources */,
+				1304C479282D2FD2002315FC /* VaccinationCertificateDetailCell.swift in Sources */,
 				9E08157125EE21E2008B7424 /* UserManager.swift in Sources */,
 				9E5084AC268AC79F007C626B /* OverlayWindow.swift in Sources */,
 				9E89CBF8261EAEE400161384 /* TableViewCellViewModel.swift in Sources */,
