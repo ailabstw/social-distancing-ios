@@ -65,7 +65,8 @@ struct VaccinationCertificateModelMapper {
             }
             let person = holder.certificate.person
             
-            return VaccinationCertificateDetailModel(name: formatName(person),
+            return VaccinationCertificateDetailModel(qrCode: qrCode,
+                                                     name: formatName(person),
                                                      standardizedName: formatStandardizedName(person),
                                                      uniqueIdentifier: vaccination.certificateIdentifier,
                                                      doses: "\(vaccination.doseNumber)/\(vaccination.totalDoses)",

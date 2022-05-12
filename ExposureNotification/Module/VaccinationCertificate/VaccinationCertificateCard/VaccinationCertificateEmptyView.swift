@@ -16,6 +16,17 @@ protocol VaccinationCertificateEmptyViewDelegate: AnyObject {
 class VaccinationCertificateEmptyView: UIView {
     weak var delegate: VaccinationCertificateEmptyViewDelegate?
     
+    private lazy var stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.alignment = .center
+        stack.axis = .vertical
+        stack.distribution = .equalSpacing
+        stack.addArrangedSubview(imageView)
+        stack.addArrangedSubview(descriptionLabel)
+        stack.addArrangedSubview(addButton)
+        return stack
+    }()
+    
     private lazy var imageView: UIImageView = {
         let image = UIImageView(image: Image.graphAdd)
         image.contentMode = .scaleAspectFit
@@ -55,28 +66,27 @@ class VaccinationCertificateEmptyView: UIView {
     }
     
     private func setupViews() {
-        addSubview(imageView)
-        addSubview(descriptionLabel)
-        addSubview(addButton)
+        addSubview(stackView)
     }
     
     private func setupConstraints() {
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(safeAreaLayoutGuide)
+            make.top.bottom.equalTo(safeAreaLayoutGuide).inset(40)
+        }
+        
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(38)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(290)
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(60)
         }
         
         addButton.snp.makeConstraints { make in
-            make.bottom.equalTo(safeAreaLayoutGuide).inset(120)
             make.width.equalTo(240)
             make.height.equalTo(48)
-            make.centerX.equalToSuperview()
         }
     }
     

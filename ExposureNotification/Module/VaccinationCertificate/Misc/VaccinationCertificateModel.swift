@@ -39,6 +39,7 @@ struct VaccinationCertificateListModel {
 }
 
 struct VaccinationCertificateDetailModel {
+    let qrCode: String
     let name: String
     let standardizedName: String
     let uniqueIdentifier: String

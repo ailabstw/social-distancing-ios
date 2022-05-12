@@ -11,17 +11,25 @@ import UIKit
 import CoreKit
 
 class VaccinationCertificateDetailViewController: UIViewController, VaccinationCertifcateMenuShowable {
-    private let viewModel: VaccinationCertificateDetailViewModel
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        return scrollView
+    private lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = .zero
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        return layout
     }()
-    
-    private let qrCodeSize: CGSize = CGSize(width: 188, height: 188)
-    private lazy var qrCodeImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage.init(qrCode: viewModel.code, of: qrCodeSize)
-        return imageView
+
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(cellWithClass: VaccinationCertificateDetailCell.self)
+        collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
+        return collectionView
     }()
     
     private lazy var goPrevButton: UIButton = {
@@ -42,32 +50,9 @@ class VaccinationCertificateDetailViewController: UIViewController, VaccinationC
         return button
     }()
     
-    private lazy var userInfoView: VaccinationCertificateUserInfoView = {
-        let userInfoView = VaccinationCertificateUserInfoView()
-        if let model = viewModel.model {
-            userInfoView.configure(by: model)
-        }
-        return userInfoView
-    }()
-    
-    private lazy var certificateDetailView: VaccinationCertificateDetailView = {
-        let detailView = VaccinationCertificateDetailView()
-        detailView.configure(by: viewModel.vaccinationProperties)
-        return detailView
-    }()
-    
-    private lazy var deleteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(Localizations.VaccinationCertificateDetail.deleteButton, for: .normal)
-        button.titleLabel?.font = UIFont(size: 16, weight: .regular)
-        button.backgroundColor = UIColor(red: 175/255, green: 72/255, blue: 72/255, alpha: 1)
-        button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(didTapDelete(_:)), for: .touchUpInside)
-        return button
-    }()
-    
     private var observers: [NSObjectProtocol] = []
     private var brightness: CGFloat = 0.5
+    private let viewModel: VaccinationCertificateDetailViewModel
     
     init(viewModel: VaccinationCertificateDetailViewModel) {
         self.viewModel = viewModel
@@ -107,6 +92,11 @@ class VaccinationCertificateDetailViewController: UIViewController, VaccinationC
         UIScreen.main.brightness = 0.9
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.scrollToItem(at: IndexPath(row: viewModel.currentCodeIndex, section: 0), at: .centeredHorizontally, animated: false)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIScreen.main.brightness = brightness
@@ -125,74 +115,33 @@ class VaccinationCertificateDetailViewController: UIViewController, VaccinationC
         
         view.backgroundColor = .white
         
-        view.addSubview(scrollView)
-        scrollView.addSubview(qrCodeImageView)
-        scrollView.addSubview(goPrevButton)
-        scrollView.addSubview(goNextButton)
-        scrollView.addSubview(userInfoView)
-        scrollView.addSubview(certificateDetailView)
-        scrollView.addSubview(deleteButton)
+        view.addSubview(collectionView)
+        view.addSubview(goPrevButton)
+        view.addSubview(goNextButton)
+        
+        checkDisplayMode()
     }
     
     private func setupConstraints() {
-        scrollView.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-        
-        qrCodeImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(33)
-            make.centerX.equalToSuperview()
-            make.size.equalTo(qrCodeSize)
         }
         
         goPrevButton.snp.makeConstraints { make in
             make.height.width.equalTo(35)
-            make.trailing.equalTo(qrCodeImageView.snp.leading).offset(-34)
-            make.centerY.equalTo(qrCodeImageView)
+            make.leading.equalToSuperview().inset(24)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(110)
         }
         
         goNextButton.snp.makeConstraints { make in
             make.height.width.equalTo(35)
-            make.leading.equalTo(qrCodeImageView.snp.trailing).offset(34)
-            make.centerY.equalTo(qrCodeImageView)
+            make.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(110)
         }
         
-        userInfoView.snp.makeConstraints { make in
-            make.top.equalTo(qrCodeImageView.snp.bottom).offset(16)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview()
-        }
-        
-        certificateDetailView.snp.makeConstraints { make in
-            make.top.equalTo(userInfoView.snp.bottom).offset(34)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.width.equalToSuperview().inset(16)
-        }
-        
-        deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(certificateDetailView.snp.bottom).offset(23)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(36)
-            make.width.equalTo(208)
-            make.bottom.equalToSuperview().inset(23)
-        }
     }
     
     private func setupBinding() {
-        viewModel.$code { [weak self] code in
-            guard let self = self else { return }
-            self.qrCodeImageView.image = UIImage.init(qrCode: code, of: self.qrCodeSize)
-        }
-        
-        viewModel.$model { [weak self] maybeModel in
-            guard let model = maybeModel else { return }
-            self?.userInfoView.configure(by: model)
-        }
-        
-        viewModel.$vaccinationProperties { [weak self] newProperties in
-            self?.certificateDetailView.configure(by: newProperties)
-        }
-        
         viewModel.$hasNextCode { [weak self] hasNext in
             self?.goNextButton.isEnabled = hasNext
         }
@@ -201,17 +150,30 @@ class VaccinationCertificateDetailViewController: UIViewController, VaccinationC
             self?.goPrevButton.isEnabled = hasPrev
         }
         
-        viewModel.$mode { [weak self] mode in
-            switch mode {
+        viewModel.$event { [weak self] event in
+            switch event {
+            case .scrollToIndex(let index):
+                self?.collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
+            case .itemRemoved(let index):
+                self?.collectionView.deleteItems(at: [IndexPath(row: index, section: 0)])
+                self?.checkDisplayMode()
             case .none:
-                self?.dismiss(animated: true, completion: nil)
-            case .normal:
-                self?.goPrevButton.isHidden = false
-                self?.goNextButton.isHidden = false
-            case .single:
-                self?.goPrevButton.isHidden = true
-                self?.goNextButton.isHidden = true
+                break
             }
+        }
+        
+    }
+    
+    private func checkDisplayMode() {
+        switch viewModel.displayMode {
+        case .none:
+            dismiss(animated: true, completion: nil)
+        case .normal:
+            goPrevButton.isHidden = false
+            goNextButton.isHidden = false
+        case .single:
+            goPrevButton.isHidden = true
+            goNextButton.isHidden = true
         }
     }
     
@@ -227,14 +189,14 @@ class VaccinationCertificateDetailViewController: UIViewController, VaccinationC
         viewModel.goNextCode()
     }
     
-    @objc private func didTapDelete(_ sender: UIButton) {
+    private func didTapDelete(_ model: VaccinationCertificateDetailModel) {
         let alert = UIAlertController(title: Localizations.VaccinationCertificateDetail.deleteAlertTitle,
-                                      message: Localizations.VaccinationCertificateDetail.deleteAlertMessage(name: viewModel.model!.name),
+                                      message: Localizations.VaccinationCertificateDetail.deleteAlertMessage(name: model.name),
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Localizations.Alert.Button.no, style: .default, handler: { _ in }))
         alert.addAction(UIAlertAction(title: Localizations.Alert.Button.yes, style: .destructive, handler: { [weak self] _ in
             guard let self = self else { return }
-            self.viewModel.deleteCurrentCode()
+            self.viewModel.deleteCode(model.qrCode)
         }))
         
         present(alert, animated: true, completion: nil)
@@ -254,6 +216,37 @@ extension VaccinationCertificateDetailViewController {
     enum Image {
         static let iconClose = UIImage(named: "iconClose")
         static let iconMenu = UIImage(named: "iconMenu")
+    }
+}
+
+extension VaccinationCertificateDetailViewController: UICollectionViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let nearestIndex = Int(CGFloat(targetContentOffset.pointee.x) / scrollView.bounds.width)
+        let clampedIndex = max(min(nearestIndex, viewModel.models.count - 1), 0)
+        viewModel.didScrollToIndex(clampedIndex)
+    }
+}
+
+extension VaccinationCertificateDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.models.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let model = viewModel.models[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withClass: VaccinationCertificateDetailCell.self, for: indexPath)
+        cell.configure(model: model, properties: viewModel.buildVaccinationProperties(by: model))
+        cell.deletionHandler = { [weak self] in
+            self?.didTapDelete(model)
+        }
+        cell.layoutIfNeeded()
+        return cell
+    }
+}
+
+extension VaccinationCertificateDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
     }
 }
 

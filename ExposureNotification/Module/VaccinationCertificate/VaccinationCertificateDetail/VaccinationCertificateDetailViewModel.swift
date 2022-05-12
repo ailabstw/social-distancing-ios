@@ -21,21 +21,16 @@ class VaccinationCertificateDetailViewModel {
         case normal
     }
     
-    @Observed(queue: .main)
-    private(set) var code: String = ""
+    enum Event {
+        case none
+        case scrollToIndex(Int)
+        case itemRemoved(Int)
+    }
+    
+    var models: [VaccinationCertificateDetailModel] = []
     
     @Observed(queue: .main)
-    private(set) var model: VaccinationCertificateDetailModel? = nil
-    
-    @Observed(queue: .main)
-    private(set) var mode: DisplayMode = .normal
-    
-    @Observed(queue: .main)
-    private(set) var vaccinationProperties: [Property] = []
-    private let dataStore: VaccinationCodeDataStore
-    private let decoder = VaccinationCertificateDecoder()
-    private let mapper: VaccinationCertificateModelMapper
-    private var currentCodeIndex: Int = 0
+    private(set) var event: Event = .none
     
     @Observed(queue: .main)
     var hasPrevCode: Bool = false
@@ -43,13 +38,20 @@ class VaccinationCertificateDetailViewModel {
     @Observed(queue: .main)
     var hasNextCode: Bool = false
     
+    private let dataStore: VaccinationCodeDataStore
+    private let decoder = VaccinationCertificateDecoder()
+    private let mapper: VaccinationCertificateModelMapper
+    private(set) var currentCodeIndex: Int = 0
+    private(set) var displayMode: DisplayMode = .normal
+    
     init(code: String, dataStore: VaccinationCodeDataStore, mapper: VaccinationCertificateModelMapper) {
-        self.code = code
         self.dataStore = dataStore
         self.mapper = mapper
-        self.model = mapper.toDetailModel(by: code)
-        if let model = self.model {
-            vaccinationProperties = buildVaccinationProperties(by: model)
+        
+        dataStore.qrCodes.forEach {
+            if let model = mapper.toDetailModel(by: $0) {
+                self.models.append(model)
+            }
         }
         
         if let index = dataStore.find(by: code) {
@@ -59,49 +61,7 @@ class VaccinationCertificateDetailViewModel {
             assertionFailure("WHY????")
         }
         
-        mode = dataStore.qrCodes.count > 1 ? .normal : .single
-    }
-    
-    func goNextCode() {
-        currentCodeIndex += 1
-        currentIndexDidUpdate()
-        
-        code = dataStore.qrCodes[currentCodeIndex]
-        currentCodeDidUpdate()
-    }
-    
-    func goPrevCode() {
-        currentCodeIndex -= 1
-        currentIndexDidUpdate()
-        
-        code = dataStore.qrCodes[currentCodeIndex]
-        currentCodeDidUpdate()
-    }
-    
-    func deleteCurrentCode() {
-        dataStore.delete(code: code)
-        if dataStore.qrCodes.count == 0 {
-            mode = .none
-        } else {
-            currentCodeIndex = max(min(dataStore.qrCodes.count - 1, currentCodeIndex), 0)
-            currentIndexDidUpdate()
-            code = dataStore.qrCodes[currentCodeIndex]
-            currentCodeDidUpdate()
-            mode = dataStore.qrCodes.count > 1 ? .normal : .single
-        }
-    }
-    
-    private func currentCodeDidUpdate() {
-        self.model = mapper.toDetailModel(by: code)
-        if let model = self.model {
-            vaccinationProperties = buildVaccinationProperties(by: model)
-        }
-    }
-    
-    private func currentIndexDidUpdate() {
-        hasPrevCode = currentCodeIndex != 0
-        hasNextCode = currentCodeIndex < dataStore.qrCodes.count - 1
-        dataStore.updateCurrentIndex(currentCodeIndex)
+        displayMode = dataStore.qrCodes.count > 1 ? .normal : .single
     }
     
     func buildVaccinationProperties(by model: VaccinationCertificateDetailModel) -> [VaccinationCertificateDetailViewModel.Property] {
@@ -127,6 +87,42 @@ class VaccinationCertificateDetailViewModel {
                                                                    value: model.uniqueIdentifier))
         
         return list
+    }
+    
+    func goNextCode() {
+        currentCodeIndex += 1
+        currentIndexDidUpdate()
+    }
+    
+    func goPrevCode() {
+        currentCodeIndex -= 1
+        currentIndexDidUpdate()
+    }
+    
+    func deleteCode(_ code: String) {
+        guard let index = dataStore.find(by: code) else { return }
+        models.remove(at: index)
+        dataStore.delete(index: index)
+        if dataStore.qrCodes.count == 0 {
+            displayMode = .none
+        } else {
+            currentCodeIndex = max(min(dataStore.qrCodes.count - 1, currentCodeIndex), 0)
+            currentIndexDidUpdate()
+            displayMode = dataStore.qrCodes.count > 1 ? .normal : .single
+        }
+        event = .itemRemoved(index)
+    }
+    
+    func didScrollToIndex(_ index: Int) {
+        currentCodeIndex = index
+        currentIndexDidUpdate()
+    }
+    
+    private func currentIndexDidUpdate() {
+        hasPrevCode = currentCodeIndex != 0
+        hasNextCode = currentCodeIndex < dataStore.qrCodes.count - 1
+        dataStore.updateCurrentIndex(currentCodeIndex)
+        event = .scrollToIndex(currentCodeIndex)
     }
 }
 
