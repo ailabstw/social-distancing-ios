@@ -29,8 +29,6 @@ extension Hint: Equatable {
 }
 
 extension Hint {
-    static let qrCodeScannerHint = Hint(id: "Hint.QRCodeScanner",
-                                        title: Localizations.Hint.QRCodeScanner.title)
     static let dailySummaryHint = Hint(id: "Hint.DailySummary",
                                        title: Localizations.Hint.DailySummary.title)
     static let disableNoRiskNotificationHint = Hint(id: "Hint.DisableNoRiskNotification",

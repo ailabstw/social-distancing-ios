@@ -633,9 +633,6 @@ class RiskStatusViewController: UIViewController {
         switch hint {
         case .dailySummaryHint:
             AppCoordinator.shared.showOverlay(for: hint, from: bannerBorder)
-
-        case .qrCodeScannerHint:
-            AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.leftBarButtonItem!)
             
         case .disableNoRiskNotificationHint:
             AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.rightBarButtonItem!)
