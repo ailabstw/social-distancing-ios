@@ -251,6 +251,12 @@
 /* Title for hint of turning off No Detected Notification */
 "Hint.DisableNoRiskNotification.Title" = "You can turn off No Detected Notification from the Exposure Notification Settings.";
 
+/* Title for hint of vaccination certificate */
+"Hint.VaccinationCertificate.title" = "Newly added Vaccination Certificate";
+
+/* Subtitle for hint of vaccination certificate */
+"Hint.VaccinationCertificate.subtitle" = "Manage vaccination certificate for you and your loved ones.";
+
 /* Title for entering mobile number of request verification code page */
 "RequestVerificationCode.phoneNumberTitleLabel" = "Please enter your mobile number";
 
@@ -286,3 +292,61 @@
 
 /* The Exposure Notification is not enabled */
 "UploadKeysView.exposureNotificationNotEnabled" = "Exposure Notification is not enabled";
+
+"VaccinationCertificateListCell.doseDate" = "Date: ";
+
+"VaccinationCertificate.title" = "Vaccination Certificate";
+
+"VaccinationCertificateCard.cardsLimitExceeded" = "Exceeded vaccination certificates limits.";
+
+"VaccinationCertificateCard.apply" = "Apply for vaccination certificate";
+
+"VaccinationCertificateCard.appointment" = "Vaccination Reservation";
+
+"VaccinationCertificateCard.faq" = "FAQ";
+
+"VaccinationCertificateCardCell.doseDate" = "Date of vacination";
+
+"VaccinationCertificate.hint" = "Valid in combination with a government issued ID";
+
+"VaccinationCertificateEmptyView.addButton" = "Add Vaccination Certificate";
+
+"VaccinationCertificateEmptyView.description" = "Carry a digital copy of the vaccination certificate by scanning the QR code of the Digital COVID-19 certificate.";
+
+"VaccinationCertificateUserInfoView.doseDate" = "Date of vacination";
+
+"VaccinationCertificateDetail.deleteAlertTitle" = "Are you sure you want to remove it?";
+
+"VaccinationCertificateDetail.deleteAlertMessage" = "Are you sure you wan to remove %@ vaccination certificate?";
+
+"VaccinationCertificate.deleteButton" = "Remove Certificate";
+
+"VaccinationCertificateDetail.target" = "Disease or agent targeted: ";
+
+"VaccinationCertificateDetail.vaccine" = "Vaccine type:";
+
+"VaccinationCertificateDetail.medicinalProduct" = "Product: ";
+
+"VaccinationCertificateDetail.manufacturer" = "Manufacturer: ";
+
+"VaccinationCertificateDetail.doses" = "Dose";
+
+"VaccinationCertificateDetail.doseDate" = "Date of vacination: ";
+
+"VaccinationCertificateDetail.country" = "Country of vaccination: ";
+
+"VaccinationCertificateDetail.issuer" = "Issuer: ";
+
+"VaccinationCertificateDetail.uniqueIdentifier" = "UVCI";
+
+"VaccinationCertificate.apply" = "Apply";
+
+"VaccinationCertificateScanner.import" = "Import";
+
+"VaccinationCertificateScanner.expired" = "Expired vaccination certificate";
+
+"VaccinationCertificateScanner.duplicated" = "Duplicated vaccination certificate";
+
+"VaccinationCertificateScanner.notFound" = "Failed to detect vaccination certificate QR code";
+
+"VaccinationCertificateScanner.invalidFormat" = "Invalid vaccination certificate QR Code";

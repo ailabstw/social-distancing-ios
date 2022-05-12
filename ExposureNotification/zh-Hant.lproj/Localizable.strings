@@ -251,6 +251,12 @@
 /* Title for hint of turning off No Detected Notification */
 "Hint.DisableNoRiskNotification.Title" = "若要關閉無風險通知功能，可以到右上方選單裡的「資料權限控管」進行設定喔~";
 
+/* Title for hint of vaccination certificate */
+"Hint.VaccinationCertificate.title" = "新增「疫苗接種數位證明」存放功能";
+
+/* Subtitle for hint of vaccination certificate */
+"Hint.VaccinationCertificate.subtitle" = "讓您輕鬆存放與管理自己及全家人的疫苗接種數位證明。";
+
 /* Title for entering mobile number of request verification code page */
 "RequestVerificationCode.phoneNumberTitleLabel" = "請輸入手機號碼";
 
@@ -286,3 +292,61 @@
 
 /* The Exposure Notification is not enabled */
 "UploadKeysView.exposureNotificationNotEnabled" = "尚未開啟接觸通知功能";
+
+"VaccinationCertificateListCell.doseDate" = "接種日期：";
+
+"VaccinationCertificate.title" = "疫苗接種數位證明";
+
+"VaccinationCertificateCard.cardsLimitExceeded" = "數量已達上限";
+
+"VaccinationCertificateCard.apply" = "申請疫苗接種數位證明";
+
+"VaccinationCertificateCard.appointment" = "預約疫苗";
+
+"VaccinationCertificateCard.faq" = "常見問題";
+
+"VaccinationCertificateCardCell.doseDate" = "接種日期";
+
+"VaccinationCertificate.hint" = "使用時請同步出示身分證";
+
+"VaccinationCertificateEmptyView.addButton" = "立即新增疫苗接種數位證明";
+
+"VaccinationCertificateEmptyView.description" = "將你與家人的疫苗接種數位證明存入手機，並以 QR code 的方式提供快速驗證。";
+
+"VaccinationCertificateUserInfoView.doseDate" = "接種日期";
+
+"VaccinationCertificateDetail.deleteAlertTitle" = "是否確認刪除？";
+
+"VaccinationCertificateDetail.deleteAlertMessage" = "確認刪除%@的疫苗接種數位證明嗎？";
+
+"VaccinationCertificate.deleteButton" = "刪除此疫苗接種數位證明";
+
+"VaccinationCertificateDetail.target" = "預防疾病名稱：";
+
+"VaccinationCertificateDetail.vaccine" = "疫苗類型：";
+
+"VaccinationCertificateDetail.medicinalProduct" = "疫苗名稱：";
+
+"VaccinationCertificateDetail.manufacturer" = "疫苗經銷商或製造商：";
+
+"VaccinationCertificateDetail.doses" = "接種劑次：";
+
+"VaccinationCertificateDetail.doseDate" = "接種日期：";
+
+"VaccinationCertificateDetail.country" = "接種國家：";
+
+"VaccinationCertificateDetail.issuer" = "數位證明發行機構：";
+
+"VaccinationCertificateDetail.uniqueIdentifier" = "數位證明識別碼：";
+
+"VaccinationCertificate.apply" = "申請疫苗接種數位證明";
+
+"VaccinationCertificateScanner.import" = "匯入疫苗接種數位證明";
+
+"VaccinationCertificateScanner.expired" = "此疫苗接種數位證明已過期";
+
+"VaccinationCertificateScanner.duplicated" = "此疫苗接種數位證明已存在";
+
+"VaccinationCertificateScanner.notFound" = "未偵測到疫苗接種數位證明 QR code";
+
+"VaccinationCertificateScanner.invalidFormat" = "非疫苗接種數位證明 QR code";
