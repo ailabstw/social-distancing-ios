@@ -137,6 +137,12 @@
 /* The content message of introduction about stop spreading */
 "Introduction.StopSpreading.Message" = "如果 App 的使用者被確診具傳染性的疾病，他可以選擇發布他的手持裝置隨機 ID (以嚴密的技術去識別化)，曾跟他的手持裝置有過近距離且維持一定時間接觸的人便會收到通知。且無法知道是誰，在兼顧個人隱私的情況下也保護公眾的健康。";
 
+/* The title of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Title" = "疫苗接種數位證明";
+
+/* The content message of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Message" = "您可以透過 App 輕鬆儲存、管理與呈現您和家人的疫苗接種數位證明，透過 QR code 的方式提供掃描及驗證。且您的資料僅儲存在手機中，不需要網路連線也不會上傳到任何地方。";
+
 /* The button title of introduction about start using */
 "Introduction.Button.StartUsing" = "開始使用";
 
@@ -349,6 +355,8 @@
 "VaccinationCertificateDetail.issuer" = "數位證明發行機構：";
 
 "VaccinationCertificateDetail.uniqueIdentifier" = "數位證明識別碼：";
+
+"VaccinationCertificateDetail.generatedDate" = "數位證明產生日期：";
 
 "VaccinationCertificate.apply" = "申請疫苗接種數位證明";
 

@@ -85,6 +85,10 @@ class VaccinationCertificateDetailViewModel {
                                                                    value: model.issuer))
         list.append(VaccinationCertificateDetailViewModel.Property(title: Localizations.VaccinationCertificateDetailViewModel.uniqueIdentifier,
                                                                    value: model.uniqueIdentifier))
+        if let generatedDateString = model.generatedDateString {
+            list.append(VaccinationCertificateDetailViewModel.Property(title: Localizations.VaccinationCertificateDetailViewModel.generatedDate,
+                                                                       value: generatedDateString))
+        }
         
         return list
     }
@@ -136,6 +140,7 @@ extension Localizations {
         static let doseDate = NSLocalizedString("VaccinationCertificateDetail.doseDate", value: "Date of vaccination: ", comment: "")
         static let country = NSLocalizedString("VaccinationCertificateDetail.country", value: "Country of vaccination: ", comment: "")
         static let issuer = NSLocalizedString("VaccinationCertificateDetail.issuer", value: "Issuer: ", comment: "")
-        static let uniqueIdentifier = NSLocalizedString("VaccinationCertificateDetail.uniqueIdentifier", value: "UVCI", comment: "")
+        static let uniqueIdentifier = NSLocalizedString("VaccinationCertificateDetail.uniqueIdentifier", value: "UVCI: ", comment: "")
+        static let generatedDate = NSLocalizedString("VaccinationCertificateDetail.generatedDate", value: "Certificate generated on: ", comment: "")
     }
 }

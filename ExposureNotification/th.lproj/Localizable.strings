@@ -137,6 +137,12 @@
 /* The content message of introduction about stop spreading */
 "Introduction.StopSpreading.Message" = "หากผู้ใช้งานแอปเป็นผู้ป่วยยืนยันติดเชื้อโควิด สามารถเลือกที่จะเปิดเผยข้อมูลรหัสIDแบบสุ่มของอุปกรณ์มือถือตนเอง (มีกระบวนการจัดการข้อมูลอย่างปลอดภัยโดยไม่ระบุตัวตน) บุคคลที่เคยอยู่ใกล้ชิดและมีการสัมผัสกันในช่วงระยะเวลาหนึ่งกับอุปกรณ์มือถือผู้ป่วยยืนยัน จะได้รับการแจ้งเตือน โดยไม่ทราบข้อมูลส่วนตัวของผู้ป่วยยืนยัน เพื่อรักษาความเป็นส่วนตัวของบุคคลและความปลอดภัยจากการเสี่ยงเป็นโรคของประชาชน";
 
+/* The title of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Title" = "Vaccination Certificate";
+
+/* The content message of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Message" = "The App provides an easy way to securely store and present COVID-19 Vaccination Certificate for you and your loved ones. You also can use the QR code of the vaccination certificates for other people or organizations to verify your vaccination status. No internet connection is required and Your data is only stored locally on your mobile device.";
+
 /* The button title of introduction about start using */
 "Introduction.Button.StartUsing" = "เริ่มใช้งาน";
 
@@ -348,7 +354,9 @@
 
 "VaccinationCertificateDetail.issuer" = "Issuer: ";
 
-"VaccinationCertificateDetail.uniqueIdentifier" = "UVCI";
+"VaccinationCertificateDetail.uniqueIdentifier" = "UVCI: ";
+
+"VaccinationCertificateDetail.generatedDate" = "Certificate generated on: ";
 
 "VaccinationCertificate.apply" = "Apply";
 

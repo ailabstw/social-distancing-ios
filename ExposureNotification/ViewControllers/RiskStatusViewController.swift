@@ -239,9 +239,7 @@ class RiskStatusViewController: UIViewController {
     
     private func configureNavigationItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: Image.iconMenu, style: .plain, target: self, action: #selector(didTapMoreBarButton(_:)))
-        navigationItem.leftBarButtonItems = [
-            UIBarButtonItem(image: Image.iconQRScanner, style: .plain, target: self, action: #selector(didTapQRCodeScanner(_:)))
-        ]
+        navigationItem.leftBarButtonItems = []
 
         #if DEBUG
         navigationItem.leftBarButtonItems?.append(UIBarButtonItem.init(title: "     ", style: .plain, target: self, action: #selector(didTapEngineerBarButton(_:))))

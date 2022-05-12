@@ -79,7 +79,8 @@ struct VaccinationCertificateModelMapper {
                                                      targetedDisease: metadataMapper.targetedDisease(key: vaccination.disease) ?? "",
                                                      doseDate: transformDateFormat(vaccination.vaccinationDate),
                                                      birthDate: transformDateFormat(holder.certificate.dateOfBirth),
-                                                     expiredDate: holder.expiresAt)
+                                                     expiredDate: holder.expiresAt,
+                                                     generatedDate: holder.issuedAt)
         case .failure(let error):
             print("decode failed, error: \(error)")
             return nil

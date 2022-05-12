@@ -58,8 +58,16 @@ struct VaccinationCertificateDetailModel {
     let doseDate: String
     let birthDate: String
     let expiredDate: Date?
+    let generatedDate: Date?
     
     var isExpired: Bool {
         Date() > expiredDate ?? .distantFuture
+    }
+    
+    var generatedDateString: String? {
+        guard let date = generatedDate else { return nil }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        return formatter.string(from: date)
     }
 }

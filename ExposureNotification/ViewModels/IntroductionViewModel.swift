@@ -43,6 +43,10 @@ class IntroductionViewModel {
             Introduction(title: Localizations.Introduction.StopSpreading.title,
                          content: Localizations.Introduction.StopSpreading.message,
                          figureName: "graphPrivacy",
+                         action: nil),
+            Introduction(title: Localizations.Introduction.VaccinationCertificate.title,
+                         content: Localizations.Introduction.VaccinationCertificate.message,
+                         figureName: "graphHCert",
                          action: (title: Localizations.IntroductionView.Button.startUsing,
                                   block: { UserPreferenceManager.shared.isIntroductionWatched = true }))
         ]
@@ -61,6 +65,10 @@ class IntroductionViewModel {
             Introduction(title: Localizations.Introduction.StopSpreading.title,
                          content: Localizations.Introduction.StopSpreading.message,
                          figureName: "graphPrivacy",
+                         action: nil),
+            Introduction(title: Localizations.Introduction.VaccinationCertificate.title,
+                         content: Localizations.Introduction.VaccinationCertificate.message,
+                         figureName: "graphHCert",
                          action: nil)
         ]
     }()
@@ -152,6 +160,15 @@ extension Localizations {
             static let message = NSLocalizedString("Introduction.StopSpreading.Message",
                                                    value: "Users who have tested positive can choose to anonymously publish their device's anonymous IDs. When users with a positive test publish their results, people who have been in proximity to this device and maintained contact for a certain period of time will receive a notification. This process guarantees the anonymity and personal privacy of those who share their positive test results while contributing to keeping our communities informed and diligent in taking preventative and cautionary measures.",
                                                    comment: "The content message of introduction about stop spreading")
+        }
+        
+        enum VaccinationCertificate {
+            static let title = NSLocalizedString("Introduction.VaccinationCertificate.Title",
+                                                 value: "Vaccination Certificate",
+                                                 comment: "The title of introduction about vaccination certificate")
+            static let message = NSLocalizedString("Introduction.VaccinationCertificate.Message",
+                                                   value: "The App provides an easy way to securely store and present COVID-19 Vaccination Certificate for you and your loved ones. You also can use the QR code of the vaccination certificates for other people or organizations to verify your vaccination status. No internet connection is required and Your data is only stored locally on your mobile device.",
+                                                   comment: "The content message of introduction about vaccination certificate")
         }
     }
 }
