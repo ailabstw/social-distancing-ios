@@ -1,17 +1,9 @@
-/* The label text on alert cancellation view to inform user inputs their testing date */
-"AlertCancellationView.TestingDateTitleLabel" = "Nhập ngày tháng điều tra dịch tễ";
 
-/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
-"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "Nhập ngày tháng";
+/* The description text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.description" = "I have taken a COVID-19 rapid test by myself, and the result was negative.\nI will watch for my health status. If I have symptoms such as fever, respiratory symptoms, diarrhea, or new loss of taste/smell, I will take the COVID-19 rapid test.\nIf I test positive in my COVID-19 rapid test, I will wear a medical mask to get a PCR test at a nearby community testing site or a hospital, and do not taking the public transportation.\nI have notified my family members that I have received a \"Exposure Notification\" warning, and they must take appropriate precautions such as washing hands frequently and wearing masks.\nI will avoid unnecessary family gatherings and visits.\nI will avoid participating in activities that cannot maintain social distancing and contact with unspecified people.\nI will avoid participating in indoor activities or work where the masks are not required.";
 
-/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
-"AlertCancellationView.PasscodeTitleLabel" = "Vui lòng nhập mã xác nhận";
-
-/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
-"AlertCancellationView.PasscodeFieldPlaceholder" = "Vui lòng nhập mã xác nhận";
-
-/* The introduction text on alert cancellation view to inform user what this view is for */
-"AlertCancellationView.Introduction" = "Vui lòng nhập mã xác minh do Cục Y tế cung cấp và trạng thái cảnh báo lây nhiễm của bạn sẽ bị hủy sau khi gửi.";
+/* The label text on alert cancellation view to ensure the infomation has read */
+"AlertCancellationView.checkboxLabel" = "I have read and agreed the How to Protect Yourself & Others";
 
 /* The button title on alert to submit data */
 "Alert.Button.Submit" = "Gửi";
@@ -62,7 +54,7 @@
 "RiskStatusView.UploadIDsAlert.Message" = "Tính năng này cho phép các trường hợp dương tính công khai ID thiết bị nhằm phục vụ công tác truy vết nguồn lây COVID-19.";
 
 /* The title of alert on risk status view for alert cancellation */
-"RiskStatusView.AlertCancellationAlert.Title" = "Bạn có chắc chắn muốn xóa trạng thái cảnh báo lây nhiễm không?";
+"AlertCancellationView.confirmAlertMessage" = "Bạn có chắc chắn muốn xóa trạng thái cảnh báo lây nhiễm không?";
 
 /* The message body of alert on risk status view for alert cancellation */
 "RiskStatusView.AlertCancellationAlert.Message" = "Tính năng này cung cấp chức năng xóa bỏ trạng thái cảnh báo lây nhiễm sau khi đã hoàn tất điều tra dịch bệnh.";

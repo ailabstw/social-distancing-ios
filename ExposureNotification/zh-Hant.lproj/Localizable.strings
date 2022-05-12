@@ -1,17 +1,9 @@
-/* The label text on alert cancellation view to inform user inputs their testing date */
-"AlertCancellationView.TestingDateTitleLabel" = "請輸入疫調日期";
 
-/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
-"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "請輸入日期";
+/* The description text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.description" = "我已經自行快篩 1 次且為陰性。\n我會注意是否有發燒、呼吸道症狀、腹瀉、嗅/味覺異常等 Covid-19 疑似症狀，若出現症狀，會自行快篩。\n我如果快篩陽性，會佩戴醫用口罩就醫採檢，出門時避免搭乘大眾運輸。\n我已通知同住家人有收到「接觸通知」警示，要採取適當防護措施，例如勤洗手、戴口罩等。\n我會避免非必要的家庭聚會及拜訪。\n我會避免參加無法保持社交距離及接觸不特定對象的活動。\n我會避免參加可以免佩戴口罩的室內活動或工作。";
 
-/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
-"AlertCancellationView.PasscodeTitleLabel" = "請輸入驗證碼";
-
-/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
-"AlertCancellationView.PasscodeFieldPlaceholder" = "請輸入驗證碼";
-
-/* The introduction text on alert cancellation view to inform user what this view is for */
-"AlertCancellationView.Introduction" = "請輸入由衛生局提供的驗證碼，送出後，即取消您的示警狀態。";
+/* The label text on alert cancellation view to ensure the infomation has read */
+"AlertCancellationView.checkboxLabel" = "我已詳細閱讀並同意以上衛教資訊";
 
 /* The button title on alert to submit data */
 "Alert.Button.Submit" = "送出";
@@ -62,7 +54,7 @@
 "RiskStatusView.UploadIDsAlert.Message" = "此功能為提供確診者上傳隨機 ID 以減少疫情擴散";
 
 /* The title of alert on risk status view for alert cancellation */
-"RiskStatusView.AlertCancellationAlert.Title" = "確定要解除示警狀態嗎？";
+"AlertCancellationView.confirmAlertMessage" = "確定要解除示警狀態嗎？";
 
 /* The message body of alert on risk status view for alert cancellation */
 "RiskStatusView.AlertCancellationAlert.Message" = "此功能為提供疫調後之示警狀態解除";

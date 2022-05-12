@@ -52,6 +52,7 @@ class ExposureManager {
     }
 
     enum InactiveReason {
+        case notDetermined
         case disabled
         case restricted
         case unauthorized
@@ -119,13 +120,16 @@ class ExposureManager {
 
         case (_, .unknown):
             exposureNotificationStatus = .unknown
-
-        case (_, .unauthorized), (.unknown, _):
-            exposureNotificationStatus = .inactive(.unauthorized)
-
+            
+        case (.unknown, _):
+            exposureNotificationStatus = .inactive(.notDetermined)
+            
         case (.notAuthorized, _):
             exposureNotificationStatus = .inactive(.denied)
 
+        case (_, .unauthorized):
+            exposureNotificationStatus = .inactive(.unauthorized)
+            
         case (.restricted, _), (_, .restricted):
             exposureNotificationStatus = .inactive(.restricted)
 

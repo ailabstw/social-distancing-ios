@@ -425,7 +425,7 @@ class RiskStatusViewController: UIViewController {
 
         viewModel.engageErrorHandler = { [weak self] (reason) in
             switch reason {
-            case .disabled, .unauthorized:
+            case .disabled, .notDetermined:
                 #if DEBUG
                 fatalError("Engage error .disabled should be handled in RiskStatusViewModel.")
                 #endif
@@ -438,7 +438,7 @@ class RiskStatusViewController: UIViewController {
                 })
                 self?.present(confirm, animated: true, completion: nil)
 
-            case .denied:
+            case .denied, .unauthorized:
                 AppCoordinator.shared.openSettingsApp()
 
             case .restricted:
@@ -502,14 +502,7 @@ class RiskStatusViewController: UIViewController {
         //TODO: Alert Cancellation
         if viewModel.riskStatus == .risky {
             alert.addAction(UIAlertAction(title: Localizations.AlertCancellationViewModel.title, style: .default) { [weak self] action in
-                let confirm = UIAlertController(title: Localizations.RiskStatusView.AlertCancellationAlert.title,
-                                                message: Localizations.RiskStatusView.AlertCancellationAlert.message,
-                                                preferredStyle: .alert)
-                confirm.addAction(UIAlertAction(title: Localizations.Alert.Button.yes, style: .default) { [weak self] action in
-                    self?.navigationController?.pushViewController(AlertCancellationViewController(viewModel: AlertCancellationViewModel()), animated: true)
-                })
-                confirm.addAction(UIAlertAction(title: Localizations.Alert.Button.no, style: .cancel, handler: nil))
-                self?.present(confirm, animated: true, completion: nil)
+                self?.navigationController?.pushViewController(AlertCancellationViewController(viewModel: AlertCancellationViewModel()), animated: true)
             })
         }
         
@@ -714,15 +707,6 @@ extension Localizations {
             }
         }
 
-        enum AlertCancellationAlert {
-            static let title = NSLocalizedString("RiskStatusView.AlertCancellationAlert.Title",
-                                                 value: "Are you sure you want to reset your status?",
-                                                 comment: "The title of alert on risk status view for alert cancellation")
-            static let message = NSLocalizedString("RiskStatusView.AlertCancellationAlert.Message",
-                                                   value: "Reset status upon completion of contact tracing assessment.",
-                                                   comment: "The message body of alert on risk status view for alert cancellation")
-        }
-
         enum UploadIDsAlert {
             static let title = NSLocalizedString("RiskStatusView.UploadIDsAlert.Title",
                                                  value: "Have You Had a Positive Test?",
@@ -772,6 +756,7 @@ extension RiskStatusViewController {
         let maybeBullet = sentences.count > 1 ? "\u{2022} " : ""
         let attributes = riskyAttributes(bullet: maybeBullet)
         let boldAttributes: [NSAttributedString.Key : Any] = [.font: Font.riskyDetailBold]
+        let separator: String.Element = ServerConfigManager.shared.configuredText?.riskyDetailHeaderSeparator?.first ?? Localizations.RiskStatusView.detailTextParagraphHeaderSeparator
 
         return sentences
             .map {
@@ -780,7 +765,7 @@ extension RiskStatusViewController {
             }
             .map {
                 // If separator is found, make any words before the first separator bold.
-                if let separatorIndex = $0.string.firstIndex(of: Localizations.RiskStatusView.detailTextParagraphHeaderSeparator) {
+                if let separatorIndex = $0.string.firstIndex(of: separator) {
                     $0.addAttributes(boldAttributes, range: NSRange(($0.string.startIndex..<separatorIndex), in: $0.string))
                 }
 

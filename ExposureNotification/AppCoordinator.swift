@@ -103,6 +103,8 @@ class AppCoordinator: UIViewController {
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
             UINavigationBar.appearance().standardAppearance = appearance
         }
+        
+        ServerConfigManager.shared.fetchAsset()
 
         if ExposureManager.supportedExposureNotificationsVersion != .version2 {
             transitStatus(to: .unsupported)

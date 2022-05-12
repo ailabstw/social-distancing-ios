@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1304C423282CFCAA002315FC /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C422282CFCAA002315FC /* Checkbox.swift */; };
+		1304C425282CFD17002315FC /* AssetEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C424282CFD17002315FC /* AssetEndpoints.swift */; };
+		1304C427282CFD20002315FC /* ServerConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C426282CFD20002315FC /* ServerConfigManager.swift */; };
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		1393234027FD44A6004BE4D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1393233F27FD44A6004BE4D1 /* Lottie */; };
 		1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1393234127FD458A004BE4D1 /* clock_background_animation.json */; };
@@ -71,6 +74,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1304C422282CFCAA002315FC /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		1304C424282CFD17002315FC /* AssetEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetEndpoints.swift; sourceTree = "<group>"; };
+		1304C426282CFD20002315FC /* ServerConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConfigManager.swift; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -216,6 +222,7 @@
 		9E0814C225E75D74008B7424 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1304C424282CFD17002315FC /* AssetEndpoints.swift */,
 				9E89CC252629708900161384 /* EngagementStatistic.swift */,
 				9E70659E26130BA30057A832 /* ExportEndpoints.swift */,
 				9E7065A226156BE50057A832 /* ExposureConfiguration.swift */,
@@ -250,6 +257,7 @@
 		9E0814CE25E783A2008B7424 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1304C422282CFCAA002315FC /* Checkbox.swift */,
 				13BC1BE327E9C0B000FEA2E9 /* SpinnerShowable.swift */,
 				9E5084A9268AC481007C626B /* HintView.swift */,
 				9E5084AB268AC79F007C626B /* OverlayWindow.swift */,
@@ -279,6 +287,7 @@
 		9E08156825E8D6C8008B7424 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1304C426282CFD20002315FC /* ServerConfigManager.swift */,
 				13BC1BDA27E9BD9A00FEA2E9 /* VerificationCodeManager.swift */,
 				9E6E8E25260C780800628164 /* APIManager.swift */,
 				9E08159525F5D6E1008B7424 /* ExposureManager.swift */,
@@ -437,7 +446,9 @@
 				13BC1BE427E9C0B000FEA2E9 /* SpinnerShowable.swift in Sources */,
 				9E7065912611A6260057A832 /* UploadEndpoints.swift in Sources */,
 				9E89CC0F26252F4D00161384 /* RiskSummary.swift in Sources */,
+				1304C423282CFCAA002315FC /* Checkbox.swift in Sources */,
 				13BC1BDB27E9BD9A00FEA2E9 /* VerificationCodeManager.swift in Sources */,
+				1304C427282CFD20002315FC /* ServerConfigManager.swift in Sources */,
 				9E996309265DD85E00A35CE6 /* QRCodeScannerViewController.swift in Sources */,
 				9E08149925E39D56008B7424 /* AppDelegate.swift in Sources */,
 				9E99630B265DDC0600A35CE6 /* QRCodeScannerViewModel.swift in Sources */,
@@ -449,6 +460,7 @@
 				9E6E8E29260C8CC700628164 /* VerificationEndpoints.swift in Sources */,
 				9E08158425EF6E9D008B7424 /* DateExtensions.swift in Sources */,
 				9E0814C425E75DA2008B7424 /* Introduction.swift in Sources */,
+				1304C425282CFD17002315FC /* AssetEndpoints.swift in Sources */,
 				9E89CBE6261CCEDD00161384 /* UploadKeysViewController.swift in Sources */,
 				9E0814C825E7784F008B7424 /* IntroductionViewModel.swift in Sources */,
 				9E08159625F5D6E1008B7424 /* ExposureManager.swift in Sources */,

@@ -95,11 +95,8 @@ class UserManager {
         riskSummary.updateRiskSummary(summary)
     }
 
-    func cancelAlert(using passcode: String, before testingDate: Date) -> Promise<Void> {
-        APIManager.shared.request(VerificationEndpoint.verifyAcc(code: passcode))
-            .done { [unowned self] (_) in
-                self.riskSummary.updateBar(before: testingDate.enIntervalNumber)
-            }
+    func cancelAlert() {
+        riskSummary.updateBar(before: Date().enIntervalNumber)
     }
 
     func showExposureNotificationIfNeeded(_ oldValue: RiskStatus = .clear) {
