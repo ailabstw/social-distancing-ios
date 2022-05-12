@@ -10,6 +10,9 @@
 		1304C423282CFCAA002315FC /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C422282CFCAA002315FC /* Checkbox.swift */; };
 		1304C425282CFD17002315FC /* AssetEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C424282CFD17002315FC /* AssetEndpoints.swift */; };
 		1304C427282CFD20002315FC /* ServerConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C426282CFD20002315FC /* ServerConfigManager.swift */; };
+		1304C433282D013A002315FC /* VaccinationCertificateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C430282D013A002315FC /* VaccinationCertificateListViewController.swift */; };
+		1304C434282D013A002315FC /* VaccinationCertificateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C431282D013A002315FC /* VaccinationCertificateListViewModel.swift */; };
+		1304C435282D013A002315FC /* VaccinationCertificateListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C432282D013A002315FC /* VaccinationCertificateListCell.swift */; };
 		1304C444282D0152002315FC /* Cose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C43E282D0152002315FC /* Cose.swift */; };
 		1304C445282D0152002315FC /* Vaccination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C43F282D0152002315FC /* Vaccination.swift */; };
 		1304C446282D0152002315FC /* CertificateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C440282D0152002315FC /* CertificateHolder.swift */; };
@@ -103,6 +106,9 @@
 		1304C422282CFCAA002315FC /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		1304C424282CFD17002315FC /* AssetEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetEndpoints.swift; sourceTree = "<group>"; };
 		1304C426282CFD20002315FC /* ServerConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConfigManager.swift; sourceTree = "<group>"; };
+		1304C430282D013A002315FC /* VaccinationCertificateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateListViewController.swift; sourceTree = "<group>"; };
+		1304C431282D013A002315FC /* VaccinationCertificateListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateListViewModel.swift; sourceTree = "<group>"; };
+		1304C432282D013A002315FC /* VaccinationCertificateListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateListCell.swift; sourceTree = "<group>"; };
 		1304C43E282D0152002315FC /* Cose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cose.swift; sourceTree = "<group>"; };
 		1304C43F282D0152002315FC /* Vaccination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccination.swift; sourceTree = "<group>"; };
 		1304C440282D0152002315FC /* CertificateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateHolder.swift; sourceTree = "<group>"; };
@@ -228,6 +234,16 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		13096B5627EC69090008997B /* VaccinationCertificateList */ = {
+			isa = PBXGroup;
+			children = (
+				1304C432282D013A002315FC /* VaccinationCertificateListCell.swift */,
+				1304C430282D013A002315FC /* VaccinationCertificateListViewController.swift */,
+				1304C431282D013A002315FC /* VaccinationCertificateListViewModel.swift */,
+			);
+			path = VaccinationCertificateList;
+			sourceTree = "<group>";
+		};
 		13096B7327F156C20008997B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +326,7 @@
 				13299F4E281005C50082E8DF /* Misc */,
 				1388753F2805648700ED1931 /* VaccinationCertificateScanner */,
 				1336995427F6DBCA00DE16C7 /* VaccinationCertificateDecoder */,
+				13096B5627EC69090008997B /* VaccinationCertificateList */,
 			);
 			path = VaccinationCertificate;
 			sourceTree = "<group>";
@@ -589,6 +606,7 @@
 				9E5084A8268AC33B007C626B /* HintManager.swift in Sources */,
 				9E08158025EF6C49008B7424 /* RiskStatusViewController.swift in Sources */,
 				1304C477282D03AF002315FC /* Style.swift in Sources */,
+				1304C435282D013A002315FC /* VaccinationCertificateListCell.swift in Sources */,
 				13BC1BDF27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift in Sources */,
 				13BC1BDD27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift in Sources */,
 				9E0814D025E783C3008B7424 /* StyledButton.swift in Sources */,
@@ -619,6 +637,7 @@
 				13BC1BE427E9C0B000FEA2E9 /* SpinnerShowable.swift in Sources */,
 				9E7065912611A6260057A832 /* UploadEndpoints.swift in Sources */,
 				1304C46E282D0243002315FC /* StringExtensions.swift in Sources */,
+				1304C433282D013A002315FC /* VaccinationCertificateListViewController.swift in Sources */,
 				9E89CC0F26252F4D00161384 /* RiskSummary.swift in Sources */,
 				1304C423282CFCAA002315FC /* Checkbox.swift in Sources */,
 				13BC1BDB27E9BD9A00FEA2E9 /* VerificationCodeManager.swift in Sources */,
@@ -632,6 +651,7 @@
 				1304C446282D0152002315FC /* CertificateHolder.swift in Sources */,
 				9E0BA289268068070088D8A4 /* Configurations.swift in Sources */,
 				1304C445282D0152002315FC /* Vaccination.swift in Sources */,
+				1304C434282D013A002315FC /* VaccinationCertificateListViewModel.swift in Sources */,
 				1304C46B282D0243002315FC /* UIImageExtensions.swift in Sources */,
 				9E89CC1F2625792500161384 /* AlertCancellationViewController.swift in Sources */,
 				9E08149B25E39D56008B7424 /* SceneDelegate.swift in Sources */,
