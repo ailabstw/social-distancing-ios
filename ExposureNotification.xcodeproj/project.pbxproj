@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1304C423282CFCAA002315FC /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C422282CFCAA002315FC /* Checkbox.swift */; };
-		1304C425282CFD17002315FC /* AssetEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C424282CFD17002315FC /* AssetEndpoints.swift */; };
 		1304C427282CFD20002315FC /* ServerConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C426282CFD20002315FC /* ServerConfigManager.swift */; };
 		1304C42C282D0131002315FC /* VaccinationCertificateCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C428282D0131002315FC /* VaccinationCertificateCardViewController.swift */; };
 		1304C42D282D0131002315FC /* VaccinationCertificateCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C429282D0131002315FC /* VaccinationCertificateCardViewModel.swift */; };
@@ -48,6 +47,7 @@
 		1304C472282D02CB002315FC /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C471282D02CB002315FC /* CameraService.swift */; };
 		1304C477282D03AF002315FC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C476282D03AF002315FC /* Style.swift */; };
 		1304C479282D2FD2002315FC /* VaccinationCertificateDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C478282D2FD2002315FC /* VaccinationCertificateDetailCell.swift */; };
+		1304C47B282D30F6002315FC /* ConfigEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C47A282D30F6002315FC /* ConfigEndpoints.swift */; };
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		1393234027FD44A6004BE4D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1393233F27FD44A6004BE4D1 /* Lottie */; };
 		1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1393234127FD458A004BE4D1 /* clock_background_animation.json */; };
@@ -113,7 +113,6 @@
 
 /* Begin PBXFileReference section */
 		1304C422282CFCAA002315FC /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
-		1304C424282CFD17002315FC /* AssetEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetEndpoints.swift; sourceTree = "<group>"; };
 		1304C426282CFD20002315FC /* ServerConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConfigManager.swift; sourceTree = "<group>"; };
 		1304C428282D0131002315FC /* VaccinationCertificateCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateCardViewController.swift; sourceTree = "<group>"; };
 		1304C429282D0131002315FC /* VaccinationCertificateCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateCardViewModel.swift; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		1304C471282D02CB002315FC /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		1304C476282D03AF002315FC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		1304C478282D2FD2002315FC /* VaccinationCertificateDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateDetailCell.swift; sourceTree = "<group>"; };
+		1304C47A282D30F6002315FC /* ConfigEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigEndpoints.swift; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -434,7 +434,7 @@
 		9E0814C225E75D74008B7424 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1304C424282CFD17002315FC /* AssetEndpoints.swift */,
+				1304C47A282D30F6002315FC /* ConfigEndpoints.swift */,
 				9E89CC252629708900161384 /* EngagementStatistic.swift */,
 				9E70659E26130BA30057A832 /* ExportEndpoints.swift */,
 				9E7065A226156BE50057A832 /* ExposureConfiguration.swift */,
@@ -635,6 +635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1304C47B282D30F6002315FC /* ConfigEndpoints.swift in Sources */,
 				1304C46C282D0243002315FC /* UICollectionViewExtensions.swift in Sources */,
 				9E0814E125E892ED008B7424 /* AppCoordinator.swift in Sources */,
 				1304C456282D018C002315FC /* QRCodeScanner.swift in Sources */,
@@ -712,7 +713,6 @@
 				9E6E8E29260C8CC700628164 /* VerificationEndpoints.swift in Sources */,
 				9E08158425EF6E9D008B7424 /* DateExtensions.swift in Sources */,
 				9E0814C425E75DA2008B7424 /* Introduction.swift in Sources */,
-				1304C425282CFD17002315FC /* AssetEndpoints.swift in Sources */,
 				9E89CBE6261CCEDD00161384 /* UploadKeysViewController.swift in Sources */,
 				1304C461282D0197002315FC /* VaccinationCertificateModel.swift in Sources */,
 				9E0814C825E7784F008B7424 /* IntroductionViewModel.swift in Sources */,

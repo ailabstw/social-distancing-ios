@@ -58,12 +58,13 @@ class DailySummaryViewModel {
     private func updateDaySummaries() {
         let today = Self.utcCalendar.startOfDay(for: Date())
         let riskSummary = UserManager.shared.riskSummary
+        let startNumber = riskSummary.startNumber
 
         daySummaries = (0...14).map {
             Self.utcCalendar.date(byAdding: .day, value: -$0, to: today)!
         }
         .map {
-            DaySummaryCellViewModel(date: $0, summary: riskSummary[$0])
+            DaySummaryCellViewModel(date: $0, summary: riskSummary[$0], isDuringAlarmPeriod: $0.enIntervalNumber >= startNumber)
         }
 
     }
@@ -111,9 +112,9 @@ class DaySummaryCellViewModel {
         }
     }
 
-    init(date: Date, summary: RiskSummary.RiskSummaryItem) {
+    init(date: Date, summary: RiskSummary.RiskSummaryItem, isDuringAlarmPeriod: Bool) {
         self.date = date
-        self.isRisky = summary.isRisky
+        self.isRisky = summary.isRisky && isDuringAlarmPeriod
         self.score = summary.score
     }
 }

@@ -52,8 +52,13 @@ struct RiskSummary {
 
     private var store: [ENIntervalNumber: RiskSummaryItem] = [:]
 
+    private var pruneIntervalNumber: ENIntervalNumber {
+        Calendar.current.date(byAdding: .day, value: -15, to: Calendar.current.startOfDay(for: Date()))!.enIntervalNumber
+    }
+    
     var startNumber: ENIntervalNumber {
-        Calendar.current.date(byAdding: .day, value: -14, to: Calendar.current.startOfDay(for: Date()))!.enIntervalNumber
+        let alarmPeriod = ServerConfigManager.shared.alarmPeriod
+        return Calendar.current.date(byAdding: .day, value: -alarmPeriod, to: Calendar.current.startOfDay(for: Date()))!.enIntervalNumber
     }
 
     var isRisky: Bool {
@@ -71,7 +76,7 @@ struct RiskSummary {
                                                bar: _store[storeKey]?.bar ?? RiskSummaryItem.defaultBarValue)
         }
 
-        store = _store.prune(startNumber: startNumber)
+        store = _store.prune(startNumber: pruneIntervalNumber)
     }
 
     mutating func updateBar(before rollingNumber: ENIntervalNumber) {
@@ -85,7 +90,7 @@ struct RiskSummary {
                 return item
             }
         })
-        .prune(startNumber: startNumber)
+        .prune(startNumber: pruneIntervalNumber)
     }
 
     subscript(date: Date) -> RiskSummaryItem {
@@ -103,13 +108,13 @@ extension RiskSummary: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        self.store = try container.decode([ENIntervalNumber: RiskSummaryItem].self, forKey: .store).prune(startNumber: startNumber)
+        self.store = try container.decode([ENIntervalNumber: RiskSummaryItem].self, forKey: .store).prune(startNumber: pruneIntervalNumber)
     }
 }
 
 extension RiskSummary: ExpressibleByDictionaryLiteral {
     init(dictionaryLiteral elements: (ENIntervalNumber, RiskSummaryItem)...) {
-        self.store = Dictionary(uniqueKeysWithValues: elements).prune(startNumber: startNumber)
+        self.store = Dictionary(uniqueKeysWithValues: elements).prune(startNumber: pruneIntervalNumber)
     }
 }
 

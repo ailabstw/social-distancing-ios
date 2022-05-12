@@ -21,7 +21,7 @@
 "Alert.Message.missingKeyData" = "No data between start and end dates";
 
 /* The message on alert to notify user the data should be allowed to upload */
-"Alert.Message.userDenied" = "Click the submit button to upload your anonymous IDs.";
+"Alert.Message.userDenied" = "Click the submit button to upload and share your anonymous IDs.";
 
 /* The button title on alert for OK */
 "Alert.Button.OK" = "OK";

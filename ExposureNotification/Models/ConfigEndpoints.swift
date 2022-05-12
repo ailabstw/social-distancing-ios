@@ -1,5 +1,5 @@
 //
-//  AssetEndpoints.swift
+//  ConfigEndpoints.swift
 //  ExposureNotification
 //
 //  Created by Chuck on 2022/4/20.
@@ -9,11 +9,12 @@
 import Foundation
 import Alamofire
 
-enum AssetEndpoint {
+enum ConfigEndpoint {
     case healthEducation(lang: LanguageCode)
+    case config
 }
 
-extension AssetEndpoint: URLRequestConvertible {
+extension ConfigEndpoint: URLRequestConvertible {
     private static let encoder = JSONEncoder()
 
     private var hostString: String {
@@ -36,6 +37,8 @@ extension AssetEndpoint: URLRequestConvertible {
         switch self {
         case .healthEducation:
             return .get
+        case .config:
+            return .get
         }
     }
 
@@ -43,12 +46,16 @@ extension AssetEndpoint: URLRequestConvertible {
         switch self {
         case .healthEducation:
             return "/api/asset/health_education"
+        case .config:
+            return "/api/config"
         }
     }
 
     private var headers: HTTPHeaders {
         switch self {
         case .healthEducation:
+            return baseHeaders
+        case .config:
             return baseHeaders
         }
     }
@@ -57,6 +64,8 @@ extension AssetEndpoint: URLRequestConvertible {
         switch self {
         case .healthEducation:
             return nil
+        case .config:
+            return nil
         }
     }
     
@@ -64,6 +73,8 @@ extension AssetEndpoint: URLRequestConvertible {
         switch self {
         case .healthEducation(let languageCode):
             return ["lang": languageCode.rawValue]
+        case .config:
+            return nil
         }
     }
     
@@ -79,7 +90,7 @@ extension AssetEndpoint: URLRequestConvertible {
     }
 }
 
-extension AssetEndpoint {
+extension ConfigEndpoint {
     enum LanguageCode: String {
         case zh = "zh-hant"
         case en

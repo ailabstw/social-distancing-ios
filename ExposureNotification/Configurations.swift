@@ -29,7 +29,7 @@ extension ExportEndpoint {
     }
 }
 
-extension AssetEndpoint {
+extension ConfigEndpoint {
     enum Config {
         static let hostString = ""
         static let apiKey = ""

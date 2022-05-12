@@ -104,7 +104,7 @@ class AppCoordinator: UIViewController {
             UINavigationBar.appearance().standardAppearance = appearance
         }
         
-        ServerConfigManager.shared.fetchAsset()
+        ServerConfigManager.shared.fetchData()
 
         if ExposureManager.supportedExposureNotificationsVersion != .version2 {
             transitStatus(to: .unsupported)
