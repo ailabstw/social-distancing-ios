@@ -10,6 +10,13 @@
 		1304C423282CFCAA002315FC /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C422282CFCAA002315FC /* Checkbox.swift */; };
 		1304C425282CFD17002315FC /* AssetEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C424282CFD17002315FC /* AssetEndpoints.swift */; };
 		1304C427282CFD20002315FC /* ServerConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C426282CFD20002315FC /* ServerConfigManager.swift */; };
+		1304C46B282D0243002315FC /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C466282D0243002315FC /* UIImageExtensions.swift */; };
+		1304C46C282D0243002315FC /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C467282D0243002315FC /* UICollectionViewExtensions.swift */; };
+		1304C46D282D0243002315FC /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C468282D0243002315FC /* DataExtensions.swift */; };
+		1304C46E282D0243002315FC /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C469282D0243002315FC /* StringExtensions.swift */; };
+		1304C46F282D0243002315FC /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C46A282D0243002315FC /* DateFormatterExtensions.swift */; };
+		1304C472282D02CB002315FC /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C471282D02CB002315FC /* CameraService.swift */; };
+		1304C477282D03AF002315FC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C476282D03AF002315FC /* Style.swift */; };
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		1393234027FD44A6004BE4D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1393233F27FD44A6004BE4D1 /* Lottie */; };
 		1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1393234127FD458A004BE4D1 /* clock_background_animation.json */; };
@@ -77,6 +84,13 @@
 		1304C422282CFCAA002315FC /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		1304C424282CFD17002315FC /* AssetEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetEndpoints.swift; sourceTree = "<group>"; };
 		1304C426282CFD20002315FC /* ServerConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConfigManager.swift; sourceTree = "<group>"; };
+		1304C466282D0243002315FC /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		1304C467282D0243002315FC /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		1304C468282D0243002315FC /* DataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		1304C469282D0243002315FC /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		1304C46A282D0243002315FC /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
+		1304C471282D02CB002315FC /* CameraService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		1304C476282D03AF002315FC /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -168,6 +182,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1304C475282D037B002315FC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1304C476282D03AF002315FC /* Style.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		13096B7327F156C20008997B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +197,14 @@
 				9E08149E25E39D58008B7424 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		13299F53281667FD0082E8DF /* System */ = {
+			isa = PBXGroup;
+			children = (
+				1304C471282D02CB002315FC /* CameraService.swift */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 		9E08148C25E39D56008B7424 = {
@@ -197,6 +227,8 @@
 		9E08149725E39D56008B7424 /* ExposureNotification */ = {
 			isa = PBXGroup;
 			children = (
+				13299F53281667FD0082E8DF /* System */,
+				1304C475282D037B002315FC /* Utilities */,
 				13096B7327F156C20008997B /* Resources */,
 				9E08158225EF6E85008B7424 /* Extensions */,
 				9E08156825E8D6C8008B7424 /* Managers */,
@@ -301,6 +333,11 @@
 		9E08158225EF6E85008B7424 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1304C468282D0243002315FC /* DataExtensions.swift */,
+				1304C46A282D0243002315FC /* DateFormatterExtensions.swift */,
+				1304C469282D0243002315FC /* StringExtensions.swift */,
+				1304C467282D0243002315FC /* UICollectionViewExtensions.swift */,
+				1304C466282D0243002315FC /* UIImageExtensions.swift */,
 				9E08158325EF6E9D008B7424 /* DateExtensions.swift */,
 				9E7065932611A7F30057A832 /* ENTemporaryExposureKeyExtensions.swift */,
 			);
@@ -414,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1304C46C282D0243002315FC /* UICollectionViewExtensions.swift in Sources */,
 				9E0814E125E892ED008B7424 /* AppCoordinator.swift in Sources */,
 				9E89CC1B2625705E00161384 /* AlertCancellationViewModel.swift in Sources */,
 				9E6E8E26260C780800628164 /* APIManager.swift in Sources */,
@@ -424,9 +462,11 @@
 				9E5084AA268AC481007C626B /* HintView.swift in Sources */,
 				9E5084A8268AC33B007C626B /* HintManager.swift in Sources */,
 				9E08158025EF6C49008B7424 /* RiskStatusViewController.swift in Sources */,
+				1304C477282D03AF002315FC /* Style.swift in Sources */,
 				13BC1BDF27E9BF8B00FEA2E9 /* RequestVerificationCodeViewController.swift in Sources */,
 				13BC1BDD27E9BF3700FEA2E9 /* RequestVerificationCodeViewModel.swift in Sources */,
 				9E0814D025E783C3008B7424 /* StyledButton.swift in Sources */,
+				1304C472282D02CB002315FC /* CameraService.swift in Sources */,
 				9E7065A326156BE50057A832 /* ExposureConfiguration.swift in Sources */,
 				9E7065942611A7F30057A832 /* ENTemporaryExposureKeyExtensions.swift in Sources */,
 				9E08156A25E8D703008B7424 /* PreferenceManager.swift in Sources */,
@@ -436,6 +476,7 @@
 				9E89CC02261ECCF300161384 /* TogglableTableViewCell.swift in Sources */,
 				9EAD4B292664BB6D00AC811C /* SMS.swift in Sources */,
 				9E5084A6268AC110007C626B /* Hint.swift in Sources */,
+				1304C46F282D0243002315FC /* DateFormatterExtensions.swift in Sources */,
 				9E6C22DA26660F2D0029EFC2 /* DailySummaryViewModel.swift in Sources */,
 				9E70659F26130BA30057A832 /* ExportEndpoints.swift in Sources */,
 				9E0814CB25E77901008B7424 /* WebViewModel.swift in Sources */,
@@ -445,6 +486,7 @@
 				9E89CBE2261CC8EE00161384 /* UploadKeysViewModel.swift in Sources */,
 				13BC1BE427E9C0B000FEA2E9 /* SpinnerShowable.swift in Sources */,
 				9E7065912611A6260057A832 /* UploadEndpoints.swift in Sources */,
+				1304C46E282D0243002315FC /* StringExtensions.swift in Sources */,
 				9E89CC0F26252F4D00161384 /* RiskSummary.swift in Sources */,
 				1304C423282CFCAA002315FC /* Checkbox.swift in Sources */,
 				13BC1BDB27E9BD9A00FEA2E9 /* VerificationCodeManager.swift in Sources */,
@@ -455,6 +497,7 @@
 				9EB0D9A7265B4803006364CA /* Localizations.swift in Sources */,
 				9E89CBFF261ECCBA00161384 /* SettingsViewController.swift in Sources */,
 				9E0BA289268068070088D8A4 /* Configurations.swift in Sources */,
+				1304C46B282D0243002315FC /* UIImageExtensions.swift in Sources */,
 				9E89CC1F2625792500161384 /* AlertCancellationViewController.swift in Sources */,
 				9E08149B25E39D56008B7424 /* SceneDelegate.swift in Sources */,
 				9E6E8E29260C8CC700628164 /* VerificationEndpoints.swift in Sources */,
@@ -463,6 +506,7 @@
 				1304C425282CFD17002315FC /* AssetEndpoints.swift in Sources */,
 				9E89CBE6261CCEDD00161384 /* UploadKeysViewController.swift in Sources */,
 				9E0814C825E7784F008B7424 /* IntroductionViewModel.swift in Sources */,
+				1304C46D282D0243002315FC /* DataExtensions.swift in Sources */,
 				9E08159625F5D6E1008B7424 /* ExposureManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
