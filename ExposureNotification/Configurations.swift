@@ -28,3 +28,10 @@ extension ExportEndpoint {
         static let indexPath = ""
     }
 }
+
+extension ConfigEndpoint {
+    enum Config {
+        static let hostString = ""
+        static let apiKey = ""
+    }
+}

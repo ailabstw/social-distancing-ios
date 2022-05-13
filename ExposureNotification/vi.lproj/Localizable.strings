@@ -1,17 +1,9 @@
-/* The label text on alert cancellation view to inform user inputs their testing date */
-"AlertCancellationView.TestingDateTitleLabel" = "Nhập ngày tháng điều tra dịch tễ";
 
-/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
-"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "Nhập ngày tháng";
+/* The description text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.description" = "I have taken a COVID-19 rapid test by myself, and the result was negative.\nI will watch for my health status. If I have symptoms such as fever, respiratory symptoms, diarrhea, or new loss of taste/smell, I will take the COVID-19 rapid test.\nIf I test positive in my COVID-19 rapid test, I will wear a medical mask to get a PCR test at a nearby community testing site or a hospital, and do not taking the public transportation.\nI have notified my family members that I have received a \"Exposure Notification\" warning, and they must take appropriate precautions such as washing hands frequently and wearing masks.\nI will avoid unnecessary family gatherings and visits.\nI will avoid participating in activities that cannot maintain social distancing and contact with unspecified people.\nI will avoid participating in indoor activities or work where the masks are not required.";
 
-/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
-"AlertCancellationView.PasscodeTitleLabel" = "Vui lòng nhập mã xác nhận";
-
-/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
-"AlertCancellationView.PasscodeFieldPlaceholder" = "Vui lòng nhập mã xác nhận";
-
-/* The introduction text on alert cancellation view to inform user what this view is for */
-"AlertCancellationView.Introduction" = "Vui lòng nhập mã xác minh do Cục Y tế cung cấp và trạng thái cảnh báo lây nhiễm của bạn sẽ bị hủy sau khi gửi.";
+/* The label text on alert cancellation view to ensure the infomation has read */
+"AlertCancellationView.checkboxLabel" = "I have read and agreed the How to Protect Yourself & Others.";
 
 /* The button title on alert to submit data */
 "Alert.Button.Submit" = "Gửi";
@@ -21,6 +13,15 @@
 
 /* The message on alert to indicate the upload is failed */
 "Alert.Message.UploadFailed" = "Đăng tải không thành công";
+
+/* The message on alert to indicate the verification code is invalid */
+"Alert.Message.verifyFailed" = "Invalid verification code";
+
+/* The message on alert to indicate there is no data between start and end dates */
+"Alert.Message.missingKeyData" = "No data between start and end dates";
+
+/* The message on alert to notify user the data should be allowed to upload */
+"Alert.Message.userDenied" = "Click the submit button to upload and share your anonymous IDs.";
 
 /* The button title on alert for OK */
 "Alert.Button.OK" = "OK";
@@ -62,7 +63,7 @@
 "RiskStatusView.UploadIDsAlert.Message" = "Tính năng này cho phép các trường hợp dương tính công khai ID thiết bị nhằm phục vụ công tác truy vết nguồn lây COVID-19.";
 
 /* The title of alert on risk status view for alert cancellation */
-"RiskStatusView.AlertCancellationAlert.Title" = "Bạn có chắc chắn muốn xóa trạng thái cảnh báo lây nhiễm không?";
+"AlertCancellationView.confirmAlertMessage" = "Bạn có chắc chắn muốn xóa trạng thái cảnh báo lây nhiễm không?";
 
 /* The message body of alert on risk status view for alert cancellation */
 "RiskStatusView.AlertCancellationAlert.Message" = "Tính năng này cung cấp chức năng xóa bỏ trạng thái cảnh báo lây nhiễm sau khi đã hoàn tất điều tra dịch bệnh.";
@@ -135,6 +136,12 @@
 
 /* The content message of introduction about stop spreading */
 "Introduction.StopSpreading.Message" = "Người dùng với kết quả xét nghiệm dương tính có thể chọn công khai kết quả và thiết bị của mình mà không để lộ bất kì thông tin cá nhân nào. Mục đích nhằm cảnh báo những thiết bị xung quanh khi có tiếp xúc gần. Quy trình này đảm bảo tuyệt đối tính bảo mật và ẩn danh của tất cả người dùng, đồng thời góp phần ứng phó với dịch bệnh hiệu quả trên nền tảng thông tin kịp thời và chính xác.";
+
+/* The title of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Title" = "Vaccination Certificate";
+
+/* The content message of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Message" = "The App provides an easy way to securely store and present COVID-19 Vaccination Certificate for you and your loved ones. You also can use the QR code of the vaccination certificates for other people or organizations to verify your vaccination status. No internet connection is required and Your data is only stored locally on your mobile device.";
 
 /* The button title of introduction about start using */
 "Introduction.Button.StartUsing" = "Bắt đầu";
@@ -259,6 +266,12 @@
 /* Title for hint of turning off No Detected Notification */
 "Hint.DisableNoRiskNotification.Title" = "You can turn off No Detected Notification from the Exposure Notification Settings.";
 
+/* Title for hint of vaccination certificate */
+"Hint.VaccinationCertificate.title" = "Newly added Vaccination Certificate";
+
+/* Subtitle for hint of vaccination certificate */
+"Hint.VaccinationCertificate.subtitle" = "Manage vaccination certificate for you and your loved ones.";
+
 /* Title for entering mobile number of request verification code page */
 "RequestVerificationCode.phoneNumberTitleLabel" = "Please enter your mobile number";
 
@@ -281,10 +294,10 @@
 "RequestVerificationCode.submitSucceedMessage" = "Verification code will be sent to you via SMS in 5 minutes, please try again if you do not receive it.";
 
 /* The message of alert for submission failed when network issue occurred */
-"RequestVerificationCode.submitFailedMessage" = "Connect error occurred, please try again later.";
+"RequestVerificationCode.submitFailedMessage" = "Connection error occurred, please try again later.";
 
 /* The message of alert for submission failed when request limit exceeded */
-"RequestVerificationCode.requestLimitExceededMessage" = "Number of request exceeded limit, please try again tomorrow";
+"RequestVerificationCode.requestLimitExceededMessage" = "Number of requests exceeded limit, please try again tomorrow";
 
 /* The message of alert for submission failed when invalid phone format */
 "RequestVerificationCode.invalidPhoneFormatMessage" = "Invalid mobile number, please re-enter";
@@ -294,3 +307,65 @@
 
 /* The Exposure Notification is not enabled */
 "UploadKeysView.exposureNotificationNotEnabled" = "Exposure Notification is not enabled";
+
+"VaccinationCertificateListCell.doseDate" = "Date: ";
+
+"VaccinationCertificate.title" = "Vaccination Certificate";
+
+"VaccinationCertificate.expiredLabel" = "Expired";
+
+"VaccinationCertificateCard.cardsLimitExceeded" = "Exceeded vaccination certificates limits.";
+
+"VaccinationCertificateCard.apply" = "Apply for vaccination certificate";
+
+"VaccinationCertificateCard.appointment" = "Vaccination Appointment";
+
+"VaccinationCertificateCard.faq" = "FAQ";
+
+"VaccinationCertificateCardCell.doseDate" = "Date of vaccination";
+
+"VaccinationCertificate.hint" = "Valid in combination with a government issued ID";
+
+"VaccinationCertificateEmptyView.addButton" = "Add Vaccination Certificate";
+
+"VaccinationCertificateEmptyView.description" = "Carry a digital copy of the vaccination certificate by scanning the QR code of the Digital COVID-19 certificate.";
+
+"VaccinationCertificateUserInfoView.doseDate" = "Date of vaccination";
+
+"VaccinationCertificateDetail.deleteAlertTitle" = "Are you sure you want to remove it?";
+
+"VaccinationCertificateDetail.deleteAlertMessage" = "Are you sure you wan to remove %@ vaccination certificate?";
+
+"VaccinationCertificate.deleteButton" = "Remove Certificate";
+
+"VaccinationCertificateDetail.target" = "Disease or agent targeted: ";
+
+"VaccinationCertificateDetail.vaccine" = "Vaccine type:";
+
+"VaccinationCertificateDetail.medicinalProduct" = "Product: ";
+
+"VaccinationCertificateDetail.manufacturer" = "Manufacturer: ";
+
+"VaccinationCertificateDetail.doses" = "Dose";
+
+"VaccinationCertificateDetail.doseDate" = "Date of vaccination: ";
+
+"VaccinationCertificateDetail.country" = "Country of vaccination: ";
+
+"VaccinationCertificateDetail.issuer" = "Issuer: ";
+
+"VaccinationCertificateDetail.uniqueIdentifier" = "UVCI: ";
+
+"VaccinationCertificateDetail.generatedDate" = "Certificate generated on: ";
+
+"VaccinationCertificate.apply" = "Apply";
+
+"VaccinationCertificateScanner.import" = "Import";
+
+"VaccinationCertificateScanner.expired" = "Expired vaccination certificate";
+
+"VaccinationCertificateScanner.duplicated" = "Duplicated vaccination certificate";
+
+"VaccinationCertificateScanner.notFound" = "Failed to detect vaccination certificate QR code";
+
+"VaccinationCertificateScanner.invalidFormat" = "Invalid vaccination certificate QR Code";

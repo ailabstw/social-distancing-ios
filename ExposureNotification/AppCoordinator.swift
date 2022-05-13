@@ -103,6 +103,8 @@ class AppCoordinator: UIViewController {
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
             UINavigationBar.appearance().standardAppearance = appearance
         }
+        
+        ServerConfigManager.shared.fetchData()
 
         if ExposureManager.supportedExposureNotificationsVersion != .version2 {
             transitStatus(to: .unsupported)
@@ -170,6 +172,14 @@ class AppCoordinator: UIViewController {
             NotificationCenter.default.addObserver(forName: UIScene.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] (_) in
                 NotificationCenter.default.post(name: .didEnterBackgroundNotification, object: self)
             }
+            
+            NotificationCenter.default.addObserver(forName: UIScene.willDeactivateNotification, object: nil, queue: .main) { [weak self] (_) in
+                NotificationCenter.default.post(name: .willResignActiveNotification, object: self)
+            }
+            
+            NotificationCenter.default.addObserver(forName: UIScene.didActivateNotification, object: nil, queue: .main) { [weak self] (_) in
+                NotificationCenter.default.post(name: .didBecomeActiveNotification, object: self)
+            }
         } else {
             NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [weak self] (_) in
                 NotificationCenter.default.post(name: .willEnterForegroundNotification, object: self)
@@ -177,6 +187,14 @@ class AppCoordinator: UIViewController {
             
             NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] (_) in
                 NotificationCenter.default.post(name: .didEnterBackgroundNotification, object: self)
+            }
+            
+            NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: .main) { [weak self] (_) in
+                NotificationCenter.default.post(name: .willResignActiveNotification, object: self)
+            }
+            
+            NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] (_) in
+                NotificationCenter.default.post(name: .didBecomeActiveNotification, object: self)
             }
         }
 
@@ -322,6 +340,8 @@ extension AppCoordinator: OverlayWindowDelegate {
 extension Notification.Name {
     static let willEnterForegroundNotification = Notification.Name("willEnterForegroundNotification")
     static let didEnterBackgroundNotification = Notification.Name("didEnterBackgroundNotification")
+    static let willResignActiveNotification = Notification.Name("willResignActiveNotification")
+    static let didBecomeActiveNotification = Notification.Name("didBecomeActiveNotification")
 }
 
 extension AppCoordinator {

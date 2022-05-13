@@ -46,6 +46,15 @@ extension Localizations {
             static let uploadSucceed = NSLocalizedString("Alert.Message.UploadSucceed",
                                                          value: "Upload Successful",
                                                          comment: "The message on alert to indicate the upload is succeed")
+            static let verifyAPIFailed = NSLocalizedString("Alert.Message.verifyFailed",
+                                                           value: "Invalid verification code",
+                                                           comment: "The message on alert to indicate the upload is failed")
+            static let missingKeyData = NSLocalizedString("Alert.Message.missingKeyData",
+                                                          value: "No data between start and end dates",
+                                                          comment: "The message on alert to indicate the no data between start and end date")
+            static let userDenied = NSLocalizedString("Alert.Message.userDenied",
+                                                      value: "Click the submit button to upload your anonymous IDs.",
+                                                      comment: "The message on alert to notify user the data should be allowed to upload")
         }
     }
 }

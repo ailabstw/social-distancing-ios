@@ -25,7 +25,8 @@ class RiskStatusViewModel {
         didSet {
             switch status {
             case .risky:
-                diagnosis = (Localizations.RiskStatusViewModel.Content.Risky.title, Localizations.RiskStatusViewModel.Content.Risky.message)
+                diagnosis = (Localizations.RiskStatusViewModel.Content.Risky.title,
+                             ServerConfigManager.shared.configuredText?.riskyDetail ?? Localizations.RiskStatusViewModel.Content.Risky.message)
 
             case .notTracing:
                 diagnosis = (Localizations.RiskStatusViewModel.Content.NotTracing.title, Localizations.RiskStatusViewModel.Content.NotTracing.message)
@@ -77,7 +78,7 @@ class RiskStatusViewModel {
         }
     }
 
-    let supportedHints: [Hint] = [.qrCodeScannerHint, .dailySummaryHint, .disableNoRiskNotificationHint, .replayHints]
+    let supportedHints: [Hint] = [.dailySummaryHint, .disableNoRiskNotificationHint, .replayHints]
 
     var isHintPresentable: Bool = false {
         didSet {
@@ -131,7 +132,7 @@ class RiskStatusViewModel {
             // Nothing to do.
             break
 
-        case .inactive(.disabled), .inactive(.unauthorized), .unknown:
+        case .inactive(.disabled), .inactive(.notDetermined), .unknown:
             ExposureManager.shared.setExposureNotificationEnabled(true) { (error) in
                 if let error = error {
                     logger.error("\(error)")
@@ -181,7 +182,7 @@ class RiskStatusViewModel {
                 case .dailySummaryHint:
                     return [.risky, .clear].contains(self.status)
 
-                case .qrCodeScannerHint, .replayHints, .disableNoRiskNotificationHint:
+                case .replayHints, .disableNoRiskNotificationHint, .vaccinationCertificate:
                     return true
 
                 default:

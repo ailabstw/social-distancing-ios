@@ -29,14 +29,16 @@ extension Hint: Equatable {
 }
 
 extension Hint {
-    static let qrCodeScannerHint = Hint(id: "Hint.QRCodeScanner",
-                                        title: Localizations.Hint.QRCodeScanner.title)
     static let dailySummaryHint = Hint(id: "Hint.DailySummary",
                                        title: Localizations.Hint.DailySummary.title)
     static let disableNoRiskNotificationHint = Hint(id: "Hint.DisableNoRiskNotification",
                                                     title: Localizations.Hint.DisableNoRiskNotification.title)
     static let replayHints = Hint(id: "Hint.ReplayHints",
                                   title: Localizations.Hint.ReplayHints.title)
+    
+    static let vaccinationCertificate = Hint(id: "Hint.VaccinationCertificate",
+                                         title: Localizations.Hint.VaccinationCertificate.title,
+                                         subtitle: Localizations.Hint.VaccinationCertificate.subtitle)
 }
 
 extension Localizations {
@@ -63,6 +65,16 @@ extension Localizations {
             static let title = NSLocalizedString("Hint.ReplayHints.Title",
                                                  value: "You can check the hints again from the menu.",
                                                  comment: "Title for hint of replaying hints")
+        }
+        
+        enum VaccinationCertificate {
+            static let title = NSLocalizedString("Hint.VaccinationCertificate.title",
+                                                 value: "Newly added Vaccination Certificate",
+                                                 comment: "Title for hint of vaccination certificate")
+            
+            static let subtitle = NSLocalizedString("Hint.VaccinationCertificate.subtitle",
+                                                    value: "Manage vaccination certificate for you and your loved ones.",
+                                                    comment: "Subtitle for hint of vaccination certificate")
         }
     }
 }

@@ -7,15 +7,29 @@
 //
 
 import CoreKit
+import ExposureNotification
 import Foundation
 import PromiseKit
+
 
 class UploadKeysViewModel {
     enum Status {
         case notReady
         case ready
         case uploading
-        case uploaded(Bool)
+        case uploaded(UploadResult)
+        case waitForRetry(RetryReason)
+    }
+    
+    enum UploadResult {
+        case success
+        case verifyAPIFailed
+        case otherAPIFailed
+    }
+    
+    enum RetryReason {
+        case couldNotGetKeys
+        case userDenied
     }
 
     @Observed(queue: .main)
@@ -23,6 +37,9 @@ class UploadKeysViewModel {
     
     @Observed(queue: .main)
     private(set) var status: Status = .notReady
+    
+    private var verifiedToken: String?
+    private var verifiedSymptonDate: Date?
     
     var exposureNotificationEnabled: Bool {
         return ExposureManager.shared.exposureNotificationStatus == .active
@@ -67,10 +84,12 @@ class UploadKeysViewModel {
     private func transitStatus(to newStatus: Status) {
         switch (status, newStatus) {
         case (.notReady, .ready),
-             (.ready, .notReady),
-             (.ready, .uploading),
-             (.uploading, .uploaded),
-             (.uploaded, .notReady):
+            (.ready, .notReady),
+            (.ready, .uploading),
+            (.uploading, .uploaded),
+            (.uploading, .waitForRetry),
+            (.uploaded, .notReady),
+            (.waitForRetry, .uploading):
             status = newStatus
             
         default:
@@ -83,17 +102,55 @@ class UploadKeysViewModel {
             return
         }
         
-        transitStatus(to: .uploading)
-
-        ExposureManager.shared.postDiagnosisKeys(using: passcode, from: startDate, to: endDate)
-            .done { (result) in
-                self.transitStatus(to: .uploaded(result))
+        firstly {
+            Promise { (seal) in
+                if case .waitForRetry = status {
+                    self.transitStatus(to: .uploading)
+                    seal.fulfill(true)
+                } else {
+                    self.transitStatus(to: .uploading)
+                    ExposureManager.shared.verifyCode(using: passcode)
+                        .done { response in
+                            self.verifiedToken = response.token
+                            self.verifiedSymptonDate = response.symptomDate
+                            seal.fulfill(true)
+                        }
+                        .catch { error in
+                            seal.reject(error)
+                        }
+                }
             }
-            .catch { (error) in
-                logger.error("\(error)")
-                self.transitStatus(to: .uploaded(false))
+        }
+        .then { (success: Bool) in
+            ExposureManager.shared.checkDiagnosisKeys(from: self.startDate, to: self.endDate)
+        }
+        .then { (keys: [ENTemporaryExposureKey]) in
+            ExposureManager.shared.uploadDiagnosisKeys(token: self.verifiedToken!, symptomDate: self.verifiedSymptonDate!, keys: keys)
+        }
+        .done { (success: Bool) in
+            if success {
+                self.transitStatus(to: .uploaded(.success))
+            } else {
+                self.transitStatus(to: .uploaded(.otherAPIFailed))
             }
-
+        }
+        .catch { error in
+            logger.error("\(error)")
+            if let uploadError = error as? ExposureManager.UploadError {
+                switch uploadError {
+                case .keysNotFound:
+                    self.transitStatus(to: .waitForRetry(.couldNotGetKeys))
+                case .verifyFailed:
+                    self.transitStatus(to: .uploaded(.verifyAPIFailed))
+                case .userDenied:
+                    self.transitStatus(to: .waitForRetry(.userDenied))
+                case .unknown:
+                    self.transitStatus(to: .uploaded(.otherAPIFailed))
+                }
+            } else {
+                self.transitStatus(to: .uploaded(.otherAPIFailed))
+            }
+        }
     }
 }
 

@@ -1,17 +1,9 @@
-/* The label text on alert cancellation view to inform user inputs their testing date */
-"AlertCancellationView.TestingDateTitleLabel" = "請輸入疫調日期";
 
-/* The button title placeholder on alert cancellation view to open a date picker to select the date of testing */
-"AlertCancellationView.TestingDatePickerButtonPlaceholder" = "請輸入日期";
+/* The description text on alert cancellation view to inform user what this view is for */
+"AlertCancellationView.description" = "我已經自行快篩 1 次且為陰性。\n我會注意是否有發燒、呼吸道症狀、腹瀉、嗅/味覺異常等 Covid-19 疑似症狀，若出現症狀，會自行快篩。\n我如果快篩陽性，會佩戴醫用口罩就醫採檢，出門時避免搭乘大眾運輸。\n我已通知同住家人有收到「接觸通知」警示，要採取適當防護措施，例如勤洗手、戴口罩等。\n我會避免非必要的家庭聚會及拜訪。\n我會避免參加無法保持社交距離及接觸不特定對象的活動。\n我會避免參加可以免佩戴口罩的室內活動或工作。";
 
-/* The label text on alert cancellation view to inform user inputs their verification code to cancel alert */
-"AlertCancellationView.PasscodeTitleLabel" = "請輸入驗證碼";
-
-/* The text field placeholder text on alert cancellation view to inform user to input their verification code to cancel alert here */
-"AlertCancellationView.PasscodeFieldPlaceholder" = "請輸入驗證碼";
-
-/* The introduction text on alert cancellation view to inform user what this view is for */
-"AlertCancellationView.Introduction" = "請輸入由衛生局提供的驗證碼，送出後，即取消您的示警狀態。";
+/* The label text on alert cancellation view to ensure the infomation has read */
+"AlertCancellationView.checkboxLabel" = "我已詳細閱讀並同意以上衛教資訊";
 
 /* The button title on alert to submit data */
 "Alert.Button.Submit" = "送出";
@@ -21,6 +13,15 @@
 
 /* The message on alert to indicate the upload is failed */
 "Alert.Message.UploadFailed" = "上傳失敗";
+
+/* The message on alert to indicate the verification code is invalid */
+"Alert.Message.verifyFailed" = "無效的驗證碼";
+
+/* The message on alert to indicate there is no data between start and end dates */
+"Alert.Message.missingKeyData" = "所選區間無資料可供上傳";
+
+/* The message on alert to notify user the data should be allowed to upload */
+"Alert.Message.userDenied" = "若要上傳請再次點擊送出並分享";
 
 /* The button title on alert for OK */
 "Alert.Button.OK" = "確認";
@@ -62,7 +63,7 @@
 "RiskStatusView.UploadIDsAlert.Message" = "此功能為提供確診者上傳隨機 ID 以減少疫情擴散";
 
 /* The title of alert on risk status view for alert cancellation */
-"RiskStatusView.AlertCancellationAlert.Title" = "確定要解除示警狀態嗎？";
+"AlertCancellationView.confirmAlertMessage" = "確定要解除示警狀態嗎？";
 
 /* The message body of alert on risk status view for alert cancellation */
 "RiskStatusView.AlertCancellationAlert.Message" = "此功能為提供疫調後之示警狀態解除";
@@ -135,6 +136,12 @@
 
 /* The content message of introduction about stop spreading */
 "Introduction.StopSpreading.Message" = "如果 App 的使用者被確診具傳染性的疾病，他可以選擇發布他的手持裝置隨機 ID (以嚴密的技術去識別化)，曾跟他的手持裝置有過近距離且維持一定時間接觸的人便會收到通知。且無法知道是誰，在兼顧個人隱私的情況下也保護公眾的健康。";
+
+/* The title of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Title" = "疫苗接種數位證明";
+
+/* The content message of introduction about vaccination certificate */
+"Introduction.VaccinationCertificate.Message" = "您可以透過 App 輕鬆儲存、管理與呈現您和家人的疫苗接種數位證明，透過 QR code 的方式提供掃描及驗證。且您的資料僅儲存在手機中，不需要網路連線也不會上傳到任何地方。";
 
 /* The button title of introduction about start using */
 "Introduction.Button.StartUsing" = "開始使用";
@@ -259,6 +266,12 @@
 /* Title for hint of turning off No Detected Notification */
 "Hint.DisableNoRiskNotification.Title" = "若要關閉無風險通知功能，可以到右上方選單裡的「資料權限控管」進行設定喔~";
 
+/* Title for hint of vaccination certificate */
+"Hint.VaccinationCertificate.title" = "新增「疫苗接種數位證明」存放功能";
+
+/* Subtitle for hint of vaccination certificate */
+"Hint.VaccinationCertificate.subtitle" = "讓您輕鬆存放與管理自己及全家人的疫苗接種數位證明。";
+
 /* Title for entering mobile number of request verification code page */
 "RequestVerificationCode.phoneNumberTitleLabel" = "請輸入手機號碼";
 
@@ -294,3 +307,65 @@
 
 /* The Exposure Notification is not enabled */
 "UploadKeysView.exposureNotificationNotEnabled" = "尚未開啟接觸通知功能";
+
+"VaccinationCertificateListCell.doseDate" = "接種日期：";
+
+"VaccinationCertificate.title" = "疫苗接種數位證明";
+
+"VaccinationCertificate.expiredLabel" = "此證明已過期";
+
+"VaccinationCertificateCard.cardsLimitExceeded" = "數量已達上限";
+
+"VaccinationCertificateCard.apply" = "申請疫苗接種數位證明";
+
+"VaccinationCertificateCard.appointment" = "預約疫苗";
+
+"VaccinationCertificateCard.faq" = "常見問題";
+
+"VaccinationCertificateCardCell.doseDate" = "接種日期";
+
+"VaccinationCertificate.hint" = "使用時請同步出示身分證";
+
+"VaccinationCertificateEmptyView.addButton" = "立即新增疫苗接種數位證明";
+
+"VaccinationCertificateEmptyView.description" = "將你與家人的疫苗接種數位證明存入手機，並以 QR code 的方式提供快速驗證。";
+
+"VaccinationCertificateUserInfoView.doseDate" = "接種日期";
+
+"VaccinationCertificateDetail.deleteAlertTitle" = "是否確認刪除？";
+
+"VaccinationCertificateDetail.deleteAlertMessage" = "確認刪除%@的疫苗接種數位證明嗎？";
+
+"VaccinationCertificate.deleteButton" = "刪除此疫苗接種數位證明";
+
+"VaccinationCertificateDetail.target" = "預防疾病名稱：";
+
+"VaccinationCertificateDetail.vaccine" = "疫苗類型：";
+
+"VaccinationCertificateDetail.medicinalProduct" = "疫苗名稱：";
+
+"VaccinationCertificateDetail.manufacturer" = "疫苗經銷商或製造商：";
+
+"VaccinationCertificateDetail.doses" = "接種劑次：";
+
+"VaccinationCertificateDetail.doseDate" = "接種日期：";
+
+"VaccinationCertificateDetail.country" = "接種國家：";
+
+"VaccinationCertificateDetail.issuer" = "數位證明發行機構：";
+
+"VaccinationCertificateDetail.uniqueIdentifier" = "數位證明識別碼：";
+
+"VaccinationCertificateDetail.generatedDate" = "數位證明產生日期：";
+
+"VaccinationCertificate.apply" = "申請疫苗接種數位證明";
+
+"VaccinationCertificateScanner.import" = "匯入疫苗接種數位證明";
+
+"VaccinationCertificateScanner.expired" = "此疫苗接種數位證明已過期";
+
+"VaccinationCertificateScanner.duplicated" = "此疫苗接種數位證明已存在";
+
+"VaccinationCertificateScanner.notFound" = "未偵測到疫苗接種數位證明 QR code";
+
+"VaccinationCertificateScanner.invalidFormat" = "非疫苗接種數位證明 QR code";

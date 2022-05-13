@@ -52,6 +52,7 @@ class ExposureManager {
     }
 
     enum InactiveReason {
+        case notDetermined
         case disabled
         case restricted
         case unauthorized
@@ -119,13 +120,16 @@ class ExposureManager {
 
         case (_, .unknown):
             exposureNotificationStatus = .unknown
-
-        case (_, .unauthorized), (.unknown, _):
-            exposureNotificationStatus = .inactive(.unauthorized)
-
+            
+        case (.unknown, _):
+            exposureNotificationStatus = .inactive(.notDetermined)
+            
         case (.notAuthorized, _):
             exposureNotificationStatus = .inactive(.denied)
 
+        case (_, .unauthorized):
+            exposureNotificationStatus = .inactive(.unauthorized)
+            
         case (.restricted, _), (_, .restricted):
             exposureNotificationStatus = .inactive(.restricted)
 
@@ -192,7 +196,15 @@ class ExposureManager {
         let timeSpan = (start.enIntervalNumber..<end.enIntervalNumber)
 
         return firstly {
-            APIManager.shared.request(VerificationEndpoint.verify(code: verificationCode))
+            Promise { (seal) in
+                APIManager.shared.request(VerificationEndpoint.verify(code: verificationCode))
+                    .done { (response: VerificationEndpoint.VerifyResponse) in
+                        seal.fulfill(response)
+                    }
+                    .catch { error in
+                        seal.reject(UploadError.verifyFailed)
+                    }
+            }
         }
         .then { (response: VerificationEndpoint.VerifyResponse) -> Promise<(VerificationEndpoint.VerifyResponse, [ENTemporaryExposureKey])> in
             Promise { (seal) in
@@ -203,8 +215,8 @@ class ExposureManager {
                     .done { (keys) in
                         seal.fulfill((response, keys))
                     }
-                    .catch { (error) in
-                        seal.reject(error)
+                    .catch { _ in
+                        seal.reject(UploadError.keysNotFound)
                     }
             }
         }
@@ -218,6 +230,67 @@ class ExposureManager {
             .map { (response: VerificationEndpoint.CertificateResponse) in
                 (response, keys, symptomDate)
             }
+        }
+        .map { (response: VerificationEndpoint.CertificateResponse, keys: [ENTemporaryExposureKey], symptomDate: Date) in
+            UploadEndpoint.publish(symmetricKey: symmetricKey, exposureKeys: keys, certificate: response.certificate, symptomDate: symptomDate)
+        }
+        .then{ (publish) in
+            APIManager.shared.request(publish)
+        }
+        .then { (response: UploadEndpoint.PublishResponse) -> Promise<Bool> in
+            self.revisionToken = response.revisionToken
+
+            return Promise.value(response.insertedExposures != 0)
+        }
+    }
+    
+    func verifyCode(using verificationCode: String) -> Promise<VerificationEndpoint.VerifyResponse> {
+        return Promise { (seal) in
+            APIManager.shared.request(VerificationEndpoint.verify(code: verificationCode))
+                .done { (response: VerificationEndpoint.VerifyResponse) in
+                    seal.fulfill(response)
+                }
+                .catch { error in
+                    seal.reject(UploadError.verifyFailed)
+                }
+        }
+    }
+    
+    func checkDiagnosisKeys(from start: Date, to end: Date) -> Promise<[ENTemporaryExposureKey]> {
+        let timeSpan = (start.enIntervalNumber..<end.enIntervalNumber)
+        
+        return Promise { (seal) in
+            self.getDiagnosisKeys()
+                .filterValues { (key) -> Bool in
+                    timeSpan.contains(key.rollingStartNumber)
+                }
+                .done { (keys) in
+                    if keys.count > 0 {
+                        return seal.fulfill((keys))
+                    } else {
+                        return seal.reject(UploadError.keysNotFound)
+                    }
+                }
+                .catch { error in
+                    if let enError = error as? ENError, enError.errorCode == ENError.notAuthorized.rawValue {
+                        seal.reject(UploadError.userDenied)
+                    } else {
+                        seal.reject(UploadError.unknown)
+                    }
+                }
+        }
+    }
+    
+    func uploadDiagnosisKeys(token: String, symptomDate: Date, keys: [ENTemporaryExposureKey]) -> Promise<Bool> {
+        let symmetricKey = {
+            SymmetricKey(size: .bits128)
+        }()
+        
+        return firstly {
+            APIManager.shared.request(VerificationEndpoint.certificate(token: token, symmetricKey: symmetricKey, exposureKeys: keys))
+        }
+        .map { (response: VerificationEndpoint.CertificateResponse) in
+            (response, keys, symptomDate)
         }
         .map { (response: VerificationEndpoint.CertificateResponse, keys: [ENTemporaryExposureKey], symptomDate: Date) in
             UploadEndpoint.publish(symmetricKey: symmetricKey, exposureKeys: keys, certificate: response.certificate, symptomDate: symptomDate)
@@ -567,5 +640,14 @@ extension ExposureManager {
         } catch {
             logger.error("Unable to schedule background task: \(error)")
         }
+    }
+}
+
+extension ExposureManager {
+    enum UploadError: Error {
+        case verifyFailed
+        case keysNotFound
+        case userDenied
+        case unknown
     }
 }

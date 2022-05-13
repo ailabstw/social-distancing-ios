@@ -87,9 +87,23 @@ class RiskStatusViewController: UIViewController {
 
         button.setTitle(Localizations.NewVersionAvailableAlert.message, for: .normal)
         button.setTitleColor(Color.warning, for: .normal)
-        button.isHidden = true
+        button.isHidden = false
         button.addTarget(self, action: #selector(didTapAppUpdatesAvailableButton(_:)), for: .touchUpInside)
 
+        return button
+    }()
+    
+    private lazy var vaccinationCertificateButton: UIButton = {
+        let button = UIButton()
+        
+        button.backgroundColor = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
+        button.setTitle(Localizations.RiskStatusView.vaccinationCertificate, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 17)
+        button.layer.cornerRadius = 18
+        button.addTarget(self, action: #selector(didTapVaccinationCertificateButton(_:)), for: .touchDown)
+        button.clipsToBounds = true
+        
         return button
     }()
     
@@ -112,14 +126,14 @@ class RiskStatusViewController: UIViewController {
 
         engageButton.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.top.equalTo(content).offset(39)
+            $0.top.equalTo(content).offset(Layout.calculate(16))
             $0.height.equalTo(48)
             $0.width.equalTo(240)
         }
 
         uptimeLabel.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.top.equalTo(engageButton.snp.bottom).offset(20)
+            $0.top.equalTo(engageButton.snp.bottom).offset(Layout.calculate(16))
             $0.width.equalToSuperview().inset(4)
         }
 
@@ -130,7 +144,8 @@ class RiskStatusViewController: UIViewController {
 
         versionLabel.snp.makeConstraints {
             $0.centerX.equalTo(content)
-            $0.bottom.equalTo(content).offset(-12)
+            $0.bottom.equalTo(content).offset(-6)
+            $0.top.equalTo(lastCheckedDateTimeLabel.snp.bottom).offset(Layout.calculate(16))
         }
         
         return view
@@ -225,9 +240,7 @@ class RiskStatusViewController: UIViewController {
     
     private func configureNavigationItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: Image.iconMenu, style: .plain, target: self, action: #selector(didTapMoreBarButton(_:)))
-        navigationItem.leftBarButtonItems = [
-            UIBarButtonItem(image: Image.iconQRScanner, style: .plain, target: self, action: #selector(didTapQRCodeScanner(_:)))
-        ]
+        navigationItem.leftBarButtonItems = []
 
         #if DEBUG
         navigationItem.leftBarButtonItems?.append(UIBarButtonItem.init(title: "     ", style: .plain, target: self, action: #selector(didTapEngineerBarButton(_:))))
@@ -244,6 +257,8 @@ class RiskStatusViewController: UIViewController {
 
             _stack.addArrangedSubview(banner)
             _stack.addArrangedSubview(detailTextView)
+            _stack.addArrangedSubview(vaccinationCertificateButton)
+            _stack.addArrangedSubview(appUpdatesAvailableButton)
             _stack.insertSubview(bannerBorder, at: 0)
             _stack.insertSubview(bannerBadge, at: 0)
             
@@ -267,7 +282,12 @@ class RiskStatusViewController: UIViewController {
             
             detailTextView.snp.makeConstraints {
                 $0.width.equalToSuperview().offset(-70)
-                $0.height.greaterThanOrEqualTo(160)
+                $0.height.greaterThanOrEqualTo(Layout.calculate(180))
+            }
+            
+            vaccinationCertificateButton.snp.makeConstraints {
+                $0.width.equalTo((vaccinationCertificateButton.titleLabel?.intrinsicContentSize.width ?? 0) + 30)
+                $0.height.equalTo(35)
             }
             
             return _stack
@@ -281,13 +301,12 @@ class RiskStatusViewController: UIViewController {
         view.addSubview(clockAnimationView)
         clockAnimationView.addSubview(clockLabel)
         view.addSubview(stack)
-        view.addSubview(appUpdatesAvailableButton)
         view.addSubview(console)
 
         layoutGuide.snp.makeConstraints {
             $0.left.right.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(console.snp.top)
-            $0.top.equalTo(clockLabel.snp.bottom)
+            $0.top.equalTo(clockAnimationView.snp.bottom).offset(Layout.calculate(12))
         }
         
         clockLabel.snp.makeConstraints {
@@ -296,7 +315,7 @@ class RiskStatusViewController: UIViewController {
         }
         
         clockAnimationView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(Layout.calculate(16))
             $0.centerX.equalToSuperview()
             $0.width.equalTo(240)
             $0.height.equalTo(56)
@@ -305,17 +324,9 @@ class RiskStatusViewController: UIViewController {
         stack.snp.makeConstraints {
             $0.centerY.left.right.equalTo(layoutGuide)
         }
-
-        appUpdatesAvailableButton.snp.makeConstraints {
-            $0.leading.greaterThanOrEqualTo(layoutGuide).offset(32)
-            $0.trailing.lessThanOrEqualTo(layoutGuide).offset(-32)
-            $0.centerX.equalTo(layoutGuide)
-            $0.bottom.equalTo(layoutGuide).offset(-40)
-        }
         
         console.snp.makeConstraints {
             $0.left.right.bottom.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-200)
         }
     }
 
@@ -425,7 +436,7 @@ class RiskStatusViewController: UIViewController {
 
         viewModel.engageErrorHandler = { [weak self] (reason) in
             switch reason {
-            case .disabled, .unauthorized:
+            case .disabled, .notDetermined:
                 #if DEBUG
                 fatalError("Engage error .disabled should be handled in RiskStatusViewModel.")
                 #endif
@@ -438,7 +449,7 @@ class RiskStatusViewController: UIViewController {
                 })
                 self?.present(confirm, animated: true, completion: nil)
 
-            case .denied:
+            case .denied, .unauthorized:
                 AppCoordinator.shared.openSettingsApp()
 
             case .restricted:
@@ -502,14 +513,7 @@ class RiskStatusViewController: UIViewController {
         //TODO: Alert Cancellation
         if viewModel.riskStatus == .risky {
             alert.addAction(UIAlertAction(title: Localizations.AlertCancellationViewModel.title, style: .default) { [weak self] action in
-                let confirm = UIAlertController(title: Localizations.RiskStatusView.AlertCancellationAlert.title,
-                                                message: Localizations.RiskStatusView.AlertCancellationAlert.message,
-                                                preferredStyle: .alert)
-                confirm.addAction(UIAlertAction(title: Localizations.Alert.Button.yes, style: .default) { [weak self] action in
-                    self?.navigationController?.pushViewController(AlertCancellationViewController(viewModel: AlertCancellationViewModel()), animated: true)
-                })
-                confirm.addAction(UIAlertAction(title: Localizations.Alert.Button.no, style: .cancel, handler: nil))
-                self?.present(confirm, animated: true, completion: nil)
+                self?.navigationController?.pushViewController(AlertCancellationViewController(viewModel: AlertCancellationViewModel()), animated: true)
             })
         }
         
@@ -578,6 +582,10 @@ class RiskStatusViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     #endif
+    
+    @objc private func didTapVaccinationCertificateButton(_ sender: UIButton) {
+        VaccinationCertificateRouter.presentMainPage(self)
+    }
 
     func presentQRCodeScanner() {
         let scannerViewModel = QRCodeScannerViewModel()
@@ -625,15 +633,15 @@ class RiskStatusViewController: UIViewController {
         switch hint {
         case .dailySummaryHint:
             AppCoordinator.shared.showOverlay(for: hint, from: bannerBorder)
-
-        case .qrCodeScannerHint:
-            AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.leftBarButtonItem!)
             
         case .disableNoRiskNotificationHint:
             AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.rightBarButtonItem!)
 
         case .replayHints:
             AppCoordinator.shared.showOverlay(for: hint, from: navigationItem.rightBarButtonItem!)
+        
+        case .vaccinationCertificate:
+            AppCoordinator.shared.showOverlay(for: hint, from: vaccinationCertificateButton)
 
         default:
             return
@@ -690,7 +698,10 @@ extension Localizations {
         static let detailTextParagraphHeaderSeparator = NSLocalizedString("RiskStatusView.DetailTextParagraphHeaderSeparator",
                                                            value: ":",
                                                            comment: "The punctuation at the beginning of each paragraph to indicate header").first!
-
+        
+        static let vaccinationCertificate = NSLocalizedString("VaccinationCertificate.title",
+                                                              value: "Vaccination Certificate",
+                                                              comment: "The title of button on risk status view for enter vaccination certificate")
         enum EngageButton {
             static let enable = NSLocalizedString("RiskStatusView.EngageButton.Enable",
                                                   value: "Enable Exposure Notification",
@@ -712,15 +723,6 @@ extension Localizations {
                                                            value: "Hints",
                                                            comment: "The title of action sheet on risk status view for replaying hints")
             }
-        }
-
-        enum AlertCancellationAlert {
-            static let title = NSLocalizedString("RiskStatusView.AlertCancellationAlert.Title",
-                                                 value: "Are you sure you want to reset your status?",
-                                                 comment: "The title of alert on risk status view for alert cancellation")
-            static let message = NSLocalizedString("RiskStatusView.AlertCancellationAlert.Message",
-                                                   value: "Reset status upon completion of contact tracing assessment.",
-                                                   comment: "The message body of alert on risk status view for alert cancellation")
         }
 
         enum UploadIDsAlert {
@@ -772,6 +774,7 @@ extension RiskStatusViewController {
         let maybeBullet = sentences.count > 1 ? "\u{2022} " : ""
         let attributes = riskyAttributes(bullet: maybeBullet)
         let boldAttributes: [NSAttributedString.Key : Any] = [.font: Font.riskyDetailBold]
+        let separator: String.Element = ServerConfigManager.shared.configuredText?.riskyDetailHeaderSeparator?.first ?? Localizations.RiskStatusView.detailTextParagraphHeaderSeparator
 
         return sentences
             .map {
@@ -780,7 +783,7 @@ extension RiskStatusViewController {
             }
             .map {
                 // If separator is found, make any words before the first separator bold.
-                if let separatorIndex = $0.string.firstIndex(of: Localizations.RiskStatusView.detailTextParagraphHeaderSeparator) {
+                if let separatorIndex = $0.string.firstIndex(of: separator) {
                     $0.addAttributes(boldAttributes, range: NSRange(($0.string.startIndex..<separatorIndex), in: $0.string))
                 }
 

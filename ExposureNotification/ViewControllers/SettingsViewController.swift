@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
 
         viewModel.exposureNotificationEngageHandler = { [weak self] (reason, completion) in
             switch reason {
-            case .disabled, .unauthorized:
+            case .disabled, .unauthorized, .notDetermined:
                 completion()
 
             case .bluetoothOff:

@@ -31,7 +31,6 @@ class HintView: UIView {
         label.textColor = Color.text
         label.font = Font.subtitle
         label.numberOfLines = 0
-        label.textAlignment = .center
 
         return label
     }()
@@ -89,7 +88,7 @@ class HintView: UIView {
 
         subtitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(8)
-            $0.leading.trailing.equalTo(titleLabel)
+            $0.leading.trailing.equalTo(titleLabel).inset(20)
         }
 
         self.snp.makeConstraints {

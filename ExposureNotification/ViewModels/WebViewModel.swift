@@ -12,6 +12,9 @@ import Foundation
 extension WebViewModel {
     static let personalDataProtectionNote = WebViewModel(title: Localizations.PersonalDataProtectionNote.title, urlString: "https://ailabs.tw/taiwan-social-distancing-apppersonal-data-protection-note/")
     static let faq = SafariViewModel(title: Localizations.FAQ.title, urlString: "https://www.cdc.gov.tw/Category/Page/R8bAd_yiVi22CIr73qM2yw")
+    static let applyVaccinationCertificate = SafariViewModel(title: Localizations.VaccinationCertificateCard.apply, urlString: "https://dvc.mohw.gov.tw/vapa/apply/Index.init.ctr?openExternalBrowser=1")
+    static let bookingVaccination = SafariViewModel(title: Localizations.VaccinationCertificateCard.appointment, urlString: "https://www.cdc.gov.tw/Category/List/u4l1b_gHhf9WDjhEtRmRRw")
+    static let vaccinationCertificateFAQ = SafariViewModel(title: Localizations.FAQ.title, urlString: "https://dvc.mohw.gov.tw/vapa/template/vapa/common/pdf/QA.pdf")
 }
 
 class PrivacyWebViewModel: WebViewModel {
