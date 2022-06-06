@@ -155,6 +155,10 @@
 		1304C47A282D30F6002315FC /* ConfigEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigEndpoints.swift; sourceTree = "<group>"; };
 		1304C47C282D326E002315FC /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		130D2C94284DCA39006235CE /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		130D2C96284DCB9C006235CE /* ms-MY */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ms-MY"; path = "ms-MY.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		130D2C97284DCBA6006235CE /* my-MM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "my-MM"; path = "my-MM.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		130D2C98284DCBB3006235CE /* ms-MY */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ms-MY"; path = "ms-MY.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		130D2C99284DCBBC006235CE /* my-MM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "my-MM"; path = "my-MM.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -598,6 +602,8 @@
 				vi,
 				tl,
 				fil,
+				"ms-MY",
+				"my-MM",
 			);
 			mainGroup = 9E08148C25E39D56008B7424;
 			packageReferences = (
@@ -743,6 +749,8 @@
 				13E1540026565F07002CB898 /* th */,
 				13E1540226566632002CB898 /* vi */,
 				137E872C2656C3BA00F9C3A3 /* tl */,
+				130D2C98284DCBB3006235CE /* ms-MY */,
+				130D2C99284DCBBC006235CE /* my-MM */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -756,6 +764,8 @@
 				13E153FF26565F07002CB898 /* th */,
 				13E1540126566632002CB898 /* vi */,
 				137E872D2656C3CD00F9C3A3 /* tl */,
+				130D2C96284DCB9C006235CE /* ms-MY */,
+				130D2C97284DCBA6006235CE /* my-MM */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

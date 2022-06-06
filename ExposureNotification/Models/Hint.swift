@@ -43,11 +43,6 @@ extension Hint {
 
 extension Localizations {
     enum Hint {
-        enum QRCodeScanner {
-            static let title = NSLocalizedString("Hint.QRCodeScanner.Title",
-                                                 value: "Add \"1922 SMS Contact Tracing\" Scanner",
-                                                 comment: "Title for hint of adding 1922 SMS contact tracing scanner")
-        }
 
         enum DailySummary {
             static let title = NSLocalizedString("Hint.DailySummary.Title",

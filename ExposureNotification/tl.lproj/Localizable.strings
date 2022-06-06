@@ -1,9 +1,9 @@
 
 /* The description text on alert cancellation view to inform user what this view is for */
-"AlertCancellationView.description" = "I have taken a COVID-19 rapid test by myself, and the result was negative.\nI will watch for my health status. If I have symptoms such as fever, respiratory symptoms, diarrhea, or new loss of taste/smell, I will take the COVID-19 rapid test.\nIf I test positive in my COVID-19 rapid test, I will wear a medical mask to get a PCR test at a nearby community testing site or a hospital, and do not taking the public transportation.\nI have notified my family members that I have received a \"Exposure Notification\" warning, and they must take appropriate precautions such as washing hands frequently and wearing masks.\nI will avoid unnecessary family gatherings and visits.\nI will avoid participating in activities that cannot maintain social distancing and contact with unspecified people.\nI will avoid participating in indoor activities or work where the masks are not required.";
+"AlertCancellationView.description" = "Nagsagawa ako ng COVID-19 rapid test nang mag-isa, at negatibo ang resulta.\nBabantayan ko ang katayuan ng aking kalusugan. Kung mayroon akong mga sintomas gaya ng lagnat, hirap sa paghinga, pagtatae, o pagkawala ng panlasa/pang-amoy, magsasagawa ako ng COVID-19 rapid test.\nKung magpositibo ako sa aking COVID-19 rapid test, magsusuot ako ng medical mask para magpa-PCR test sa isang malapit na community testing site o ospital, at hindi sasakay ng pampublikong sasakyan.\nInabisuhan ko ang aking pamilya na nakatanggap ako ng babala ng \"Exposure Notification\", at dapat silang gumawa ng naaangkop na pag-iingat tulad ng madalas na paghuhugas ng kamay at pagsusuot ng mask.\nIiwasan ko ang mga hindi kinakailangang pagtitipon at pagbisita ng pamilya.\nIiwasan kong makilahok sa mga aktibidad na hindi mapapanatili ang social distancing at pakikipag-ugnayan sa mga hindi kilalang tao.\nIiwasan kong makilahok sa mga panloob na aktibidad o trabaho kung saan hindi kinakailangan magsuot ng maskara.\n";
 
 /* The label text on alert cancellation view to ensure the infomation has read */
-"AlertCancellationView.checkboxLabel" = "I have read and agreed the How to Protect Yourself & Others.";
+"AlertCancellationView.checkboxLabel" = "Nabasa ko at sinang-ayunan ko ang How to Protect Yourself & Others.";
 
 /* The button title on alert to submit data */
 "Alert.Button.Submit" = "Ipadala";
@@ -15,13 +15,13 @@
 "Alert.Message.UploadFailed" = "Nabigo ang pag-upload";
 
 /* The message on alert to indicate the verification code is invalid */
-"Alert.Message.verifyFailed" = "Invalid verification code";
+"Alert.Message.verifyFailed" = "Di-wasto ang verification code.";
 
 /* The message on alert to indicate there is no data between start and end dates */
-"Alert.Message.missingKeyData" = "No data between start and end dates";
+"Alert.Message.missingKeyData" = "Walang data sa pagitan ng mga petsa ng simula at katapusan";
 
 /* The message on alert to notify user the data should be allowed to upload */
-"Alert.Message.userDenied" = "Click the submit button to upload and share your anonymous IDs.";
+"Alert.Message.userDenied" = "I-click muli ang submit upang maiupload at maibahagi";
 
 /* The button title on alert for OK */
 "Alert.Button.OK" = "OK";
@@ -93,19 +93,19 @@
 "UploadKeysView.PasscodeFieldPlaceholder" = "Mangyaring i-type ang verification code";
 
 /* The message body on upload keys view for introduction */
-"UploadKeysView.IntroductionMessage" = "Mangyaring i-type ang verification code na ibinigay ng health bureau. Matapos ipadala ito, maa-upload ang iyong random ID sa database ng Taiwan Centers for Disease Control, at awtomatikong buburahin pagkalipas ng 10 araw.";
+"UploadKeysView.IntroductionMessage" = "Mangyaring i-type ang verification code na ibinigay ng the Taiwan Centers for Disease Control. Matapos ipadala ito, ma-upload ang iyong random ID sa database ng CDC, at awtomatikong buburahin pagkalipas ng 10 araw.";
 
 /* The title of alert cancellation view */
 "AlertCancellationView.Title" = "Isara ang warning notification";
 
 /* The title of settings view */
-"SettingsView.Title" = "Pagkontrol sa awtoridad ng data";
+"SettingsView.Title" = "setting";
 
 /* The title of item on data control view to enable/disable exposure notification */
 "SettingsView.Item.ExposureNotification" = "Exposure Notification Services";
 
 /* The title of item on data control view to enable/disable no exposure detected notification */
-"SettingsView.Item.NoExposureDetectedNotification" = "No Exposure Detected Notification";
+"SettingsView.Item.NoExposureDetectedNotification" = "Notipikasyon ng walang natukoy na pagkakalantad";
 
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "Introduction ng App";
@@ -138,10 +138,10 @@
 "Introduction.StopSpreading.Message" = "Kung ang user ng App ay may nakakahawang sakit, puwede niyang ipadala ang random ID sa kanyang handheld device (ginagamit ang isang advanced na teknolohiya upang hindi makilala ang taong gumagamit nito), makakareceive ka ng notification kung malapit ang handheld device mo sa taong may sakit, at hindi mo rin malalaman kung sino siya upang maprotektahan ang privacy, at maprotektahan din ang kalusugan ng iba tao.";
 
 /* The title of introduction about vaccination certificate */
-"Introduction.VaccinationCertificate.Title" = "Vaccination Certificate";
+"Introduction.VaccinationCertificate.Title" = "Sertipiko ng pagbabakuna";
 
 /* The content message of introduction about vaccination certificate */
-"Introduction.VaccinationCertificate.Message" = "The App provides an easy way to securely store and present COVID-19 Vaccination Certificate for you and your loved ones. You also can use the QR code of the vaccination certificates for other people or organizations to verify your vaccination status. No internet connection is required and Your data is only stored locally on your mobile device.";
+"Introduction.VaccinationCertificate.Message" = "Maaring gamitin ang App para sa mabilis na paraan sa pagsave, pagmahala, at pagpakita ng iyong sertipiko at ng iyong pamilya. Maaring gamitin ang QR Code para maiscan ng ibang organisasyon at maberika ang iyong bakuna. Ang iyong detalye ay nakasave isa iyong cellphone kung kaya't hindi nangangailangan na may internet.";
 
 /* The button title of introduction about start using */
 "Introduction.Button.StartUsing" = "Simulan na ang paggamit!";
@@ -186,7 +186,7 @@
 "BluetoothNotEnabledNotification.Title" = "Sarado na ang Exposure Notification";
 
 /* The body message on bluetooth not enabled notification */
-"BluetoothNotEnabledNotification.Message" = "Sarado na ngayon ang Exposure Notification dahil sarado ang Bluetooth";
+"BluetoothNotEnabledNotification.Message" = "Sarado na ngayon ang Exposure Notification dahil sarado ang Bluetooth.";
 
 /* The title on detection result notification */
 "DetectionResultNotification.Title" = "Resulta ng pag-expose sa mga pasyente ng COVID-19";
@@ -213,19 +213,16 @@
 "QRCodeScannerViewModel.Title" = "1922 SMS Contact Tracing";
 
 /* The toast message for QR code is not a 1922 SMS contact tracing QR code */
-"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "Not valid 1922 SMS contact tracing QR code";
-
-/* The title of alert for asking to go to Messages app to send SMS */
-"QRCodeScannerViewController.SendSMSAlert.Title" = "Open Messages to send SMS?";
+"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "Di- wasto ang 1922 SMS contact tracing QR code.";
 
 /* The button title on alert to not allow app to grant permission */
-"Alert.Button.NotAllow" = "Don't Allow";
+"Alert.Button.NotAllow" = "Hwag payagan";
 
 /* The title of alert for requesting to access user's camera */
-"AccessCameraAlert.Title" = "Taiwan Social Distancing Would Like to Access the Camera";
+"AccessCameraAlert.Title" = "Taiwan Social Distance Gustong I-access ang Camera";
 
 /* The body message of alert for requesting to access user's camera */
-"AccessCameraAlert.Message" = "Taiwan Social Distancing uses the camera to scan QR code for 1922 SMS contact tracing registration.";
+"AccessCameraAlert.Message" = "Taiwan Social Distance ginagamit ang camera upang i-scan ang QR code ng sertipiko ng pagbabakuna.";
 
 /* The title of FAQ view */
 "FAQ.Title" = "FAQ";
@@ -237,92 +234,89 @@
 "ShortcutItem.QRCodeScanningAction.Title" = "Scan 1922 QR Code";
 
 /* The title of daily summary view */
-"DailySummaryViewModel.Title" = "Daily Summary";
+"DailySummaryViewModel.Title" = "Araw araw na kalagayan";
 
 /* The label text on daily summary view to indicate the last time checking exposures */
 "DailySummaryViewModel.LastCheckTimeLabel" = "Last checked at %@";
 
 /* The message on Daily Summary view for no contact */
-"DaySummaryCellViewModel.ExposureDuration.NoContact" = "No contact";
+"DaySummaryCellViewModel.ExposureDuration.NoContact" = "walang nakasalamuha";
 
 /* The message on Daily Summary view for contact less than 2 minutes */
-"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "Less than 2 mins";
+"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "walang 2 minuto";
 
 /* The message on Daily Summary view for contact more than 2 minutes */
 "DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "%@";
 
-/* Title for hint of adding 1922 SMS contact tracing scanner */
-"Hint.QRCodeScanner.Title" = "Add \"1922 SMS Contact Tracing\" Scanner";
-
 /* Title for hint of adding daily summary page */
-"Hint.DailySummary.Title" = "Add \"Daily Summary\" Page";
+"Hint.DailySummary.Title" = "Bagong record ng araw araw na kalagayan";
 
 /* The title of action sheet on risk status view for replaying hints */
-"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "Hints";
+"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "Mga pahiwatig";
 
 /* Title for hint of replaying hints */
-"Hint.ReplayHints.Title" = "You can check the hints again from the menu.";
+"Hint.ReplayHints.Title" = "Maaari mong suriin muli ang mga pahiwatig mula sa menu";
 
 /* Title for hint of turning off No Detected Notification */
-"Hint.DisableNoRiskNotification.Title" = "You can turn off No Detected Notification from the Exposure Notification Settings.";
+"Hint.DisableNoRiskNotification.Title" = "Maaari mong i-off ang No Detected Notification mula sa \"Setting.\"";
 
 /* Title for hint of vaccination certificate */
-"Hint.VaccinationCertificate.title" = "Newly added Vaccination Certificate";
+"Hint.VaccinationCertificate.title" = "Bagong karagdagang function ng Sertipiko ng Bakuna";
 
 /* Subtitle for hint of vaccination certificate */
-"Hint.VaccinationCertificate.subtitle" = "Manage vaccination certificate for you and your loved ones.";
+"Hint.VaccinationCertificate.subtitle" = "Pamamahala ng sertipiko ng pagbabakuna para sa iyo at sa iyong mga mahal sa buhay.";
 
 /* Title for entering mobile number of request verification code page */
-"RequestVerificationCode.phoneNumberTitleLabel" = "Please enter your mobile number";
+"RequestVerificationCode.phoneNumberTitleLabel" = "Pakipasok ang numero ng telepono";
 
 /* Placeholder for entering mobile number of request verification code page */
-"RequestVerificationCode.phoneTextFieldPlaceholder" = "Mobile Number";
+"RequestVerificationCode.phoneTextFieldPlaceholder" = "numero ng telepono";
 
 /* Description for usage of entering mobile number */
-"RequestVerificationCode.descriptionLabel" = "This allows user who is the COVID-19 confirmed case to receive verification code. ";
+"RequestVerificationCode.descriptionLabel" = "Makakatanggap ng verification code ang kumpirmadong kaso ng COVID-19";
 
 /* Title for submit button */
-"RequestVerificationCode.submitButtonTitle" = "Submit";
+"RequestVerificationCode.submitButtonTitle" = "Ipadala";
 
 /* Title of alert for submission successful */
-"RequestVerificationCode.submitSucceedTitle" = "Entered mobile number successfully";
+"RequestVerificationCode.submitSucceedTitle" = "Matagumpay na naipasok ang numero ng telepono";
 
 /* Title of alert for submission failed */
-"RequestVerificationCode.submitFailedTitle" = "Enter mobile number failed";
+"RequestVerificationCode.submitFailedTitle" = "Mali ang pagpasok ng numero ng telepono";
 
 /* The message of alert for submission successful */
-"RequestVerificationCode.submitSucceedMessage" = "Verification code will be sent to you via SMS in 5 minutes, please try again if you do not receive it.";
+"RequestVerificationCode.submitSucceedMessage" = "Ipapadala sa iyo ang verification code sa pamamagitan ng SMS sa loob ng 5 minuto, pakisubukang muli kung walang natanggap.";
 
 /* The message of alert for submission failed when network issue occurred */
-"RequestVerificationCode.submitFailedMessage" = "Connection error occurred, please try again later.";
+"RequestVerificationCode.submitFailedMessage" = "Nagkaroon ng error sa pagkonekta, pakisubukang muli ";
 
 /* The message of alert for submission failed when request limit exceeded */
-"RequestVerificationCode.requestLimitExceededMessage" = "Number of requests exceeded limit, please try again tomorrow";
+"RequestVerificationCode.requestLimitExceededMessage" = "Lumampas sa limitasyon ang bilang ng kahilingan, pakisubukang muli bukas.";
 
 /* The message of alert for submission failed when invalid phone format */
-"RequestVerificationCode.invalidPhoneFormatMessage" = "Invalid mobile number, please re-enter";
+"RequestVerificationCode.invalidPhoneFormatMessage" = "Di-wasto ang numero ng telepono, pakipasok muli.";
 
 /* The button to request verification code */
-"UploadKeysView.requestVerificationButton" = "Get Verification Code";
+"UploadKeysView.requestVerificationButton" = "Kunin ang Verification Code";
 
 /* The Exposure Notification is not enabled */
-"UploadKeysView.exposureNotificationNotEnabled" = "Exposure Notification is not enabled";
+"UploadKeysView.exposureNotificationNotEnabled" = "Hindi pa nabubuksan ang Exposure Notification";
 
-"VaccinationCertificateListCell.doseDate" = "Date: ";
+"VaccinationCertificateListCell.doseDate" = "Petsa ng pagbabakuna: ";
 
-"VaccinationCertificate.title" = "Vaccination Certificate";
+"VaccinationCertificate.title" = "Sertipiko ng pagbabakuna";
 
 "VaccinationCertificate.expiredLabel" = "Expired";
 
-"VaccinationCertificateCard.cardsLimitExceeded" = "Exceeded vaccination certificates limits.";
+"VaccinationCertificateCard.cardsLimitExceeded" = "Lumampas na sa limitasyon ang sertipiko ng pagbabakuna";
 
-"VaccinationCertificateCard.apply" = "Apply for vaccination certificate";
+"VaccinationCertificateCard.apply" = "Mag-apply para sa Sertipiko ng Bakuna";
 
-"VaccinationCertificateCard.appointment" = "Vaccination Appointment";
+"VaccinationCertificateCard.appointment" = "Pagpapareserba ng pagbabakuna";
 
 "VaccinationCertificateCard.faq" = "FAQ";
 
-"VaccinationCertificateCardCell.doseDate" = "Date of vaccination";
+"VaccinationCertificateCardCell.doseDate" = "Petsa ng pagbabakuna";
 
 "VaccinationCertificate.hint" = "Valid in combination with a government issued ID";
 
@@ -330,42 +324,42 @@
 
 "VaccinationCertificateEmptyView.description" = "Carry a digital copy of the vaccination certificate by scanning the QR code of the Digital COVID-19 certificate.";
 
-"VaccinationCertificateUserInfoView.doseDate" = "Date of vaccination";
+"VaccinationCertificateUserInfoView.doseDate" = "Petsa ng pagbabakuna";
 
-"VaccinationCertificateDetail.deleteAlertTitle" = "Are you sure you want to remove it?";
+"VaccinationCertificateDetail.deleteAlertTitle" = "Sigurado ka bang gusto mong alisin ito?";
 
-"VaccinationCertificateDetail.deleteAlertMessage" = "Are you sure you wan to remove %@ vaccination certificate?";
+"VaccinationCertificateDetail.deleteAlertMessage" = "Sigurado ka bang gusto mong alisin ito %@?";
 
-"VaccinationCertificate.deleteButton" = "Remove Certificate";
+"VaccinationCertificate.deleteButton" = "Alisin itong Sertipiko ng Pagbabakuna";
 
-"VaccinationCertificateDetail.target" = "Disease or agent targeted: ";
+"VaccinationCertificateDetail.target" = "Pangalan ng sakit: ";
 
-"VaccinationCertificateDetail.vaccine" = "Vaccine type:";
+"VaccinationCertificateDetail.vaccine" = "Uri ng bakuna: ";
 
-"VaccinationCertificateDetail.medicinalProduct" = "Product: ";
+"VaccinationCertificateDetail.medicinalProduct" = "Produkto: ";
 
-"VaccinationCertificateDetail.manufacturer" = "Manufacturer: ";
+"VaccinationCertificateDetail.manufacturer" = "Tagagawa: ";
 
-"VaccinationCertificateDetail.doses" = "Dose";
+"VaccinationCertificateDetail.doses" = "Dosis: ";
 
-"VaccinationCertificateDetail.doseDate" = "Date of vaccination: ";
+"VaccinationCertificateDetail.doseDate" = "Petsa ng pagbabakuna: ";
 
-"VaccinationCertificateDetail.country" = "Country of vaccination: ";
+"VaccinationCertificateDetail.country" = "Bansa ng pagbabakuna: ";
 
-"VaccinationCertificateDetail.issuer" = "Issuer: ";
+"VaccinationCertificateDetail.issuer" = "Nagbigay: ";
 
 "VaccinationCertificateDetail.uniqueIdentifier" = "UVCI: ";
 
-"VaccinationCertificateDetail.generatedDate" = "Certificate generated on: ";
+"VaccinationCertificateDetail.generatedDate" = "Iginawad ngayong: ";
 
-"VaccinationCertificate.apply" = "Apply";
+"VaccinationCertificate.apply" = "Mag-apply";
 
 "VaccinationCertificateScanner.import" = "Import";
 
-"VaccinationCertificateScanner.expired" = "Expired vaccination certificate";
+"VaccinationCertificateScanner.expired" = "Nag-expire na sertipiko ng pagbabakuna";
 
-"VaccinationCertificateScanner.duplicated" = "Duplicated vaccination certificate";
+"VaccinationCertificateScanner.duplicated" = "Doble ang sertipiko ng pagbabakuna";
 
-"VaccinationCertificateScanner.notFound" = "Failed to detect vaccination certificate QR code";
+"VaccinationCertificateScanner.notFound" = "Hindi ma detect ang QR code ng sertipiko ng pagbabakuna";
 
-"VaccinationCertificateScanner.invalidFormat" = "Invalid vaccination certificate QR Code";
+"VaccinationCertificateScanner.invalidFormat" = "Hindi tama ang QR Code ng sertipiko ng pagbabakuna";
