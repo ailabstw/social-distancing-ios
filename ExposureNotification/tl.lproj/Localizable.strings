@@ -318,11 +318,11 @@
 
 "VaccinationCertificateCardCell.doseDate" = "Petsa ng pagbabakuna";
 
-"VaccinationCertificate.hint" = "Valid in combination with a government issued ID";
+"VaccinationCertificate.hint" = "May bisa kapag may kasamang ID na galing sa gobyerno.";
 
-"VaccinationCertificateEmptyView.addButton" = "Add Vaccination Certificate";
+"VaccinationCertificateEmptyView.addButton" = "Idagdag ang sertipiko ng pagbabakuna";
 
-"VaccinationCertificateEmptyView.description" = "Carry a digital copy of the vaccination certificate by scanning the QR code of the Digital COVID-19 certificate.";
+"VaccinationCertificateEmptyView.description" = "Dalhin ang digital copy ng sertipiko ng pagbabakuna sa pamamagitan ng pag-scan sa QR code ng digital ng sertipiko ng pagbabakuna.";
 
 "VaccinationCertificateUserInfoView.doseDate" = "Petsa ng pagbabakuna";
 
