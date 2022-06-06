@@ -64,6 +64,7 @@ class AlertCancellationViewController: UIViewController, SpinnerShowable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.isTranslucent = false
         configureView()
         configureViewModel()
     }
@@ -78,8 +79,7 @@ class AlertCancellationViewController: UIViewController, SpinnerShowable {
         view.addSubview(cancelAlertButton)
         
         descriptionTextView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(confirmedLabel.snp.top).offset(-20)
         }
         

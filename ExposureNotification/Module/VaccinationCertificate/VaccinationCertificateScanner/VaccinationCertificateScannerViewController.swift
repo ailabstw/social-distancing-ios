@@ -53,6 +53,8 @@ class VaccinationCertificateScannerViewController: UIViewController {
     private lazy var applyButton: UIButton = {
         let button = StyledButton(style: .major)
         button.setTitle(Localizations.VaccinationCertificateScanner.apply, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         button.layer.cornerRadius = 18
         button.addTarget(self, action: #selector(didTapApply(_:)), for: .touchUpInside)
         return button
@@ -61,6 +63,8 @@ class VaccinationCertificateScannerViewController: UIViewController {
     private lazy var importButton: UIButton = {
         let button = StyledButton(style: .major)
         button.setTitle(Localizations.VaccinationCertificateScanner.importCertificate, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         button.layer.cornerRadius = 18
         button.addTarget(self, action: #selector(didTapImport(_:)), for: .touchUpInside)
         return button
@@ -130,14 +134,14 @@ class VaccinationCertificateScannerViewController: UIViewController {
         applyButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.height.equalTo(38)
-            make.width.equalTo(200)
+            make.width.greaterThanOrEqualTo(200)
             make.bottom.equalTo(importButton.snp.top).offset(-16)
         }
         
         importButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.height.equalTo(38)
-            make.width.equalTo(200)
+            make.width.greaterThanOrEqualTo(200)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
         }
     }

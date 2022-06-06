@@ -44,10 +44,10 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
     private lazy var certificateDetailView = VaccinationCertificateDetailView()
     
     private lazy var deleteButton: UIButton = {
-        let button = UIButton()
+        let button = StyledButton(style: .urgent)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         button.setTitle(Localizations.VaccinationCertificateDetail.deleteButton, for: .normal)
-        button.titleLabel?.font = Font.deleteButtonTitle
-        button.backgroundColor = Color.deleteButtonBackground
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(didTapDelete(_:)), for: .touchUpInside)
         return button
@@ -130,7 +130,7 @@ class VaccinationCertificateDetailCell: UICollectionViewCell {
             make.top.equalTo(certificateDetailView.snp.bottom).offset(23)
             make.centerX.equalToSuperview()
             make.height.equalTo(36)
-            make.width.equalTo(208)
+            make.width.lessThanOrEqualTo(scrollView.snp.width).inset(8)
             make.bottom.equalToSuperview().inset(23)
         }
     }
