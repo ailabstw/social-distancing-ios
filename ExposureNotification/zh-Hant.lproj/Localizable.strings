@@ -99,7 +99,7 @@
 "AlertCancellationView.Title" = "解除示警狀態";
 
 /* The title of settings view */
-"SettingsView.Title" = "資料權限控管";
+"SettingsView.Title" = "設定";
 
 /* The title of item on data control view to enable/disable exposure notification */
 "SettingsView.Item.ExposureNotification" = "接觸通知服務";

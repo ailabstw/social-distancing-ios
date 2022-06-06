@@ -49,6 +49,7 @@
 		1304C479282D2FD2002315FC /* VaccinationCertificateDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C478282D2FD2002315FC /* VaccinationCertificateDetailCell.swift */; };
 		1304C47B282D30F6002315FC /* ConfigEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C47A282D30F6002315FC /* ConfigEndpoints.swift */; };
 		1304C47D282D326E002315FC /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C47C282D326E002315FC /* Layout.swift */; };
+		130D2C95284DCA39006235CE /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D2C94284DCA39006235CE /* UINavigationControllerExtensions.swift */; };
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		1393234027FD44A6004BE4D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1393233F27FD44A6004BE4D1 /* Lottie */; };
 		1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1393234127FD458A004BE4D1 /* clock_background_animation.json */; };
@@ -153,6 +154,7 @@
 		1304C478282D2FD2002315FC /* VaccinationCertificateDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationCertificateDetailCell.swift; sourceTree = "<group>"; };
 		1304C47A282D30F6002315FC /* ConfigEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigEndpoints.swift; sourceTree = "<group>"; };
 		1304C47C282D326E002315FC /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		130D2C94284DCA39006235CE /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 		9E08158225EF6E85008B7424 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				130D2C94284DCA39006235CE /* UINavigationControllerExtensions.swift */,
 				1304C468282D0243002315FC /* DataExtensions.swift */,
 				1304C469282D0243002315FC /* StringExtensions.swift */,
 				1304C467282D0243002315FC /* UICollectionViewExtensions.swift */,
@@ -645,6 +648,7 @@
 				9E89CC1B2625705E00161384 /* AlertCancellationViewModel.swift in Sources */,
 				9E6E8E26260C780800628164 /* APIManager.swift in Sources */,
 				9E0814D525E78928008B7424 /* IntroductionViewController.swift in Sources */,
+				130D2C95284DCA39006235CE /* UINavigationControllerExtensions.swift in Sources */,
 				9E89CBF5261EAE4200161384 /* SettingsViewModel.swift in Sources */,
 				1304C43B282D0145002315FC /* VaccinationCertificateDetailView.swift in Sources */,
 				1304C47D282D326E002315FC /* Layout.swift in Sources */,

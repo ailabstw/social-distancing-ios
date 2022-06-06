@@ -43,3 +43,25 @@ class TogglableCellViewModel: TableViewCellViewModel {
         }
     }
 }
+
+protocol TappableCellViewModel: TableViewCellViewModel {
+    var tapHandler: (() -> ())? { get set }
+}
+
+class SettingTappableCellViewModel: TappableCellViewModel {
+    let title: String
+    let type: SettingType
+    var tapHandler: (() -> ())?
+    
+    init(title: String, type: SettingType) {
+        self.title = title
+        self.type = type
+    }
+}
+
+enum SettingType {
+    case introduction
+    case dataProtection
+    case faq
+    case replayHints
+}
