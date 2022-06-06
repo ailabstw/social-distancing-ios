@@ -30,12 +30,24 @@ class SettingsViewModel {
     }()
     
     private let noRiskNotificationViewModel = {
-        NoRiskCellViewModel(title: Localizations.SettingsViewModel.Item.noExposureDetectedNotification) // TODO
+        NoRiskCellViewModel(title: Localizations.SettingsViewModel.Item.noExposureDetectedNotification)
     }()
     
+    private let introductionViewModel = SettingTappableCellViewModel(title: Localizations.IntroductionView.title, type: .introduction)
+    
+    private let dataProtectionViewModel = SettingTappableCellViewModel(title: Localizations.PersonalDataProtectionNote.title, type: .dataProtection)
+    
+    private let faqViewModel = SettingTappableCellViewModel(title: Localizations.FAQ.title, type: .faq)
+    
+    private let replayHintViewModel = SettingTappableCellViewModel(title: Localizations.RiskStatusView.MoreActionSheet.Item.replayHints, type: .replayHints)
+    
     init() {
-        items.append(tracingViewModel)
-        items.append(noRiskNotificationViewModel)
+        items = [tracingViewModel,
+                 noRiskNotificationViewModel,
+                 introductionViewModel,
+                 dataProtectionViewModel,
+                 faqViewModel,
+                 replayHintViewModel]
     }
 }
 

@@ -428,7 +428,10 @@ class RiskStatusViewController: UIViewController {
 
         viewModel.$pendingHints { [weak self] (hints) in
             if let hint = hints.first {
-                self?.showHint(hint)
+                guard let self = self else { return }
+                self.navigationController?.popToViewController(self, animated: true) { [weak self] in
+                    self?.showHint(hint)
+                }
             } else {
                 AppCoordinator.shared.hideOverlay()
             }
@@ -501,10 +504,6 @@ class RiskStatusViewController: UIViewController {
     
     @objc private func didTapMoreBarButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: Localizations.RiskStatusView.MoreActionSheet.title, message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: Localizations.IntroductionView.title, style: .default) { [weak self] action in
-            self?.navigationController?.pushViewController(IntroductionViewController(viewModel: IntroductionViewModel(type: .about)), animated: true)
-        })
 
         alert.addAction(UIAlertAction(title: Localizations.DailySummaryViewModel.title, style: .default) { [weak self] action in
             self?.navigationController?.pushViewController(DailySummaryViewController(viewModel: DailySummaryViewModel()), animated: true)
@@ -528,21 +527,9 @@ class RiskStatusViewController: UIViewController {
             self?.present(confirm, animated: true, completion: nil)
         })
 
-        alert.addAction(UIAlertAction(title: Localizations.PersonalDataProtectionNote.title, style: .default) { [weak self] action in
-            self?.navigationController?.pushViewController(WebViewController(viewModel: .personalDataProtectionNote), animated: true)
-        })
-
         alert.addAction(UIAlertAction(title: Localizations.SettingsViewModel.title, style: .default) { [weak self] action in
             self?.navigationController?.pushViewController(SettingsViewController(viewModel: SettingsViewModel()), animated: true)
         })
-        
-        alert.addAction(UIAlertAction(title: Localizations.FAQ.title, style: .default) { [weak self] action in
-            self?.present(SFSafariViewController(viewModel: .faq), animated: true, completion: nil)
-        })
-
-        alert.addAction(UIAlertAction(title: Localizations.RiskStatusView.MoreActionSheet.Item.replayHints, style: .default, handler: { [weak self] _ in
-            self?.viewModel.replayHints()
-        }))
         
         alert.addAction(UIAlertAction(title: Localizations.Alert.Button.cancel, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
