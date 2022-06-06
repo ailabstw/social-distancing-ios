@@ -94,11 +94,29 @@ extension ConfigEndpoint {
     enum LanguageCode: String {
         case zh = "zh-hant"
         case en
+        case ms
+        case my
+        case `in`
+        case vi
+        case fil
+        case th
         
         init(_ string: String) {
             switch string {
             case "zh-Hant":
                 self = .zh
+            case "ms-MY":
+                self = .ms
+            case "my-MM":
+                self = .my
+            case "id":
+                self = .in
+            case "vi":
+                self = .vi
+            case "tl":
+                self = .fil
+            case "th":
+                self = .th
             default:
                 self = .en
             }
