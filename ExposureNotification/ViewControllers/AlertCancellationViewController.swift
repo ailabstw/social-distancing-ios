@@ -78,7 +78,7 @@ class AlertCancellationViewController: UIViewController, SpinnerShowable {
         view.addSubview(cancelAlertButton)
         
         descriptionTextView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalToSuperview()
             make.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(confirmedLabel.snp.top).offset(-20)
         }
