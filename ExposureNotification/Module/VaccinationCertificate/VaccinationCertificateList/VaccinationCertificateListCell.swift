@@ -22,6 +22,7 @@ class VaccinationCertificateListCell: UITableViewCell {
         let label = UILabel()
         label.textColor = Color.doseDate
         label.font = Font.doseDate
+        label.textAlignment = .right
         return label
     }()
     

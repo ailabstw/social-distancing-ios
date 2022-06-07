@@ -50,6 +50,8 @@ class VaccinationCertificateEmptyView: UIView {
         button.setTitle(Localizations.VaccinationCertificateEmptyView.addButton, for: .normal)
         button.setTitleColor(Color.addButtonTitle, for: .normal)
         button.addTarget(self, action: #selector(didTapAddButton(_:)), for: .touchDown)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         return button
     }()
     
@@ -85,7 +87,8 @@ class VaccinationCertificateEmptyView: UIView {
         }
         
         addButton.snp.makeConstraints { make in
-            make.width.equalTo(240)
+            make.width.lessThanOrEqualTo(stackView.snp.width).inset(24)
+            make.width.greaterThanOrEqualTo(240)
             make.height.equalTo(48)
         }
     }

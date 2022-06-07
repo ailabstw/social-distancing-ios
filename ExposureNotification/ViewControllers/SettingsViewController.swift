@@ -6,6 +6,7 @@
 //  Copyright © 2021 AI Labs. All rights reserved.
 //
 
+import SafariServices
 import SnapKit
 import UIKit
 
@@ -21,6 +22,7 @@ class SettingsViewController: UIViewController {
         view.tableFooterView = UIView()
         view.alwaysBounceVertical = false
         view.register(cellWithClass: TogglableTableViewCell.self)
+        view.register(cellWithClass: SettingTappableTableViewCell.self)
         
         return view
     }()
@@ -123,6 +125,11 @@ extension SettingsViewController: UITableViewDataSource {
             cell.viewModel = itemViewModel as! NoRiskCellViewModel
             return cell
             
+        case is SettingTappableCellViewModel:
+            let cell = tableView.dequeueReusableCell(withClass: SettingTappableTableViewCell.self, for: indexPath)
+            cell.configure(by: itemViewModel as! SettingTappableCellViewModel)
+            return cell
+            
         default:
             fatalError("Unknown cell view model: \(itemViewModel)")
         }
@@ -130,16 +137,33 @@ extension SettingsViewController: UITableViewDataSource {
 }
 
 extension SettingsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let itemViewModel = viewModel.items[indexPath.row]
+        
+        switch itemViewModel {
+        case is SettingTappableCellViewModel:
+            guard let model = itemViewModel as? SettingTappableCellViewModel else { return }
+            didTapSettingCell(model)
+            
+        default:
+            fatalError("Unknown cell view model: \(itemViewModel)")
+        }
+    }
+    
+    private func didTapSettingCell(_ model: SettingTappableCellViewModel) {
+        switch model.type {
+        case .introduction:
+            navigationController?.pushViewController(IntroductionViewController(viewModel: IntroductionViewModel(type: .about)), animated: true)
+        case .dataProtection:
+            navigationController?.pushViewController(WebViewController(viewModel: .personalDataProtectionNote), animated: true)
+        case .faq:
+            present(SFSafariViewController(viewModel: .faq), animated: true, completion: nil)
+        case .replayHints:
+            HintManager.shared.replayHints()
+        }
     }
 }
 

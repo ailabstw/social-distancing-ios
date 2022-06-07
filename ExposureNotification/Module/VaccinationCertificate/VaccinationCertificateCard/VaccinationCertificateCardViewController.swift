@@ -135,7 +135,16 @@ class VaccinationCertificateCardViewController: UIViewController, VaccinationCer
     }
     
     private func setupNavigation() {
-        title = Localizations.VaccinationCertificateCard.title
+        let titleLabel: UILabel = {
+            let label = UILabel()
+            label.text = Localizations.VaccinationCertificateCard.title
+            label.adjustsFontSizeToFitWidth = true
+            label.textColor = Color.barTitle
+            label.font = Font.barTitle
+            return label
+        }()
+        
+        navigationItem.titleView = titleLabel
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.iconClose?.withRenderingMode(.alwaysOriginal),
                                                            style: .done,
@@ -325,6 +334,7 @@ extension VaccinationCertificateCardViewController: UICollectionViewDelegateFlow
 extension VaccinationCertificateCardViewController {
     enum Font {
         static let hintLabel = UIFont(size: 13, weight: .regular)
+        static let barTitle = UIFont(size: 20, weight: .semibold)
     }
     
     enum Color {
@@ -333,6 +343,7 @@ extension VaccinationCertificateCardViewController {
         static let pageControlIndicator = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
         static let openListButtonBackground = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
         static let openScannerButtonBackground = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
+        static let barTitle = UIColor(red: (73/255.0), green: (97/255.0), blue: (94/255.0), alpha: 1)
     }
     
     enum Image {

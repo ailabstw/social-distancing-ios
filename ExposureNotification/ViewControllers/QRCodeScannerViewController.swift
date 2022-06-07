@@ -242,10 +242,5 @@ extension Localizations {
                                                                value: "Not valid 1922 SMS contact tracing QR code",
                                                                comment: "The toast message for QR code is not a 1922 SMS contact tracing QR code")
 
-        enum SendSMSAlert {
-            static let title = NSLocalizedString("QRCodeScannerViewController.SendSMSAlert.Title",
-                                                 value: "Open Messages to send SMS?",
-                                                 comment: "The title of alert for asking to go to Messages app to send SMS")
-        }
     }
 }

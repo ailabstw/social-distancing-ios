@@ -100,11 +100,10 @@ class UserManager {
     }
 
     func showExposureNotificationIfNeeded(_ oldValue: RiskStatus = .clear) {
-        guard (riskStatus == .risky && shouldNotifyRisky) ||
-                oldValue != riskStatus ||
-                (riskStatus == .clear && Date().isBetween(18, 22) && UserPreferenceManager.shared.shouldNotifyEvenNoRisk) else {
-            return
-        }
+        guard shouldSendNotification(newStatus: riskStatus,
+                                     shouldNotifyRisky: shouldNotifyRisky,
+                                     shouldNotifyEvenNoRisk: UserPreferenceManager.shared.shouldNotifyEvenNoRisk,
+                                     date: Date()) else { return }
 
         let identifier = "exposure-risk"
 
@@ -119,6 +118,15 @@ class UserManager {
                     logger.error("Error showing error user notification: \(error)")
                 }
             }
+        }
+    }
+    
+    func shouldSendNotification(newStatus: RiskStatus, shouldNotifyRisky: Bool, shouldNotifyEvenNoRisk: Bool, date: Date) -> Bool {
+        switch newStatus {
+        case .risky:
+            return shouldNotifyRisky
+        case .clear:
+            return (date.isBetween(18, 22) && shouldNotifyEvenNoRisk)
         }
     }
 }

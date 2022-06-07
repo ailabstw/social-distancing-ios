@@ -82,3 +82,24 @@ class TogglableTableViewCell: UITableViewCell {
         viewModel?.toggle()
     }
 }
+
+
+class SettingTappableTableViewCell: UITableViewCell {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.accessoryType = .disclosureIndicator
+        textLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(by viewModel: SettingTappableCellViewModel) {
+        textLabel?.text = viewModel.title
+    }
+    
+}
