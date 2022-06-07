@@ -25,7 +25,7 @@ class StyledButton: UIButton {
             case .normal:
                 return UIColor(red: (230/255.0), green: (134/255.0), blue: (37/255.0), alpha: 1)
             case .urgent:
-                return UIColor(red: (217/255.0), green: (115/255.0), blue: (115/255.0), alpha: 1)
+                return UIColor(red: (175/255.0), green: (72/255.0), blue: (72/255.0), alpha: 1)
             }
         }
         

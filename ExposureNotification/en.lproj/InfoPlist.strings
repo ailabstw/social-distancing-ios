@@ -1,2 +1,2 @@
 "CFBundleDisplayName" = "Taiwan Social Distancing";
-"NSCameraUsageDescription" = "Taiwan Social Distancing uses the camera to scan QR code for 1922 SMS contact tracing registration.";
+"NSCameraUsageDescription" = "Taiwan Social Distancing uses the camera to scan QR code of vaccination certificate.";

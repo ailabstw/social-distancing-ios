@@ -158,7 +158,6 @@ class AppCoordinator: UIViewController {
             
         case .ready:
             contentViewController = UINavigationController(rootViewController: RiskStatusViewController(viewModel: RiskStatusViewModel()))
-            installShortcutItems()
             HintManager.shared.isEnabled = true
         }
     }

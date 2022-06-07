@@ -42,7 +42,16 @@ class VaccinationCertificateListViewController: UIViewController, VaccinationCer
     }
     
     private func setupViews() {
-        title = Localizations.VaccinationCertificateList.title
+        let titleLabel: UILabel = {
+            let label = UILabel()
+            label.text = Localizations.VaccinationCertificateList.title
+            label.adjustsFontSizeToFitWidth = true
+            label.textColor = Color.barTitle
+            label.font = Font.barTitle
+            return label
+        }()
+        
+        navigationItem.titleView = titleLabel
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.iconClose?.withRenderingMode(.alwaysOriginal),
                                                            style: .done,
@@ -119,8 +128,13 @@ extension VaccinationCertificateListViewController: UITableViewDataSource {
 }
 
 extension VaccinationCertificateListViewController {
+    enum Font {
+        static let barTitle = UIFont(size: 20, weight: .semibold)
+    }
+    
     enum Color {
         static let tintColor = UIColor(red: 73/255, green: 97/255, blue: 94/255, alpha: 1)
+        static let barTitle = UIColor(red: (73/255.0), green: (97/255.0), blue: (94/255.0), alpha: 1)
     }
     
     enum Image {

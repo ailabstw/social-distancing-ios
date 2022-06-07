@@ -1,9 +1,9 @@
 
 /* The description text on alert cancellation view to inform user what this view is for */
-"AlertCancellationView.description" = "I have taken a COVID-19 rapid test by myself, and the result was negative.\nI will watch for my health status. If I have symptoms such as fever, respiratory symptoms, diarrhea, or new loss of taste/smell, I will take the COVID-19 rapid test.\nIf I test positive in my COVID-19 rapid test, I will wear a medical mask to get a PCR test at a nearby community testing site or a hospital, and do not taking the public transportation.\nI have notified my family members that I have received a \"Exposure Notification\" warning, and they must take appropriate precautions such as washing hands frequently and wearing masks.\nI will avoid unnecessary family gatherings and visits.\nI will avoid participating in activities that cannot maintain social distancing and contact with unspecified people.\nI will avoid participating in indoor activities or work where the masks are not required.";
+"AlertCancellationView.description" = "Mã xác minh không hợp lệ\nTôi sẽ chú ý xem có các triệu chứng nghi ngờ COVID-19 như sốt, tiêu chảy, mùi /vị bất thường v.v. Nếu có tôi sẽ tự test nhanh.\nNếu test nhanh dương tính, tôi sẽ đeo khẩu trang y tế để đi xét nghiệm, tránh sử dụng phương tiện giao thông công cộng.\nTôi đã thông báo cho người nhà nhận được \"Thông báo tiếp xúc\", phải thực hiện các biện pháp bảo vệ như siêng rửa tay, đeo khẩu trang v.v.\nTôi sẽ tránh những cuộc thăm viếng và tụ tập gia đình không cần thiết.\nTôi sẽ tránh tham gia các hoạt động không thể giữ khoảng cách an toàn và tiếp xúc với người lạ.\nTôi sẽ tránh tham gia các hoạt động trong nhà hoặc công việc được miễn đeo khẩu trang.";
 
 /* The label text on alert cancellation view to ensure the infomation has read */
-"AlertCancellationView.checkboxLabel" = "I have read and agreed the How to Protect Yourself & Others.";
+"AlertCancellationView.checkboxLabel" = "Tôi đã đọc kỹ và đồng ý với thông tin giáo dục y tế trên.";
 
 /* The button title on alert to submit data */
 "Alert.Button.Submit" = "Gửi";
@@ -15,10 +15,10 @@
 "Alert.Message.UploadFailed" = "Đăng tải không thành công";
 
 /* The message on alert to indicate the verification code is invalid */
-"Alert.Message.verifyFailed" = "Invalid verification code";
+"Alert.Message.verifyFailed" = "Mã xác minh không hợp lệ";
 
 /* The message on alert to indicate there is no data between start and end dates */
-"Alert.Message.missingKeyData" = "No data between start and end dates";
+"Alert.Message.missingKeyData" = "Trong phạm vi đã chọn không có dữ liệu để tải lên. ";
 
 /* The message on alert to notify user the data should be allowed to upload */
 "Alert.Message.userDenied" = "Click the submit button to upload and share your anonymous IDs.";
@@ -93,19 +93,19 @@
 "UploadKeysView.PasscodeFieldPlaceholder" = "Vui lòng nhập mã xác nhận";
 
 /* The message body on upload keys view for introduction */
-"UploadKeysView.IntroductionMessage" = "Vui lòng nhập mã xác nhận được cung cấp bởi Bộ Y tế và Phúc lợi. Sau khi nhập xong ID ẩn danh của bạn sẽ được tải lên cơ sở dữ liệu của Trung tâm Kiểm soát Dịch bệnh Đài Loan (CDC) và tự động xoá sau 10 ngày.";
+"UploadKeysView.IntroductionMessage" = "Vui lòng nhập mã xác nhận do CDC cung cấp. Sau khi nhập xong, ID ẩn danh của bạn sẽ được tải lên cơ sở dữ liệu của CDC thuộc Bộ Y tế-Phúc lợi và tự động xóa sau 10 ngày. ";
 
 /* The title of alert cancellation view */
 "AlertCancellationView.Title" = "Huỷ cảnh báo";
 
 /* The title of settings view */
-"SettingsView.Title" = "Quản lý bảo mật thông tin";
+"SettingsView.Title" = "Cài đặt";
 
 /* The title of item on data control view to enable/disable exposure notification */
 "SettingsView.Item.ExposureNotification" = "Quyền bặt/ tắt thông báo tiếp xúc gần";
 
 /* The title of item on data control view to enable/disable no exposure detected notification */
-"SettingsView.Item.NoExposureDetectedNotification" = "No Exposure Detected Notification";
+"SettingsView.Item.NoExposureDetectedNotification" = "Thông báo khi không có nguy cơ lây nhiễm.";
 
 /* The title of introduction view for app introduction */
 "IntroductionView.Title" = "Giới thiệu ứng dụng";
@@ -138,10 +138,10 @@
 "Introduction.StopSpreading.Message" = "Người dùng với kết quả xét nghiệm dương tính có thể chọn công khai kết quả và thiết bị của mình mà không để lộ bất kì thông tin cá nhân nào. Mục đích nhằm cảnh báo những thiết bị xung quanh khi có tiếp xúc gần. Quy trình này đảm bảo tuyệt đối tính bảo mật và ẩn danh của tất cả người dùng, đồng thời góp phần ứng phó với dịch bệnh hiệu quả trên nền tảng thông tin kịp thời và chính xác.";
 
 /* The title of introduction about vaccination certificate */
-"Introduction.VaccinationCertificate.Title" = "Vaccination Certificate";
+"Introduction.VaccinationCertificate.Title" = "Giấy chứng nhận tiêm chủng vắc-xin COVID-19 kỹ thuật số";
 
 /* The content message of introduction about vaccination certificate */
-"Introduction.VaccinationCertificate.Message" = "The App provides an easy way to securely store and present COVID-19 Vaccination Certificate for you and your loved ones. You also can use the QR code of the vaccination certificates for other people or organizations to verify your vaccination status. No internet connection is required and Your data is only stored locally on your mobile device.";
+"Introduction.VaccinationCertificate.Message" = "Bạn có thể dễ dàng lưu trữ, quản lý và xuất trình Chứng nhận tiêm chủng số của bạn và gia đình thông qua App, đồng thời cung cấp tính năng quét và xác minh bằng mã QR. Dữ liệu của bạn chỉ lưu trữ trong điện thoại của bạn, không cần kết nối internet và cũng sẽ không bị tải lên ở bất cứ đâu.";
 
 /* The button title of introduction about start using */
 "Introduction.Button.StartUsing" = "Bắt đầu";
@@ -186,7 +186,7 @@
 "BluetoothNotEnabledNotification.Title" = "Đã tắt thông báo tiếp xúc gần";
 
 /* The body message on bluetooth not enabled notification */
-"BluetoothNotEnabledNotification.Message" = "Thông báo tiếp xúc gần hiện đã đóng vì Bluetooth đã tắt";
+"BluetoothNotEnabledNotification.Message" = "Thông báo tiếp xúc gần hiện đã đóng vì Bluetooth đã tắt.";
 
 /* The title on detection result notification */
 "DetectionResultNotification.Title" = "Kết quả kiểm tra lây nhiễm";
@@ -210,22 +210,19 @@
 "NewVersionAvailableAlert.Button.UpdateNow" = "Cập nhật ngay";
 
 /* The title of 1922 SMS Contact Tracing Scanner */
-"QRCodeScannerViewModel.Title" = "1922 SMS Contact Tracing";
+"QRCodeScannerViewModel.Title" = "Hệ thống đăng ký tên thật qua tin nhắn 1922.";
 
 /* The toast message for QR code is not a 1922 SMS contact tracing QR code */
-"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "Not valid 1922 SMS contact tracing QR code";
-
-/* The title of alert for asking to go to Messages app to send SMS */
-"QRCodeScannerViewController.SendSMSAlert.Title" = "Open Messages to send SMS?";
+"QRCodeScannerViewController.InvalidQRCodeToastLabel" = "Mã QR đăng ký tên thật không phải của 1922.";
 
 /* The button title on alert to not allow app to grant permission */
-"Alert.Button.NotAllow" = "Don't Allow";
+"Alert.Button.NotAllow" = "Không cho phép";
 
 /* The title of alert for requesting to access user's camera */
-"AccessCameraAlert.Title" = "Taiwan Social Distancing Would Like to Access the Camera";
+"AccessCameraAlert.Title" = "Giãn Cách Xã Hội Ứng dụng Giãn cách xã hội Đài Loan muốn sử dụng camera của bạn.";
 
 /* The body message of alert for requesting to access user's camera */
-"AccessCameraAlert.Message" = "Taiwan Social Distancing uses the camera to scan QR code for 1922 SMS contact tracing registration.";
+"AccessCameraAlert.Message" = "Giãn Cách Xã Hội Ứng dụng Giãn cách xã hội Đài Loan muốn sử dụng camera để quét mã QR Giấy chứng nhận tiêm chủng.";
 
 /* The title of FAQ view */
 "FAQ.Title" = "FAQ";
@@ -234,138 +231,135 @@
 "RiskStatusView.DetailTextParagraphHeaderSeparator" = ":";
 
 /* The title on home screen shortcut for scanning 1922 SMS QR code */
-"ShortcutItem.QRCodeScanningAction.Title" = "Scan 1922 QR Code";
+"ShortcutItem.QRCodeScanningAction.Title" = "Quét mã QR đăng ký tên thật để gửi tin nhắn cho 1922.";
 
 /* The title of daily summary view */
-"DailySummaryViewModel.Title" = "Daily Summary";
+"DailySummaryViewModel.Title" = "Tình hình tiếp xúc mỗi ngày";
 
 /* The label text on daily summary view to indicate the last time checking exposures */
-"DailySummaryViewModel.LastCheckTimeLabel" = "Last checked at %@";
+"DailySummaryViewModel.LastCheckTimeLabel" = "Thời gian kiểm tra lần trước là %@";
 
 /* The message on Daily Summary view for no contact */
-"DaySummaryCellViewModel.ExposureDuration.NoContact" = "No contact";
+"DaySummaryCellViewModel.ExposureDuration.NoContact" = "Không có tiếp xúc";
 
 /* The message on Daily Summary view for contact less than 2 minutes */
-"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "Less than 2 mins";
+"DaySummaryCellViewModel.ExposureDuration.lessThan2Mins" = "Tiếp xúc chưa được 2 phút";
 
 /* The message on Daily Summary view for contact more than 2 minutes */
 "DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "%@";
 
-/* Title for hint of adding 1922 SMS contact tracing scanner */
-"Hint.QRCodeScanner.Title" = "Add \"1922 SMS Contact Tracing\" Scanner";
-
 /* Title for hint of adding daily summary page */
-"Hint.DailySummary.Title" = "Add \"Daily Summary\" Page";
+"Hint.DailySummary.Title" = "Đã thêm trang \"Tình hình tiếp xúc mỗi ngày\"";
 
 /* The title of action sheet on risk status view for replaying hints */
-"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "Hints";
+"RiskStatusView.MoreActionSheet.Item.ReplayHints.Title" = "Tính năng gợi ý";
 
 /* Title for hint of replaying hints */
-"Hint.ReplayHints.Title" = "You can check the hints again from the menu.";
+"Hint.ReplayHints.Title" = "Để xem lại các mẹo, xin nhấp vào \"Tính năng gợi ý\".";
 
 /* Title for hint of turning off No Detected Notification */
-"Hint.DisableNoRiskNotification.Title" = "You can turn off No Detected Notification from the Exposure Notification Settings.";
+"Hint.DisableNoRiskNotification.Title" = "Muốn tắt chức năng thông báo rủi ro, có thể vào \"Cài đặt\" ở menu trên bên phải để cài đặt.";
 
 /* Title for hint of vaccination certificate */
-"Hint.VaccinationCertificate.title" = "Newly added Vaccination Certificate";
+"Hint.VaccinationCertificate.title" = "Đã thêm chức năng lưu trữ \"Giấy chứng nhận tiêm chủng\".";
 
 /* Subtitle for hint of vaccination certificate */
-"Hint.VaccinationCertificate.subtitle" = "Manage vaccination certificate for you and your loved ones.";
+"Hint.VaccinationCertificate.subtitle" = "Bạn có thể lưu trữ Giấy chứng nhận tiêm chủng cho bản thân và gia đình.";
 
 /* Title for entering mobile number of request verification code page */
-"RequestVerificationCode.phoneNumberTitleLabel" = "Please enter your mobile number";
+"RequestVerificationCode.phoneNumberTitleLabel" = "Nhập số điện thoại";
 
 /* Placeholder for entering mobile number of request verification code page */
-"RequestVerificationCode.phoneTextFieldPlaceholder" = "Mobile Number";
+"RequestVerificationCode.phoneTextFieldPlaceholder" = "Nhập số điện thoại";
 
 /* Description for usage of entering mobile number */
-"RequestVerificationCode.descriptionLabel" = "This allows user who is the COVID-19 confirmed case to receive verification code. ";
+"RequestVerificationCode.descriptionLabel" = "Chức năng này chỉ dành cho người bị nhiễm COVID-19 lấy mã xác minh.";
 
 /* Title for submit button */
-"RequestVerificationCode.submitButtonTitle" = "Submit";
+"RequestVerificationCode.submitButtonTitle" = "Gửi";
 
 /* Title of alert for submission successful */
-"RequestVerificationCode.submitSucceedTitle" = "Entered mobile number successfully";
+"RequestVerificationCode.submitSucceedTitle" = "Số điện thoại di động đã được nhập thành công.";
 
 /* Title of alert for submission failed */
-"RequestVerificationCode.submitFailedTitle" = "Enter mobile number failed";
+"RequestVerificationCode.submitFailedTitle" = "Nhập số điện thoại thất bại";
 
 /* The message of alert for submission successful */
-"RequestVerificationCode.submitSucceedMessage" = "Verification code will be sent to you via SMS in 5 minutes, please try again if you do not receive it.";
+"RequestVerificationCode.submitSucceedMessage" = "Mã xác minh sẽ được gửi bằng tin nhắn đến SĐT của bạn, trong vòng 5 phút nếu không nhận được, vui lòng thử lại.";
 
 /* The message of alert for submission failed when network issue occurred */
-"RequestVerificationCode.submitFailedMessage" = "Connection error occurred, please try again later.";
+"RequestVerificationCode.submitFailedMessage" = "Lỗi kết nối, vui lòng thử lại sau.";
 
 /* The message of alert for submission failed when request limit exceeded */
-"RequestVerificationCode.requestLimitExceededMessage" = "Number of requests exceeded limit, please try again tomorrow";
+"RequestVerificationCode.requestLimitExceededMessage" = "Bạn đã thử quá nhiều lần, vui lòng thử lại vào hôm sau.";
 
 /* The message of alert for submission failed when invalid phone format */
-"RequestVerificationCode.invalidPhoneFormatMessage" = "Invalid mobile number, please re-enter";
+"RequestVerificationCode.invalidPhoneFormatMessage" = "Định dạng số điện thoại bị sai.";
 
 /* The button to request verification code */
-"UploadKeysView.requestVerificationButton" = "Get Verification Code";
+"UploadKeysView.requestVerificationButton" = "Yêu cầu mã xác minh.";
 
 /* The Exposure Notification is not enabled */
-"UploadKeysView.exposureNotificationNotEnabled" = "Exposure Notification is not enabled";
+"UploadKeysView.exposureNotificationNotEnabled" = "Bạn đang tắt thông báo tiếp xúc gần";
 
-"VaccinationCertificateListCell.doseDate" = "Date: ";
+"VaccinationCertificateListCell.doseDate" = "Ngày tiêm chủng : ";
 
-"VaccinationCertificate.title" = "Vaccination Certificate";
+"VaccinationCertificate.title" = "Giấy chứng nhận tiêm chủng vắc-xin COVID-19 kỹ thuật số";
 
-"VaccinationCertificate.expiredLabel" = "Expired";
+"VaccinationCertificate.expiredLabel" = "Hết hạn";
 
-"VaccinationCertificateCard.cardsLimitExceeded" = "Exceeded vaccination certificates limits.";
+"VaccinationCertificateCard.cardsLimitExceeded" = "Số lượng đã đạt đến giới hạn.";
 
-"VaccinationCertificateCard.apply" = "Apply for vaccination certificate";
+"VaccinationCertificateCard.apply" = "Đăng ký xin Giấy chứng nhận tiêm chủng";
 
-"VaccinationCertificateCard.appointment" = "Vaccination Appointment";
+"VaccinationCertificateCard.appointment" = "Đặt hẹn tiêm vắc-xin";
 
 "VaccinationCertificateCard.faq" = "FAQ";
 
-"VaccinationCertificateCardCell.doseDate" = "Date of vaccination";
+"VaccinationCertificateCardCell.doseDate" = "Ngày tiêm chủng";
 
-"VaccinationCertificate.hint" = "Valid in combination with a government issued ID";
+"VaccinationCertificate.hint" = "Lúc sử dụng vui lòng xuất trình CMND";
 
-"VaccinationCertificateEmptyView.addButton" = "Add Vaccination Certificate";
+"VaccinationCertificateEmptyView.addButton" = "Thêm ngay Giấy chứng nhận tiêm chủng.";
 
-"VaccinationCertificateEmptyView.description" = "Carry a digital copy of the vaccination certificate by scanning the QR code of the Digital COVID-19 certificate.";
+"VaccinationCertificateEmptyView.description" = "Lưu trữ Giấy chứng nhận tiêm chủng vào điện thoại, cung cấp xác minh nhanh chóng dưới dạng mã QR.";
 
-"VaccinationCertificateUserInfoView.doseDate" = "Date of vaccination";
+"VaccinationCertificateUserInfoView.doseDate" = "Ngày tiêm chủng";
 
-"VaccinationCertificateDetail.deleteAlertTitle" = "Are you sure you want to remove it?";
+"VaccinationCertificateDetail.deleteAlertTitle" = "Bạn có chắc chắn muốn xoá không?";
 
-"VaccinationCertificateDetail.deleteAlertMessage" = "Are you sure you wan to remove %@ vaccination certificate?";
+"VaccinationCertificateDetail.deleteAlertMessage" = "Bạn có chắc chắn  muốn xoá Giấy chứng nhận tiêm chủng %@ không?";
 
-"VaccinationCertificate.deleteButton" = "Remove Certificate";
+"VaccinationCertificate.deleteButton" = "Xóa Giấy chứng nhận tiêm chủng vắc xin kỹ thuật số";
 
-"VaccinationCertificateDetail.target" = "Disease or agent targeted: ";
+"VaccinationCertificateDetail.target" = "Tên dịch bệnh: ";
 
-"VaccinationCertificateDetail.vaccine" = "Vaccine type:";
+"VaccinationCertificateDetail.vaccine" = "Loại vắc-xin: ";
 
-"VaccinationCertificateDetail.medicinalProduct" = "Product: ";
+"VaccinationCertificateDetail.medicinalProduct" = "Tên sản phẩm: ";
 
-"VaccinationCertificateDetail.manufacturer" = "Manufacturer: ";
+"VaccinationCertificateDetail.manufacturer" = "Nhà sản xuất: ";
 
-"VaccinationCertificateDetail.doses" = "Dose";
+"VaccinationCertificateDetail.doses" = "Số liều: ";
 
-"VaccinationCertificateDetail.doseDate" = "Date of vaccination: ";
+"VaccinationCertificateDetail.doseDate" = "Ngày tiêm chủng: ";
 
-"VaccinationCertificateDetail.country" = "Country of vaccination: ";
+"VaccinationCertificateDetail.country" = "Tiêm chủng ở nước nào: ";
 
-"VaccinationCertificateDetail.issuer" = "Issuer: ";
+"VaccinationCertificateDetail.issuer" = "Cơ quan cấp phát Giấy chứng nhận: ";
 
-"VaccinationCertificateDetail.uniqueIdentifier" = "UVCI: ";
+"VaccinationCertificateDetail.uniqueIdentifier" = "Mã nhận dạng chứng nhận KTS: ";
 
-"VaccinationCertificateDetail.generatedDate" = "Certificate generated on: ";
+"VaccinationCertificateDetail.generatedDate" = "Ngày cấp Giấy chứng nhận số: ";
 
-"VaccinationCertificate.apply" = "Apply";
+"VaccinationCertificate.apply" = "Đăng ký xin Giấy chứng nhận tiêm chủng";
 
-"VaccinationCertificateScanner.import" = "Import";
+"VaccinationCertificateScanner.import" = "Nhập Giấy chứng nhận tiêm chủng";
 
-"VaccinationCertificateScanner.expired" = "Expired vaccination certificate";
+"VaccinationCertificateScanner.expired" = "Giấy chứng nhận tiêm chủng vắc-xin COVID-19 kỹ thuật số đã hết hạn.";
 
-"VaccinationCertificateScanner.duplicated" = "Duplicated vaccination certificate";
+"VaccinationCertificateScanner.duplicated" = "Giấy chứng nhận tiêm chủng vắc-xin COVID-19 kỹ thuật số đã tồn tại.";
 
-"VaccinationCertificateScanner.notFound" = "Failed to detect vaccination certificate QR code";
+"VaccinationCertificateScanner.notFound" = "Không quét được mã QR Giấy chứng nhận tiêm chủng.";
 
-"VaccinationCertificateScanner.invalidFormat" = "Invalid vaccination certificate QR Code";
+"VaccinationCertificateScanner.invalidFormat" = "Không phải mã QR Giấy chứng nhận tiêm chủng.";

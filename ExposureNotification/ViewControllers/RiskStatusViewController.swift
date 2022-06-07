@@ -99,7 +99,9 @@ class RiskStatusViewController: UIViewController {
         button.backgroundColor = UIColor(red: 46/255, green: 182/255, blue: 169/255, alpha: 1)
         button.setTitle(Localizations.RiskStatusView.vaccinationCertificate, for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.font = .systemFont(ofSize: 17)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
         button.layer.cornerRadius = 18
         button.addTarget(self, action: #selector(didTapVaccinationCertificateButton(_:)), for: .touchDown)
         button.clipsToBounds = true
@@ -128,7 +130,7 @@ class RiskStatusViewController: UIViewController {
             $0.centerX.equalTo(content)
             $0.top.equalTo(content).offset(Layout.calculate(16))
             $0.height.equalTo(48)
-            $0.width.equalTo(240)
+            $0.width.greaterThanOrEqualTo(240)
         }
 
         uptimeLabel.snp.makeConstraints {
@@ -157,6 +159,7 @@ class RiskStatusViewController: UIViewController {
         button.setTitle(Localizations.RiskStatusView.EngageButton.enable, for: .normal)
         button.addTarget(self, action: #selector(didTapEngageButton(_:)), for: .touchUpInside)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
 
         return button
     }()
@@ -199,6 +202,46 @@ class RiskStatusViewController: UIViewController {
         link.preferredFramesPerSecond = 5
         return link
     }()
+    
+    private lazy var stack: UIStackView = {
+        let _stack = UIStackView()
+        
+        _stack.axis = .vertical
+        _stack.spacing = 13
+        _stack.alignment = .center
+
+        _stack.addArrangedSubview(banner)
+        _stack.addArrangedSubview(detailTextView)
+        _stack.addArrangedSubview(vaccinationCertificateButton)
+        _stack.addArrangedSubview(appUpdatesAvailableButton)
+        _stack.insertSubview(bannerBorder, at: 0)
+        _stack.insertSubview(bannerBadge, at: 0)
+        
+        banner.snp.makeConstraints {
+            $0.leading.greaterThanOrEqualTo(_stack.safeAreaLayoutGuide).offset(32)
+            $0.trailing.lessThanOrEqualTo(_stack.safeAreaLayoutGuide).offset(-32)
+            $0.height.equalTo(banner.titleLabel!).offset(10)
+        }
+        
+        bannerBorder.snp.makeConstraints {
+            $0.width.equalTo(banner).offset(18)
+            $0.height.equalTo(banner).offset(10)
+            $0.center.equalTo(banner)
+        }
+
+        bannerBadge.snp.makeConstraints {
+            $0.size.equalTo(CGSize(width: 10, height: 10))
+            $0.top.equalTo(bannerBorder).offset(-4)
+            $0.right.equalTo(bannerBorder).offset(4)
+        }
+        
+        detailTextView.snp.makeConstraints {
+            $0.width.equalToSuperview().offset(-70)
+            $0.height.greaterThanOrEqualTo(Layout.calculate(180))
+        }
+        
+        return _stack
+    }()
 
     init(viewModel: RiskStatusViewModel) {
         self.viewModel = viewModel
@@ -238,6 +281,16 @@ class RiskStatusViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        
+        vaccinationCertificateButton.snp.makeConstraints {
+            $0.width.equalTo(min(vaccinationCertificateButton.intrinsicContentSize.width + 30, stack.frame.width - 20))
+            $0.height.equalTo(35)
+        }
+    }
+    
     private func configureNavigationItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: Image.iconMenu, style: .plain, target: self, action: #selector(didTapMoreBarButton(_:)))
         navigationItem.leftBarButtonItems = []
@@ -248,51 +301,6 @@ class RiskStatusViewController: UIViewController {
     }
     
     private func configureUI() {
-        let stack: UIStackView = {
-            let _stack = UIStackView()
-            
-            _stack.axis = .vertical
-            _stack.spacing = 13
-            _stack.alignment = .center
-
-            _stack.addArrangedSubview(banner)
-            _stack.addArrangedSubview(detailTextView)
-            _stack.addArrangedSubview(vaccinationCertificateButton)
-            _stack.addArrangedSubview(appUpdatesAvailableButton)
-            _stack.insertSubview(bannerBorder, at: 0)
-            _stack.insertSubview(bannerBadge, at: 0)
-            
-            banner.snp.makeConstraints {
-                $0.leading.greaterThanOrEqualTo(_stack.safeAreaLayoutGuide).offset(32)
-                $0.trailing.lessThanOrEqualTo(_stack.safeAreaLayoutGuide).offset(-32)
-                $0.height.equalTo(banner.titleLabel!).offset(10)
-            }
-            
-            bannerBorder.snp.makeConstraints {
-                $0.width.equalTo(banner).offset(18)
-                $0.height.equalTo(banner).offset(10)
-                $0.center.equalTo(banner)
-            }
-
-            bannerBadge.snp.makeConstraints {
-                $0.size.equalTo(CGSize(width: 10, height: 10))
-                $0.top.equalTo(bannerBorder).offset(-4)
-                $0.right.equalTo(bannerBorder).offset(4)
-            }
-            
-            detailTextView.snp.makeConstraints {
-                $0.width.equalToSuperview().offset(-70)
-                $0.height.greaterThanOrEqualTo(Layout.calculate(180))
-            }
-            
-            vaccinationCertificateButton.snp.makeConstraints {
-                $0.width.equalTo((vaccinationCertificateButton.titleLabel?.intrinsicContentSize.width ?? 0) + 30)
-                $0.height.equalTo(35)
-            }
-            
-            return _stack
-        }()
-
         let layoutGuide: UILayoutGuide = UILayoutGuide()
         
         view.backgroundColor = Color.background

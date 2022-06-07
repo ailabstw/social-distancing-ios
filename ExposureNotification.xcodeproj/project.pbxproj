@@ -50,6 +50,8 @@
 		1304C47B282D30F6002315FC /* ConfigEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C47A282D30F6002315FC /* ConfigEndpoints.swift */; };
 		1304C47D282D326E002315FC /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1304C47C282D326E002315FC /* Layout.swift */; };
 		130D2C95284DCA39006235CE /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D2C94284DCA39006235CE /* UINavigationControllerExtensions.swift */; };
+		130D2CA6284F64ED006235CE /* ExposureNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D2CA5284F64ED006235CE /* ExposureNotificationTests.swift */; };
+		130D2CAD284F6500006235CE /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D2CAC284F6500006235CE /* UserManagerTests.swift */; };
 		134831CD26AEA99D00B130EC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 134831CC26AEA99D00B130EC /* Settings.bundle */; };
 		1393234027FD44A6004BE4D1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1393233F27FD44A6004BE4D1 /* Lottie */; };
 		1393234227FD458A004BE4D1 /* clock_background_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1393234127FD458A004BE4D1 /* clock_background_animation.json */; };
@@ -113,6 +115,16 @@
 		9EFD875426521B6900771E51 /* Updates in Frameworks */ = {isa = PBXBuildFile; productRef = 9EFD875326521B6900771E51 /* Updates */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		130D2CA7284F64ED006235CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9E08148D25E39D56008B7424 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9E08149425E39D56008B7424;
+			remoteInfo = ExposureNotification;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1304C422282CFCAA002315FC /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		1304C426282CFD20002315FC /* ServerConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConfigManager.swift; sourceTree = "<group>"; };
@@ -155,6 +167,13 @@
 		1304C47A282D30F6002315FC /* ConfigEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigEndpoints.swift; sourceTree = "<group>"; };
 		1304C47C282D326E002315FC /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		130D2C94284DCA39006235CE /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		130D2C96284DCB9C006235CE /* ms-MY */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ms-MY"; path = "ms-MY.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		130D2C97284DCBA6006235CE /* my-MM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "my-MM"; path = "my-MM.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		130D2C98284DCBB3006235CE /* ms-MY */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ms-MY"; path = "ms-MY.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		130D2C99284DCBBC006235CE /* my-MM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "my-MM"; path = "my-MM.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		130D2CA3284F64ED006235CE /* ExposureNotificationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExposureNotificationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		130D2CA5284F64ED006235CE /* ExposureNotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureNotificationTests.swift; sourceTree = "<group>"; };
+		130D2CAC284F6500006235CE /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		134831CC26AEA99D00B130EC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		137E872C2656C3BA00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		137E872D2656C3CD00F9C3A3 /* tl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tl; path = tl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -228,6 +247,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		130D2CA0284F64ED006235CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E08149225E39D56008B7424 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +323,15 @@
 				9E08149E25E39D58008B7424 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		130D2CA4284F64ED006235CE /* ExposureNotificationTests */ = {
+			isa = PBXGroup;
+			children = (
+				130D2CA5284F64ED006235CE /* ExposureNotificationTests.swift */,
+				130D2CAC284F6500006235CE /* UserManagerTests.swift */,
+			);
+			path = ExposureNotificationTests;
 			sourceTree = "<group>";
 		};
 		13299F4E281005C50082E8DF /* Misc */ = {
@@ -395,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				9E08149725E39D56008B7424 /* ExposureNotification */,
+				130D2CA4284F64ED006235CE /* ExposureNotificationTests */,
 				9E08149625E39D56008B7424 /* Products */,
 				9E08158925EF803F008B7424 /* Frameworks */,
 			);
@@ -404,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				9E08149525E39D56008B7424 /* ExposureNotification.app */,
+				130D2CA3284F64ED006235CE /* ExposureNotificationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -542,6 +579,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		130D2CA2284F64ED006235CE /* ExposureNotificationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 130D2CA9284F64ED006235CE /* Build configuration list for PBXNativeTarget "ExposureNotificationTests" */;
+			buildPhases = (
+				130D2C9F284F64ED006235CE /* Sources */,
+				130D2CA0284F64ED006235CE /* Frameworks */,
+				130D2CA1284F64ED006235CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				130D2CA8284F64ED006235CE /* PBXTargetDependency */,
+			);
+			name = ExposureNotificationTests;
+			productName = ExposureNotificationTests;
+			productReference = 130D2CA3284F64ED006235CE /* ExposureNotificationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9E08149425E39D56008B7424 /* ExposureNotification */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E0814A625E39D58008B7424 /* Build configuration list for PBXNativeTarget "ExposureNotification" */;
@@ -576,10 +631,14 @@
 		9E08148D25E39D56008B7424 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "AI Labs";
 				TargetAttributes = {
+					130D2CA2284F64ED006235CE = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 9E08149425E39D56008B7424;
+					};
 					9E08149425E39D56008B7424 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -598,6 +657,8 @@
 				vi,
 				tl,
 				fil,
+				"ms-MY",
+				"my-MM",
 			);
 			mainGroup = 9E08148C25E39D56008B7424;
 			packageReferences = (
@@ -615,11 +676,19 @@
 			projectRoot = "";
 			targets = (
 				9E08149425E39D56008B7424 /* ExposureNotification */,
+				130D2CA2284F64ED006235CE /* ExposureNotificationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		130D2CA1284F64ED006235CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E08149325E39D56008B7424 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -637,6 +706,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		130D2C9F284F64ED006235CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				130D2CAD284F6500006235CE /* UserManagerTests.swift in Sources */,
+				130D2CA6284F64ED006235CE /* ExposureNotificationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E08149125E39D56008B7424 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -733,6 +811,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		130D2CA8284F64ED006235CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9E08149425E39D56008B7424 /* ExposureNotification */;
+			targetProxy = 130D2CA7284F64ED006235CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9E2474AC264BBB2A00FB732F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -743,6 +829,8 @@
 				13E1540026565F07002CB898 /* th */,
 				13E1540226566632002CB898 /* vi */,
 				137E872C2656C3BA00F9C3A3 /* tl */,
+				130D2C98284DCBB3006235CE /* ms-MY */,
+				130D2C99284DCBBC006235CE /* my-MM */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -756,6 +844,8 @@
 				13E153FF26565F07002CB898 /* th */,
 				13E1540126566632002CB898 /* vi */,
 				137E872D2656C3CD00F9C3A3 /* tl */,
+				130D2C96284DCB9C006235CE /* ms-MY */,
+				130D2C97284DCBA6006235CE /* my-MM */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -763,6 +853,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		130D2CAA284F64ED006235CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UYUNZ5V2DH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.ExposureNotificationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExposureNotification.app/ExposureNotification";
+			};
+			name = Debug;
+		};
+		130D2CAB284F64ED006235CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UYUNZ5V2DH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.ExposureNotificationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExposureNotification.app/ExposureNotification";
+			};
+			name = Release;
+		};
 		9E0814A425E39D58008B7424 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -898,7 +1028,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -921,7 +1051,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.gov.cdc.exposurenotifications;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -934,6 +1064,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		130D2CA9284F64ED006235CE /* Build configuration list for PBXNativeTarget "ExposureNotificationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				130D2CAA284F64ED006235CE /* Debug */,
+				130D2CAB284F64ED006235CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9E08149025E39D56008B7424 /* Build configuration list for PBXProject "ExposureNotification" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,6 +1,6 @@
 
 /* The description text on alert cancellation view to inform user what this view is for */
-"AlertCancellationView.description" = "我已經自行快篩 1 次且為陰性。\n我會注意是否有發燒、呼吸道症狀、腹瀉、嗅/味覺異常等 Covid-19 疑似症狀，若出現症狀，會自行快篩。\n我如果快篩陽性，會佩戴醫用口罩就醫採檢，出門時避免搭乘大眾運輸。\n我已通知同住家人有收到「接觸通知」警示，要採取適當防護措施，例如勤洗手、戴口罩等。\n我會避免非必要的家庭聚會及拜訪。\n我會避免參加無法保持社交距離及接觸不特定對象的活動。\n我會避免參加可以免佩戴口罩的室內活動或工作。";
+"AlertCancellationView.description" = "我已經自行快篩 1 次且為陰性。\n我會注意是否有發燒、呼吸道症狀、腹瀉、嗅/味覺異常等 COVID-19 疑似症狀，若出現症狀，會自行快篩。\n我如果快篩陽性，會佩戴醫用口罩就醫採檢，出門時避免搭乘大眾運輸。\n我已通知同住家人有收到「接觸通知」警示，要採取適當防護措施，例如勤洗手、戴口罩等。\n我會避免非必要的家庭聚會及拜訪。\n我會避免參加無法保持社交距離及接觸不特定對象的活動。\n我會避免參加可以免佩戴口罩的室內活動或工作。";
 
 /* The label text on alert cancellation view to ensure the infomation has read */
 "AlertCancellationView.checkboxLabel" = "我已詳細閱讀並同意以上衛教資訊";
@@ -93,7 +93,7 @@
 "UploadKeysView.PasscodeFieldPlaceholder" = "請輸入驗證碼";
 
 /* The message body on upload keys view for introduction */
-"UploadKeysView.IntroductionMessage" = "請輸入由衛生局提供的驗證碼，送出後，會上傳您的隨機 ID，這些資料會保存在衛生福利部疾病管制署，並於 10 天後自動刪除。";
+"UploadKeysView.IntroductionMessage" = "請輸入由疾管署提供的驗證碼，送出後，會上傳您的隨機 ID，這些資料會保存在衛生福利部疾病管制署，並於 10 天後自動刪除。";
 
 /* The title of alert cancellation view */
 "AlertCancellationView.Title" = "解除示警狀態";
@@ -156,7 +156,7 @@
 "RiskStatusView.Content.Risky.Title" = "與確診者資料比對有接觸";
 
 /* The content message on risk status view when risky */
-"RiskStatusView.Content.Risky.Message" =  "冷靜面對：您曾經和確診者在近距離範圍內，但並非代表您確診。\n自主健康管理：建議您做自主健康管理，並注意自身健康狀況。\n發生健康狀況：若有發燒、呼吸道相關等疑似症狀，再聯絡您現居地方衛生機關或「1922」防疫專線安排後續採檢。";
+"RiskStatusView.Content.Risky.Message" = "冷靜面對：您曾經和確診者在近距離範圍內，但並非代表您確診。\n自主健康管理：建議您做自主健康管理，並注意自身健康狀況。\n發生健康狀況：若有發燒、呼吸道相關等疑似症狀，再聯絡您現居地方衛生機關或「1922」防疫專線安排後續採檢。";
 
 /* The content title on risk status view when not tracing */
 "RiskStatusView.Content.NotTracing.Title" = "尚未開啟接觸通知功能";
@@ -215,9 +215,6 @@
 /* The toast message for QR code is not a 1922 SMS contact tracing QR code */
 "QRCodeScannerViewController.InvalidQRCodeToastLabel" = "非 1922 簡訊實聯制 QR code";
 
-/* The title of alert for asking to go to Messages app to send SMS */
-"QRCodeScannerViewController.SendSMSAlert.Title" = "開啟訊息以傳送簡訊？";
-
 /* The button title on alert to not allow app to grant permission */
 "Alert.Button.NotAllow" = "不允許";
 
@@ -225,7 +222,7 @@
 "AccessCameraAlert.Title" = "臺灣社交距離想取用您的相機";
 
 /* The body message of alert for requesting to access user's camera */
-"AccessCameraAlert.Message" = "臺灣社交距離要使用相機來掃描 1922 簡訊實聯制 QR code。";
+"AccessCameraAlert.Message" = "臺灣社交距離要使用相機來掃描疫苗接種數位證明 QR code";
 
 /* The title of FAQ view */
 "FAQ.Title" = "常見問題";
@@ -251,9 +248,6 @@
 /* The message on Daily Summary view for contact more than 2 minutes */
 "DaySummaryCellViewModel.ExposureDuration.moreThan2Mins" = "接觸 %@";
 
-/* Title for hint of adding 1922 SMS contact tracing scanner */
-"Hint.QRCodeScanner.Title" = "新增「1922簡訊實聯制」掃描功能";
-
 /* Title for hint of adding daily summary page */
 "Hint.DailySummary.Title" = "新增「每日接觸狀況」資訊頁面";
 
@@ -264,7 +258,7 @@
 "Hint.ReplayHints.Title" = "若要再次查看提示，可以點選右上方選單裡的「功能提示」選項喔～";
 
 /* Title for hint of turning off No Detected Notification */
-"Hint.DisableNoRiskNotification.Title" = "若要關閉無風險通知功能，可以到右上方選單裡的「資料權限控管」進行設定喔~";
+"Hint.DisableNoRiskNotification.Title" = "若要關閉無風險通知功能，可以到右上方選單裡的「設定」進行設定喔~";
 
 /* Title for hint of vaccination certificate */
 "Hint.VaccinationCertificate.title" = "新增「疫苗接種數位證明」存放功能";
